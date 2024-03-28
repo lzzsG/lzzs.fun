@@ -1,0 +1,39 @@
+{
+    "siteName": "RustyThing",
+    "siteDescription": "一个双语测试网站",
+    "welcome": "欢迎来到我的网站",
+    "homePage": "双语测试 | 主页",
+    "home": "首页",
+    "about": "关于",
+    "contact": "联系",
+    "login": "登录",
+    "logout": "退出",
+    "defaultTheme": "默认主题",
+    "darkTheme": "深色主题",
+    "lightTheme": "浅色主题",
+    "blackTheme": "黑色主题",
+    "homeContent": "双语测试 | 这是主页。",
+    "aboutPage": "双语测试 | 关于页面",
+    "aboutContent": "双语测试 | 此页面提供了有关网站的信息。",
+    "footer": "© 2024 我的网站",
+    "mainContent": "双语测试 | 这是我们的主要内容部分。您可以在这里找到有关我的网站的详细信息。",
+    "quote": "学海无涯，回头是岸。",
+    "items": [
+        {
+            "title": "项目 1",
+            "description": "这是项目 1 的描述。"
+        },
+        {
+            "title": "项目 2",
+            "description": "这是项目 2 的描述。"
+        },
+        {
+            "title": "项目 3",
+            "description": "这是项目 3 的描述。"
+        }
+    ],
+    "latestNews": "双语测试 | 最新动态",
+    "news1": "2024年1月1日 - 新年快乐！",
+    "news2": "2024年2月14日 - 情人节特别活动",
+    "featuredProducts": "精选产品"
+}

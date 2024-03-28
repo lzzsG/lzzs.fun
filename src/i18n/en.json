@@ -1,0 +1,39 @@
+{
+    "siteName": "RustyThing",
+    "siteDescription": "A simple bilingual test site",
+    "welcome": "Welcome to My Site",
+    "homePage": "Bilingual test | Home Page",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Login",
+    "logout": "Logout",
+    "defaultTheme": "default",
+    "darkTheme": "dark theme",
+    "lightTheme": "light theme",
+    "blackTheme": "black theme",
+    "homeContent": "Bilingual test | This is the home page.",
+    "aboutPage": "Bilingual test | About Page",
+    "aboutContent": "Bilingual test | This page provides information.",
+    "footer": "© 2024 My Site",
+    "mainContent": "Bilingual test | This is our main content section where you can find detailed information about My Site.",
+    "quote": "The only way to do great work is to love what you do.",
+    "items": [
+        {
+            "title": "Item 1",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        },
+        {
+            "title": "Item 2",
+            "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+        {
+            "title": "Item 3",
+            "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+        }
+    ],
+    "latestNews": "Bilingual test | Latest News",
+    "news1": "January 1, 2024 - Happy New Year!",
+    "news2": "February 14, 2024 - Valentine's Day Special Event",
+    "featuredProducts": "Featured Products"
+}

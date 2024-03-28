@@ -27,4 +27,5 @@ jobs:
       with:
         branch: gh-pages  # GitHub Pages部署到的分支
         folder: build  # Create React App构建产物的目录
+        token: ${{ secrets.reactApp }}
         clean: true  # 清理旧文件

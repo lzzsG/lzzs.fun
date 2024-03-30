@@ -62,6 +62,14 @@ const Header = () => {
                                     </div>
                                 </button>
                             </Link>
+                            <Link to="/blog">
+                                <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                                    <div className="flex items-center">
+                                        <AboutIcon className="-ml-0.5 mx-0.5" />
+                                        {t('blog')}
+                                    </div>
+                                </button>
+                            </Link>
 
 
                         </ul>
@@ -95,6 +103,14 @@ const Header = () => {
                                 <div className="flex items-center">
                                     <AboutIcon className="-ml-0.5 mx-0.5" />
                                     {t('test')}
+                                </div>
+                            </button>
+                        </Link>
+                        <Link to="/blog">
+                            <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                                <div className="flex items-center">
+                                    <AboutIcon className="-ml-0.5 mx-0.5" />
+                                    {t('blog')}
                                 </div>
                             </button>
                         </Link>
@@ -149,6 +165,14 @@ const Header = () => {
                         <div className="flex items-center">
                             <AboutIcon className="-ml-0.5 mx-0.5" />
                             {t('test')}
+                        </div>
+                    </button>
+                </Link>
+                <Link to="/blog">
+                    <button className={`text-base btn h-12 w-20 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                        <div className="flex items-center">
+                            <AboutIcon className="-ml-0.5 mx-0.5" />
+                            {t('blog')}
                         </div>
                     </button>
                 </Link>

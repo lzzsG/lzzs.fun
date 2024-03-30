@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import TestPage from './pages/TestPage';
 import MarkdownPage from './pages/MarkdownPage';
+import BlogPage from './pages/BlogPage';
 
 
 const routes = [
@@ -20,9 +21,14 @@ const routes = [
         element: <TestPage />,
     },
     {
-        path: '/markdown1',
-        element: < MarkdownPage filePath="./md/WhatToOut.md" />
+        path: '/blog',
+        element: <BlogPage />,
     },
+    {
+        path: '/markdown1',
+        element: <MarkdownPage filePath="./md/WhatToOut.md" />,
+    },
+
 
 ];
 

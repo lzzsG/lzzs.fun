@@ -1,8 +1,6 @@
 // src/pages/AboutPage.js
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import backgroundImage from '../assets/images/bg-td-long.jpg';
-import CircularNavigation from '../components/CircularNavigation';
 import config from '../config/config.js';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 

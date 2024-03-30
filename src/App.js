@@ -6,6 +6,10 @@ import routes from './routes';
 import './assets/styles/global.css';
 import Redirector from './utils/Redirector'; // 引入Redirector组件
 
+import MarkdownPage from './pages/MarkdownPage';
+import BlogPage from './pages/BlogPage';
+
+
 function App() {
 
 
@@ -18,12 +22,6 @@ function App() {
             {routes.map((route, index) => (
               <Route key={index} path={route.path} element={route.element} />
             ))}
-            {/* <div>
-            <h2>{t('welcome')}</h2>
-            <p>{t('description')}</p>
-            <button onClick={() => changeLanguage('en')}>English</button>
-            <button onClick={() => changeLanguage('zh')}>中文</button>
-          </div> */}
           </Routes>
         </MainLayout>
       </Router>

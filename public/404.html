@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content="0;url=index.html">
+    <script>
+        // 检查是否有路径（pathname）并且不是根目录
+        if (location.pathname !== "/") {
+            // 将路径保存在localStorage中或者直接重定向到带哈希的URL
+            // 这里我们使用localStorage的示例
+            localStorage.setItem('redirectPathname', location.pathname);
+        }
+    </script>
+</head>
+
+<body>
+    If you are not redirected, <a href="index.html">click here</a>.
+</body>
+
+</html>

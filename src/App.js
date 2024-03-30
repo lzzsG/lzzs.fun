@@ -4,25 +4,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';
 import './assets/styles/global.css';
-import { useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import Redirector from './utils/Redirector'; // 引入Redirector组件
 
 function App() {
-
-  const history = useHistory();
-
-  useEffect(() => {
-    const redirectPathname = localStorage.getItem('redirectPathname');
-    if (redirectPathname) {
-      history.push(redirectPathname);
-      localStorage.removeItem('redirectPathname'); // 清除记录，避免重复重定向
-    }
-  }, [history]);
 
 
   return (
     <div>
       <Router>
+        <Redirector />
         <MainLayout>
           <Routes >
             {routes.map((route, index) => (

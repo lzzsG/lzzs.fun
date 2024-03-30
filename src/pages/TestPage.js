@@ -145,9 +145,9 @@ const AboutPage = () => {
                 </div>
             </div>
 
-            <div class="mt-48 flex justify-center ">
+            <div class="mt-12 md:mt-48 flex justify-center ">
 
-                <article class="prose prose-slate lg:prose-xl max-w-[800px]">
+                <article class="prose prose-slate max-w-full lg:prose-xl max-w-[800px]">
                     <div dangerouslySetInnerHTML={{ __html: markdown }} />
                 </article>
             </div>

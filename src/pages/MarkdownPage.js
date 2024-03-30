@@ -15,7 +15,7 @@ const MarkdownPage = ({ filePath }) => {
     }, [filePath]);
 
     return (
-        <div className="mt-48 flex justify-center">
+        <div className="m-6 md:m-12 2xl:m-24 flex justify-center">
             <article className="prose prose-slate lg:prose-xl max-w-[800px]">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
             </article>

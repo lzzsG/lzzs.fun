@@ -2,6 +2,7 @@
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import TestPage from './pages/TestPage';
+import MarkdownPage from './pages/MarkdownPage';
 
 
 const routes = [
@@ -18,6 +19,13 @@ const routes = [
         path: '/test',
         element: <TestPage />,
     },
+    {
+        path: '/markdown1',
+        element: < MarkdownPage filePath="./md/WhatToOut.md" />
+    },
+
 ];
 
 export default routes;
+
+

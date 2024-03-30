@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.c6ad5c74.css",
-    "main.js": "/static/js/main.f233a34c.js",
+    "main.css": "/static/css/main.675170a8.css",
+    "main.js": "/static/js/main.fd39f532.js",
     "static/media/bg-td-long.jpg": "/static/media/bg-td-long.dbbe237b1a5a986c6c50.jpg",
     "static/media/rust.svg": "/static/media/rust.a40de746d6170bc26868a558cae7c9de.svg",
     "static/media/trasnlate.svg": "/static/media/trasnlate.e123778ea809c49d54cb03582cff0cab.svg",
+    "static/media/github.svg": "/static/media/github.841d4162da5c70e3ffec5b8f22dc9765.svg",
     "static/media/home.svg": "/static/media/home.05eacc211581e059ea7cb0b3257d3a40.svg",
     "static/media/about.svg": "/static/media/about.d645d4a3bf20524f5f5660eabb8dee65.svg",
     "index.html": "/index.html",
-    "main.c6ad5c74.css.map": "/static/css/main.c6ad5c74.css.map",
-    "main.f233a34c.js.map": "/static/js/main.f233a34c.js.map"
+    "main.675170a8.css.map": "/static/css/main.675170a8.css.map",
+    "main.fd39f532.js.map": "/static/js/main.fd39f532.js.map"
   },
   "entrypoints": [
-    "static/css/main.c6ad5c74.css",
-    "static/js/main.f233a34c.js"
+    "static/css/main.675170a8.css",
+    "static/js/main.fd39f532.js"
   ]
 }

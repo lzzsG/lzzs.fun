@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const ThemeSwitcher = () => {
     const { t } = useTranslation();
-    const [theme, setTheme] = useState('default'); // 默认主题为 light
+    const [theme, setTheme] = useState('default');
 
     const themes = [
         "business",
@@ -41,11 +41,11 @@ const ThemeSwitcher = () => {
     };
 
     return (
-        <div className="flex flex-col p-0   ">
+        <div className="flex flex-col p-0 h-12 sm:h-24 w-24">
             <input className="btn btn-xs  bg-base-200" name="radio-1" type="radio" checked={theme === 'default'} aria-label={t('defaultTheme')} onClick={() => changeTheme('default')} />
             <input className="btn btn-xs bg-base-200" name="radio-1" type="radio" checked={theme === 'light'} aria-label={t('lightTheme')} onClick={() => changeTheme('light')} />
-            <input className="btn btn-xs bg-base-200" name="radio-1" type="radio" checked={theme === 'dark'} aria-label={t('darkTheme')} onClick={() => changeTheme('dark')} />
-            <div className="dropdown -mt-0.5">
+            <input className="btn btn-xs bg-base-200 hidden sm:grid" name="radio-1" type="radio" checked={theme === 'dark'} aria-label={t('darkTheme')} onClick={() => changeTheme('dark')} />
+            <div className="dropdown -mt-0.5 hidden sm:block">
                 <input tabIndex={0} role="button" className="btn btn-xs w-24 bg-base-200" name="radio-1" type="radio" checked={theme === 'black'} aria-label={t('blackTheme')} onClick={() => changeTheme('black')} />
                 <div tabIndex={0} className="dropdown-content">
                     <div className="flex flex-col -0p w-24 ">

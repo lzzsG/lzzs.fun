@@ -25,7 +25,7 @@ const CircularNavigation = ({ buttons }) => {
     };
 
     return (
-        <div className="overflow-hidden whitespace-nowrap   h-12 m-0 p-0">
+        <div className="overflow-x-hidden whitespace-nowrap h-12 m-0 p-0">
             <div className="h-12 flex w-full bg-base-200 absolute  ">
 
                 <div className="dropdown dropdown-right z-10">

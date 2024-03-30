@@ -17,8 +17,8 @@ i18n
     .use(initReactI18next) // 通过react-i18next传递i18n实例
     .init({
         resources,
-        lng: 'en', // 默认语言
-        keySeparator: false, // 我们不使用keys中的点符号
+        lng: 'zh', // 默认语言
+        keySeparator: false, // 不使用keys中的点符号
         interpolation: {
             escapeValue: false, // react已经安全地转义了
         },

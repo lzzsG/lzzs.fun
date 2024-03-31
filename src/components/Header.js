@@ -58,10 +58,10 @@ const Header = () => {
 
 
     return (
-        <header className="flex justify-between  items-center z-40" >
-            <div className="navbar z-40 bg-base-300  hidden sm:flex rounded-none h-24 top-0 p-0
+        <header className="flex justify-between items-center z-40" >
+            <div className="navbar justify-between items-center z-40 bg-base-300  hidden sm:flex rounded-none h-24 top-0 p-0
              border-b-2 border-base-100">
-                <div className="navbar-start flex">
+                <div className="flex">
                     <div className="dropdown  h-24">
                         <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-base-100 w-20 h-20 m-2 flex items-center md:hidden p-2">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
@@ -145,7 +145,7 @@ const Header = () => {
                         </Link>
                     </div>
                 </div>
-                <div className="navbar-end ">
+                <div className="">
 
                     <div className="bg-base-300 -translate-y-0.5">
                         <button className="text-base btn h-24 w-24 btn-sm 
@@ -166,7 +166,7 @@ const Header = () => {
                 </Link>
             </div>
 
-            <div className={`block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
+            <div className={`mynavbar block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
                 <Link to="/">
                     <button className={`text-sm btn h-12 w-12   p-0 pb-0.5 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center  ">

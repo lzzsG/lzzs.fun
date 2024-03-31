@@ -1,4 +1,4 @@
-## [**#**](https://daisyui.com/docs/layout-and-typography/#what-to-expect-from-here-on-out)What to expect from here on out
+# What to expect from here on out
 
 What follows from here is just a bunch of absolute nonsense I’ve written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like **bold text**, unordered lists, ordered lists, code blocks, block quotes, *and even italics*.
 
@@ -10,7 +10,7 @@ It’s important to cover all of these use cases for a few reasons:
 
 Now we’re going to try out another header style.
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#typography-should-be-easy)Typography should be easy
+### Typography should be easy
 
 So that’s a header for you — with any luck if we’ve done our job correctly that will look pretty reasonable.
 
@@ -30,13 +30,13 @@ Now I’m going to show you an example of an unordered list to make sure that lo
 
 And that’s the end of this section.
 
-## [**#**](https://daisyui.com/docs/layout-and-typography/#what-if-we-stack-headings)What if we stack headings?
+## What if we stack headings?
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#we-should-make-sure-that-looks-good-too)We should make sure that looks good, too
+### We should make sure that looks good, too
 
 Sometimes you have headings directly underneath each other. In those cases you often have to undo the top margin on the second heading because it usually looks better for the headings to be closer together than a paragraph followed by a heading should be.
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#when-a-heading-comes-after-a-paragraph-)When a heading comes after a paragraph …
+### When a heading comes after a paragraph …
 
 When a heading comes after a paragraph, we need a bit more space, like I already mentioned above. Now let’s see what a more complex list would look like.
 
@@ -56,7 +56,7 @@ When a heading comes after a paragraph, we need a bit more space, like I already
 
 After this sort of list I usually have a closing statement or paragraph, because it kinda looks weird jumping right to a heading.
 
-## [**#**](https://daisyui.com/docs/layout-and-typography/#code-should-look-okay-by-default)Code should look okay by default
+## Code should look okay by default
 
 I think most people are going to use [highlight.js](https://highlightjs.org/) or [Prism](https://prismjs.com/) or something if they want to style their code blocks but it wouldn’t hurt to make them look *okay* out of the box, even with no syntax highlighting.
 
@@ -169,7 +169,7 @@ dob = 1979-05-27T07:32:00Z
 
 Hopefully that looks good enough to you.
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#what-about-nested-lists)What about nested lists?
+### What about nested lists?
 
 Nested lists basically always look bad which is why editors like Medium don’t even let you do it, but I guess since some of you goofballs are going to do it we have to carry the burden of at least making it work.
 
@@ -209,7 +209,7 @@ The most annoying thing about lists in Markdown is that `<li>` elements aren’t
 
 And finally a sentence to close off this section.
 
-## [**#**](https://daisyui.com/docs/layout-and-typography/#there-are-other-elements-we-need-to-style)There are other elements we need to style
+## There are other elements we need to style
 
 I almost forgot to mention links, like [this link to the Tailwind CSS website](https://tailwindcss.com/). We almost made them blue but that’s so yesterday, so we went with dark gray, feels edgier.
 
@@ -225,21 +225,21 @@ We even included table styles, check it out:
 
 We also need to make sure inline code looks good, like if I wanted to talk about `<span>` elements or tell you the good news about `@tailwindcss/typography`.
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#sometimes-i-even-use-code-in-headings)Sometimes I even use `code` in headings
+### Sometimes I even use `code` in headings
 
 Even though it’s probably a bad idea, and historically I’ve had a hard time making it look good. This *“wrap the code blocks in backticks”* trick works pretty well though really.
 
 Another thing I’ve done in the past is put a `code` tag inside of a link, like if I wanted to tell you about the [`tailwindcss/docs`](https://github.com/tailwindcss/docs) repository. I don’t love that there is an underline below the backticks but it is absolutely not worth the madness it would require to avoid it.
 
-#### [**#**](https://daisyui.com/docs/layout-and-typography/#we-havent-used-an-h4-yet)We haven’t used an `h4` yet
+#### We haven’t used an `h4` yet
 
 But now we have. Please don’t use `h5` or `h6` in your content, Medium only supports two heading levels for a reason, you animals. I honestly considered using a `before` pseudo-element to scream at you if you use an `h5` or `h6`.
 
 We don’t style them at all out of the box because `h4` elements are already so small that they are the same size as the body copy. What are we supposed to do with an `h5`, make it *smaller* than the body copy? No thanks.
 
-### [**#**](https://daisyui.com/docs/layout-and-typography/#we-still-need-to-think-about-stacked-headings-though)We still need to think about stacked headings though
+### We still need to think about stacked headings though
 
-#### [**#**](https://daisyui.com/docs/layout-and-typography/#lets-make-sure-we-dont-screw-that-up-with-h4-elements-either)Let’s make sure we don’t screw that up with `h4` elements, either
+#### Let’s make sure we don’t screw that up with `h4` elements, either
 
 Phew, with any luck we have styled the headings above this text and they look pretty good.
 

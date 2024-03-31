@@ -2,12 +2,10 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
-import { useLocation } from 'react-router-dom';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 
 const HomePage = () => {
     const { t } = useTranslation();
-    const location = useLocation();
 
     useEffect(() => {
         document.title = `${t('home')} - ${config.siteName}`;
@@ -79,7 +77,8 @@ const HomePage = () => {
 
             <div className="flex justify-between bg-base-content rounded-none  items-center mt-6 md:mt-12  p-6 md:p-12">
                 <div className="text-base-300">
-                    <h2 className="text-4xl font-bold ">Analyse, Action, Accumulate, Anti-Fear, and Again</h2>
+                    <h2 className="text-4xl font-bold "> Analyse, <br className="sm:hidden" />
+                        Action, Accumulate, Anti-Fear, and Again</h2 >
                     <h2 className="text-3xl mt-6"> 解析问题 采取行动 积累经验 消除畏惧 如此反复</h2>
                 </div>
                 <button className="btn">About</button>

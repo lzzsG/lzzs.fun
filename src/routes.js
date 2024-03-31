@@ -5,12 +5,10 @@ import TestPage from './pages/TestPage';
 import MarkdownPage from './pages/MarkdownPage';
 import BlogPage from './pages/BlogPage';
 
-
 const routes = [
     {
         path: '/',
         element: <HomePage />,
-
     },
     {
         path: '/about',
@@ -28,8 +26,6 @@ const routes = [
         path: '/markdown1',
         element: <MarkdownPage filePath="./md/WhatToOut.md" />,
     },
-
-
 ];
 
 export default routes;

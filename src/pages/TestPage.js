@@ -1,5 +1,5 @@
 // src/pages/AboutPage.js
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';

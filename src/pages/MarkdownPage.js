@@ -94,11 +94,20 @@ const MarkdownPage = ({ filePath }) => {
     return (
         <div className="m-4 mt-16 sm:mt-4 md:m-14 flex justify-center">
             <ScrollToTopButton />
-            <div className="toc-sidebar z-50 hidden lg:block fixed top-14 right-2 ">
-                <ul className=" bg-base-200 w-64 p-4">
+
+            <div className="toc-sidebar z-30 hidden xl:block fixed top-12 right-0 ">
+                <div className="h-12 flex mb-0.5 justify-end w-64 bg-base-100">
+
+                    <botten className="btn w-12 mr-0.5">1</botten>
+                </div>
+                <ul className="bg-base-200 w-64 p-4">
                     {toc.map((item, index) => (
-                        <li key={index} className={`toc-item hover:underline toc-h${item.level}`}>
-                            <a href={`#${item.id}`}>{item.text}</a>
+                        <li key={index} className={`toc-item hover:underline mb-1 text-sm toc-h${item.level}`}>
+                            <a href={`#${item.id}`}>
+                                <a className="text-neutral mr-1">
+                                    >
+                                </a>
+                                {item.text}</a>
                         </li>
                     ))}
                 </ul>

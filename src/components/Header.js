@@ -106,7 +106,14 @@ const Header = () => {
                     <Link to="/">
                         <div className="justify-center items-center flex h-24 w-48">
                             <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 " />
-                            <a className="text-lg font-bold w-24 -ml-5 h-24 flex justify-center items-center">{t('siteName')}</a>
+                            <div className="flex-col ">
+                                <a className="text-lg font-bold w-24 -ml-6 -mb-2 flex justify-center content-center">{t('siteName')}</a>
+                                <a className="text-sm font-bold w-24 -ml-6  flex justify-center content-center">temp</a>
+
+                            </div>
+
+
+
                         </div>
                     </Link>
                     <div className=" hidden md:flex">
@@ -163,6 +170,7 @@ const Header = () => {
             <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 flex justify-center items-center text-2xl">
                 <Link to="/">
                     {t('siteName')}
+
                 </Link>
             </div>
 

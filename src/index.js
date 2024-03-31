@@ -6,6 +6,7 @@ import App from './App';
 import './i18n/i18n'; // 引入i18n配置
 import './assets/styles/global.css';
 
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

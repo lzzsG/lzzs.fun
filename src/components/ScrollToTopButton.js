@@ -7,7 +7,7 @@ const ScrollToTopOrBackButton = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsVisible(window.scrollY > 96);
+            setIsVisible(window.scrollY > 1600);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -39,7 +39,7 @@ const ScrollToTopOrBackButton = () => {
             {isVisible && (
                 <button
                     onClick={handleScrollToTop}
-                    className="btn fixed bottom-0 right-12  h-12 w-12 text-base-content hover:bg-base-100 text-base bg-base-100 z-50"
+                    className="hidden sm:flex  btn fixed -top-0.5 right-0.5  h-12 w-12 text-base-content hover:bg-base-100 text-base bg-base-100 z-50"
                     aria-label="Go to top"
                 >
                     Top
@@ -48,7 +48,7 @@ const ScrollToTopOrBackButton = () => {
             {showBack && (
                 <button
                     onClick={handleBack}
-                    className="btn fixed bottom-0 right-0 h-12 w-12 text-base-content hover:bg-base-100 text-base bg-base-100 z-50"
+                    className="hidden sm:flex btn fixed -bottom-0.5 right-0 h-12 w-12 text-base-content hover:bg-base-100 text-base bg-base-100 z-50"
                     aria-label="Go back"
                 >
                     Back

@@ -20,7 +20,7 @@ const HomePage = () => {
             const newMinHeight = window.innerWidth > 1536
                 ? 'calc(100vh - 285px)' // 当屏幕宽度大于1536px
                 : window.innerWidth <= 768
-                    ? 'calc(100vh - 146px)' // 当屏幕宽度小于或等于768px
+                    ? 'calc(100vh - 128px)' // 当屏幕宽度小于或等于768px
                     : 'calc(100vh - 192px)'; // 其他情况
 
             setDynamicMinHeight(newMinHeight);
@@ -35,7 +35,7 @@ const HomePage = () => {
 
 
     return (
-        <div class="m-6 md:m-12 2xl:m-24">
+        <div class=" m-4 mt-16 sm:mt-4 md:m-12 2xl:m-24">
             <ScrollToTopButton />
             <div style={
                 {
@@ -59,8 +59,8 @@ const HomePage = () => {
 
             <br /><br /><br />
 
-            <div className="divider -mt-12 md:-mt-7 2xl:mt-4"></div>
-            <div className="flex justify-between bg-base-200 rounded-none mt-6 md:mt-12 2xl:mt-24  items-center  p-6 md:p-12">
+            <div className="divider -mt-14 md:-mt-7 2xl:mt-4"></div>
+            <div className="flex justify-between bg-base-200 rounded-none mt-4 md:mt-12 2xl:mt-24  items-center  p-6 md:p-12">
                 <div className="text">
                     <h2 className="text-4xl font-bold ">{t('nothing')}</h2>
 

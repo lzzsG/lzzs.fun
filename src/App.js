@@ -6,10 +6,6 @@ import routes from './routes';
 import './assets/styles/global.css';
 import Redirector from './utils/Redirector'; // 引入Redirector组件
 
-import MarkdownPage from './pages/MarkdownPage';
-import BlogPage from './pages/BlogPage';
-
-
 function App() {
 
 

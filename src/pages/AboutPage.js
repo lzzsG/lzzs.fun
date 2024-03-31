@@ -17,7 +17,7 @@ const AboutPage = () => {
         setSelectedTab(event.target.value);
     };
     return (
-        <div className="m-6  md:m-12  2xl:m-24">
+        <div className="m-6 mt-20 sm:mt-6 md:m-12  2xl:m-24">
             <ScrollToTopButton />
             {/* <CircularNavigation /> */}
 

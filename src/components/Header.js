@@ -1,5 +1,5 @@
 // src/components/Header.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher'
@@ -14,6 +14,7 @@ const Header = () => {
     const { i18n } = useTranslation();
     const location = useLocation();
     const [theme, setTheme] = useState('default');
+    const [showNav, setShowNav] = useState(window.innerWidth <= 640);
 
     // 判断当前选中的导航项
     const isActive = (path) => location.pathname === path;
@@ -28,9 +29,37 @@ const Header = () => {
         document.documentElement.setAttribute('data-theme', newTheme);
     };
 
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.innerWidth <= 640) {
+                setShowNav(true); // 在sm以下尺寸始终显示导航
+            } else {
+                setShowNav(window.scrollY > 48); // 在大屏上滚动一定距离后显示
+            }
+        };
+
+        // 监听窗口大小变化，以适应屏幕旋转等情况
+        const handleResize = () => {
+            if (window.innerWidth <= 640) {
+                setShowNav(true);
+            } else {
+                handleScroll(); // 重新评估是否显示导航
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+
     return (
-        <header className="flex justify-between  items-center z-40 pt-12 sm:pt-24" >
-            <div className="navbar bg-base-300 fixed hidden sm:flex rounded-none h-24 top-0 p-0
+        <header className="flex justify-between  items-center z-40" >
+            <div className="navbar z-40 bg-base-300  hidden sm:flex rounded-none h-24 top-0 p-0
              border-b-2 border-base-100">
                 <div className="navbar-start flex">
                     <div className="dropdown  h-24">
@@ -114,10 +143,7 @@ const Header = () => {
                                 </div>
                             </button>
                         </Link>
-
-
                     </div>
-
                 </div>
                 <div className="navbar-end ">
 
@@ -131,60 +157,58 @@ const Header = () => {
                         </button>
                     </div>
                     <ThemeSwitcher />
-
                 </div>
             </div>
 
-            <div className="block sm:hidden fixed top-0 w-full h-12 bg-base-300 border-b-2 border-base-100 flex justify-center items-center text-2xl">
+            <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 flex justify-center items-center text-2xl">
                 <Link to="/">
                     {t('siteName')}
                 </Link>
-                <input className="btn btn-xs ml-2 px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'default'} aria-label={'☽'} onClick={() => changeTheme('default')} />
-                <input className="btn btn-xs px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'light'} aria-label={'☼'} onClick={() => changeTheme('light')} />
             </div>
 
-            <div className="block sm:hidden fixed bottom-0 w-full  bg-base-300 border-t-2 border-base-100 ">
+            <div className={`block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
                 <Link to="/">
-                    <button className={`text-base btn h-12 w-12 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
-                        <div className="flex items-center">
-                            <HomeIcon className="-ml-0.5 mx-0.5" />
-
+                    <button className={`text-sm btn h-12 w-12   p-0 pb-0.5 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
+                        <div className="flex items-center  ">
+                            <HomeIcon className="" />
                         </div>
                     </button>
                 </Link>
                 <Link to="/about">
-                    <button className={`text-base btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
+                    <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
-                            <AboutIcon className="-ml-0.5 mx-0.5" />
                             {t('about')}
                         </div>
                     </button>
                 </Link>
                 <Link to="/test">
-                    <button className={`text-base btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
+                    <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
-                            <AboutIcon className="-ml-0.5 mx-0.5" />
+
                             {t('test')}
                         </div>
                     </button>
                 </Link>
                 <Link to="/blog">
-                    <button className={`text-base btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                    <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
-                            <AboutIcon className="-ml-0.5 mx-0.5" />
+                            <div className="hidden ">
+                            </div>
                             {t('blog')}
                         </div>
                     </button>
                 </Link>
-                <button className="text-base btn h-12 w-24 btn-sm 
+                <button className="text-sm btn h-12 w-12  btn-sm 
                             btn-ghost" onClick={toggleLanguage}>
-                    <div className="flex items-center">
-                        <TranslateIcon className="-ml-0.5 mx-0.5" />
-                        {i18n.language === 'en' ? '中文' : 'English'}
+                    <div className="flex items-center ">
+                        <TranslateIcon className="translate-y-px" />
                     </div>
                 </button>
+                <button className="-translate-y-0.5" >
+                    <input className="btn btn-xs ml-2 px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'default'} aria-label={'☽'} onClick={() => changeTheme('default')} />
+                    <input className="btn btn-xs px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'light'} aria-label={'☼'} onClick={() => changeTheme('light')} />
+                </button>
             </div>
-
         </header>
     );
 };

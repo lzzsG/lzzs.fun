@@ -1,10 +1,15 @@
 // BlogPage.js
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import config from '../config/config.js';
 
 const BlogPage = () => {
     const { t } = useTranslation();
+
+    useEffect(() => {
+        document.title = `${t('blog')} - ${config.siteName}`;
+    }, [t, config.siteName]);
 
     return (
         <div class="m-6 mt-20 sm:mt-6 md:m-12  2xl:m-24">

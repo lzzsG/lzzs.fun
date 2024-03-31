@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
-import { marked } from 'marked';
+
 
 const AboutPage = () => {
     const { t } = useTranslation();
@@ -12,21 +12,10 @@ const AboutPage = () => {
         document.title = `${t('about')} - ${config.siteName}`;
     }, [t, config.siteName]);
 
-    const [markdown, setMarkdown] = useState('');
 
-    useEffect(() => {
-        fetch('./md/WhatToOut.md')
-            .then(response => response.text())
-            .then(text => {
-                const html = marked.parse(text);
-                setMarkdown(html);
-            });
-    }, []);
 
     return (
-        <div className="m-6 md:m-12">
-
-
+        <div className="m-6 mt-20 sm:mt-6 md:m-12  2xl:m-24">
             <ScrollToTopButton />
             {/* <CircularNavigation /> */}
             <div className="flex justify-center ">
@@ -124,11 +113,8 @@ const AboutPage = () => {
                                 <p>{t('aboutContent')}</p>
                                 <h2>{t('aboutPage')},{t('aboutPage')}</h2>
                             </div>
-
                         </div>
                     </div>
-
-
                 </div>
                 <div>
                     <ul className="steps steps-vertical w-24 -mt-6 -mr-6">
@@ -142,18 +128,7 @@ const AboutPage = () => {
                     </ul>
                 </div>
             </div>
-
-            <div class="mt-12 md:mt-48 flex justify-center ">
-
-                <article class="prose prose-slate max-w-full lg:prose-xl max-w-[800px]">
-                    <div dangerouslySetInnerHTML={{ __html: markdown }} />
-                </article>
-            </div>
-
-
-
         </div>
-
     )
 };
 

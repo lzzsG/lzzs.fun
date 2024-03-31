@@ -40,7 +40,7 @@ import { marked } from 'marked';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
-import hljs from 'highlight.js'; // 引入highlight.js
+import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight.js样式
 
 const MarkdownPage = ({ filePath }) => {

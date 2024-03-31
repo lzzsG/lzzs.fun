@@ -121,19 +121,6 @@ const BlogPage = () => {
                     </div>
                 </div>
 
-                <div className="flex bg-base-200 rounded-none h-24 mb-6 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to="/markdown1">
-                                <h3 className="card-title hover:underline mb-4">{t('aboutPage')}</h3>
-                            </Link>
-                            <p>{t('aboutContent')}</p>
-                        </div>
-                        <div className="card-actions">
-                            <button className="btn size-16 ml-4 btn-ghost">Watch</button>
-                        </div>
-                    </div>
-                </div>
 
                 <div className="flex bg-base-200 rounded-none h-24 mb-6 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">

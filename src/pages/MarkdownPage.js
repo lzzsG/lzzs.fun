@@ -6,10 +6,18 @@ import ScrollToTopButton from '../components/ScrollToTopButton.js';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight.js样式
 import { useLocation } from 'react-router-dom';
+import config from '../config/config.js';
 
 const MarkdownPage = ({ filePath }) => {
     const { i18n } = useTranslation();
     const [markdown, setMarkdown] = useState('');
+    const [toc, setToc] = useState([]);
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        document.title = `${t('blog')} - ${config.siteName}`;
+    }, [t, config.siteName]);
+
 
     useEffect(() => {
         const localizedFilePath = filePath.replace('.md', `.${i18n.language}.md`);
@@ -19,10 +27,12 @@ const MarkdownPage = ({ filePath }) => {
             .then(text => {
                 const renderer = new marked.Renderer();
                 let headingId = 0; // 初始化计数器
+                const headings = []; // 存储标题信息
 
                 renderer.heading = function (text, level) {
                     // 对于每个标题，生成一个递增的ID
                     const escapedText = `heading-${++headingId}`;
+                    headings.push({ id: escapedText, level: level, text: text }); // 收集标题信息
 
                     return `
                         <h${level} id="${escapedText}">
@@ -40,6 +50,7 @@ const MarkdownPage = ({ filePath }) => {
                 });
                 const html = marked.parse(text);
                 setMarkdown(html);
+                setToc(headings);
                 hljs.highlightAll();
             })
             .then(() => {
@@ -83,6 +94,15 @@ const MarkdownPage = ({ filePath }) => {
     return (
         <div className="m-4 mt-16 sm:mt-4 md:m-14 flex justify-center">
             <ScrollToTopButton />
+            <div className="toc-sidebar z-50 hidden lg:block fixed top-14 right-2 ">
+                <ul className=" bg-base-200 w-64 p-4">
+                    {toc.map((item, index) => (
+                        <li key={index} className={`toc-item hover:underline toc-h${item.level}`}>
+                            <a href={`#${item.id}`}>{item.text}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
             <article className="prose lg:prose-lg max-w-full md:max-w-[730px]">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
             </article>

@@ -215,7 +215,7 @@ dob = 1979-05-27T07:32:00Z
 
 我们甚至包括了表格样式，看看这个：
 
-| 摔跤手                  | 来源         | 终结技             |
+| 摔跤手                  | 来源          | 终结技             |
 | ----------------------- | ------------ | ------------------ |
 | Bret “The Hitman” Hart  | Calgary, AB  | Sharpshooter       |
 | Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |

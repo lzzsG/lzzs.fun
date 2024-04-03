@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
-import frontMatter from 'front-matter';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
@@ -15,7 +14,7 @@ const MarkdownPage = ({ filePath }) => {
     const [toc, setToc] = useState([]);
     const [isTocVisible, setIsTocVisible] = useState(false);
     const [activeId, setActiveId] = useState('');
-    const [meta, setMeta] = useState({});
+
 
     useEffect(() => {
         document.title = `${t('blog')} - ${config.siteName}`;
@@ -27,10 +26,7 @@ const MarkdownPage = ({ filePath }) => {
 
         fetch(localizedFilePath)
             .then(response => response.text())
-            .then(md => {
-                const { attributes, body } = frontMatter(md);
-                setMeta(attributes);
-
+            .then(text => {
                 const renderer = new marked.Renderer();
                 let headingId = 0; // 初始化计数器
                 const headings = []; // 存储标题信息
@@ -71,9 +67,7 @@ const MarkdownPage = ({ filePath }) => {
                         return hljs.highlight(code, { language }).value;
                     },
                 });
-
-
-                const html = marked.parse(body);
+                const html = marked.parse(text);
                 setMarkdown(html);
                 setToc(headings);
                 hljs.highlightAll();
@@ -99,26 +93,6 @@ const MarkdownPage = ({ filePath }) => {
                 }, 0);
             });
     }, [filePath, i18n.language]);
-
-    useEffect(() => {
-        // 设置页面标题
-        document.title = meta.title ? `${meta.title} - ${config.siteName}` : `${t('blog')} - ${config.siteName}`;
-
-        // 查找现有的 meta 描述标签
-        let descriptionMetaTag = document.querySelector('meta[name="description"]');
-
-        // 如果标签不存在，创建一个新的 meta 描述标签
-        if (!descriptionMetaTag) {
-            descriptionMetaTag = document.createElement('meta');
-            descriptionMetaTag.setAttribute('name', 'description');
-            document.getElementsByTagName('head')[0].appendChild(descriptionMetaTag);
-        }
-
-        // 设置 meta 描述内容
-        descriptionMetaTag.setAttribute('content', meta.description || '默认描述');
-
-    }, [meta.title, meta.description, t, config.siteName]);
-
 
     const { hash } = useLocation();
     const toggleToc = () => {

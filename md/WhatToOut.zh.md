@@ -1,3 +1,8 @@
+---
+title: "接下来可以期待什么：深入daisyUI和tailwindcss的Markdown排版之旅"
+description: "探索使用daisyUI、tailwindcss、markdown、hljs设计的排版和布局的魅力：本文翻译自daisyUI官方文档，带你一步步走进Markdown的世界。从基本的文本格式到复杂的代码块和列表，体验如何利用Markdown优雅地展现内容。无论是粗体、斜体、有序/无序列表，还是代码高亮，每一个细节都旨在提升阅读体验。通过本文，开启你的Markdown旅程，发现排版和布局的无限可能性。"
+---
+
 # 接下来可以期待什么
 
 > 翻译自 [daisyUI 布局和排版](https://daisyui.com/docs/layout-and-typography/#what-to-expect-from-here-on-out)，用于展示markdown。

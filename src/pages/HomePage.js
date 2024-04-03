@@ -16,7 +16,18 @@ const HomePage = () => {
 
 
     useEffect(() => {
+        // 设置页面标题
         document.title = `${t('home')} - ${config.siteName}`;
+
+        // 设置页面描述
+        const descriptionContent = "欢迎访问我的网站，这是一个用于学习演示的网站，包括测试静态网页构建、汇总我的学习项目以及一些简单的博客！Analyse, Action, Accumulate, Anti-Fear, and Again 解析问题 采取行动 积累经验 消除畏惧 如此反复。还没什么特别的，保持学习吧。";
+        let descriptionMetaTag = document.querySelector('meta[name="description"]');
+        if (!descriptionMetaTag) {
+            descriptionMetaTag = document.createElement('meta');
+            descriptionMetaTag.setAttribute('name', 'description');
+            document.head.appendChild(descriptionMetaTag);
+        }
+        descriptionMetaTag.setAttribute('content', descriptionContent);
     }, [t, config.siteName]);
 
     const [dynamicMinHeight, setDynamicMinHeight] = useState('calc(100vh - 192px)');

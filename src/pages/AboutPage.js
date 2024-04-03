@@ -9,6 +9,16 @@ const AboutPage = () => {
 
     useEffect(() => {
         document.title = `${t('about')} - ${config.siteName}`;
+
+        // 设置页面描述
+        const descriptionContent = "这是lzzsSite的AboutPage";
+        let descriptionMetaTag = document.querySelector('meta[name="description"]');
+        if (!descriptionMetaTag) {
+            descriptionMetaTag = document.createElement('meta');
+            descriptionMetaTag.setAttribute('name', 'description');
+            document.head.appendChild(descriptionMetaTag);
+        }
+        descriptionMetaTag.setAttribute('content', descriptionContent);
     }, [t, config.siteName]);
 
     const [selectedTab, setSelectedTab] = useState('Tab 2');

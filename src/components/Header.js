@@ -58,8 +58,8 @@ const Header = () => {
 
 
     return (
-        <header className="flex justify-between items-center z-40" >
-            <div className="navbar justify-between items-center z-40 bg-base-300  hidden sm:flex rounded-none h-24 top-0 p-0
+        <header className="flex justify-between items-center " >
+            <div className="navbar justify-between items-center z-[100]  bg-base-300  hidden sm:flex rounded-none h-24 top-0 p-0
              border-b-2 border-base-100">
                 <div className="flex">
                     <div className="dropdown  h-24">
@@ -109,11 +109,7 @@ const Header = () => {
                             <div className="flex-col ">
                                 <a className="text-lg font-bold w-24 -ml-6 -mb-2 flex justify-center content-center">{t('siteName')}</a>
                                 <a className="text-sm font-bold w-24 -ml-6  flex justify-center content-center">temp</a>
-
                             </div>
-
-
-
                         </div>
                     </Link>
                     <div className=" hidden md:flex">
@@ -167,16 +163,18 @@ const Header = () => {
                 </div>
             </div>
 
-            <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 flex justify-center items-center text-2xl">
+            <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
                 <Link to="/">
                     {t('siteName')}
-
                 </Link>
             </div>
 
             <div className={`mynavbar block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
                 <Link to="/">
-                    <button className={`text-sm btn h-12 w-12   p-0 pb-0.5 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
+                    <button className="hidden sm:inline text-sm font-bold mr-2">
+                        LzzsSite
+                    </button>
+                    <button className={`text-sm btn  h-12 w-12   p-0 pb-0.5 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center  ">
                             <HomeIcon className="" />
                         </div>
@@ -200,8 +198,6 @@ const Header = () => {
                 <Link to="/blog">
                     <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
-                            <div className="hidden ">
-                            </div>
                             {t('blog')}
                         </div>
                     </button>

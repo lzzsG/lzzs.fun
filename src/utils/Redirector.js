@@ -8,7 +8,7 @@ function Redirector() {
     useEffect(() => {
         const redirectPathname = localStorage.getItem('redirectPathname');
         if (redirectPathname) {
-            navigate(redirectPathname); // 使用 navigate 替代 history.push
+            navigate(redirectPathname);
             localStorage.removeItem('redirectPathname'); // 清除记录，避免重复重定向
         }
     }, [navigate]); // 使用 navigate 作为依赖项

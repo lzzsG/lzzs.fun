@@ -22,7 +22,7 @@ const AboutPage = () => {
 
                 <div class="grid  grid-cols-1 w-full sm:max-w-[700px] mr-2 md:mr-6 lg:mr-12">
 
-                    <div className="flex bg-base-300 rounded-none  h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none  h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src='https://www.thebreuers.com/files/00-content/reiseberichte-usa/03-nationalparks/yosemite-np/reisebericht-yosemite-nationalpark-mirror-lake.jpg' alt="Movie" />
                         </figure>
@@ -38,7 +38,7 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src="https://bpic.51yuansu.com/backgd/cover/00/63/09/64b52b1426fff_800.jpg?x-oss-process=image/resize,w_780/sharpen,100" alt="Movie" />
                         </figure>
@@ -54,7 +54,7 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src='https://www.thebreuers.com/files/00-content/reiseberichte-usa/03-nationalparks/yosemite-np/reisebericht-yosemite-nationalpark-mirror-lake.jpg' alt="Movie" />
                         </figure>
@@ -70,7 +70,7 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src="https://bpic.51yuansu.com/backgd/cover/00/63/09/64b52b1426fff_800.jpg?x-oss-process=image/resize,w_780/sharpen,100" alt="Movie" />
                         </figure>
@@ -86,7 +86,7 @@ const AboutPage = () => {
 
                         </div>
                     </div>
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src='https://www.thebreuers.com/files/00-content/reiseberichte-usa/03-nationalparks/yosemite-np/reisebericht-yosemite-nationalpark-mirror-lake.jpg' alt="Movie" />
                         </figure>
@@ -101,7 +101,7 @@ const AboutPage = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src="images/v1.png" alt="Movie" />
                         </figure>
@@ -118,7 +118,7 @@ const AboutPage = () => {
                         </div>
                     </div>
 
-                    <div className="flex bg-base-300 rounded-none h-36 mb-12">
+                    <div className="flex bg-base-200 rounded-none h-36 mb-12">
                         <figure className="flex-none py-4 pl-4 md:block">
                             <img className="hidden md:block h-28 w-40 mr-4 object-cover" src="images/v1.png" alt="Movie" />
                         </figure>

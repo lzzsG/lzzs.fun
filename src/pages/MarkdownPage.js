@@ -9,10 +9,12 @@ import { useLocation } from 'react-router-dom';
 import config from '../config/config.js';
 
 const MarkdownPage = ({ filePath }) => {
-    const { i18n } = useTranslation();
+    const { i18n, t } = useTranslation();
     const [markdown, setMarkdown] = useState('');
     const [toc, setToc] = useState([]);
-    const { t } = useTranslation();
+    const [isTocVisible, setIsTocVisible] = useState(false);
+    const [activeId, setActiveId] = useState('');
+
 
     useEffect(() => {
         document.title = `${t('blog')} - ${config.siteName}`;
@@ -40,6 +42,23 @@ const MarkdownPage = ({ filePath }) => {
                             ${text}
                         </h${level}>`;
                 };
+
+                const originalImageRenderer = renderer.image;
+
+                renderer.image = function (href, title, text) {
+                    // 检查路径是否以 "figs/" 开始
+                    if (href.startsWith('figs/')) {
+                        // 获取Markdown文件的目录路径
+                        const mdDirPath = localizedFilePath.substring(0, localizedFilePath.lastIndexOf('/') + 1);
+                        // 构建新的图片路径
+                        const newHref = mdDirPath + href;
+                        // 使用新的图片路径渲染图片
+                        return originalImageRenderer.call(this, newHref, title, text);
+                    }
+                    // 对于其他不需要特殊处理的路径，使用默认逻辑
+                    return originalImageRenderer.call(this, href, title, text);
+                };
+
 
                 marked.setOptions({
                     renderer: renderer,
@@ -76,6 +95,10 @@ const MarkdownPage = ({ filePath }) => {
     }, [filePath, i18n.language]);
 
     const { hash } = useLocation();
+    const toggleToc = () => {
+        setIsTocVisible(!isTocVisible);
+    };
+
 
     useEffect(() => {
         if (hash) {
@@ -91,28 +114,80 @@ const MarkdownPage = ({ filePath }) => {
         }
     }, [hash]); // 当URL的hash部分变化时触发
 
+    useEffect(() => {
+        // 根据滚动位置更新活跃的标题ID
+        const handleScroll = () => {
+            let closestId = '';
+            let closestDistance = Infinity;
+
+            toc.forEach((item) => {
+                const element = document.getElementById(item.id);
+                if (element) {
+                    const distance = Math.abs(element.getBoundingClientRect().top);
+                    if (distance < closestDistance) {
+                        closestId = item.id;
+                        closestDistance = distance;
+                    }
+                }
+            });
+
+            setActiveId(closestId);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [toc]);
+
+    useEffect(() => {
+        if (activeId) {
+            // 找到当前高亮的目录项
+            const activeItem = document.querySelector(`.toc-sidebar li a[href="#${activeId}"]`);
+
+            if (activeItem) {
+                // 获取目录容器
+                const tocContainer = document.querySelector('.toc-sidebar');
+                // 检查容器和目标项是否存在
+                if (tocContainer && activeItem) {
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const containerRect = tocContainer.getBoundingClientRect();
+
+                    // 计算需要滚动的距离
+                    const scrollDistance = itemRect.top - containerRect.top - (tocContainer.clientHeight / 2) + (itemRect.height / 2);
+
+                    // 使用 scrollBy 方法实现平滑滚动
+                    tocContainer.scrollBy({
+                        top: scrollDistance,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    }, [activeId, isTocVisible]);
+
+
+
     return (
         <div className="m-4 mt-16 sm:mt-4 md:m-14 flex justify-center">
             <ScrollToTopButton />
-
-            <div className="toc-sidebar z-30 hidden xl:block fixed top-12 right-0 ">
-                <div className="h-12 flex mb-0.5 justify-end w-64 bg-base-100">
-
-                    <botten className="btn w-12 mr-0.5">1</botten>
-                </div>
-                <ul className="bg-base-200 w-64 p-4">
-                    {toc.map((item, index) => (
-                        <li key={index} className={`toc-item hover:underline mb-1 text-sm toc-h${item.level}`}>
-                            <a href={`#${item.id}`}>
-                                <a className="text-neutral mr-1">
-                                    >
-                                </a>
-                                {item.text}</a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <article className="prose lg:prose-lg max-w-full md:max-w-[730px]">
+            <button onClick={toggleToc} className="btn btn-sm z-50  fixed top-0 sm:top-24 right-0.5 mb-0.5 h-12 w-3 bg-base-300">{isTocVisible ? '收起' : '目录'}</button>
+            {/* <div className="h-12 flex mb-0.5 justify-end w-64 bg-base-100">
+                    <button className="btn w-12 mr-0.5" onClick={toggleToc}>目录</button>
+                </div> */}
+            {isTocVisible && (
+                <div className={`toc-sidebar z-20 fixed top-0 sm:mt-24 right-1 overflow-y-auto ${isTocVisible ? '' : 'hidden xl:block'}`} style={{ maxHeight: '80%' }}>
+                    <ul className="mt-12 sm:mt-0 bg-base-200 w-64 2xl:w-72 py-4 px-2">
+                        {toc.map((item, index) => (
+                            <li key={index} className={`toc-item hover:underline mb-1 text-sm ${activeId === item.id ? 'text-primary font-bold' : ''}`} style={{ paddingLeft: `${(item.level - 1) * 2 * 4}px` }}>
+                                <a href={`#${item.id}`}>
+                                    <a className="text-neutral mr-1">
+                                        -
+                                    </a>
+                                    {item.text}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>)}
+            <article className="prose lg:prose-lg max-w-full md:max-w-[700px] 2xl:max-w-[750px]">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
             </article>
         </div>

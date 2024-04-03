@@ -23,11 +23,14 @@ const routes = [
         element: <BlogPage />,
     },
     {
-        path: '/markdown1',
-        element: <MarkdownPage filePath="./md/WhatToOut.md" />,
+        path: '/blog/markdown1',
+        element: <MarkdownPage filePath="/md/WhatToOut.md" />,
+    },
+    {
+        path: '/blog/os-test',
+        element: <MarkdownPage filePath="/md/os-test/p2-osviewrv.md" />,
     },
 ];
-
 export default routes;
 
 

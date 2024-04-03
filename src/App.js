@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';
 import './assets/styles/global.css';
-import Redirector from './utils/Redirector'; // 引入Redirector组件
+import Redirector from './utils/Redirector';
 
 function App() {
 

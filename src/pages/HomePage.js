@@ -42,9 +42,11 @@ const HomePage = () => {
                 }} className="hero bg-base-300">
                 {/* <div className="hero-overlay bg-opacity-50"></div> */}
 
-                <div className="hero-content text-center text-base-content">
+                <div className="hero-content text-center ">
+                    <div class="text-5xl font-extrabold ...">
 
-                    <div className="max-w-md">
+                    </div>
+                    <div className="text-base-content max-w-md">
                         <h1 className="mb-5 text-5xl font-bold">{t('hello')}</h1>
 
                         <p className="mb-5">{t('homeHello')}</p>
@@ -68,9 +70,12 @@ const HomePage = () => {
 
             <div className="flex justify-between bg-base-100 rounded-none items-center mt-6 md:mt-12   p-6 md:p-12 border border-base-200">
                 <div className="text">
-                    <h2 className="text-4xl font-bold ">{t('hello')}</h2>
-                    <h2 className="text-3xl mt-6">
-                        {t('useful')}</h2>
+                    <h1 class=" text-5xl font-bold mb-5">
+                        {t('hello')}
+                    </h1>
+                    <h1 class="text-3xl font-bold mb-5">
+                        {t('useful')}
+                    </h1>
                 </div>
                 {/* <button className="btn btn-outline">About</button> */}
             </div>
@@ -82,6 +87,18 @@ const HomePage = () => {
                     <h2 className="text-3xl mt-6"> 解析问题 采取行动 积累经验 消除畏惧 如此反复</h2>
                 </div>
                 <button className="btn">About</button>
+            </div>
+
+            <div className="flex justify-between bg-base-100 rounded-none items-center mt-6 md:mt-12   p-6 md:p-12 border border-base-200">
+                <div className="text">
+                    <h1 class="bg-clip-text text-transparent bg-gradient-to-t from-base-content via-base-content to-base-200 text-4xl font-bold mb-5">
+                        1345689
+                    </h1>
+                    <h1 class="bg-clip-text text-transparent bg-gradient-to-b from-base-content via-base-content to-base-200 text-4xl font-bold mb-5">
+                        一二三四五六七八九
+                    </h1>
+                </div>
+                {/* <button className="btn btn-outline">About</button> */}
             </div>
 
             <div className="divider mt-6 md:mt-12"></div>

@@ -33,10 +33,10 @@
     <meta http-equiv="refresh" content="0;url=index.html">
     <script>
         (function () {
-            var path = location.pathname;
+            var path = location.pathname + location.search + location.hash;
             localStorage.setItem('redirectPathname', path);
-            // 使用JavaScript代替meta标签进行重定向
-            window.location.href = '/index.html';
+            // 直接重定向到根目录
+            window.location.href = '/';
         })();
     </script>
 

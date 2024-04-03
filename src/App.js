@@ -12,6 +12,14 @@ function App() {
     const preferredLanguage = window.navigator.language.startsWith('zh') ? 'zh' : 'en';
     return `/${preferredLanguage}`;
   };
+  useEffect(() => {
+    const redirectPathname = localStorage.getItem('redirectPathname');
+    if (redirectPathname) {
+      localStorage.removeItem('redirectPathname'); // 清除以避免重复重定向
+      window.location.href = redirectPathname; // 实际跳转
+    }
+  }, []);
+
 
   return (
     <div>

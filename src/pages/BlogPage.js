@@ -43,7 +43,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/os-test">
+                            <Link to={`/${currentLang}/blog/os-test`}>
                                 <h3 className="text-xl hover:underline mb-4">os-test</h3>
                             </Link>
                             <p>/blog/os-test</p>

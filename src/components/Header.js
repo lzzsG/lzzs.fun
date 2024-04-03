@@ -30,13 +30,16 @@ const Header = () => {
 
         // 更新路由以反映新的语言
         let newPath = location.pathname;
-        if (newPath.includes('/en/')) {
+        // 检查是否是根路径或已经是目标语言的路径
+        if (newPath === '/' || newPath === '/zh' || newPath === '/en') {
+            newPath = `/${newLang}`;
+        } else if (newPath.startsWith('/en/')) {
             newPath = newPath.replace('/en/', `/${newLang}/`);
-        } else if (newPath.includes('/zh/')) {
+        } else if (newPath.startsWith('/zh/')) {
             newPath = newPath.replace('/zh/', `/${newLang}/`);
         } else {
-            // 如果当前路径不包含语言信息，则默认添加新语言前缀
-            newPath = `/${newLang}${newPath}`;
+            // 对于不包含语言前缀的其他路径，添加新语言前缀
+            // newPath = `/${newLang}${newPath}`;
         }
 
         navigate(newPath, { replace: true });

@@ -1,3 +1,7 @@
+---
+title: "What to expect next: a Markdown typography journey deep into daisyUI and tailwindcss"
+description: "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
+---
 
 
 # 【总结笔记】
@@ -98,8 +102,6 @@ S-Mode具有一套自己的中断控制和状态寄存器，如`stvec`、`sepc`�
 #### S-Mode虚存机制
 
 S-Mode支持基于页表的虚拟内存系统，通过`satp`寄存器控制，实现虚拟地址到物理地址的映射和转换。这一机制为操作系统提供了强大的内存管理能力，包括进程间的地址空间隔离和内存保护。
-
-
 
 ---
 
@@ -278,8 +280,6 @@ RISC-V的启动流程中，不同的模式（U-Mode、S-Mode、M-Mode）以及�
 
 ---
 
-
-
 ![w:1000](figs/boot-print-app.png)
 
 ### 用户程序执行“Hello World”
@@ -323,8 +323,6 @@ RISC-V的启动流程中，不同的模式（U-Mode、S-Mode、M-Mode）以及�
 
    ---
 
-   
-
 ![w:1000](figs/boot-priv-code-app.png)
 
 在RISC-V架构中，用户态（U-Mode）是不允许直接执行特权指令的。如果用户程序尝试执行特权指令，这将触发一个异常，进而由更高权限模式的异常处理程序来响应。以下是在用户态执行特权指令时的流程：
@@ -349,8 +347,6 @@ RISC-V的启动流程中，不同的模式（U-Mode、S-Mode、M-Mode）以及�
 在这个流程中，异常处理程序为系统的稳定性提供了关键保障，确保即使在不当操作尝试时，系统也能保持响应性和可靠性。这也显示了RISC-V架构对权限控制的严格性，防止了非授权的特权操作。
 
 ---
-
-
 
 RISC-V架构中的中断处理和权限模式为系统设计提供了一系列的优点，这些优点在上述的“Hello World”程序执行流程和关机流程中表现得尤为明显：
 

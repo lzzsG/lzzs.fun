@@ -1,5 +1,5 @@
 //应用的主组件，通常用于定义路由和全局布局。
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';
@@ -12,14 +12,6 @@ function App() {
     const preferredLanguage = window.navigator.language.startsWith('zh') ? 'zh' : 'en';
     return `/${preferredLanguage}`;
   };
-  useEffect(() => {
-    const redirectPathname = localStorage.getItem('redirectPathname');
-    if (redirectPathname) {
-      localStorage.removeItem('redirectPathname'); // 清除以避免重复重定向
-      window.location.href = redirectPathname; // 实际跳转
-    }
-  }, []);
-
 
   return (
     <div>
@@ -28,7 +20,6 @@ function App() {
         <MainLayout>
           <Routes >
             <Route path="/" element={<Navigate replace to={getDefaultLanguagePath()} />} />
-
             {routes.map((route, index) => (
               <Route key={index} path={route.path} element={route.element} />
             ))}

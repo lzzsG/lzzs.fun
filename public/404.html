@@ -34,10 +34,12 @@
     <script>
         (function () {
             var path = location.pathname;
-            // 只需保存尝试访问的路径
             localStorage.setItem('redirectPathname', path);
+            // 使用JavaScript代替meta标签进行重定向
+            window.location.href = '/index.html';
         })();
     </script>
+
 </head>
 
 <body>

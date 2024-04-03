@@ -8,7 +8,8 @@ import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight
 import { useLocation } from 'react-router-dom';
 import config from '../config/config.js';
 
-const MarkdownPage = ({ filePath }) => {
+
+const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH }) => {
     const { i18n, t } = useTranslation();
     const [markdown, setMarkdown] = useState('');
     const [toc, setToc] = useState([]);
@@ -17,8 +18,20 @@ const MarkdownPage = ({ filePath }) => {
 
 
     useEffect(() => {
-        document.title = `${t('blog')} - ${config.siteName}`;
-    }, [t, config.siteName]);
+        // 根据当前语言设置标题和描述
+        const currentTitle = i18n.language === 'en' ? titleEN : titleZH;
+        const currentDescription = i18n.language === 'en' ? descriptionEN : descriptionZH;
+
+        document.title = currentTitle ? `${currentTitle} - ${config.siteName}` : `${t('blog')} - ${config.siteName}`;
+
+        let descriptionTag = document.querySelector('meta[name="description"]');
+        if (!descriptionTag) {
+            descriptionTag = document.createElement('meta');
+            descriptionTag.setAttribute('name', 'description');
+            document.head.appendChild(descriptionTag);
+        }
+        descriptionTag.setAttribute('content', currentDescription || t('defaultDescription'));
+    }, [titleEN, titleZH, descriptionEN, descriptionZH, t, i18n.language]);
 
 
     useEffect(() => {
@@ -196,6 +209,11 @@ const MarkdownPage = ({ filePath }) => {
 
 MarkdownPage.propTypes = {
     filePath: PropTypes.string.isRequired,
+    titleEN: PropTypes.string,
+    titleZH: PropTypes.string,
+    descriptionEN: PropTypes.string,
+    descriptionZH: PropTypes.string,
 };
+
 
 export default MarkdownPage;

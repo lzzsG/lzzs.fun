@@ -30,20 +30,25 @@
             text-align: center;
         }
     </style>
-    <meta http-equiv="refresh" content="0;url=/">
+    <meta http-equiv="refresh" content="0;url=index.html">
     <script>
-        if (location.pathname !== "/") {
-            localStorage.setItem('redirectPathname', location.pathname);
-        }
+        (function () {
+            var path = location.pathname;
+            // 检查路径是否含有语言代码并保存
+            if (path.includes('/en/') || path.includes('/zh/')) {
+                localStorage.setItem('redirectPathname', path);
+            } else if (path !== "/") {
+                // 对于不含语言代码的路径，默认添加语言代码（这里以中文为例）
+                localStorage.setItem('redirectPathname', '/zh' + path);
+            }
+        })();
     </script>
 </head>
 
 <body>
     <div class="message">
-        <h1>
-            LzzsSite
-        </h1>
-        <p>If you are not redirected, <a href="/">click here</a>.</p>
+        <h1>LzzsSite</h1>
+        <p>If you are not redirected, <a href="index.html">click here</a>.</p>
     </div>
 </body>
 

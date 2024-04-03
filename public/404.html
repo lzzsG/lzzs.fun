@@ -35,8 +35,17 @@
         (function () {
             var path = location.pathname + location.search + location.hash;
             localStorage.setItem('redirectPathname', path);
-            // 直接重定向到根目录
+
+            // 直接重定向到根目录，不需要指定index.html
             window.location.href = '/';
+        })();
+    </script>
+    <script>
+        (function () {
+            var path = location.pathname;
+            localStorage.setItem('redirectPathname', path);
+            // 使用JavaScript代替meta标签进行重定向
+            window.location.href = '/index.html';
         })();
     </script>
 

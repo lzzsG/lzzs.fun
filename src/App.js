@@ -9,8 +9,16 @@ import Redirector from './utils/Redirector';
 function App() {
 
   const getDefaultLanguagePath = () => {
-    const preferredLanguage = window.navigator.language.startsWith('zh') ? 'zh' : 'en';
-    return `/${preferredLanguage}`;
+    // 默认语言逻辑保持不变
+    const preferredLanguage = window.navigator.language.startsWith('zh') ? '/zh' : '/en';
+    // 检查是否有重定向路径
+    const redirectPathname = localStorage.getItem('redirectPathname');
+    // 如果有重定向路径，优先使用这个路径
+    if (redirectPathname) {
+      return redirectPathname;
+    }
+    // 否则，使用默认语言路径
+    return preferredLanguage;
   };
 
   return (

@@ -1,5 +1,7 @@
 # What to expect from here on out
 
+> come from [daisyUI Layout and Typography](https://daisyui.com/docs/layout-and-typography/#what-to-expect-from-here-on-out), Used to display markdown.
+
 What follows from here is just a bunch of absolute nonsense I’ve written to dogfood the plugin itself. It includes every sensible typographic element I could think of, like **bold text**, unordered lists, ordered lists, code blocks, block quotes, *and even italics*.
 
 It’s important to cover all of these use cases for a few reasons:

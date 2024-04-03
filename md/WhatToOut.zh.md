@@ -1,5 +1,7 @@
 # 接下来可以期待什么
 
+> 翻译自 [daisyUI 布局和排版](https://daisyui.com/docs/layout-and-typography/#what-to-expect-from-here-on-out)，用于展示markdown。
+
 从这里开始，只是我写的一堆完全没有意义的废话，用来自我检验这个插件。它包括了我能想到的每一个有意义的排版元素，像是**加粗文字**、无序列表、有序列表、代码块、引用块、*甚至是斜体*。
 
 覆盖所有这些用例很重要，原因有几个：
@@ -215,7 +217,7 @@ dob = 1979-05-27T07:32:00Z
 
 我们甚至包括了表格样式，看看这个：
 
-| 摔跤手                  | 来源         | 终结技             |
+| 摔跤手                  | 来源          | 终结技             |
 | ----------------------- | ------------ | ------------------ |
 | Bret “The Hitman” Hart  | Calgary, AB  | Sharpshooter       |
 | Stone Cold Steve Austin | Austin, TX   | Stone Cold Stunner |

@@ -1,5 +1,5 @@
 //应用的主组件，通常用于定义路由和全局布局。
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';

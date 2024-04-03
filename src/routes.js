@@ -1,4 +1,5 @@
 //路由配置比较复杂，提取到一个单独的文件中// src/routes.js// src/routes.js// src/routes.js
+
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import TestPage from './pages/TestPage';
@@ -7,27 +8,27 @@ import BlogPage from './pages/BlogPage';
 
 const routes = [
     {
-        path: '/',
+        path: '/:lang/',
         element: <HomePage />,
     },
     {
-        path: '/about',
+        path: '/:lang/about',
         element: <AboutPage />,
     },
     {
-        path: '/test',
+        path: '/:lang/test',
         element: <TestPage />,
     },
     {
-        path: '/blog',
+        path: '/:lang/blog',
         element: <BlogPage />,
     },
     {
-        path: '/blog/markdown1',
+        path: '/:lang/blog/markdown1',
         element: <MarkdownPage filePath="/md/WhatToOut.md" />,
     },
     {
-        path: '/blog/os-test',
+        path: '/:lang/blog/os-test',
         element: <MarkdownPage filePath="/md/os-test/p2-osviewrv.md" />,
     },
 ];

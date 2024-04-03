@@ -1,3 +1,8 @@
+---
+title: "What to expect next: a Markdown typography journey deep into daisyUI and tailwindcss"
+description: "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
+---
+
 # What to expect from here on out
 
 > come from [daisyUI Layout and Typography](https://daisyui.com/docs/layout-and-typography/#what-to-expect-from-here-on-out), Used to display markdown.

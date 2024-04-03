@@ -2,10 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
+import { useParams } from 'react-router-dom';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 
 const HomePage = () => {
     const { t } = useTranslation();
+    const { i18n } = useTranslation();
+    let { lang } = useParams();
+
+    useEffect(() => {
+        i18n.changeLanguage(lang);
+    }, [lang]);
+
 
     useEffect(() => {
         document.title = `${t('home')} - ${config.siteName}`;

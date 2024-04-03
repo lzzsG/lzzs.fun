@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher'
 
 import { ReactComponent as TranslateIcon } from '../assets/svg/trasnlate.svg';
@@ -9,20 +10,43 @@ import { ReactComponent as HomeIcon } from '../assets/svg/home.svg';
 import { ReactComponent as AboutIcon } from '../assets/svg/about.svg';
 import { ReactComponent as RustIcon } from '../assets/svg/rust.svg';
 
+
 const Header = () => {
     const { t } = useTranslation();
     const { i18n } = useTranslation();
     const location = useLocation();
     const [theme, setTheme] = useState('default');
     const [showNav, setShowNav] = useState(window.innerWidth <= 640);
+    const currentLang = i18n.language;
+    let { lang } = useParams();
+    let navigate = useNavigate();
 
     // 判断当前选中的导航项
     const isActive = (path) => location.pathname === path;
 
     const toggleLanguage = () => {
-        const newLanguage = i18n.language === 'en' ? 'zh' : 'en';
-        i18n.changeLanguage(newLanguage);
+        const newLang = i18n.language === 'en' ? 'zh' : 'en';
+        i18n.changeLanguage(newLang);
+
+        // 更新路由以反映新的语言
+        let newPath = location.pathname;
+        if (newPath.includes('/en/')) {
+            newPath = newPath.replace('/en/', `/${newLang}/`);
+        } else if (newPath.includes('/zh/')) {
+            newPath = newPath.replace('/zh/', `/${newLang}/`);
+        } else {
+            // 如果当前路径不包含语言信息，则默认添加新语言前缀
+            newPath = `/${newLang}${newPath}`;
+        }
+
+        navigate(newPath, { replace: true });
     };
+
+    useEffect(() => {
+        if (lang !== i18n.language) {
+            i18n.changeLanguage(lang);
+        }
+    }, [lang, i18n]);
 
     const changeTheme = (newTheme) => {
         setTheme(newTheme);
@@ -67,7 +91,7 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content  shadow  w-24  bg-base-300 ring-2 ring-base-100 ring-inset">
-                            <Link to="/">
+                            <Link to={`/${currentLang}/`}>
                                 <button className={`text-base btn h-20 w-20 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
                                         <HomeIcon className="-ml-0.5 mx-0.5" />
@@ -75,7 +99,7 @@ const Header = () => {
                                     </div>
                                 </button>
                             </Link>
-                            <Link to="/about">
+                            <Link to={`/${currentLang}/about`}>
                                 <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
                                         <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -83,7 +107,7 @@ const Header = () => {
                                     </div>
                                 </button>
                             </Link>
-                            <Link to="/test">
+                            <Link to={`/${currentLang}/test`}>
                                 <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
                                         <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -91,7 +115,7 @@ const Header = () => {
                                     </div>
                                 </button>
                             </Link>
-                            <Link to="/blog">
+                            <Link to={`/${currentLang}/blog`}>
                                 <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
                                         <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -103,7 +127,7 @@ const Header = () => {
 
                         </ul>
                     </div>
-                    <Link to="/">
+                    <Link to={`/${currentLang}/`}>
                         <div className="justify-center items-center flex h-24 w-48">
                             <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 " />
                             <div className="flex-col ">
@@ -114,7 +138,7 @@ const Header = () => {
                     </Link>
                     <div className=" hidden md:flex">
 
-                        <Link to="/">
+                        <Link to={`/${currentLang}/`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
                                     <HomeIcon className="-ml-0.5 mx-0.5" />
@@ -122,7 +146,7 @@ const Header = () => {
                                 </div>
                             </button>
                         </Link>
-                        <Link to="/about">
+                        <Link to={`/${currentLang}/about`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
                                     <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -130,7 +154,7 @@ const Header = () => {
                                 </div>
                             </button>
                         </Link>
-                        <Link to="/test">
+                        <Link to={`/${currentLang}/test`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
                                     <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -138,7 +162,7 @@ const Header = () => {
                                 </div>
                             </button>
                         </Link>
-                        <Link to="/blog">
+                        <Link to={`/${currentLang}/blog`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
                                     <AboutIcon className="-ml-0.5 mx-0.5" />
@@ -146,8 +170,8 @@ const Header = () => {
                                 </div>
                             </button>
                         </Link>
-                    </div>
-                </div>
+                    </div >
+                </div >
                 <div className="">
 
                     <div className="bg-base-300 -translate-y-0.5">
@@ -161,16 +185,16 @@ const Header = () => {
                     </div>
                     <ThemeSwitcher />
                 </div>
-            </div>
+            </div >
 
             <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
-                <Link to="/">
+                <Link to={`/${currentLang}/`}>
                     {t('siteName')}
                 </Link>
-            </div>
+            </div >
 
             <div className={`mynavbar block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
-                <Link to="/">
+                <Link to={`/${currentLang}/`}>
                     <button className="hidden sm:inline text-sm font-bold mr-2">
                         LzzsSite
                     </button>
@@ -180,28 +204,28 @@ const Header = () => {
                         </div>
                     </button>
                 </Link>
-                <Link to="/about">
+                <Link to={`/${currentLang}/about`}>
                     <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost  hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
                             {t('about')}
                         </div>
                     </button>
-                </Link>
-                <Link to="/test">
+                </Link >
+                <Link to={`/${currentLang}/test`}>
                     <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
 
                             {t('test')}
                         </div>
                     </button>
-                </Link>
-                <Link to="/blog">
+                </Link >
+                <Link to={`/${currentLang}/blog`}>
                     <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
                             {t('blog')}
                         </div>
                     </button>
-                </Link>
+                </Link >
                 <button className="text-sm btn h-12 w-12  btn-sm 
                             btn-ghost" onClick={toggleLanguage}>
                     <div className="flex items-center ">
@@ -212,8 +236,8 @@ const Header = () => {
                     <input className="btn btn-xs ml-2 px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'default'} aria-label={'☽'} onClick={() => changeTheme('default')} />
                     <input className="btn btn-xs px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'light'} aria-label={'☼'} onClick={() => changeTheme('light')} />
                 </button>
-            </div>
-        </header>
+            </div >
+        </header >
     );
 };
 

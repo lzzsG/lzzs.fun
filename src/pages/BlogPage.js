@@ -6,6 +6,8 @@ import config from '../config/config.js';
 
 const BlogPage = () => {
     const { t } = useTranslation();
+    const { i18n } = useTranslation();
+    const currentLang = i18n.language;
 
     useEffect(() => {
         document.title = `${t('blog')} - ${config.siteName}`;
@@ -17,7 +19,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow  flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/markdown1">
+                            <Link to={`/${currentLang}/blog/markdown1`}>
                                 <h3 className="text-xl hover:underline mb-4">WhatToOut.md</h3>
                             </Link>
                             <p>What to expect from here on out</p>
@@ -43,7 +45,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/markdown1">
+                            <Link to={`/${currentLang}/blog/markdown1`}>
                                 <h3 className="text-xl hover:underline mb-4">{t('aboutPage')}</h3>
                             </Link>
                             <p>{t('aboutContent')}</p>
@@ -55,7 +57,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/markdown1">
+                            <Link to={`/${currentLang}/blog/markdown1`}>
                                 <h3 className="text-xl hover:underline mb-4">{t('aboutPage')}</h3>
                             </Link>
                             <p>{t('aboutContent')}</p>
@@ -67,7 +69,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/markdown1">
+                            <Link to={`/${currentLang}/blog/markdown1`}>
                                 <h3 className="text-xl hover:underline mb-4">{t('aboutPage')}</h3>
                             </Link>
                             <p>{t('aboutContent')}</p>
@@ -79,7 +81,7 @@ const BlogPage = () => {
                 <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to="/blog/markdown1">
+                            <Link to={`/${currentLang}/blog/markdown1`}>
                                 <h3 className="text-xl hover:underline mb-4">{t('aboutPage')}</h3>
                             </Link>
                             <p>{t('aboutContent')}</p>
@@ -98,17 +100,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -122,17 +124,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -146,17 +148,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -170,17 +172,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -194,17 +196,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -218,17 +220,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -245,17 +247,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -269,17 +271,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -293,17 +295,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -317,17 +319,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -341,17 +343,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
@@ -365,17 +367,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
 
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
-                                <Link to="/blog/markdown1">
+                                <Link to={`/${currentLang}/blog/markdown1`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>

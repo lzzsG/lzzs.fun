@@ -22,7 +22,12 @@ const Header = () => {
     let navigate = useNavigate();
 
     // 判断当前选中的导航项
-    const isActive = (path) => location.pathname === path;
+    const isActive = (path) => {
+        // 移除语言前缀以进行比较
+        const currentPath = location.pathname.replace(/^\/(en|zh)\//, '/');
+        return currentPath === path;
+    };
+
 
     const toggleLanguage = () => {
         const newLang = i18n.language === 'en' ? 'zh' : 'en';

@@ -1,0 +1,16 @@
+{
+    "bareMetal": [
+        {
+            "i18nKey": "bareMetal.0-About-bare-metal-programming",
+            "path": "/bare-metal/0-About-bare-metal-programming"
+        },
+        {
+            "i18nKey": "bareMetal.1-Development-environment-setup",
+            "path": "/bare-metal/1-Development-environment-setup"
+        },
+        {
+            "i18nKey": "bareMetal.2-Create-project",
+            "path": "/bare-metal/2-Create-project"
+        }
+    ]
+}

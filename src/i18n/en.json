@@ -41,5 +41,24 @@
     "latestNews": "Bilingual test | Latest News",
     "news1": "January 1, 2024 - Happy New Year!",
     "news2": "February 14, 2024 - Valentine's Day Special Event",
-    "featuredProducts": "Featured Products"
+    "featuredProducts": "Featured Products",
+    "hideTOC": "Hide TOC",
+    "showTOC": "Show TOC",
+    "bareMetal": "Bare Metal ",
+    "WhatToOut": {
+        "title": "Markdown typesetting - What to expect next: a Markdown typography journey deep into daisyUI and tailwindcss",
+        "description": "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
+    },
+    "bareMetal.0-About-bare-metal-programming": {
+        "title": "Bare Metal - 0 About bare metal programming",
+        "description": "Bare-metal programming refers to writing software that runs directly on hardware, without going through an operating system or any abstraction layers. This type of programming is commonly used in embedded systems, gaming consoles, dedicated computing devices, or other scenarios requiring direct hardware control."
+    },
+    "bareMetal.1-Development-environment-setup": {
+        "title": "Bare Metal - 1 Development environment setup",
+        "description": "Setting up a development environment for bare-metal programming with RISC-V and Rust is foundational to the entire development process. It includes installing necessary software tools, configuring compilation targets, and understanding the basic use of development tools. "
+    },
+    "bareMetal.2-Create-project": {
+        "title": "Bare Metal - 2 Create project",
+        "description": "Creating a bare-metal programming project based on RISC-V and Rust is a crucial step in the entire development process. This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the specific needs of a bare-metal environment. "
+    }
 }

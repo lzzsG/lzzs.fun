@@ -5,25 +5,51 @@ import { useTranslation } from 'react-i18next';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight.js样式
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import config from '../config/config.js';
+import directoryStructure from '../assets/directory/_directoryStructure.json';
 
 
-const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH }) => {
+const MarkdownPage = ({ i18nKey, filePath }) => {
     const { i18n, t } = useTranslation();
     const [markdown, setMarkdown] = useState('');
     const [toc, setToc] = useState([]);
-    const [isTocVisible, setIsTocVisible] = useState(false);
     const [activeId, setActiveId] = useState('');
+    const [directoryItems, setDirectoryItems] = useState([]);
+    const bookId = i18nKey.split('.')[0];
+    const [isTocVisible, setIsTocVisible] = useState(() => {
+        const saved = localStorage.getItem('tocVisible');
+        return saved === 'true' ? true : false; // 注意 localStorage 只能存储字符串
+    });
 
+    // 监听 isTocVisible 的变化，并更新 localStorage
+    useEffect(() => {
+        localStorage.setItem('tocVisible', isTocVisible.toString());
+    }, [isTocVisible]);
+
+    // 切换目录可见状态的函数
+    const toggleTocVisibility = () => {
+        setIsTocVisible(prevState => !prevState);
+    };
 
     useEffect(() => {
-        // 根据当前语言设置标题和描述
-        const currentTitle = i18n.language === 'en' ? titleEN : titleZH;
-        const currentDescription = i18n.language === 'en' ? descriptionEN : descriptionZH;
+        // 根据书籍ID找到对应的目录
+        const bookDirectory = directoryStructure[bookId];
+        if (bookDirectory) {
+            setDirectoryItems(bookDirectory);
+        }
+    }, [bookId, i18nKey]);
 
+    useEffect(() => {
+        // 从i18n资源中获取标题和描述
+        const currentTitle = t(`${i18nKey}.title`);
+        console.log(`${i18nKey}.title`);
+        const currentDescription = t(`${i18nKey}.description`);
+
+        // 设置页面标题
         document.title = currentTitle ? `${currentTitle} - ${config.siteName}` : `${t('blog')} - ${config.siteName}`;
 
+        // 设置页面描述
         let descriptionTag = document.querySelector('meta[name="description"]');
         if (!descriptionTag) {
             descriptionTag = document.createElement('meta');
@@ -31,8 +57,7 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
             document.head.appendChild(descriptionTag);
         }
         descriptionTag.setAttribute('content', currentDescription || t('defaultDescription'));
-    }, [titleEN, titleZH, descriptionEN, descriptionZH, t, i18n.language]);
-
+    }, [i18nKey, t, i18n.language]);
 
     useEffect(() => {
         const localizedFilePath = filePath.replace('.md', `.${i18n.language}.md`);
@@ -47,12 +72,16 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
                 renderer.heading = function (text, level) {
                     // 对于每个标题，生成一个递增的ID
                     const escapedText = `heading-${++headingId}`;
-                    headings.push({ id: escapedText, level: level, text: text }); // 收集标题信息
+
+                    // 替换标题中的<code></code>为Markdown的代码表示
+                    const modifiedText = text.replace(/<code>(.*?)<\/code>/g, '`$1`');
+
+                    headings.push({ id: escapedText, level: level, text: modifiedText }); // 收集经过修改的标题信息
 
                     return `
                         <h${level} id="${escapedText}">
                             <a href="#${escapedText}" class="header-link">#</a>
-                            ${text}
+                            ${modifiedText}
                         </h${level}>`;
                 };
 
@@ -91,11 +120,11 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
                     document.querySelectorAll('pre code').forEach((block) => {
                         const button = document.createElement('button');
                         button.textContent = 'Copy';
-                        button.className = 'btn btn-xs bg-base-200 lg:btn-sm absolute top-0 right-0 m-4'; // 添加样式类以便自定义样式
+                        button.className = 'btn btn-xs lg:btn-sm btn-ghost absolute top-0 right-0 m-0'; // 添加样式类以便自定义样式
                         button.onclick = function () {
                             navigator.clipboard.writeText(block.textContent).then(() => {
                                 button.textContent = 'Copied!';
-                                setTimeout(() => { button.textContent = 'Copy'; }, 2000);
+                                setTimeout(() => { button.textContent = 'Copy'; }, 1000);
                             });
                         };
 
@@ -108,10 +137,6 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
     }, [filePath, i18n.language]);
 
     const { hash } = useLocation();
-    const toggleToc = () => {
-        setIsTocVisible(!isTocVisible);
-    };
-
 
     useEffect(() => {
         if (hash) {
@@ -182,13 +207,25 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
     return (
         <div className="m-4 mt-16 sm:mt-4 md:m-14 flex justify-center">
             <ScrollToTopButton />
-            <button onClick={toggleToc} className="btn btn-sm z-50  fixed top-0 sm:top-24 right-0.5 mb-0.5 h-12 w-3 bg-base-300">{isTocVisible ? '收起' : '目录'}</button>
+            <button onClick={toggleTocVisibility} className="btn btn-ghost z-50 text-bold fixed top-0 sm:top-24 right-1 mb-0.5 h-12 w-12 ">{isTocVisible ? `${t('hideTOC')}` : `${t('showTOC')}`}</button>
             {/* <div className="h-12 flex mb-0.5 justify-end w-64 bg-base-100">
                     <button className="btn w-12 mr-0.5" onClick={toggleToc}>目录</button>
                 </div> */}
             {isTocVisible && (
+
                 <div className={`toc-sidebar z-20 fixed top-0 sm:mt-24 right-1 overflow-y-auto ${isTocVisible ? '' : 'hidden xl:block'}`} style={{ maxHeight: '80%' }}>
-                    <ul className="mt-12 sm:mt-0 bg-base-200 w-64 2xl:w-72 py-4 px-2">
+                    <ul className="mt-12 pr-3 sm:mt-0 bg-base-200 w-64 2xl:w-72 p-2">
+                        {directoryItems.map((item) => (
+                            <li
+                                key={item.i18nKey}
+                                className={`text-base mx-4 mt-1 hover:underline ${i18nKey === item.i18nKey ? 'text-primary font-bold' : ''}`}
+                            >
+                                <Link to={`/${i18n.language}/blog${item.path}`}>
+                                    {t(`${item.i18nKey}.title`)}
+                                </Link>
+                            </li>
+                        ))}
+                        <div className="divider ml-2 my-1"></div>
                         {toc.map((item, index) => (
                             <li key={index} className={`toc-item hover:underline mb-1 text-sm ${activeId === item.id ? 'text-primary font-bold' : ''}`} style={{ paddingLeft: `${(item.level - 1) * 2 * 4}px` }}>
                                 <a href={`#${item.id}`}>
@@ -200,20 +237,20 @@ const MarkdownPage = ({ filePath, titleEN, titleZH, descriptionEN, descriptionZH
                         ))}
                     </ul>
                 </div>)}
-            <article className="prose lg:prose-lg max-w-full md:max-w-[700px] 2xl:max-w-[750px]">
+            <ul className="list-disc list-inside">
+
+            </ul>
+            <article className="prose lg:prose-lg max-w-full md:max-w-[700px] 2xl:max-w-[770px]">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
             </article>
         </div>
     );
 };
 
+
 MarkdownPage.propTypes = {
     filePath: PropTypes.string.isRequired,
-    titleEN: PropTypes.string,
-    titleZH: PropTypes.string,
-    descriptionEN: PropTypes.string,
-    descriptionZH: PropTypes.string,
+    i18nKey: PropTypes.string.isRequired, // 现在只需要i18nKey和filePath
 };
-
 
 export default MarkdownPage;

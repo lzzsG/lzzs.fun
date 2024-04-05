@@ -24,7 +24,7 @@ i18n
             order: ['path', 'cookie', 'htmlTag'], // 定义语言检测的顺序
             lookupFromPathIndex: 0, // 从URL路径中获取语言设置
         },
-        keySeparator: false, // 不使用keys中的点符号
+        // keySeparator: false, // 不使用keys中的点符号
         interpolation: {
             escapeValue: false, // react已经安全地转义了
         },

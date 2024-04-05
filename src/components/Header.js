@@ -241,7 +241,7 @@ const Header = () => {
                     </div>
                 </button>
                 <button className="-translate-y-0.5" >
-                    <input className="btn btn-xs ml-2 px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'default'} aria-label={'☽'} onClick={() => changeTheme('default')} />
+                    <input className="btn btn-xs ml-2 px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'black'} aria-label={'☽'} onClick={() => changeTheme('black')} />
                     <input className="btn btn-xs px-2  bg-base-200" name="radio-sm-them" type="radio" checked={theme === 'light'} aria-label={'☼'} onClick={() => changeTheme('light')} />
                 </button>
             </div >

@@ -125,12 +125,12 @@ const HomePage = () => {
 
             <div className="divider mt-6 md:mt-12"></div>
 
-            <div className="m-6 mt-20 sm:mt-6 md:m-12">
+            <div className="m-0 mt-20 sm:mt-6 md:m-12">
                 <ScrollToTopButton />
                 {/* <CircularNavigation /> */}
                 <div className="flex justify-center ">
 
-                    <div class="grid  grid-cols-1 w-full sm:max-w-[700px] mr-2 md:mr-6 lg:mr-12">
+                    <div class="grid  grid-cols-1 w-full sm:max-w-[700px] mr-0 md:mr-6 lg:mr-12">
                         <div className="text-3xl flex justify-center mb-4 md:mb-6">历史记录
                         </div>
 
@@ -157,8 +157,8 @@ const HomePage = () => {
                                     <a className="https" href="https://lzzs.fun" target="_blank" rel="noopener noreferrer">
                                         <h2 className="card-title hover:underline mb-1 md:mb-2">SEO 优化</h2>
                                     </a>
-                                    <p>-SEO 优化，Google Search Console，Bing Webmaster Tools</p>
-                                    <p>-不过由于对GitHub Pages 使用了404重定向，没能达成效果，等待后续其他部署</p>
+                                    <p>-SEO 优化</p>
+                                    <p>-但由于对GitHub Pages 使用了404重定向没能达成效果，等待后续其他部署</p>
                                     <p>-修复丰富内容，完成总体框架</p>
                                 </div>
 
@@ -266,7 +266,7 @@ const HomePage = () => {
                         </div>
                     </div>
                     <div>
-                        <ul className="steps steps-vertical w-24 mt-8 -mr-6">
+                        <ul className="steps steps-vertical w-24 mt-8 -mr-4">
                             <li data-content="8" className="step h-48 ">++</li>
                             <li data-content="7" className="step h-48 step-primary">4/3</li>
                             <li data-content="6" className="step step-primary">4/2</li>

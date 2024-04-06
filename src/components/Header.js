@@ -12,6 +12,8 @@ import { ReactComponent as RustIcon } from '../assets/svg/rust.svg';
 import { ReactComponent as AboutMeIcon } from '../assets/svg/about-me.svg';
 import { ReactComponent as TestIcon } from '../assets/svg/test.svg';
 import { ReactComponent as BlogIcon } from '../assets/svg/blog.svg';
+import { ReactComponent as GithubIcon } from '../assets/svg/github.svg';
+
 
 
 const Header = () => {
@@ -201,6 +203,7 @@ const Header = () => {
                 <Link to={`/${currentLang}/`}>
                     {t('siteName')}
                 </Link>
+                <a className="tooltip ml-1" data-tip="GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer"><GithubIcon className="size-6" /></a>
             </div >
 
             <div className={`mynavbar block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>

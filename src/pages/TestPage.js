@@ -34,7 +34,7 @@ const TestPage = () => {
 
             <div class="m-6 mt-20 sm:mt-6 md:m-12 flex justify-center items-center">
 
-                <div class="grid grid-cols-1 max-w-full md:max-w-[1200px] md:gap-4">
+                <div class="grid grid-cols-1 max-w-full md:max-w-[1000px] md:gap-4">
                     这是TestPage，用于测试各种组件
                     <div className="divider mt-4"></div>
                     <div >

@@ -1,5 +1,10 @@
 # About Bare-Metal Programming
 
+- [Bare Metal - 0 About bare metal programming](0-About-bare-metal-programming)
+- [Bare Metal - 1 Development environment setup](1-Development-environment-setup)
+- [Bare Metal - 2 Create project](2-Create-project)
+- [Bare Metal - 3 Writing boot code](3-Writing-boot-code)
+
 ## 1. Explaining Bare-Metal Programming
 
 Bare-metal programming refers to writing software that runs directly on hardware, without going through an operating system or any abstraction layers. This type of programming is commonly used in embedded systems, gaming consoles, dedicated computing devices, or other scenarios requiring direct hardware control. Without the assistance of an operating system, developers need to have a deep understanding of hardware details, including processor architecture, memory management, and peripheral control. Below, I will explain some key concepts and challenges in detail.

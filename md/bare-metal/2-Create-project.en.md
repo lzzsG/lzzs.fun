@@ -1,4 +1,4 @@
-# 2. Creating a Project
+# II. Creating a Project
 
 Creating a bare-metal programming project based on RISC-V and Rust is a crucial step in the entire development process. This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the specific needs of a bare-metal environment. Below, the knowledge points and operational process of this step are explained in detail.
 
@@ -40,7 +40,6 @@ Creating a bare-metal programming project based on RISC-V and Rust is a crucial 
 - **Writing Build Scripts**: To build the project in a bare-metal environment, it might be necessary to write a custom `build.rs` build script to adjust compilation options or perform conditional compilation.
 - **Configuring `.cargo/config.toml`**: You can specify default linkers and other build parameters for a specific target in `.cargo/config.toml`, which is crucial for cross-compilation.
   - Alternatively, by **using command line and environment variable `RUSTFLAGS`** to pass these parameters, which is convenient for one-off builds or specific build environments (like CI/CD).
-
 
 ### Summary
 
@@ -318,9 +317,122 @@ Each of the three methods has its pros and cons:
 
 The choice among these methods depends on project requirements, team habits, and development workflows.
 
+#### Further Differentiation
 
+- Configuring `rustflags` in `.cargo/config.toml` and setting `RUSTFLAGS` through the command line offer flexibility in format. This flexibility allows developers to choose the most suitable expression based on personal preference or project needs. Let's delve into these differences and their implications.
 
+##### `rustflags` in `.cargo/config.toml`
 
+- **No Space Format**:
 
+    ```toml
+    rustflags = ["-Clink-arg=-Tsrc/linker.ld", "-Cforce-frame-pointers=yes"]
+    ```
 
+    In this format, each compiler option is an element of the array, with `-C` and the subsequent directive (like `link-arg=`) closely connected. This format reduces the number of strings, making the array appear more compact.
 
+- **With Space Format**:
+
+    ```toml
+    rustflags = ["-C", "link-arg=-Tlink_riscv32.x"]
+    ```
+
+    This format separates `-C` and its subsequent compiler directive into two elements of the array. This approach may be visually clearer, especially when compiler directives are lengthy or there's a need to emphasize the `-C` option specifically.
+
+  Functionally, these two formats are equivalent. They both effectively pass the same directives to the compiler. The choice between them primarily depends on personal or team preference.
+
+##### `RUSTFLAGS` in Command Line
+
+  When using the `RUSTFLAGS` environment variable in the command line, you typically pass the entire string as a continuous command to the compiler:
+
+  ```bash
+  RUSTFLAGS="-C link-arg=-Tlink_riscv32.x"
+  ```
+
+  Here, `-C` and `link-arg=` are part of the same string. In the command line, since the entire `RUSTFLAGS` value is enclosed in quotes, whether or not there is space, it's considered part of the same parameter string.
+
+##### The Difference with or without Space after `-C`
+
+- **In `.cargo/config.toml`**, whether it's `"-Clink-arg=..."` or `"-C", "link-arg=..."`, essentially, the same parameters are being passed to `rustc`. The main difference in using array to split parameters is about readability and personal preference.
+- **In the command line**, since the entire `RUSTFLAGS` is treated as one string, whether there is a space after `-C` does not affect the parsing of the parameter. However, for consistency and readability, it may be necessary to unify the style according to team standards.
+
+  In summary, whether in the `.cargo/config.toml` configuration file or in setting compiler parameters in the command line, whether there is a space after `-C` mainly affects readability and formatting preferences, not the functionality of the parameters. Developers can choose the most suitable format based on personal or team coding style.
+
+## Expanded Explanation of the Expanded Explanation
+
+### 1. Is there no difference between library and binary projects since we used `#![no_main]`?
+
+Even though the `#![no_main]` attribute makes the distinction between library and binary projects less apparent in terms of defining the entry point, there are still some key differences between the two:
+
+- **Library Projects**: More suitable for bare-metal programming because they allow complete customization of the startup process and entry point. Library projects do not expect a `main` function and are suited for scenarios requiring fine control over the execution flow.
+- **Binary Projects**: Expect a `main` function as the program's entry. Although `#![no_main]` can be used in binary projects to allow custom entry points, library projects are generally preferred in bare-metal or operating system kernel development for greater flexibility.
+
+### 2. Adjusting Linker Behavior Using Linker Scripts
+
+The previously mentioned `link_riscv32.x`, `link_riscv64.x`, and `src/linker.ld` are examples of linker scripts.
+
+> Linker scripts and their role in bare-metal programming are relatively advanced and specific topics. This content involves complex concepts like memory layout and the linking process, which might feel abstract and complex for beginners. However, for those just starting with bare-metal programming using RISC-V and Rust, understanding the details of linker scripts is not immediately necessary.
+
+A Linker Script is a script file used by the linker that guides how to link various compiled objects (.o files) and library files into a final executable or library file. In bare-metal programming and operating system development, correct memory layout is crucial for the program's operation. Linker scripts allow developers to precisely specify the position and order of various sections (such as code `.text`, data `.data`, BSS `.bss`) in memory.
+
+#### The Role of Linker Scripts in the General Process
+
+In the general process of bare-metal programming with RISC-V and Rust, **the use of linker scripts mainly pertains to the "Compiling Code" and "Linking Code
+
+" parts**. Linker scripts directly impact the linking step, the process of combining compiled object files into the final executable file.
+
+1. **Compiling Code**: At this stage, your Rust code is compiled into machine code for the target architecture (usually a series of object files). Although the code is compiled, it's not yet organized into an executable program.
+2. **Linking Code**: Here, the linker, following the directives of the linker script, links the previously compiled object files and necessary library files into the final executable file according to a specific layout. The linker script plays a decisive role as it defines the detailed information about the program's memory layout, like which part of the code or data should be placed where in memory.
+
+#### Content of Linker Scripts
+
+Linker scripts contain a series of directives and symbol definitions that tell the linker how to map the segments from object files (like `.text`, `.data`, `.bss`, etc.) to positions in the target memory. In bare-metal programming, this allows developers to precisely control the layout of the program, ensuring it runs as expected, especially in embedded systems with specific memory layout requirements.
+
+For example, if your bare-metal program needs to run at a specific memory address, or you need to place code and data in separate memory areas (such as in systems with a Harvard architecture), this can be achieved through linker scripts.
+
+The use and configuration of linker scripts are usually specified during the project's build configuration phase, such as dynamically adding linker parameters through a `build.rs` build script or statically setting linker parameters in `.cargo/config.toml`. This ensures the correct linker script and memory layout are used each time the project is built.
+
+#### Configuring Linker Scripts in `.cargo/config.toml`
+
+By specifying `rustflags` in the `.cargo/config.toml` file, you can instruct the Rust compiler to use a custom linker script during the compilation process. The parameter `-Clink-arg=-Tsrc/linker.ld` specifies the linker script.
+
+```toml
+[build]
+target = "riscv64gc-unknown-none-elf"
+
+[target.riscv64gc-unknown-none-elf]
+rustflags = [
+    "-Clink-arg=-Tsrc/linker.ld", "-Cforce-frame-pointers=yes"
+]
+```
+
+This configuration instructs the compiler to use the linker script located at `src/linker.ld` for the target `riscv64gc-unknown-none-elf`, and to force the use of frame pointers (useful in some debugging scenarios).
+
+Linker scripts' syntax and capabilities are extensive, covering everything from symbol definitions to fine control over segment layouts, offering strong support for operating system development and advanced bare-metal programming. Developers interested in delving deeper can explore the documentation of the GNU linker (ld) to fully understand the capabilities of linker scripts.
+
+---
+
+### Glossary
+
+- **Standard Library (std)**: Rust's standard library, which offers a wide range of functionalities such as data structures, input/output processing, threading, etc. In bare-metal or embedded programming, it is usually not available, thus the `#![no_std]` attribute is used to disable it.
+- **Library Project (lib)**: A Rust library project aimed at creating a code library that can be referenced by other projects, instead of generating standalone executable programs.
+- **Binary Project (bin)**: A Rust binary project aimed at generating executable files. This is the program that end-users run directly.
+- **Boot Code**: The first piece of code that runs after the system is powered on, used to initialize hardware and the runtime environment, preparing for the operation of the operating system or application.
+- **Build Script**: Scripts used for automating the compilation and build process, such as `Makefile` or Rust's `build.rs` file.
+- **Build Environment**: The software and hardware environment required to compile and build software, including compilers, linkers, libraries, etc.
+- **Environment Variable `RUSTFLAGS`**: An environment variable that sets options for the Rust compiler, affecting the compilation process, such as optimization levels, feature enablement, etc.
+- **`#![no_std]`**: A Rust attribute used in library or binary projects to disable the standard library, allowing for bare-metal or embedded program writing.
+- **`#![no_main]`**: A Rust attribute that allows disabling the default entry point, commonly used in custom boot code scenarios.
+- **`#[no_mangle]`**: A Rust attribute that disables mangling (name decoration) by the compiler for a specific function, ensuring the function name remains unchanged after compilation, commonly used for calling Rust functions from external code (such as C or assembly).
+- **`#[panic_handler]`**: A Rust attribute used to define a function for handling panics, essential in a `#![no_std]` environment.
+- **`core` Library**: Rust's core library, a subset of the standard library that does not depend on the operating system and can be used in a `#![no_std]` environment.
+- **Custom Library**: Libraries developed by users or teams for specific functionalities or business logic, which can be referenced by other projects.
+- **Compile Flags/Compiler Arguments**: Options passed to the compiler during the compilation process to control the behavior and output of the compilation.
+- **`Cargo.toml` Configuration File**: The configuration file for Rust projects, defining the project's dependencies, version, compilation options, etc.
+- **Linker Script**: A script that guides the linker on how to combine various compiled object files into the final executable file. It defines the memory layout and the arrangement of different sections.
+- **Linker**: A tool that links compiled object files and libraries into an executable file.
+- **Compiled Object (.o Files)**: Intermediate products of source code compilation, containing machine code but not yet linked into the final executable file.
+- **Memory Layout**: The organization of a program in memory, including the positions and sizes of various segments.
+- **Code Segment `.text`**: The memory region that holds program instructions.
+- **Data Segment `.data`**: The memory region that holds initialized global and static variables.
+- **BSS Segment `.bss`**: Used to store uninitialized global and static variables, in the program start.

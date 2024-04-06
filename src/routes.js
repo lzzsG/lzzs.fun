@@ -52,7 +52,13 @@ const routes = [
             filePath="/md/bare-metal/2-Create-project.md"
         />,
     },
-
+    {
+        path: "/:lang/blog/bare-metal/3-Writing-boot-code",
+        element: <MarkdownPage
+            i18nKey="bareMetal.3-Writing-boot-code"
+            filePath="/md/bare-metal/3-Writing-boot-code.md"
+        />,
+    },
 ];
 export default routes;
 

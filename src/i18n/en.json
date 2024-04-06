@@ -60,5 +60,9 @@
     "bareMetal.2-Create-project": {
         "title": "Bare Metal - 2 Create project",
         "description": "Creating a bare-metal programming project based on RISC-V and Rust is a crucial step in the entire development process. This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the specific needs of a bare-metal environment. "
+    },
+    "bareMetal.3-Writing-boot-code": {
+        "title": "Bare Metal - 3 Writing boot code",
+        "description": "Writing boot code is a critical step in bare-metal programming, involving many low-level details that ensure the program can run in an environment without operating system support. Here are the basic essential steps and higher-level optional steps for writing boot code."
     }
 }

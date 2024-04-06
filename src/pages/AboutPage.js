@@ -27,7 +27,14 @@ const AboutPage = () => {
             <div class="grid grid-cols-1 max-w-full md:max-w-[1200px] md:gap-4">
                 <ScrollToTopButton />
                 {/* <CircularNavigation /> */}
-                {t('about')}
+
+                <div className="flex justify-between bg-base-200 rounded-none mt-4 md:mt-12 2xl:mt-24  items-center  p-6 md:p-12">
+                    <div className="text">
+                        <h2 className="text-4xl font-bold ">{t('nothing')}</h2>
+
+                    </div>
+                    {/* <button className="btn btn-outline">About</button> */}
+                </div>
             </div>
         </div>
     )

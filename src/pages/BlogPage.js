@@ -72,6 +72,26 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
+                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow flex justify-between items-center m-4">
+                        <div>
+                            <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
+                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.3-Writing-boot-code.title')}</h3>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.3-Writing-boot-code.description')}</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow flex justify-between items-center m-4">
+                        <div>
+                            <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
+                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.3-Writing-boot-code.title')}</h3>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.3-Writing-boot-code.description')}</p>
+                        </div>
+                    </div>
+                </div>
 
 
 
@@ -97,14 +117,17 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-disc list-inside">
-                                <Link to="/${currentLang}/blog/bare-metal/0-About-bare-metal-programming">
+                                <Link to={`/${currentLang}/blog/bare-metal/0-About-bare-metal-programming`}>
                                     <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.0-About-bare-metal-programming.title')}</li>
                                 </Link>
-                                <Link to="/${currentLang}/blog/bare-metal/1-Development-environment-setup">
+                                <Link to={`/${currentLang}/blog/bare-metal/1-Development-environment-setup`}>
                                     <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.1-Development-environment-setup.title')}</li>
                                 </Link>
-                                <Link to="/${currentLang}/blog/bare-metal/2-Create-project">
+                                <Link to={`/${currentLang}/blog/bare-metal/2-Create-project`}>
                                     <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.2-Create-project.title')}</li>
+                                </Link>
+                                <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
+                                    <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.3-Writing-boot-code.title')}</li>
                                 </Link>
                             </ul>
                         </div>

@@ -9,6 +9,9 @@ import { ReactComponent as TranslateIcon } from '../assets/svg/trasnlate.svg';
 import { ReactComponent as HomeIcon } from '../assets/svg/home.svg';
 import { ReactComponent as AboutIcon } from '../assets/svg/about.svg';
 import { ReactComponent as RustIcon } from '../assets/svg/rust.svg';
+import { ReactComponent as AboutMeIcon } from '../assets/svg/about-me.svg';
+import { ReactComponent as TestIcon } from '../assets/svg/test.svg';
+import { ReactComponent as BlogIcon } from '../assets/svg/blog.svg';
 
 
 const Header = () => {
@@ -110,28 +113,27 @@ const Header = () => {
                             <Link to={`/${currentLang}/about`}>
                                 <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
-                                        <AboutIcon className="-ml-0.5 mx-0.5" />
+                                        <AboutMeIcon className="-ml-0.5 mx-0.5" />
                                         {t('about')}
-                                    </div>
-                                </button>
-                            </Link>
-                            <Link to={`/${currentLang}/test`}>
-                                <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
-                                    <div className="flex items-center">
-                                        <AboutIcon className="-ml-0.5 mx-0.5" />
-                                        {t('test')}
                                     </div>
                                 </button>
                             </Link>
                             <Link to={`/${currentLang}/blog`}>
                                 <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                                     <div className="flex items-center">
-                                        <AboutIcon className="-ml-0.5 mx-0.5" />
+                                        <BlogIcon className="-ml-0.5 mx-0.5" />
                                         {t('blog')}
                                     </div>
                                 </button>
                             </Link>
-
+                            <Link to={`/${currentLang}/test`}>
+                                <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
+                                    <div className="flex items-center">
+                                        <TestIcon className="-ml-0.5 mx-0.5" />
+                                        {t('test')}
+                                    </div>
+                                </button>
+                            </Link>
 
                         </ul>
                     </div>
@@ -157,24 +159,24 @@ const Header = () => {
                         <Link to={`/${currentLang}/about`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
-                                    <AboutIcon className="-ml-0.5 mx-0.5" />
+                                    <AboutMeIcon className="-ml-0.5" />
                                     {t('about')}
-                                </div>
-                            </button>
-                        </Link>
-                        <Link to={`/${currentLang}/test`}>
-                            <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
-                                <div className="flex items-center">
-                                    <AboutIcon className="-ml-0.5 mx-0.5" />
-                                    {t('test')}
                                 </div>
                             </button>
                         </Link>
                         <Link to={`/${currentLang}/blog`}>
                             <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                                 <div className="flex items-center">
-                                    <AboutIcon className="-ml-0.5 mx-0.5" />
+                                    <BlogIcon className="-ml-0.5 mx-0.5" />
                                     {t('blog')}
+                                </div>
+                            </button>
+                        </Link>
+                        <Link to={`/${currentLang}/test`}>
+                            <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
+                                <div className="flex items-center">
+                                    <TestIcon className="-ml-0.5 mx-0.5" />
+                                    {t('test')}
                                 </div>
                             </button>
                         </Link>

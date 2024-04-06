@@ -76,7 +76,7 @@ fs.readdir(folderPath, (err, files) => {
 
         const articleLink = `/\${currentLang}/blog/bare-metal/${baseName}`;
         articlesListResult += `
-            <Link to="${articleLink}">
+            <Link to={\`${articleLink}\`}>
                 <li class="text-base mb-2 hover:underline">{i18n.t('${i18nKey}.title')}</li>
             </Link>`;
 

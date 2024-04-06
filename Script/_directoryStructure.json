@@ -11,6 +11,10 @@
     {
       "i18nKey": "bareMetal.2-Create-project",
       "path": "/bare-metal/2-Create-project"
+    },
+    {
+      "i18nKey": "bareMetal.3-Writing-boot-code",
+      "path": "/bare-metal/3-Writing-boot-code"
     }
   ]
 }

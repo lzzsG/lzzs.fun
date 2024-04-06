@@ -74,7 +74,7 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
                     const escapedText = `heading-${++headingId}`;
 
                     // 替换标题中的<code></code>为Markdown的代码表示
-                    const modifiedText = text.replace(/<code>(.*?)<\/code>/g, '`$1`');
+                    const modifiedText = text.replace(/<code>(.*?)<\/code>/g, '`$1`').replace(/<strong>(.*?)<\/strong>/g, '$1');;
 
                     headings.push({ id: escapedText, level: level, text: modifiedText }); // 收集经过修改的标题信息
 

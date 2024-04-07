@@ -2,10 +2,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 import ImageModal from '../components/ImageModal.js';
-
+import UpdatesLog from '../components/UpdatesLog.js'
+import { ReactComponent as GithubIcon } from '../assets/svg/github.svg';
 
 
 const HomePage = () => {
@@ -69,10 +70,10 @@ const HomePage = () => {
 
                     </div>
                     <div className="text-base-content max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold">{t('hello')}</h1>
+                        <h1 className="mb-5 text-5xl font-bold translate-x-1">{t('hello')}</h1>
 
-                        <p className="mb-5">{t('homeHello')}</p>
-                        <button className="btn btn-primary">Get Started</button>
+                        <p className="mb-5 ">{t('homeHello')}</p>
+                        <a className="tooltip" data-tip="Go to GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer"><button className="btn btn-primary "><GithubIcon className="size-5 -mr-1" /> LzzsG </button> </a>
 
                     </div>
                 </div>
@@ -124,16 +125,18 @@ const HomePage = () => {
             </div>
 
             <div className="divider mt-6 md:mt-12"></div>
-
+            <div className="flex justify-center ">
+                <div className="w-full max-w-[840px]">
+                    <UpdatesLog limit={6} /></div></div>
+            <div className="divider mt-6 md:mt-12"></div>
             <div className="m-0 mt-20 sm:mt-6 md:m-12">
-                <ScrollToTopButton />
                 {/* <CircularNavigation /> */}
                 <div className="flex justify-center ">
-
                     <div class="grid  grid-cols-1 w-full sm:max-w-[700px] mr-0 md:mr-6 lg:mr-12">
-                        <div className="text-3xl flex justify-center mb-4 md:mb-6">历史记录
-                        </div>
-
+                        <h2 className="text-xl mt-2 mb-5 font-semibold text-base-content">创建历史记录
+                            <Link to="/zh" className="text-accent-content text-base hover:underline ml-2">
+                                <div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
+                            </Link></h2>
                         <div className="flex bg-base-200 rounded-none  h-36 mb-12">
                             <ImageModal src="/images/bg-td-long.jpg" alt="bg-td-long" />
                             <div className="flex-grow flex justify-between items-center my-4 mr-4">

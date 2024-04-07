@@ -72,5 +72,20 @@
     "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
         "title": "Bare Metal - 4½ Supplement for the main program of operating systems",
         "description": "operating system (OS) serves as a bridge between software and hardware, managing computing resources and providing a basic interface for user-computer interaction. With ongoing technological advancements, the design and implementation of operating systems face new challenges and opportunities, especially in ensuring system security, efficient concurrent processing, and supporting complex network communications."
-    }
+    },
+    "singleBlog": "Projects & Blog",
+    "seriesArticles": "Series of articles",
+    "latestUpdates": "Latest Updates",
+    "websiteUpdate": "Website update",
+    "blogAddition": "Blog addition",
+    "reactHooks": "React hooks",
+    "galleryPageNewImages": "new images in the gallery page",
+    "addedNewPostAbout": "Added a new blog post \"{{topic}}\"",
+    "updatedPageWith": "Updated page content [{{feature}}]",
+    "OptimizeTwoBlogDirectories": "Optimize two directories for blogs",
+    "AddLatestUpdates": "Add \"Latest Updates\"",
+    "ClickToOpen": "Click to open this one and close others",
+    "MarkdownTypesetting": "Markdown typesetting...",
+    "blogAddition0406BareMetal": "Bare Metal 0-3",
+    "blogAddition0407BareMetal": "Bare Metal 4-4½"
 }

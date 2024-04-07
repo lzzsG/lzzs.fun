@@ -72,5 +72,20 @@
     "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
         "title": "[裸机编程] - 4½ 对于操作系统主程序的补充",
         "description": "操作系统（OS）充当着软件与硬件之间的桥梁，管理着计算资源并提供用户与计算机交云的基本接口。随着技术的不断进步，操作系统的设计和实现面临着新的挑战和机遇，尤其是在保证系统安全、高效并发处理以及支持复杂网络通信等方面。"
-    }
+    },
+    "singleBlog": "项目与博客",
+    "seriesArticles": "系列文章",
+    "latestUpdates": "最新更新",
+    "websiteUpdate": "网站更新",
+    "blogAddition": "博客添加",
+    "reactHooks": "React钩子",
+    "galleryPageNewImages": "图库页面的新图片",
+    "addedNewPostAbout": "添加了新博客文章《{{topic}}》",
+    "updatedPageWith": "更新了网页内容【{{feature}}】",
+    "OptimizeTwoBlogDirectories": "优化博客两种目录",
+    "AddLatestUpdates": "添加“最新更新”",
+    "ClickToOpen": "单击打开此项并关闭其他项",
+    "MarkdownTypesetting": "Markdown 排版...",
+    "blogAddition0406BareMetal": "裸机编程 0-3",
+    "blogAddition0407BareMetal": "裸机编程 4-4½"
 }

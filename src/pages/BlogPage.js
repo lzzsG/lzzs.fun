@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
+import UpdatesLog from '../components/UpdatesLog.js'
 
 const BlogPage = () => {
     const { t } = useTranslation();
@@ -27,8 +28,13 @@ const BlogPage = () => {
 
     return (
         <div class="m-6 mt-20 sm:mt-6 md:m-12 flex justify-center items-center">
+
             <div class="grid grid-cols-1 md:grid-cols-2 max-w-full md:max-w-[1200px] md:gap-4">
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('singleBlog')}
+                    <Link to="/zh/blog" className="text-accent-content text-base hover:underline ml-2"><div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
+
+                    </Link></h2>
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow  flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/markdown-test`}>
@@ -41,8 +47,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/0-About-bare-metal-programming`}>
@@ -52,7 +57,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                {/* <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/1-Development-environment-setup`}>
@@ -62,7 +67,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/2-Create-project`}>
@@ -72,7 +77,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
@@ -82,7 +87,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
@@ -92,7 +97,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/4-Writing-the-main-program`}>
@@ -102,7 +107,7 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
@@ -111,28 +116,20 @@ const BlogPage = () => {
                             <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.description')}</p>
                         </div>
                     </div>
-                </div>
-
-
-                {/* <div className="flex bg-base-300 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/markdown-test`}>
-                                <h3 className="text-xl hover:underline mb-2">{t('aboutPage')}</h3>
-                            </Link>
-                            <p>{t('aboutContent')}</p>
-                        </div>
-
-                    </div>
                 </div> */}
 
-                <div className="z-0 ">
-
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
+                <div className="divider md:col-span-2 m-0 "></div>
+                <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('seriesArticles')}
+                    <Link to="/zh/blog" className="text-accent-content text-base hover:underline ml-2">
+                        <div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
+                    </Link></h2>
+                <div className="z-10 ">
+                    <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-2" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
                             {i18n.t('bareMetal')}
                         </div>
+                        {/* <div className="absolute top-[20px] right-[48px] text-sm text-gray-400">2024-04</div> */}
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-disc list-inside">
@@ -158,10 +155,11 @@ const BlogPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
+
+                    <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
+                            {t('ClickToOpen')}
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
@@ -172,61 +170,6 @@ const BlogPage = () => {
 
                                 <Link to={`/${currentLang}/blog/markdown-test`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content m-0">
-                            <div className="divider -translate-y-1 m-0 mb-1"></div>
-                            <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content m-0">
-                            <div className="divider -translate-y-1 m-0 mb-1"></div>
-                            <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
                                 </Link>
                             </ul>
                         </div>
@@ -234,10 +177,10 @@ const BlogPage = () => {
                 </div>
                 <div className="z-0 ">
 
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
+                    <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
+                        <input type="radio" name="my-accordion-1" />
                         <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
+                            {t('ClickToOpen')}
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
@@ -258,10 +201,10 @@ const BlogPage = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
+                    <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
+                        <input type="radio" name="my-accordion-1" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
+                            {t('ClickToOpen')}
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
@@ -274,56 +217,9 @@ const BlogPage = () => {
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
                                 </Link>
                                 <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content m-0">
-                            <div className="divider -translate-y-1 m-0 mb-1"></div>
-                            <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
+                                </Link> <Link to={`/${currentLang}/blog/markdown-test`}>
                                     <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div className="collapse collapse-arrow bg-base-300 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-2" />
-                        <div className="collapse-title text-xl font-medium">
-                            Click to open this one and close others
-                        </div>
-                        <div className="collapse-content m-0">
-                            <div className="divider -translate-y-1 m-0 mb-1"></div>
-                            <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
                                 </Link>
                                 <Link to={`/${currentLang}/blog/markdown-test`}>
                                     <li className="text-base hover:underline ">{t('aboutPage')}</li>
@@ -332,6 +228,9 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
+                <div className="divider md:col-span-2 m-0 "></div>
+                <div className="md:col-span-2">
+                    <UpdatesLog filterType="blogAddition" /></div>
             </div>
         </div >
     );

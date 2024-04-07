@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
+import UpdatesLog from '../components/UpdatesLog.js'
 
 
 const TestPage = () => {
@@ -30,12 +31,16 @@ const TestPage = () => {
     return (
         <div className="m-6 mt-20 sm:mt-6 md:m-12">
             <ScrollToTopButton />
+
             {/* <CircularNavigation /> */}
 
             <div class="m-6 mt-20 sm:mt-6 md:m-12 flex justify-center items-center">
 
                 <div class="grid grid-cols-1 max-w-full md:max-w-[1000px] md:gap-4">
                     这是TestPage，用于测试各种组件
+                    <div className="divider mt-4"></div>
+
+                    <UpdatesLog limit={8} />
                     <div className="divider mt-4"></div>
                     <div >
                         <article class="prose">

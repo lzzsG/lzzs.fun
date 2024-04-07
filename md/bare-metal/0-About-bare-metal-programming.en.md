@@ -5,7 +5,7 @@
 - [Bare Metal - 2 Create project](2-Create-project)
 - [Bare Metal - 3 Writing boot code](3-Writing-boot-code)
 
-> Note! The vast majority of this series' content comes from questions asked to ChatGPT. ChatGPT might make mistakes. Please consider verifying important information. This series' content is for reference and understanding only; for more specific learning, refer to authoritative materials.
+> Note! The vast majority of this series' content comes from questions asked to ChatGPT. ChatGPT might make mistakes. Please consider verifying important information. This series' content is for reference and understanding only; for more specific learning, refer to authoritative materials. 2024-04
 
 ## 1. Explaining Bare-Metal Programming
 

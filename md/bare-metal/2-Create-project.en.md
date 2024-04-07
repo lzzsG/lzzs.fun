@@ -1,6 +1,26 @@
 # II. Creating a Project
 
-Creating a bare-metal programming project based on RISC-V and Rust is a crucial step in the entire development process. This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the specific needs of a bare-metal environment. Below, the knowledge points and operational process of this step are explained in detail.
+This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the special requirements of a bare-metal environment.
+
+## Preface
+
+Creating a project is the first step in building any software project, especially in bare-metal programming involving specific hardware platforms, where this step is particularly crucial. In this phase, we'll use the Cargo tool to build a basic framework for our project, including the project's directory structure, configuration files, and some initial code files. We'll pay special attention to configuring the project to adapt to the special needs of a bare-metal environment, including choosing between a library or binary project, configuring properties unique to the bare-metal environment, and preparing startup code and other key activities.
+
+The so-called "general process of bare-metal programming with RISC-V and Rust" doesn't have very clear boundaries. During this project creation phase, we'll encounter many configuration and decision points related to subsequent steps. For example, the startup code involved here, which belongs to the startup code writing phase, will also play a role in the compilation and linking process, supporting the correct execution of the program. At the same time, the target architecture we set, the build script `build.rs`, and the various configuration options in `.cargo/config.toml`, will directly affect the subsequent compilation and linking process.
+
+By making wise choices and configurations during the project creation phase, we can lay a solid foundation for the success of the project. These early decisions will ensure that our compilation, linking, and even final execution on the target platform can proceed smoothly. Therefore, although creating a project seems like a simple starting point, it actually contains key elements of the entire development process and requires our full attention.
+
+> The so-called "general process of bare-metal programming with RISC-V and Rust" was specifically requested by me for ChatGPT to provide, to facilitate my own learning and understanding, and selected and summarized to appear more like a general process version🙂
+
+### Structure Overview
+
+Next, we'll discuss in detail the various aspects of the project creation phase, from choosing between a library or binary project, to the application of special attributes, and the preparation of startup code. We'll also delve into methods of configuring the target architecture, the role of the `build.rs` build script, and how to customize our build process through `.cargo/config.toml` and command-line parameters. Each part is an important component of building a successful bare-metal program and lays the foundation for subsequent steps.
+
+Through the explanation in this section, we hope readers can clearly understand the complexity of the project creation phase and its impact on the entire project development process. This is not just a simple guide on how to start a project, but also a preparation and foresight for future steps.
+
+------
+
+Let's now elaborate on the knowledge points and operational processes of this step.
 
 ### Using Cargo to Create a Project
 

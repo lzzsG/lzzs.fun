@@ -2,6 +2,8 @@
 
   > For those who are new to bare-metal programming with RISC-V and Rust, understanding the overall process of setting up the development environment is the first step, while the specific tools and detailed operations mentioned in the process can be gradually learned later. This means that even if you do not fully understand the specific use of each tool or how to configure them precisely at the beginning, it will not affect subsequent learning and practice. As you gradually grasp the entire development process, the methods of using these tools and their interrelationships will become clear and straightforward.
 
+  >This section does not provide specific details on setting up the development environment but rather gives a general description of the process for basic understanding. For detailed information, please refer to experimental reference books and official documentation.
+
   Setting up a development environment for bare-metal programming with RISC-V and Rust is foundational to the entire development process. It includes installing necessary software tools, configuring compilation targets, and understanding the basic use of development tools. This step not only lays the foundation for subsequent programming work but also relates to development efficiency and the convenience of program debugging. Below, key knowledge points and tools in this step are detailed.
 
 ### 1. Installing the Rust Programming Environment

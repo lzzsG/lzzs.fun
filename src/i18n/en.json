@@ -64,5 +64,13 @@
     "bareMetal.3-Writing-boot-code": {
         "title": "Bare Metal - 3 Writing boot code",
         "description": "Writing boot code is a critical step in bare-metal programming, involving many low-level details that ensure the program can run in an environment without operating system support. Here are the basic essential steps and higher-level optional steps for writing boot code."
+    },
+    "bareMetal.4-Writing-the-main-program": {
+        "title": "Bare Metal - 4 Writing the main program",
+        "description": "Writing the main program involves transforming the startup code and the environment initialized by the system into specific application logic.This stage can be divided into writing basic content and subsequent high-level extensions."
+    },
+    "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
+        "title": "Bare Metal - 4½ Supplement for the main program of operating systems",
+        "description": "operating system (OS) serves as a bridge between software and hardware, managing computing resources and providing a basic interface for user-computer interaction. With ongoing technological advancements, the design and implementation of operating systems face new challenges and opportunities, especially in ensuring system security, efficient concurrent processing, and supporting complex network communications."
     }
 }

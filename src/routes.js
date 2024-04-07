@@ -59,6 +59,20 @@ const routes = [
             filePath="/md/bare-metal/3-Writing-boot-code.md"
         />,
     },
+    {
+        path: "/:lang/blog/bare-metal/4-Writing-the-main-program",
+        element: <MarkdownPage
+            i18nKey="bareMetal.4-Writing-the-main-program"
+            filePath="/md/bare-metal/4-Writing-the-main-program.md"
+        />,
+    },
+    {
+        path: "/:lang/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems",
+        element: <MarkdownPage
+            i18nKey="bareMetal.4½-Supplement-for-the-main-program-of-operating-systems"
+            filePath="/md/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems.md"
+        />,
+    },
 ];
 export default routes;
 

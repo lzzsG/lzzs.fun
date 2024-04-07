@@ -14,5 +14,13 @@
   "bareMetal.3-Writing-boot-code": {
     "title": "3 Writing boot code - bare metal",
     "description": ""
+  },
+  "bareMetal.4-Writing-the-main-program": {
+    "title": "4 Writing the main program - bare metal",
+    "description": ""
+  },
+  "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
+    "title": "4½ Supplement for the main program of operating systems - bare metal",
+    "description": ""
   }
 }

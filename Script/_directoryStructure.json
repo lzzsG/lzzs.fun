@@ -15,6 +15,14 @@
     {
       "i18nKey": "bareMetal.3-Writing-boot-code",
       "path": "/bare-metal/3-Writing-boot-code"
+    },
+    {
+      "i18nKey": "bareMetal.4-Writing-the-main-program",
+      "path": "/bare-metal/4-Writing-the-main-program"
+    },
+    {
+      "i18nKey": "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems",
+      "path": "/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems"
     }
   ]
 }

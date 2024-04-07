@@ -50,19 +50,27 @@
         "description": "探索使用daisyUI、tailwindcss、markdown、hljs设计的排版和布局的魅力：本文翻译自daisyUI官方文档，带你一步步走进Markdown的世界。从基本的文本格式到复杂的代码块和列表，体验如何利用Markdown优雅地展现内容。无论是粗体、斜体、有序/无序列表，还是代码高亮，每一个细节都旨在提升阅读体验。通过本文，开启你的Markdown旅程，发现排版和布局的无限可能性。"
     },
     "bareMetal.0-About-bare-metal-programming": {
-        "title": "裸机编程 - 0 关于裸机编程",
+        "title": "[裸机编程] - 0 关于裸机编程",
         "description": "Bare-metal 编程指的是直接在硬件上编写软件，不经过操作系统或任何抽象层的干预。这种编程方式通常用于嵌入式系统、游戏机、专用计算设备或其他需要直接硬件控制的场合。"
     },
     "bareMetal.1-Development-environment-setup": {
-        "title": "裸机编程 - 1 开发环境搭建",
+        "title": "[裸机编程] - 1 开发环境搭建",
         "description": "搭建基于RISC-V和Rust的裸机编程开发环境是整个开发流程的基础，它包括安装必要的软件工具、配置编译目标和理解开发工具的基本使用。"
     },
     "bareMetal.2-Create-project": {
-        "title": "裸机编程 - 2 创建项目",
+        "title": "[裸机编程] - 2 创建项目",
         "description": "创建基于RISC-V和Rust的裸机编程项目是整个开发流程中的一个关键步骤。这一步不仅涉及到使用Rust的包管理器Cargo初始化项目，还包括配置项目以适应裸机环境的特殊需求。"
     },
     "bareMetal.3-Writing-boot-code": {
-        "title": "裸机编程 - 3 编写启动代码",
+        "title": "[裸机编程] - 3 编写启动代码",
         "description": "编写启动代码是裸机编程的一个关键步骤，涉及到许多底层细节，这些细节确保了程序能够在没有操作系统支持的环境下运行。以下是编写启动代码时的基础必需步骤和更高层次的可选步骤。"
+    },
+    "bareMetal.4-Writing-the-main-program": {
+        "title": "[裸机编程] - 4 编写主程序",
+        "description": "编写主程序涉及到将启动代码和系统初始化后的环境转化为具体的应用逻辑。这一阶段可以分为基础内容编写和后续的高层次扩展两个主要部分。"
+    },
+    "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
+        "title": "[裸机编程] - 4½ 对于操作系统主程序的补充",
+        "description": "操作系统（OS）充当着软件与硬件之间的桥梁，管理着计算资源并提供用户与计算机交云的基本接口。随着技术的不断进步，操作系统的设计和实现面临着新的挑战和机遇，尤其是在保证系统安全、高效并发处理以及支持复杂网络通信等方面。"
     }
 }

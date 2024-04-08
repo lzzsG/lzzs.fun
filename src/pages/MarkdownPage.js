@@ -218,14 +218,14 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
                         {directoryItems.map((item) => (
                             <li
                                 key={item.i18nKey}
-                                className={`text-base mx-4 mt-1 hover:underline ${i18nKey === item.i18nKey ? 'text-primary font-bold' : ''}`}
+                                className={`text-sm  mx-4 mt-[2px] hover:underline ${i18nKey === item.i18nKey ? 'text-primary font-bold' : ''}`}
                             >
                                 <Link to={`/${i18n.language}/blog${item.path}`}>
                                     {t(`${item.i18nKey}.title`)}
                                 </Link>
                             </li>
                         ))}
-                        <div className="divider ml-2 my-1"></div>
+                        <div className="divider ml-2 mr-4 my-1"></div>
                         {toc.map((item, index) => (
                             <li key={index} className={`toc-item hover:underline mb-1 text-sm ${activeId === item.id ? 'text-primary font-bold' : ''}`} style={{ paddingLeft: `${(item.level - 1) * 2 * 4}px` }}>
                                 <a href={`#${item.id}`}>

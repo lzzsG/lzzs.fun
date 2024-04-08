@@ -4,6 +4,8 @@
 - [Bare Metal - 1 Development environment setup](1-Development-environment-setup)
 - [Bare Metal - 2 Create project](2-Create-project)
 - [Bare Metal - 3 Writing boot code](3-Writing-boot-code)
+- [Bare Metal - 4 Writing the main program](4-Writing-the-main-program)
+- [Bare Metal - 4½ Supplement for the main program of operating systems](4½-Supplement-for-the-main-program-of-operating-systems)
 
 > Note! The vast majority of this series' content comes from questions asked to ChatGPT. ChatGPT might make mistakes. Please consider verifying important information. This series' content is for reference and understanding only; for more specific learning, refer to authoritative materials. 2024-04
 

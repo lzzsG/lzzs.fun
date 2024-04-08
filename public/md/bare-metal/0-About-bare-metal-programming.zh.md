@@ -1,9 +1,11 @@
-# 关于 bare-metal 裸机编程
+# 关于裸机编程
 
 - [裸机编程 - 0 关于裸机编程](0-About-bare-metal-programming)
 - [裸机编程 - 1 开发环境搭建](1-Development-environment-setup)
 - [裸机编程 - 2 创建项目](2-Create-project)
 - [裸机编程 - 3 编写启动代码](3-Writing-boot-code)
+- [裸机编程 - 4 编写主程序](4-Writing-the-main-program)
+- [裸机编程 - 4½ 对于操作系统主程序的补充](4½-Supplement-for-the-main-program-of-operating-systems)
 
 > 注意！本系列内容绝大多数来着对ChatGPT的提问。ChatGPT可能会犯错误。请考虑核实重要信息。本系列**内容仅供参考理解**使用，更加具体的学习请参考权威资料。2024-04
 

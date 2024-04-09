@@ -141,7 +141,7 @@ const Header = () => {
                     </div>
                     <Link to={`/${currentLang}/`}>
                         <div className="justify-center items-center flex h-24 w-48">
-                            <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 " />
+                            <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 animate-spin" />
                             <div className="flex-col ">
                                 <a className="text-lg font-bold w-24 -ml-6 -mb-2 flex justify-center content-center">{t('siteName')}</a>
                                 <a className="text-sm font-bold w-24 -ml-6  flex justify-center content-center">temp</a>

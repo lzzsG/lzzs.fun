@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import UpdatesLog from '../components/UpdatesLog.js'
+import { ReactComponent as LinkIcon } from '../assets/svg/link.svg';
 
 const BlogPage = () => {
     const { t } = useTranslation();
@@ -57,66 +58,39 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
-                {/* <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/1-Development-environment-setup`}>
-                                <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.1-Development-environment-setup.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.1-Development-environment-setup.description')}</p>
-                        </div>
-                    </div>
-                </div>
+
                 <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/2-Create-project`}>
-                                <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.2-Create-project.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.2-Create-project.description')}</p>
+                            <div className="flex">
+                                <LinkIcon className="size-4 mr-1 translate-y-1.5" />
+                                <Link to='https://github.com/lzzsG/all-to-mdbook'>
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">all-to-mdbook</h3>
+                                </Link>
+                            </div>
+                            <p className="overflow-hidden line-clamp-2">本仓库旨在提供一种自动化的方式来部署包含 Markdown 文件结构的仓库到 mdBook。利用 GitHub Actions，它能够自动识别指定仓库中的 Markdown 文件，并生成相应的 mdBook。此外，它支持自定义配置，如目标仓库链接、忽略特定文件夹、启用自然排序等，使得生成的书籍结构更加合理和美观。
+                            </p>
                         </div>
                     </div>
                 </div>
+
                 <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
-                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.3-Writing-boot-code.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.3-Writing-boot-code.description')}</p>
+                            <div className="flex">
+                                <LinkIcon className="size-4 mr-1 translate-y-1.5" />
+                                <Link to='https://lzzs.fun/zh'>
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">lzzsg.github.io(lzzs.fun)
+                                    </h3>
+                                </Link>
+                            </div>
+                            <p className="overflow-hidden line-clamp-2">本站源码，未来可能会做一个静态网站系列，虽然作者很业余。
+                            </p>
                         </div>
                     </div>
                 </div>
-                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/3-Writing-boot-code`}>
-                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.3-Writing-boot-code.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.3-Writing-boot-code.description')}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/4-Writing-the-main-program`}>
-                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.4-Writing-the-main-program.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.4-Writing-the-main-program.description')}</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
-                                <h3 className="text-xl overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.description')}</p>
-                        </div>
-                    </div>
-                </div> */}
+
+
 
                 <div className="divider md:col-span-2 m-0 "></div>
                 <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('seriesArticles')}
@@ -151,6 +125,10 @@ const BlogPage = () => {
                                 <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
                                     <li class="text-base mb-2 hover:underline">
                                         {i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.title')}</li>
+                                </Link>
+                                <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
+                                    <li class="text-base mb-2 hover:underline">
+                                        。。。(进行中) 。。。</li>
                                 </Link>
                             </ul>
                         </div>
@@ -204,26 +182,41 @@ const BlogPage = () => {
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-1" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
-                            {t('ClickToOpen')}
+                            Mdbook Series
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
 
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link> <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <Link to='https://lzzs.fun/rustlings-notebook/'>
+                                        <li className="text-base mb-0.5 hover:underline">
+                                            rustlings-notebook (进行中)</li>
+                                    </Link>
+                                </div>
+                                <p className="overflow-hidden mb-3 line-clamp-2">rustlings 110题版本的解答和扩展mdbook。
+                                </p>
+
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <Link to='https://lzzs.fun/Tsinghua-OS-mdbook/'>
+                                        <li className="text-base mb-0.5 hover:underline">
+                                            Tsinghua-OS-mdbook (待调整)</li>
+                                    </Link>
+                                </div>
+                                <p className="overflow-hidden mb-3 line-clamp-2">清华操作系统幻灯片 mdbook 版
+                                </p>
+
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <Link to='https://lzzs.fun/mit-note/'>
+                                        <li className="text-base mb-0.5 hover:underline">
+                                            MIT-note (进行中)</li>
+                                    </Link>
+                                </div>
+                                <p className="overflow-hidden mb-3 line-clamp-2">MIT电子工程和计算机科学课程 (6.004计算结构、6.175微电子器件设计、6.375微电子器件制造)
+                                </p>
                             </ul>
                         </div>
                     </div>

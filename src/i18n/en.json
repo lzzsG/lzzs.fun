@@ -50,7 +50,7 @@
         "description": "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
     },
     "bareMetal.0-About-bare-metal-programming": {
-        "title": "Bare Metal - 0 About bare metal programming",
+        "title": "Bare Metal Programming Series - 0 About bare metal programming",
         "description": "Bare-metal programming refers to writing software that runs directly on hardware, without going through an operating system or any abstraction layers. This type of programming is commonly used in embedded systems, gaming consoles, dedicated computing devices, or other scenarios requiring direct hardware control."
     },
     "bareMetal.1-Development-environment-setup": {

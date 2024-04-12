@@ -247,4 +247,55 @@ dob = 1979-05-27T07:32:00Z
 
 让我们在这里添加一个结束段落，这样事情就以一个相当大的文本块结束。我无法解释为什么我希望事情以这种方式结束，但我不得不假设这是因为我认为如果文档末尾太接近一个标题，事情会看起来奇怪或不平衡。
 
-我写的这里可能已经够长了，但添加这最后一句也无妨。
+我写的这里可能已经够长了，但添加这最后一句也无妨
+
+---
+
+# 自定义组件
+
+<div class="L-alert L-alert-info">Info: 下面是本站作者插入的自定义组件。</div>
+
+<ul class="L-list">
+    <li class="completed">已完成的任务</li>
+    <li class="pending">未完成的任务</li>
+    <li class="completed">已完成的任务</li>
+    <li class="pending">未完成的任务</li>
+</ul>
+<div class="L-alert L-alert-info">Info: 这是一条信息。</div>
+<div class="L-alert L-alert-error">Error: 这是一个错误。</div>
+<div class="L-alert L-alert-warning">Warning: 这是一条警告。</div>
+<div class="L-alert L-alert-success">Success: 这是一个成功。</div>
+
+<div class="card">
+    <div class="card-title">Card Title</div>
+    <div class="mt-4">This is some text within a card component.</div>
+</div>
+
+<button class="L-button">点击我</button>
+<button class="L-button">👍<span class="like-counter">0/999</span></button>
+
+<span class="L-tag">标签一</span>
+<span class="L-tag L-tag-primary">标签二</span>
+
+<br/>
+全遮罩链接
+<div class="iframe-wrapper">
+    <iframe src="https://lzzs.fun/" frameborder="0" allowfullscreen></iframe>
+    <a href="https://lzzs.fun" target="_blank" class="iframe-overlay"></a> <!-- 原始的覆盖层链接 -->
+</div>
+<br/>
+上1/4遮罩链接
+<div class="iframe-wrapper">
+    <iframe src="https://lzzs.fun/" frameborder="0" allowfullscreen></iframe>
+    <div class="iframe-overlay-quarter-t">
+        <a href="https://lzzs.fun" target="_blank">点击此处打开</a>
+    </div> <!-- 新的带有文字的遮罩 -->
+</div>
+<br/>
+下1/4遮罩链接
+<div class="iframe-wrapper">
+    <iframe src="https://lzzs.fun/" frameborder="0" allowfullscreen></iframe>
+    <div class="iframe-overlay-quarter-b">
+        <a href="https://lzzs.fun" target="_blank">点击此处打开</a>
+    </div> <!-- 新的遮罩层放在iframe底部1/4区域 -->
+</div>

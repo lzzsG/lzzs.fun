@@ -64,9 +64,9 @@ const BlogPage = () => {
                         <div>
                             <div className="flex">
                                 <LinkIcon className="size-4 mr-1 translate-y-1.5" />
-                                <Link to='https://github.com/lzzsG/all-to-mdbook'>
+                                <a href='https://github.com/lzzsG/all-to-mdbook' target="_blank" rel="noopener noreferrer">
                                     <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">all-to-mdbook</h3>
-                                </Link>
+                                </a>
                             </div>
                             <p className="overflow-hidden line-clamp-2">本仓库旨在提供一种自动化的方式来部署包含 Markdown 文件结构的仓库到 mdBook。利用 GitHub Actions，它能够自动识别指定仓库中的 Markdown 文件，并生成相应的 mdBook。此外，它支持自定义配置，如目标仓库链接、忽略特定文件夹、启用自然排序等，使得生成的书籍结构更加合理和美观。
                             </p>
@@ -79,10 +79,10 @@ const BlogPage = () => {
                         <div>
                             <div className="flex">
                                 <LinkIcon className="size-4 mr-1 translate-y-1.5" />
-                                <Link to='https://lzzs.fun/zh'>
+                                <a href='https://github.com/lzzsG/lzzsg.github.io' target="_blank" rel="noopener noreferrer">
                                     <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">lzzsg.github.io(lzzs.fun)
                                     </h3>
-                                </Link>
+                                </a>
                             </div>
                             <p className="overflow-hidden line-clamp-2">本站源码，未来可能会做一个静态网站系列，虽然作者很业余。
                             </p>
@@ -190,30 +190,32 @@ const BlogPage = () => {
 
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <Link to='https://lzzs.fun/rustlings-notebook/'>
+                                    <a href='https://lzzs.fun/rustlings-notebook/' target="_blank" rel="noopener noreferrer">
                                         <li className="text-base mb-0.5 hover:underline">
                                             rustlings-notebook (进行中)</li>
-                                    </Link>
+                                    </a>
                                 </div>
                                 <p className="overflow-hidden mb-3 line-clamp-2">rustlings 110题版本的解答和扩展mdbook。
                                 </p>
 
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <Link to='https://lzzs.fun/Tsinghua-OS-mdbook/'>
+                                    <a href='https://lzzs.fun/Tsinghua-OS-mdbook/' target="_blank" rel="noopener noreferrer">
                                         <li className="text-base mb-0.5 hover:underline">
-                                            Tsinghua-OS-mdbook (待调整)</li>
-                                    </Link>
+                                            Tsinghua-OS-mdbook
+                                        </li>
+                                    </a>
                                 </div>
+
                                 <p className="overflow-hidden mb-3 line-clamp-2">清华操作系统幻灯片 mdbook 版
                                 </p>
 
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <Link to='https://lzzs.fun/mit-note/'>
+                                    <a href='https://lzzs.fun/mit-note/' target="_blank" rel="noopener noreferrer">
                                         <li className="text-base mb-0.5 hover:underline">
                                             MIT-note (进行中)</li>
-                                    </Link>
+                                    </a>
                                 </div>
                                 <p className="overflow-hidden mb-3 line-clamp-2">MIT电子工程和计算机科学课程 (6.004计算结构、6.175微电子器件设计、6.375微电子器件制造)
                                 </p>

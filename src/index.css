@@ -11,3 +11,154 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+.L-list li {
+  margin-bottom: 10px;
+  list-style-type: none;
+  /* 移除默认的列表项目符号 */
+  padding-left: 20px;
+  position: relative;
+}
+
+.L-list .completed:before {
+  content: "✔";
+  /* 已完成的任务前使用对号 */
+  position: absolute;
+  left: 0;
+  color: #4CAF50;
+  /* 自定义颜色 */
+}
+
+.L-list .pending:before {
+  content: "✘";
+  /* 未完成的任务前使用叉号 */
+  position: absolute;
+  left: 0;
+  color: #FF5722;
+  /* 自定义颜色 */
+}
+
+.L-alert {
+  padding: 15px 20px;
+  margin: 10px 0;
+  color: #fff;
+}
+
+.L-alert-info {
+  background-color: #305D8D;
+}
+
+.L-alert-error {
+  background-color: #8D3D30;
+}
+
+.L-alert-warning {
+  background-color: #8D7F30;
+
+}
+
+.L-alert-success {
+  background-color: #4B903D;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    border-color: #555;
+  }
+}
+
+.L-button {
+  border: 1px solid #d1d1d1;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 16px;
+}
+
+.L-button:hover {
+  background-color: #999999;
+}
+
+.L-tag {
+  display: inline-block;
+  background-color: #e0e0e0;
+  color: #333;
+  padding: 0px 5px;
+  font-size: 12px;
+}
+
+.L-tag-primary {
+  background-color: #222222;
+  color: #ffffff;
+}
+
+.iframe-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #333;
+  border-radius: 20px;
+}
+
+.iframe-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  /* 透明覆盖层 */
+  z-index: 10;
+  /* 确保覆盖在iframe之上 */
+}
+
+.iframe-overlay-quarter-t {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25%;
+  /* 只覆盖iframe的1/4高度 */
+  background-color: rgba(0, 0, 0, 0.2);
+  /* 灰度背景 */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  z-index: 15;
+  /* 高于iframe内容的层级 */
+}
+
+.iframe-overlay-quarter a {
+  color: white;
+  text-decoration: none;
+}
+
+.iframe-overlay-quarter-b {
+  position: absolute;
+  top: 75%;
+  /* 设置为75%以覆盖iframe的底部1/4 */
+  left: 0;
+  width: 100%;
+  height: 25%;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* 半透明灰色背景 */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  z-index: 15;
+}

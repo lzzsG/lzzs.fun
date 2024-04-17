@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const ScrollToTopOrBackButton = () => {
     const [isVisible, setIsVisible] = useState(false);
     const [showBack, setShowBack] = useState(false); // 单独控制Back按钮的显示
     const [scrollBeforeTop, setScrollBeforeTop] = useState(0); // 记录点击向上按钮前的滚动位置
+    const location = useLocation();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -13,6 +15,10 @@ const ScrollToTopOrBackButton = () => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
+    }, [location]);  // 当 location 变化时触发
 
     const handleScrollToTop = () => {
         // 仅当当前位置非顶部时记录位置并滚动到顶部

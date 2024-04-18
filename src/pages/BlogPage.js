@@ -129,10 +129,17 @@ const BlogPage = () => {
                                     <li class="text-base mb-2 hover:underline">
                                         {i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.title')}</li>
                                 </Link>
-                                <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
-                                    <li class="text-base mb-2 hover:underline">
-                                        。。。({t('ing')}) 。。。</li>
-                                </Link>
+
+                                <li class="text-base mb-2 hover:underline">
+                                    5 。。。({t('ing')}) 。。。</li>
+                                <li class="text-base mb-2 hover:underline">
+                                    6 。。。 。。。</li>
+                                <li class="text-base mb-2 hover:underline">
+                                    7 。。。 。。。</li>
+                                <li class="text-base mb-2 hover:underline">
+                                    8 。。。 。。。</li>
+                                <li class="text-base mb-2 hover:underline">
+                                    。。。 。。。</li>
                             </ul>
                         </div>
                     </div>

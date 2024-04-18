@@ -224,18 +224,19 @@ const Header = () => {
                         </div>
                     </button>
                 </Link >
+
+                <Link to={`/${currentLang}/blog`}>
+                    <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                        <div className="flex items-center">
+                            {t('blog')}
+                        </div>
+                    </button>
+                </Link >
                 <Link to={`/${currentLang}/test`}>
                     <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                         <div className="flex items-center">
 
                             {t('test')}
-                        </div>
-                    </button>
-                </Link >
-                <Link to={`/${currentLang}/blog`}>
-                    <button className={`text-sm btn h-12 w-16 p-0 m-0 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
-                        <div className="flex items-center">
-                            {t('blog')}
                         </div>
                     </button>
                 </Link >

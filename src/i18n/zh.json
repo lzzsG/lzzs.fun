@@ -23,6 +23,14 @@
     "aboutContent": "双语测试 | 此页面提供了有关网站的信息。",
     "footer": "© 2024 我的网站",
     "mainContent": "双语测试 | 这是我们的主要内容部分。您可以在这里找到有关我的网站的详细信息。",
+    "ing": "进行中",
+    "rustlingsAbout": "rustlings 110题版本的解答和扩展mdbook。",
+    "MITAbout": "MIT电子工程和计算机科学课程系列笔记 (MIT6.004 计算结构、MIT6.175 构造可靠的数字系统、MIT6.375 复杂数字系统)",
+    "lzzsfunAbout": "本站源码，未来可能会做一个静态网站系列，虽然作者很业余。",
+    "alltoMDAbout": " 一种自动化的方式来部署包含 Markdown 文件结构的仓库到 mdBook。利用 GitHub Actions，它能够自动识别指定仓库中的 Markdown 文件，并生成相应的 mdBook。此外，它支持自定义配置，如目标仓库链接、忽略特定文件夹、启用自然排序等，使得生成的书籍结构更加合理和美观。",
+    "thpptAbout": "清华操作系统幻灯片 mdbook 版",
+    "175LabInsAbout": "6.175 实验指导的翻译 中英对照",
+    "MdbookSeries": "Mdbook 系列",
     "quote": "学海无涯，回头是岸。",
     "items": [
         {
@@ -86,6 +94,17 @@
     "AddLatestUpdates": "添加“最新更新”",
     "ClickToOpen": "单击打开此项并关闭其他项",
     "MarkdownTypesetting": "Markdown 排版...",
+    "blogAddition0409rustlings": "Rustlings 笔记 - 1-22 及故事",
+    "blogAddition0410rustlings": "Rustlings 笔记 - 23-48",
+    "blogAddition0411rustlings": "Rustlings 笔记 - 49-58 及组件",
+    "blogAddition0412rustlings": "Rustlings 笔记 - 59-71 及历史",
+    "blogAddition0416rustlings": "Rustlings 笔记 - 72-88",
+    "blogAddition0417rustlings": "Rustlings 笔记 - 89-110 完成",
+    "blogAddition0418rustlings": "Rustlings 笔记 - 111, 审核及排版",
+    "blogAddition0413mit": "MIT 笔记 - 6.004 L5-L7",
+    "blogAddition0414mit": "MIT 笔记 - 6.004 L7-L8",
+    "blogAddition0415mit": "MIT 笔记 - 翻译 MIT6.175 实验指导书",
+    "-----------------": "----------",
     "blogAddition0406BareMetal": "裸机编程 0-3",
     "blogAddition0407BareMetal": "裸机编程 4-4½"
 }

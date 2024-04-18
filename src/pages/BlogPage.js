@@ -68,7 +68,9 @@ const BlogPage = () => {
                                     <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">all-to-mdbook</h3>
                                 </a>
                             </div>
-                            <p className="overflow-hidden line-clamp-2">本仓库旨在提供一种自动化的方式来部署包含 Markdown 文件结构的仓库到 mdBook。利用 GitHub Actions，它能够自动识别指定仓库中的 Markdown 文件，并生成相应的 mdBook。此外，它支持自定义配置，如目标仓库链接、忽略特定文件夹、启用自然排序等，使得生成的书籍结构更加合理和美观。
+                            <p className="overflow-hidden line-clamp-2">
+                                {t('alltoMDAbout')}
+
                             </p>
                         </div>
                     </div>
@@ -84,7 +86,8 @@ const BlogPage = () => {
                                     </h3>
                                 </a>
                             </div>
-                            <p className="overflow-hidden line-clamp-2">本站源码，未来可能会做一个静态网站系列，虽然作者很业余。
+                            <p className="overflow-hidden line-clamp-2">
+                                {t('lzzsfunAbout')}
                             </p>
                         </div>
                     </div>
@@ -128,7 +131,7 @@ const BlogPage = () => {
                                 </Link>
                                 <Link to={`/${currentLang}/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems`}>
                                     <li class="text-base mb-2 hover:underline">
-                                        。。。(进行中) 。。。</li>
+                                        。。。({t('ing')}) 。。。</li>
                                 </Link>
                             </ul>
                         </div>
@@ -182,7 +185,7 @@ const BlogPage = () => {
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-1" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
-                            Mdbook Series
+                            {t('MdbookSeries')}
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
@@ -191,33 +194,46 @@ const BlogPage = () => {
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
                                     <a href='https://lzzs.fun/rustlings-notebook/' target="_blank" rel="noopener noreferrer">
-                                        <li className="text-base mb-0.5 hover:underline">
-                                            rustlings-notebook (进行中)</li>
+                                        <li className="text-base mb-1 hover:underline">
+                                            rustlings-notebook</li>
                                     </a>
                                 </div>
-                                <p className="overflow-hidden mb-3 line-clamp-2">rustlings 110题版本的解答和扩展mdbook。
+                                <p className="overflow-hidden mb-1 line-clamp-2"> {t('rustlingsAbout')}
                                 </p>
+                                <div className="divider"></div>
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://lzzs.fun/MIT-digital-systems-notebook/' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            MIT-digital-systems-notebook ({t('ing')})</li>
+                                    </a>
+                                </div>
+                                <p className="overflow-hidden mb-1 line-clamp-2">{t('MITAbout')}
+                                </p>
+                                <div className="divider"></div>
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://lzzs.fun/mit6.175-labs-instruction/' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            mit6.175-labs-instruction</li>
+                                    </a>
+                                </div>
+                                <p className="overflow-hidden mb-1 line-clamp-2">{t('175LabInsAbout')}
+                                </p>
+                                <div className="divider"></div>
+
 
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
                                     <a href='https://lzzs.fun/Tsinghua-OS-mdbook/' target="_blank" rel="noopener noreferrer">
-                                        <li className="text-base mb-0.5 hover:underline">
+                                        <li className="text-base mb-1 hover:underline">
                                             Tsinghua-OS-mdbook
                                         </li>
                                     </a>
                                 </div>
 
-                                <p className="overflow-hidden mb-3 line-clamp-2">清华操作系统幻灯片 mdbook 版
-                                </p>
-
-                                <div className="flex">
-                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <a href='https://lzzs.fun/mit-note/' target="_blank" rel="noopener noreferrer">
-                                        <li className="text-base mb-0.5 hover:underline">
-                                            MIT-note (进行中)</li>
-                                    </a>
-                                </div>
-                                <p className="overflow-hidden mb-3 line-clamp-2">MIT电子工程和计算机科学课程 (6.004计算结构、6.175微电子器件设计、6.375微电子器件制造)
+                                <p className="overflow-hidden mb-1 line-clamp-2">
+                                    {t('thpptAbout')}
                                 </p>
                             </ul>
                         </div>

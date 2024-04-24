@@ -12,15 +12,26 @@
 - **初始化寄存器和栈**：确保所有需要的寄存器都被正确初始化，特别是设置堆栈指针，以便程序能够使用堆栈。
 - **清零.bss段**：将未初始化的数据段（.bss段）清零，保证全局和静态变量在使用前被初始化为零。
 
+> 相关硬件操作和处理器行为的补充讨论也插入到了  [**MIT6.004 1.2. L02-RISC-V Assembly and Binary Notation**](https://lzzs.fun/MIT-digital-systems/6.004/L02) 最后。这一章节包含汇编语言的基础，其中会讲解如何使用汇编语言直接控制硬件。
+>
+> > MIT的6.004课程探讨了计算机系统的基本构建块，专注于通用处理器的设计。课程内容涵盖了从数字逻辑到操作系统等方面的知识，旨在培养学生理解和设计RISC-V处理器的能力。
+>
+> > 更多硬件内容参见 [MIT Digital Systems Notebook L2 - L4](https://lzzs.fun/MIT-digital-systems/) 或 《计算机组成原理》
+
 #### 2. **内核入口和内存布局（必需）**
 
 涉及到如何组织程序的内存布局，以及如何从启动代码跳转到主程序（比如Rust编写的内核或应用）。
 
 - **内存布局**：通过**链接脚本**（如`linker.ld`或`memory.x`）定义，它指定了不同程序段（如.text, .data, .bss）的位置及大小。这对于确保程序能正确地加载到内存中执行至关重要。
+  
   - **`memory.x`文件**：通常用于简化的内存布局定义。在Rust项目中，这个文件指定了如堆、栈、代码和数据段等的内存布局。
   - **`linker.ld`文件**：提供了更复杂和详细的链接配置，比`memory.x`更加强大和灵活。它可以控制各种内存段的具体位置、大小，以及特殊的链接需求。
+  
+- **内核入口**：启动代码完成所有必要的硬件相关初始化后，会跳转到主程序（如用 Rust 编写的内核）的入口点。这通常涉及到将程序计数器（PC）设置到一个新的地址，这个地址就是内核代码的开始位置。
 
-- **内核入口**：启动代码在完成所有必要的初始化后，需要跳转到内核的主入口点，这通常是一个用Rust编写的`main`函数。
+  > 内存布局和链接脚本的补充讨论也插入到了 [**MIT6.004 1.3. L03-Compiling Code, Procedures, and Stacks**](https://lzzs.fun/MIT-digital-systems/6.004/L03) 章节中。编译过程是软件与硬件关联的重要环节，需要对内存如何分配和使用有深刻理解。
+  >
+  > 从启动代码跳转到主程序的补充讨论也插入到了 [**MIT6.004 1.4. L04-Procedures and MMIO**](https://lzzs.fun/MIT-digital-systems/6.004/L04) 中。在这一章节中，学习者会了解到过程调用、中断处理以及与内存映射I/O（MMIO）相关的硬件操作，这是嵌入式系统中硬件与软件交互的关键环节。
 
 ### 可选或高层次设计步骤
 
@@ -81,7 +92,7 @@
 
 一个非常基础的RISC-V启动汇编代码示例可能包括：
 
-```assembly
+```armasm
 .section .text
 .global _start
 
@@ -126,7 +137,7 @@ stack_top:
 
 #### 示例链接脚本内容
 
-```ld
+```armasm
 /* Define the memory regions where program sections will be placed */
 MEMORY
 {
@@ -212,19 +223,19 @@ RISC-V架构定义了几个不同的特权级别，最常见的是机器模式�
 ```python
 .
 ├── bootloader
-│   └── rustsbi-qemu.bin      # RISC-V的SBI实现，用于提供标准的系统调用接口
+│   └── rustsbi-qemu.bin      # RISC-V的SBI实现，用于提供标准的系统调用接口。这是在目标硬件或模拟器上运行时需要的，为操作系统提供标准的服务接口。
 ├── os
-│   ├── Cargo.toml            # Rust项目配置文件，定义项目依赖和元数据
-│   ├── Makefile              # 提供构建脚本，用于编译、链接和构建最终的二进制文件
+│   ├── Cargo.toml            # Rust项目配置文件，定义项目依赖和元数据，2.创建项目阶段补充讲解
+│   ├── Makefile              # 提供构建脚本，用于编译、链接和构建最终的二进制文件，2.创建项目阶段补充讲解
 │   └── src
-│       ├── console.rs        # 封装打印字符的SBI接口，提供格式化输出功能
-│       ├── entry.asm         # 裸机程序的汇编入口点，设置内核执行环境
-│       ├── lang_items.rs     # 实现Rust特定的语义项，如panic处理逻辑
-│       ├── linker.ld         # 链接脚本，定义内核的内存布局
-│       ├── logging.rs        # 实现日志功能，用于调试和输出日志信息
-│       ├── main.rs           # 内核的主函数，程序的主要入口点
-│       └── sbi.rs            # 封装SBI调用的Rust接口，提供系统调用功能
-└── rust-toolchain            # 指定Rust工具链的版本，确保编译一致性
+│       ├── console.rs        # 封装打印字符的SBI接口，提供格式化输出功能，4. 编写主程序阶段补充讲解
+│       ├── entry.asm         # 裸机程序的汇编入口点，设置内核执行环境，3.编写启动代码阶段补充讲解
+│       ├── lang_items.rs     # 实现Rust特定的语义项，如panic处理逻辑，4. 编写主程序阶段补充讲解
+│       ├── linker.ld         # 链接脚本，定义内核的内存布局，3.编写启动代码阶段补充讲解
+│       ├── logging.rs        # 实现日志功能，用于调试和输出日志信息，4. 编写主程序阶段补充讲解
+│       ├── main.rs           # 内核的主函数，程序的主要入口点，4. 编写主程序阶段补充讲解
+│       └── sbi.rs            # 封装SBI调用的Rust接口，提供系统调用功能，4. 编写主程序阶段补充讲解
+└── rust-toolchain            # 指定Rust工具链的版本，确保编译一致性，1. 开发环境搭建阶段补充讲解
 ```
 
 ### 流程和配合
@@ -344,6 +355,227 @@ RISC-V架构定义了几个不同的特权级别，最常见的是机器模式�
 尽管`memory.x`和`linker.ld`都可以用于配置项目的内存布局和链接过程，但`linker.ld`提供了更广泛的功能和灵活性。在某些情况下，选择`linker.ld`是出于对项目复杂度和特定需求的考虑。这种选择反映了项目的设计者根据其需求和偏好做出的决定。在你提到的这个项目中，使用`linker.ld`说明开发者可能需要利用到GNU链接器提供的高级功能，或者是出于与其他非Rust组件协作的需要。
 
 ---
+
+## 补充5：启动入口汇编代码示例
+
+[rCore-Tutorial-Code-2024S](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1)/[os](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os)/[src](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os/src)/entry.asm
+
+在裸机程序或操作系统的启动代码中，汇编语言常被用来设置最基本的执行环境，特别是在系统启动初期，当高级语言运行时尚未被初始化时。这段代码提供了一个很好的示例，说明如何从汇编语言准备和转交控制到一个用Rust编写的主程序。我们逐行分析这段代码，以便深入理解每一步的作用和意义。
+
+### 汇编代码解释
+
+```asm
+.section .text.entry
+.globl _start
+_start:
+    la sp, boot_stack_top
+    call rust_main
+```
+
+- `.section .text.entry`：此指令将下面的代码放入名为`.text.entry`的段中。这个名字通常用于指定程序的入口段，在链接脚本中特别引用，以确保这部分代码位于程序的起始位置。
+
+- `.globl _start`：这一行声明了`_start`标签为全局符号，使其在链接过程中对其他文件和模块可见。这是操作系统或裸机程序启动时的入口点。
+
+- `_start:`：这是实际的标签定义，表示从这里开始的指令是程序的开始点。
+
+- `la sp, boot_stack_top`：`la`（Load Address）指令将`boot_stack_top`的地址加载到堆栈指针`sp`中。这是在设置初始堆栈之前的关键步骤，为后续的程序运行准备堆栈空间。
+
+- `call rust_main`：调用名为`rust_main`的函数，这假定`rust_main`是用Rust编写的程序的入口点。这里的`call`指令不仅跳转到`rust_main`执行，还会将返回地址压栈，以便`rust_main`执行完成后可以正确返回。
+
+### 栈空间设置
+
+```asm
+.section .bss.stack
+.globl boot_stack_lower_bound
+boot_stack_lower_bound:
+    .space 4096 * 16
+.globl boot_stack_top
+boot_stack_top:
+```
+
+- `.section .bss.stack`：指定接下来的指令和数据位于名为`.bss.stack`的段。`BSS`段用于存放程序运行中需要的未初始化数据，这里用于定义堆栈。
+
+- `.globl boot_stack_lower_bound` 和 `.globl boot_stack_top`：这两行声明`boot_stack_lower_bound`和`boot_stack_top`为全局符号，使它们在链接过程中可见，并可以被其他模块引用。
+
+- `boot_stack_lower_bound:`：标记堆栈的开始地址。
+
+- `.space 4096 * 16`：为堆栈分配空间，这里分配的是`4096 * 16`字节，即64KB。`.space`指令在目标文件中为指定的字节数保留空间，但不初始化它们。
+
+- `boot_stack_top:`：标记堆栈的顶部地址。在`la sp, boot_stack_top`中被用来初始化堆栈指针`sp`。
+
+### 总结
+
+这段汇编代码是裸机程序启动流程中非常关键的一部分，它负责设置程序的初始执行环境，包括堆栈的初始化和程序的入口调用。通过精确控制堆栈和程序入口的设置，可以确保用Rust编写的内核或主程序能够在适当的环境下正确启动和运行。这样的启动代码桥接了硬件和高级语言编写的应用逻辑之间的差距，是操作系统和裸机程序设计中不可或缺的一环。
+
+---
+
+## 补充5：链接脚本示例 linker.ld
+
+这个链接脚本（[`linker.ld`](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/blob/ch1/os/src/linker.ld)，[rCore-Tutorial-Code-2024S ch1](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1) 的链接脚本）是针对基于RISC-V架构的裸机系统编写的。链接脚本的目的是指定程序中各个段（section）的布局和位置。接下来，我们将详细讲解并注释这个链接脚本的每一部分，以便更好地理解其功能和重要性。
+
+```ld
+OUTPUT_ARCH(riscv)
+ENTRY(_start)
+BASE_ADDRESS = 0x80200000;
+```
+
+- `OUTPUT_ARCH(riscv)`: 指定输出文件的目标架构为RISC-V。
+- `ENTRY(_start)`: 定义程序的入口点是`_start`函数。这是程序开始执行的地方。
+- `BASE_ADDRESS = 0x80200000;`: 设置基地址为`0x80200000`。这是内存中程序的起始地址，所有相对地址计算都将基于此地址。
+
+```ld
+SECTIONS
+{
+    . = BASE_ADDRESS;
+    skernel = .;
+```
+
+- `SECTIONS {`: 开始定义各个内存段的布局。
+- `.= BASE_ADDRESS;`: 将当前位置计数器（Location Counter，`.`）设置为`BASE_ADDRESS`，即`0x80200000`。
+- `skernel = .;`: 定义一个标签`skernel`，表示内核的开始地址，此时等于基地址。
+
+```ld
+    stext = .;
+    .text : {
+        *(.text.entry)
+        *(.text .text.*)
+    }
+```
+
+- `stext = .;`: 设置`stext`为当前位置，表示`.text`段的开始。
+- `.text : {`: 开始定义`.text`段，通常包含程序的执行代码。
+  - `*(.text.entry)`: 将名为`.text.entry`的所有段聚合到`.text`段中。这可能用于指定程序入口函数的位置。
+  - `*(.text .text.*)`: 将`.text`段和所有以`.text.`开头的段合并进来。
+
+```ld
+    . = ALIGN(4K);
+    etext = .;
+```
+
+- `. = ALIGN(4K);`: 将位置计数器向上对齐到4KB的边界，这是为了满足页对齐的需求。
+- `etext = .;`: 设置`etext`为当前位置，即`.text`段结束的位置。
+
+```ld
+    srodata = .;
+    .rodata : {
+        *(.rodata .rodata.*)
+        *(.srodata .srodata.*)
+    }
+```
+
+- `srodata = .;`: 设置`srodata`为当前位置，表示只读数据段（`.rodata`）的开始。
+- `.rodata : {`: 开始定义`.rodata`段，通常包含只读数据。
+  - `*(.rodata .rodata.*)`: 将`.rodata`段和所有以`.rodata.`开头的段合并进来。
+  - `*(.srodata .srodata.*)`: 同上，适用于以`.srodata`开头的段。
+
+```ld
+    . = ALIGN(4K);
+    erodata = .;
+    sdata = .;
+    .data : {
+        *(.data .data.*)
+        *(.sdata .sdata.*)
+    }
+```
+
+- `. = ALIGN(4K);`: 再次对齐到4KB边界。
+- `erodata = .;`: 标记`.rodata`段的结束位置。
+- `sdata = .;`: 设置`sdata`为当前位置，表示数据段（`.data`）的开始。
+- `.data : {`: 定义`.data`段，包含可写的初始化数据。
+  - `*(.data .data.*)`: 将`.data`段和所有以`.data.`开头的段合并进来。
+  - `*(.sdata .sdata.*)`: 同上，适用于以`.sdata`开头的段。
+
+```ld
+    . = ALIGN(4K);
+    edata = .;
+    .bss : {
+        *(.bss.stack)
+        sbss = .;
+        *(.bss .bss.*)
+        *(.sbss .sbss.*)
+    }
+```
+
+- `. = ALIGN(4K);`: 再次对齐到4KB边界。
+- `edata = .;`: 标记`.data`段的结束位置。
+- `.bss : {`: 定义`.bss`段，通常包含未初始化的数据。
+  - `*(.bss.stack)`: 特别地，将`.bss.stack`段聚合到`.bss`中。
+  - `sbss = .;`: 设置`sbss`为当前位置，即`.bss`段的开始。
+  - `*(.bss .bss.*)`: 将`.bss`段和所有以`.bss.`开头的段合并进来。
+  - `*(.sbss .sbss.*)`: 同上，适用于以`.sbss`开头的段。
+
+```ld
+    . = ALIGN(4K);
+    ebss = .;
+    ekernel = .;
+```
+
+- `. = ALIGN(4K);`: 最后一次对齐到4KB边界。
+- `ebss = .;`: 标记`.bss`段的结束位置。
+- `ekernel = .;`: 标记整个内核映像的结束位置。
+
+```ld
+    /DISCARD/ : {
+        *(.eh_frame)
+    }
+}
+```
+
+- `/DISCARD/ : {`: 定义一个丢弃段，用于指定不需要包含在最终二进制文件中的各种信息。
+  - `*(.eh_frame)`: 丢弃`.eh_frame`段，它通常用于异常处理，但在裸机环境中可能不需要。
+
+通过这个链接脚本，你可以精确地控制各个程序段在内存中的布局，这对于裸机编程和硬件交互至关重要。每个部分的配置都旨在确保程序能够按照硬件和应用需求正确地加载和执行。
+
+## 补充5½：链接脚本的关键知识点和概念详解
+
+#### 1. 内存段（Memory Segments）
+
+内存段是链接脚本中定义的各个部分，每个段对应程序的一部分，比如代码、数据或未初始化的数据。常见的段包括：
+
+- **.text段**：包含程序的机器代码，即实际执行的指令。
+- **.data段**：包含初始化的全局变量和静态变量。
+- **.bss段**：用于未初始化的全局变量和静态变量，这些变量在程序启动前被初始化为零。
+- **.rodata段**：包含只读数据，如字符串常量和其他常量数据。
+
+#### 2. 当前位置计数器（Location Counter）
+
+- 当前位置计数器（通常用`.`表示）是链接器用来跟踪当前内存地址的工具。在链接脚本中，可以通过设置`.`的值来控制段的放置位置。
+
+#### 3. 基地址（Base Address）
+
+- **基地址**是程序内存布局的起点。在链接脚本中通过设置基地址（如`BASE_ADDRESS`），可以确定程序被加载到内存中的起始位置。
+
+#### 4. 对齐到4KB的边界（Aligning to 4KB Boundaries）
+
+- **对齐**是确保内存段按照某个给定的内存地址对齐的过程。对齐通常用于满足处理器的页对齐需求，可以提高内存访问的效率。在RISC-V架构中，常见的对齐大小是4KB，这通常是内存管理单元（MMU）页的大小。
+
+#### 5. 程序入口（Entry Point）
+
+- **入口点**指定了程序开始执行的第一个函数或位置。在链接脚本中，通过`ENTRY`命令指定（如`ENTRY(_start)`），告诉链接器程序的执行从哪里开始。
+
+#### 6. 符号定义
+
+- 在链接脚本中，可以定义符号（如`etext`，`edata`）来标记某个特定的内存地址，这些符号可以在程序中被引用，以获取特定段的起始或结束位置。
+
+#### 7. 丢弃段（Discard Section）
+
+- **丢弃段**用于指定链接时应该被忽略的部分。这是一种优化，用于去除不必要的信息，减小生成的二进制文件的大小。在脚本中通过`/DISCARD/`段来实现。
+
+#### 8. 内核的开始和结束地址
+
+- 在操作系统或裸机程序中，经常需要明确内核的加载范围。通过在链接脚本中定义如`skernel`和`ekernel`这样的符号，可以精确地控制和知道内核的内存布局。
+
+### 实例解释
+
+在上述链接脚本中：
+
+- **.text段**：放置程序的执行代码，通过`*(.text.entry)`和`*(.text .text.*)`确保所有相关的代码都被包含。
+- **.rodata段**和**.data段**：分别包含只读数据和初始化的可写数据，这些数据按需求对齐以满足硬件或操作系统的页对齐要求。
+- **.bss段**：用于未初始化的数据，这部分数据在程序启动时由运行时代码清零。
+
+通过这些配置，开发者可以确保程序在内存中的布局符合特定的硬件和软件要求，这对于系统的性能和稳定性至关重要。
+
+### ---
 
 ### 相关词汇表
 

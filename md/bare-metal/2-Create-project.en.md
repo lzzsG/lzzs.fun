@@ -1,7 +1,5 @@
 # II. Creating a Project
 
-This step involves not only using Rust's package manager Cargo to initialize the project but also configuring the project to meet the special requirements of a bare-metal environment.
-
 ## Preface
 
 Creating a project is the first step in building any software project, especially in bare-metal programming involving specific hardware platforms, where this step is particularly crucial. In this phase, we'll use the Cargo tool to build a basic framework for our project, including the project's directory structure, configuration files, and some initial code files. We'll pay special attention to configuring the project to adapt to the special needs of a bare-metal environment, including choosing between a library or binary project, configuring properties unique to the bare-metal environment, and preparing startup code and other key activities.

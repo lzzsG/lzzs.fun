@@ -1,7 +1,5 @@
 # 二. 创建项目
 
-这一步不仅涉及到使用Rust的包管理器Cargo初始化项目，还包括配置项目以适应裸机环境的特殊需求。
-
 ## 前言
 
 创建项目是构建任何软件项目的第一步，尤其是在涉及到具体硬件平台的裸机编程时，这一步骤的重要性更是不言而喻。在这一阶段，我们将通过Cargo工具为我们的项目搭建起一个基本的框架，包括项目的目录结构、配置文件，以及一些初步的代码文件。我们将特别关注于配置项目以适应裸机环境的特殊需求，这包括选择库项目还是二进制项目、配置裸机环境特有的属性，以及准备启动代码等关键活动。
@@ -10,7 +8,7 @@
 
 通过在项目创建阶段做出明智的选择和配置，我们可以为项目的成功打下坚实的基础。这些早期的决策将确保我们的编译、链接，甚至是最终在目标平台上运行的过程，能够顺利进行。因此，尽管创建项目看似是一个简单的起点，但它实际上蕴含了整个开发流程的关键要素，需要我们给予充分的重视。
 
-> 所谓的【基于RISC-V和Rust进行裸机编程的通用流程】，是我为了方便自己学习理解，特意让GPT给出的，挑选总结后看上去比较像通用流程的版本🙂
+> 所谓的【基于RISC-V和Rust进行裸机编程的通用流程】，是我为了方便自己学习理解，特意让GPT给出的整理后看上去比较像通用流程的版本🙂
 
 ### 结构概览
 
@@ -28,7 +26,7 @@
 
 - **创建库项目**：裸机项目通常不使用Rust的标准库（std），因此推荐创建一个库项目（lib），而不是一个二进制项目（bin）。这可以通过Cargo命令轻松完成：
 
-  ```bash
+  ```powershell
   cargo new --lib project_name
   ```
 
@@ -425,6 +423,237 @@ rustflags = [
 这个配置指示编译器针对`riscv64gc-unknown-none-elf`目标，使用位于`src/linker.ld`的链接脚本，并强制启用帧指针（对于某些调试场景很有用）。
 
 链接脚本的具体语法和能力非常丰富，涵盖了从符号定义到各种段布局的精细控制，这为操作系统开发和高级裸机编程提供了强大的支持。感兴趣的开发者可以进一步探索GNU链接器（ld）的文档来深入了解链接脚本的全部功能。
+
+---
+
+## Cargo.toml
+
+**[rCore-Tutorial-Code-2024S ch1](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1)/[os](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os)/Cargo.toml**
+
+在Rust项目中，`Cargo.toml`是一个用于配置项目属性、依赖关系、构建设置和其他元数据的文件。这个文件是Cargo（Rust的包管理器和构建工具）的核心部分，用于指导如何构建项目。下面将逐部分解析`Cargo.toml`文件中的内容，并补充相关的知识点。
+
+### 文件内容解析
+
+```toml
+[package]
+name = "os"
+version = "0.1.0"
+authors = ["Yifan Wu <shinbokuow@163.com>"]
+edition = "2021"
+
+[dependencies]
+log = "0.4"
+
+[profile.release]
+debug = true
+```
+
+#### [package]
+
+- `name`: 定义了包的名称，这里为`os`。这个名称是项目在Cargo及其依赖系统中的唯一标识。
+- `version`: 指定了包的版本，遵循[语义化版本控制](https://semver.org/)（SemVer）规则。这里版本为`0.1.0`，表示这是一个初期开发阶段的版本。
+- `authors`: 列出了包的作者及其联系方式。这有助于识别谁负责项目，并可能用于版权声明或联系。
+- `edition`: 指定了Rust的版本，这里是`2021`版。Rust的版规定了编译器接受的代码特性和编译行为。选择更新的版通常提供更多的语言特性和改进。
+
+#### [dependencies]
+
+- `dependencies`节用于列出项目依赖的外部库。这里，项目依赖于`log`库的`0.4`版本，`log`是一个Rust社区广泛使用的日志记录接口。
+
+#### [profile.release]
+
+- `profile.release`配置了发布（release）构建的特定选项。
+- `debug = true`: 即便在发布构建中，通常不包含调试信息以优化运行时性能，这里通过设置`debug = true`来保留调试信息。这可以帮助在发布版本中进行问题诊断，但可能会增加最终二进制文件的大小。
+
+### 相关知识点补充
+
+#### Cargo.toml的作用
+
+`Cargo.toml`不仅用于定义基本的包信息和依赖，它还可以配置多个构建目标，包括库、二进制目标、测试和示例。这使得`Cargo.toml`成为管理和维护Rust项目结构的中心文件。
+
+#### 依赖管理
+
+Cargo处理依赖的方式提供了版本控制和兼容性保证。通过指定依赖的版本，Cargo可以确保构建的一致性，同时它的[版本兼容规则](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html)帮助管理依赖更新带来的风险。
+
+#### 构建配置
+
+Cargo支持多种[构建配置](https://doc.rust-lang.org/cargo/reference/profiles.html)，包括`dev`（默认的开发环境配置）和`release`（用于发布的配置，优化代码运行效率）。在`Cargo.toml`中配置这些属性可以精确控制编译过程，优化项目的开发和发布流程。
+
+总之，`Cargo.toml`是Rust项目中不可或缺的一部分，通过精确配置可以极大地提升项目的可管理性和构建效率。
+
+---
+
+## Makefile
+
+**[rCore-Tutorial-Code-2024S ch1](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1)/[os](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os)/Makefile**
+
+在Rust项目中，`Makefile`常用于自动化复杂的构建流程，尤其是在涉及多步骤编译、链接和其他自定义构建操作时。这个`Makefile`特别适用于裸机编程项目，比如基于RISC-V的操作系统。以下是对`Makefile`前半部分的详细解析，以及相关知识点的深入讲解。
+
+### Makefile 内容解析
+
+#### 变量定义
+```makefile
+# Building
+TARGET := riscv64gc-unknown-none-elf
+MODE := release
+KERNEL_ELF := target/$(TARGET)/$(MODE)/os
+KERNEL_BIN := $(KERNEL_ELF).bin
+DISASM_TMP := target/$(TARGET)/$(MODE)/asm
+```
+
+- `TARGET`: 指定了交叉编译目标，`riscv64gc-unknown-none-elf`表示这是一个针对RISC-V架构的裸机环境的目标。
+- `MODE`: 编译模式，这里设置为`release`，意味着构建将进行优化以提高执行效率。
+- `KERNEL_ELF`和`KERNEL_BIN`: 分别定义了内核的ELF格式文件和二进制文件的路径。
+- `DISASM_TMP`: 用于存放汇编输出的临时文件路径。
+
+```makefile
+# Building mode argument
+ifeq ($(MODE), release)
+	MODE_ARG := --release
+endif
+```
+
+- 这部分根据`MODE`变量的值来设置`MODE_ARG`。如果是`release`模式，则添加`--release`选项，这会影响Cargo的构建命令。
+
+#### 开发板和引导加载器配置
+```makefile
+# BOARD
+BOARD := qemu
+SBI ?= rustsbi
+BOOTLOADER := ../bootloader/$(SBI)-$(BOARD).bin
+```
+
+- `BOARD`和`SBI`: 分别设置开发板为QEMU模拟器和使用RustSBI作为SBI实现。`SBI`前的`?=`表示如果环境中未设置`SBI`变量，则默认使用`rustsbi`。
+- `BOOTLOADER`: 定义了引导加载器文件的路径。
+
+#### 内核入口地址和Binutils工具
+```makefile
+# KERNEL ENTRY
+KERNEL_ENTRY_PA := 0x80200000
+
+# Binutils
+OBJDUMP := rust-objdump --arch-name=riscv64
+OBJCOPY := rust-objcopy --binary-architecture=riscv64
+```
+
+- `KERNEL_ENTRY_PA`: 内核入口的物理地址。
+- `OBJDUMP`和`OBJCOPY`: 使用Rust提供的二进制工具来处理目标文件。这些工具配置为支持RISC-V架构。
+
+#### 构建规则
+```makefile
+# Disassembly
+DISASM ?= -x
+
+build: env $(KERNEL_BIN)
+
+env:
+	(rustup target list | grep "riscv64gc-unknown-none-elf (installed)") || rustup target add $(TARGET)
+	cargo install cargo-binutils
+	rustup component add rust-src
+	rustup component add llvm-tools-preview
+
+$(KERNEL_BIN): kernel
+	@$(OBJCOPY) $(KERNEL_ELF) --strip-all -O binary $@
+```
+
+- `build`: 主构建目标，依赖于`env`和`$(KERNEL_BIN)`。确保环境设置完成并且内核二进制文件被创建。
+- `env`: 检查是否安装了目标架构的支持，如果没有则安装。同时安装`cargo-binutils`，添加`rust-src`和`llvm-tools-preview`组件，这些是构建和分析过程中需要的工具。
+- `$(KERNEL_BIN)`: 依赖于`kernel`目标，使用`objcopy`命令将ELF格式的内核文件转换为二进制格式，并移除所有符号信息以减小文件大小。
+
+下面详细解释`Makefile`后半部分的各个部分和目标，这些规则为Rust基于RISC-V的裸机项目提供了构建、清理、反汇编、运行和调试的自动化支持。
+
+### 各目标任务解析
+
+#### kernel
+```makefile
+kernel:
+	@echo Platform: $(BOARD)
+	@cargo build $(MODE_ARG)
+```
+- `kernel`: 这个目标负责触发Cargo的构建流程。
+- `@echo Platform: $(BOARD)`: 显示当前选定的开发板，这有助于在执行构建时确认正在使用的配置。
+- `@cargo build $(MODE_ARG)`: 使用Cargo构建项目，`$(MODE_ARG)`根据是否为release模式传递`--release`标志，实现优化构建。
+
+#### clean
+```makefile
+clean:
+	@cargo clean
+```
+- `clean`: 清理由Cargo创建的所有构建文件和目标，使项目恢复到未构建状态，非常适合在重新构建前清除旧文件。
+
+#### disasm 和 disasm-vim
+```makefile
+disasm: kernel
+	@$(OBJDUMP) $(DISASM) $(KERNEL_ELF) | less
+
+disasm-vim: kernel
+	@$(OBJDUMP) $(DISASM) $(KERNEL_ELF) > $(DISASM_TMP)
+	@vim $(DISASM_TMP)
+	@rm $(DISASM_TMP)
+```
+- `disasm`: 生成内核的反汇编输出，并通过`less`进行查看。这对理解程序结构和调试非常有用。
+- `disasm-vim`: 与`disasm`类似，但输出被重定向到临时文件，然后用`vim`打开该文件以便可以使用`vim`的编辑和查看功能。完成后，临时文件被删除。
+
+#### run 和 run-inner
+```makefile
+run: run-inner
+
+run-inner: build
+	@qemu-system-riscv64 \
+		-machine virt \
+		-nographic \
+		-bios $(BOOTLOADER) \
+		-device loader,file=$(KERNEL_BIN),addr=$(KERNEL_ENTRY_PA)
+```
+- `run`和`run-inner`: 这两个目标负责在QEMU模拟器中启动构建的内核。
+- `qemu-system-riscv64`: 使用QEMU的RISC-V系统模拟器启动内核。
+- `-machine virt`: 指定虚拟机的类型。
+- `-nographic`: 以无图形模式运行，适用于没有图形界面的环境。
+- `-bios $(BOOTLOADER)`: 指定引导加载器文件。
+- `-device loader,file=$(KERNEL_BIN),addr=$(KERNEL_ENTRY_PA)`: 将编译后的内核二进制文件加载到内存的指定地址处。
+
+#### debug
+```makefile
+debug: build
+	@tmux new-session -d \
+		"qemu-system-riscv64 -machine virt -nographic -bios $(BOOTLOADER) -device loader,file=$(KERNEL_BIN),addr=$(KERNEL_ENTRY_PA) -s -S" && \
+		tmux split-window -h "riscv64-unknown-elf-gdb -ex 'file $(KERNEL_ELF)' -ex 'set arch riscv:rv64' -ex 'target remote localhost:1234'" && \
+		tmux -2 attach-session -d
+```
+- `debug`: 使用tmux和GDB来启动一个调试会话。
+- `-s -S`: 让QEMU在启动时等待GDB连接，并打开一个GDB服务器。
+- `riscv64-unknown-elf-gdb`: 启动GDB并连接到QEMU。
+
+#### gdbserver 和 gdbclient
+```makefile
+gdbserver: build
+	@qemu-system-riscv64 -machine virt -nographic -bios $(BOOTLOADER) -device loader,file=$(KERNEL_BIN),addr=$(KERNEL_ENTRY_PA) -s -S
+
+gdbclient:
+	@riscv64-unknown-elf-gdb -ex 'file $(KERNEL_ELF)' -ex 'set arch riscv:rv64' -ex 'target remote localhost:1234'
+```
+- `gdbserver`: 单独启动带有GDB服务器的QEMU实例。
+- `
+
+gdbclient`: 单独启动GDB并连接到已经运行的GDB服务器。
+
+#### .PHONY
+```makefile
+.PHONY: build env kernel clean disasm disasm-vim run-inner gdbserver gdbclient
+```
+- `.PHONY`: 指明这些目标不是实际文件，确保即使存在同名文件，make也会执行相应的规则。
+
+这个`Makefile`为复杂的构建和调试过程提供了自动化的管理，极大地简化了RISC-V裸机项目的开发流程。
+
+### 相关知识点补充
+
+使用`Makefile`的好处包括但不限于：
+- **自动化复杂流程**：可以将编译、链接、转换格式等多个步骤集成在一个或多
+
+个Make命令中，减少手动操作错误。
+- **依赖管理**：Make可以自动处理文件依赖关系，仅重新构建改动的部分。
+- **参数化构建**：通过变量和条件判断，可以轻松调整构建过程，适应不同的构建环境和需求。
+
+`Makefile`在管理复杂项目中提供了强大的构建自动化支持，特别适用于涉及多语言和多工具链的嵌入式系统和裸机项目开发。
 
 ---
 

@@ -1,5 +1,7 @@
 # About Bare-Metal Programming
 
+
+
 - [Bare Metal - 0 About bare metal programming](0-About-bare-metal-programming)
 - [Bare Metal - 1 Development environment setup](1-Development-environment-setup)
 - [Bare Metal - 2 Create project](2-Create-project)
@@ -7,36 +9,57 @@
 - [Bare Metal - 4 Writing the main program](4-Writing-the-main-program)
 - [Bare Metal - 4½ Supplement for the main program of operating systems](4½-Supplement-for-the-main-program-of-operating-systems)
 
+
+
+## Introduction
+
+This series is designed to provide beginners with a comprehensive and integrated perspective, delving into the entire process of bare-metal programming. Our focus will be on the framework of the process rather than the intricate details of specific bare-metal program designs. Bare-metal programming might seem particularly complex and obscure for beginners, especially starting from setting up the development environment, as the entire process has significant differences from traditional software programming. Hands-on practice is a part of learning, but merely following tutorials to complete projects often isn't enough for beginners to gain a clear understanding of bare-metal programming.
+
+Therefore, this series has been designed to systematically introduce the key stages of bare-metal programming, from setting up the environment and writing code to deploying and debugging programs. Each part aims to gradually reveal the inherent logic and necessary techniques of bare-metal programming, helping beginners progressively build an understanding and confidence in this field.
+
+In addition, we will explore some fundamental theories and practical strategies related to bare-metal programming, such as memory management, direct control of hardware interfaces, and how to handle interactions between hardware and software. By elucidating these key concepts, beginners will not only learn how to operate bare-metal programs but also understand the principles and strategies behind them.
+
+Through this series of articles, you should be able to not only grasp the operational methods of bare-metal programming but, more importantly, understand its underlying principles and logic. This foundation will prepare you for more complex hardware programming environments in the future. This series will be a steadfast companion on your journey of learning bare-metal programming, helping you gradually unlock more technical thresholds and enhance your mastery and confidence in this field.## Introduction
+
+This series is designed to provide beginners with a comprehensive and integrated perspective, delving into the entire process of bare-metal programming. Our focus will be on the framework of the process rather than the intricate details of specific bare-metal program designs. Bare-metal programming might seem particularly complex and obscure for beginners, especially starting from setting up the development environment, as the entire process has significant differences from traditional software programming. Hands-on practice is a part of learning, but merely following tutorials to complete projects often isn't enough for beginners to gain a clear understanding of bare-metal programming.
+
+Therefore, this series has been designed to systematically introduce the key stages of bare-metal programming, from setting up the environment and writing code to deploying and debugging programs. Each part aims to gradually reveal the inherent logic and necessary techniques of bare-metal programming, helping beginners progressively build an understanding and confidence in this field.
+
+In addition, we will explore some fundamental theories and practical strategies related to bare-metal programming, such as memory management, direct control of hardware interfaces, and how to handle interactions between hardware and software. By elucidating these key concepts, beginners will not only learn how to operate bare-metal programs but also understand the principles and strategies behind them.
+
+Through this series of articles, you should be able to not only grasp the operational methods of bare-metal programming but, more importantly, understand its underlying principles and logic. This foundation will prepare you for more complex hardware programming environments in the future. This series will be a steadfast companion on your journey of learning bare-metal programming, helping you gradually unlock more technical thresholds and enhance your mastery and confidence in this field.
+
 > Note! The vast majority of this series' content comes from questions asked to ChatGPT. ChatGPT might make mistakes. Please consider verifying important information. This series' content is for reference and understanding only; for more specific learning, refer to authoritative materials. 2024-04
 
 ## 1. Explaining Bare-Metal Programming
 
-Bare-metal programming refers to writing software that runs directly on hardware, without going through an operating system or any abstraction layers. This type of programming is commonly used in embedded systems, gaming consoles, dedicated computing devices, or other scenarios requiring direct hardware control. Without the assistance of an operating system, developers need to have a deep understanding of hardware details, including processor architecture, memory management, and peripheral control. Below, I will explain some key concepts and challenges in detail.
+Bare-metal programming is a method of programming that runs directly on hardware without the support of a traditional operating system. This style of programming is widely used in embedded systems, microcontrollers, and applications requiring high optimization and precise hardware control. Bare-metal programming allows developers to fully utilize hardware performance and achieve direct and complete control over hardware resources.
 
-### 1.1 Understanding Hardware
+### Characteristics of Bare-metal Programming
 
-- **Processor Architecture**: Developers need to understand the instruction set architecture (ISA) of their target processor, such as ARM, x86, or RISC-V, etc. This includes knowing how to use various processor instructions to perform computations, manage memory access, and control peripherals.
-- **Memory Management**: In the absence of an operating system, developers need to manage physical memory directly. This involves precise control over memory allocation, layout, and protection strategies, as well as understanding different types of memory (such as RAM, ROM, cache) and their characteristics.
-- **Peripheral Control**: Directly controlling peripherals by reading and writing hardware registers, such as GPIO (General Purpose Input/Output ports), ADC (Analog to Digital Converters), communication interfaces (like SPI, I2C), etc.
+1. **Direct Hardware Manipulation**: The program interacts directly with hardware interfaces, bypassing the abstraction layer of the operating system.
+2. **Efficiency**: Since operating systems are omitted, bare-metal programs can achieve higher execution efficiency and response speeds.
+3. **Resource Control**: Developers must manually manage all hardware resources, including memory allocation and peripheral control.
+4. **Customization**: Hardware usage and program behavior can be customized based on specific needs.
 
-### 1.2 Development Tools
+### Applications of Bare-metal Programming
 
-- **Cross-Compiler**: Used to compile code into machine code for the target hardware platform. For example, if you are developing for an ARM architecture embedded system on an x86 architecture computer, you need a cross-compiler that compiles code into ARM machine code.
-- **Debugger**: Hardware debuggers (such as JTAG or SWD interfaces) allow developers to step through code, set breakpoints, and inspect memory/register states on the actual hardware, which is crucial for discovering and fixing low-level issues.
+Bare-metal programming is primarily used in environments where performance requirements are extremely high or resources are very limited. For example, in aerospace, automotive electronics, and industrial control fields, bare-metal programming enables devices to respond quickly to external events, ensuring system real-time performance and reliability. Additionally, considering hardware costs and energy consumption, many portable devices and smart sensors also use bare-metal programming to optimize performance and power consumption.
 
-### 1.3 Programming Challenges
+### Challenges of Bare-metal Programming
 
-- **Bootloader**: On bare-metal, the first piece of code that runs is responsible for initializing hardware (like setting up the clock system, memory controller) and jumping to the main application. This is often referred to as the bootloader or boot firmware.
-- **Resource Management**: Developers need to manually manage all hardware resources, such as timers, interrupts, and memory. This requires the ability to write efficient and reliable code to avoid resource conflicts and leaks.
-- **Real-Time Requirements**: Many bare-metal systems need to meet real-time requirements, meaning the software must respond to events within a given time limit. Developers must carefully design their programs to ensure they meet these strict timing constraints.
+Although bare-metal programming provides high efficiency and control capabilities, it also presents several challenges:
+- **High Complexity**: Developers need to have an in-depth understanding of the hardware, including the internal structure of processors and detailed specifications of peripherals.
+- **Difficult Debugging**: Without the error handling and debugging tools provided by operating systems, all error detection and debugging must be implemented by the developers themselves.
+- **Maintenance Cost**: Direct hardware manipulation makes the code more susceptible to changes in hardware, leading to increased maintenance costs.
 
-### 1.4 Programming Languages
+### How to Start with Bare-metal Programming
 
-While theoretically any language can be used for bare-metal programming, C is most commonly used because it provides direct control over hardware while also allowing for relatively easy high-level abstraction. Assembly language is also often used for performance-critical or highly optimized sections of code.
-
-In summary, bare-metal programming is a complex but exciting task that requires developers to have a deep understanding and direct control of the hardware they are using. This programming method allows developers to optimize the performance and resource use of their applications to the maximum extent, but it also brings higher complexity and development difficulty.
-
----
+Before starting bare-metal programming, it is necessary to choose the appropriate hardware platform and development tools. Typically, this includes:
+- **Choosing the Right Microcontroller or Processor**: Select a chip that supports bare-metal programming based on application requirements.
+- **Setting Up the Development Environment**: Install necessary compilers, linkers, and debuggers.
+- **Writing Boot Code**: Implement hardware initialization and the program entry point.
+- **Developing Application Logic**: Write code that directly controls the hardware based on project needs.
 
 ## 2. A General Process for Bare-Metal Programming with RISC-V and Rust
 
@@ -78,4 +101,6 @@ Convert the linked executable file into a format suitable for loading on the tar
 
 The final step is to upload the generated image file to the target RISC-V hardware or run it through an emulator. This may involve using specific tools or commands, as well as setting up communications with the hardware. Successfully running the image file means the software can execute predetermined operations on the hardware without operating system support.
 
-Through this comprehensive process, we can see that bare-metal programming not only requires a deep understanding of the hardware but also demands that developers precisely control every step of the program's execution, ensuring the program can run efficiently and stably in an environment without operating system support.
+From setting up the development environment to ultimately running the program on the target platform, this process covers all the key steps of bare-metal programming, including environment setup, project creation, code writing, compilation, linking, image generation, and deployment and execution on hardware.
+
+In the upcoming series of explanations, we will delve deeper into each step, helping everyone better understand and master the relevant knowledge and skills in bare-metal programming. Through this series of in-depth discussions, you will gain a better understanding of how to interact directly with hardware in an environment without operating system support, completing complex programming tasks. We hope that through these explanations, everyone can deepen their understanding of bare-metal programming and enhance their technical skills.

@@ -4,43 +4,67 @@
 
   >This section does not provide specific details on setting up the development environment but rather gives a general description of the process for basic understanding. For detailed information, please refer to experimental reference books and official documentation.
 
-  Setting up a development environment for bare-metal programming with RISC-V and Rust is foundational to the entire development process. It includes installing necessary software tools, configuring compilation targets, and understanding the basic use of development tools. This step not only lays the foundation for subsequent programming work but also relates to development efficiency and the convenience of program debugging. Below, key knowledge points and tools in this step are detailed.
 
-### 1. Installing the Rust Programming Environment
 
-- **Rustup**: Installation and version management of Rust is typically done through rustup. Rustup simplifies the installation of the Rust programming language and related tools, while also facilitating the management of different Rust versions and cross-compilation toolchains for various target architectures.
-- **Key Point**: Familiarize yourself with basic rustup commands, such as `rustup update` to update the Rust version, and `rustup target add` to add a new compilation target.
+Setting up a development environment for bare-metal programming based on RISC-V and Rust is a crucial first step in the entire development process. This step not only lays the foundation for subsequent programming work but also directly affects the efficiency of development and the convenience of program debugging. Understanding and configuring the correct tools and environment are essential for successfully developing bare-metal applications. Below is a detailed introduction to the key knowledge points and tools in this step, as well as the specific reasons for making these settings.
 
-### 2. Configuring the RISC-V Target Architecture
+## 1. Install Rust Programming Environment
 
-- **Cross-Compilation Target**: To support the RISC-V architecture, the Rust compiler needs to have the corresponding target architecture added. There are several variants of RISC-V (such as RV32I, RV64GC, etc.), and selecting the correct target architecture for your hardware or emulator is important.
-- **Key Point**: Get acquainted with Rust's target architecture naming conventions, for example, `riscv64gc-unknown-none-elf` represents a generic RISC-V 64-bit target with GC (i.e., G and C extensions for integer multiplication and division, and compressed instructions).
+**Tool: Rustup**
 
-### 3. Installing the Cross-Compilation Toolchain
+- **Functionality**: Rustup is the installation and version management tool for Rust. Through Rustup, developers can easily install the Rust programming language and its related tools while managing different versions of Rust and cross-compilation toolchains for various target architectures.
+- **Knowledge Points**: Familiarity with the basic commands of Rustup is crucial, such as using `rustup update` to update the Rust version and `rustup target add` to add a new compilation target.
+- **Reason**: The main reason for using Rustup to install and manage the Rust environment is that it offers a unified and convenient way to handle the complexities of multiple versions and multiple platforms, which is crucial for developing and testing on different hardware.
 
-- **RISC-V GNU Toolchain**: Although Rust can generate target machine code, linking to produce the final executable often requires an external toolchain, such as the RISC-V GNU Compiler Toolchain, which provides compilers, assemblers, linkers, and other tools.
-- **Key Point**: Learn how to install and configure the RISC-V GNU toolchain and how to integrate it with Rust's cross-compilation process.
+## 2. Configure RISC-V Target Architecture
 
-### 4. Using Emulators or Hardware Tools
+**Tool: Cross-compilation target**
 
-- **QEMU**: As a commonly used hardware emulator, QEMU can simulate RISC-V architecture, allowing developers to develop and test without physical RISC-V hardware.
-- **Key Point**: Learn how to use QEMU to run and debug RISC-V programs, understanding the capabilities of QEMU in supporting RISC-V architecture and simulating peripherals.
+- **Functionality**: To support the RISC-V architecture, it is necessary to add the corresponding target architecture to the Rust compiler. Since RISC-V has several variants (such as RV32I, RV64GC, etc.), choosing the correct target architecture that matches your hardware or simulator is very important.
+- **Knowledge Points**: Understanding Rust's target architecture naming convention is key, for example, `riscv64gc-unknown-none-elf` indicates a generic RISC-V 64-bit target, which includes the GC (integer multiplication and division, and compressed instructions).
+- **Reason**: Correct configuration of the target architecture ensures that the compiled code will run correctly on the specified hardware, avoiding failures due to hardware incompatibilities, thereby improving development efficiency and reliability.
 
-### 5. Editor and IDE Configuration
+## 3. Install Cross-Compilation Toolchain
 
-- **Visual Studio Code**: VS Code is a popular editor that supports Rust language and RISC-V development. By installing Rust plugins (such as rust-analyzer) and configuring appropriate build tasks, development efficiency can be enhanced.
-- **Key Point**: Master how to configure VS Code to support development with the Rust language and RISC-V target architecture, including syntax highlighting, code completion, error prompts, and setting up compile tasks.
+**Tool: RISC-V GNU Toolchain**
 
-### 6. Debugging Tools
+- **Functionality**: Although Rust can generate target machine code, linking to produce the final executable often requires an external toolchain, such as the RISC-V GNU Compiler Toolchain. This toolchain provides compilers, assemblers, and linkers.
+- **Knowledge Points**: It is crucial to master how to install and configure the RISC-V GNU toolchain and understand how to integrate it with Rust's cross-compilation process.
+- **Reason**: The purpose of installing the cross-compilation toolchain is to ensure that Rust code can be effectively transformed into machine code that can run on the target architecture. Additionally, the external toolchain provides more detailed control over the underlying hardware features, which is necessary for bare-metal programming because it can optimize program performance and resource use, ensuring that the generated code can make the most of the hardware's features.
 
-- **GDB**: The GNU Debugger (GDB) supports the RISC-V architecture and can be used for debugging bare-metal programs. Combined with hardware debuggers (such as JTAG interfaces) or emulators (such as QEMU), GDB can provide powerful debugging capabilities.
-- **Key Point**: Familiarize yourself with basic commands and techniques for cross-debugging with GDB, understanding how to set breakpoints, inspect registers and memory, step through execution, and view the program flow.
+## 4. Use Simulators or Hardware Tools
 
-  Through the learning of the above steps and knowledge points, developers will not only be able to set up a fully functional development environment but also effectively carry out the writing, compilation, debugging, and testing of bare-metal programs. Although the process of setting up this environment might seem complex at first glance, it lays a solid foundation for delving into bare-metal programming with RISC-V and Rust.
+**Tool: QEMU**
 
-  ---
+- **Functionality**: QEMU is a widely used hardware simulator that can emulate various hardware architectures, including RISC-V. This allows developers to develop and test programs even without physical RISC-V hardware.
+- **Knowledge Points**: Learning how to use QEMU to run and debug RISC-V programs is a basic skill, and it is also necessary to understand the RISC-V architecture features and peripheral simulation capabilities supported by QEMU.
+- **Reason**: The main reason for using the QEMU simulator is that it provides a cost-effective and flexible development environment, allowing developers to verify and optimize their code before purchasing real hardware. This not only saves costs but also helps identify and solve potential problems in advance.
 
-  Now, let's once again outline the overall process of using these tools in conjunction:
+## 5. Editor and IDE Configuration
+
+**Tool: Visual Studio Code** (as an example recommendation)
+
+- **Functionality**: VS Code is a popular editor that supports the Rust language and RISC-V development. By installing Rust plugins like rust-analyzer and configuring appropriate compilation tasks, development efficiency can be significantly improved.
+- **Knowledge Points**: Mastering how to configure VS Code to support Rust language and RISC-V target architecture development is crucial, including setting up syntax highlighting, code completion, error prompts, and compilation tasks.
+- **Reason**: The reason for choosing VS Code as the development environment is its extensive plugin ecosystem and high customizability, which allows it to adapt to various programming needs and workflows, thereby enhancing the efficiency of code writing and maintenance.
+
+## 6. Debugging Tools
+
+**Tool: GDB**
+
+- **Functionality**: GNU Debugger (GDB) supports the RISC-V architecture and can be used for debugging bare-metal programs. Combined with hardware debuggers (such as JTAG interfaces) or simulators (like QEMU), GDB can provide powerful debugging capabilities.
+- **Knowledge Points**: Familiarity with the basic commands and techniques for cross-debugging using G
+
+DB is crucial, including setting breakpoints, checking registers and memory, stepping through the program, and viewing the program's execution flow.
+- **Reason**: The main reason for using GDB for program debugging is its powerful functionality and broad applicability, which helps developers precisely locate errors and performance bottlenecks in programs, thereby improving code quality and stability.
+
+Through the configuration of the above steps and tools, developers can not only set up a fully functional development environment but also effectively carry out the writing, compilation, debugging, and testing of bare-metal programs. Although the process of setting up this environment may seem complex, it provides a solid foundation for a deeper understanding of bare-metal programming with RISC-V and Rust, thus supporting more advanced development and innovative activities.
+
+For beginners, although it is necessary to understand the above development tools and environment settings, there is no need to rush to prepare everything at the start. In fact, based on your learning progress and project needs, gradually installing the required parts and corresponding versions is often more efficient. Adjust and optimize your development environment as needed during the experimentation process to better fit the actual application scenario. Additionally, as you gradually deepen your understanding of bare-metal programming through reading this series, you will be able to more clearly identify which tools and configurations are necessary, thus making more purposeful choices and installations.
+
+---
+
+Now, let's once again outline the overall process of using these tools in conjunction:
 
 ### Development Environment Setup Process
 
@@ -61,16 +85,7 @@
   6. **Learn and Configure Debugging Tools**:
      - Get familiar with GDB or other debugging tools suitable for RISC-V, learning how to debug programs on emulators or actual hardware.
 
-### The Significance of Using These Tools Together
-
-- These tools and steps together form the infrastructure for RISC-V bare-metal programming, making it possible to go from writing code to running and debugging the program.
-- **While writing code**, Rust's syntax and type system provide safety and efficiency, while editor and IDE plugins offer syntax highlighting, code completion, and error prompts, improving development efficiency.
-- **During compilation and program building**, Rust's cross-compilation functionality and the RISC-V GNU toolchain work together to generate machine code for the target architecture.
-- **For running and debugging the program**, simulators or hardware tools, along with debugging tools like GDB, enable developers to test, run, and debug their programs, even in environments without an operating system.
-
-  As readers gradually delve deeper into the use of this series of tools and processes, they will become more comfortable with bare-metal programming based on RISC-V and Rust. In subsequent content, we will continue to explain in detail the use of these tools and their roles in the actual development process, helping readers build a complete knowledge system and skill framework.
-
-  ---
+---
 
 ## Glossary 1
 

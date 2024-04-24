@@ -38,7 +38,7 @@ Setting `panic = "abort"` helps reduce the compiled code size, while `lto` (Link
 
 Use the `cargo build` command to compile, ensuring the correct target architecture is specified. The command is as follows:
 
-```bash
+```powershell
 cargo build --target=riscv64gc-unknown-none-elf --release
 ```
 

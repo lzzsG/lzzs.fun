@@ -30,7 +30,7 @@
     "lzzsfunAbout": "The source code of this website may be a static website series in the future, although the author is very amateur.",
     "MITAbout": "MIT Electrical Engineering and Computer Science Course Notes Series (MIT6.004 Computational Structures, MIT6.175 Constructive Computer Architecture, MIT6.375 Complex Digital Systems)",
     "175LabInsAbout": "6.175 Translation of Laboratory Instructions Chinese and English",
-    "MdbookSeries": "Mdbook Series",
+    "MdbookSeries": "Rust/Mdbook Series",
     "quote": "The only way to do great work is to love what you do.",
     "items": [
         {
@@ -54,7 +54,7 @@
     "showTOC": "Show TOC",
     "bareMetal": "About Bare Metal Programming",
     "WhatToOut": {
-        "title": "Markdown typesetting - What to expect next: a Markdown typography journey deep into daisyUI and tailwindcss",
+        "title": "Markdown typesetting - What to expect next",
         "description": "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
     },
     "bareMetal.0-About-bare-metal-programming": {

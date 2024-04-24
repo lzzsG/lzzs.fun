@@ -1,15 +1,15 @@
 # About Bare-Metal Programming
 
-
-
 - [Bare Metal - 0 About bare metal programming](0-About-bare-metal-programming)
 - [Bare Metal - 1 Development environment setup](1-Development-environment-setup)
 - [Bare Metal - 2 Create project](2-Create-project)
 - [Bare Metal - 3 Writing boot code](3-Writing-boot-code)
 - [Bare Metal - 4 Writing the main program](4-Writing-the-main-program)
 - [Bare Metal - 4½ Supplement for the main program of operating systems](4½-Supplement-for-the-main-program-of-operating-systems)
-
-
+- [Bare Metal - 5 Compiling code](5-Compiling-code)
+- [Bare Metal - 6 Linking code](6-Linking-code)
+- [Bare Metal - 7 Generating image files](7-Generating-image-files)
+- [Bare Metal - 8 Running on the target platform](8-Running-on-the-target-platform)
 
 ## Introduction
 
@@ -49,6 +49,7 @@ Bare-metal programming is primarily used in environments where performance requi
 ### Challenges of Bare-metal Programming
 
 Although bare-metal programming provides high efficiency and control capabilities, it also presents several challenges:
+
 - **High Complexity**: Developers need to have an in-depth understanding of the hardware, including the internal structure of processors and detailed specifications of peripherals.
 - **Difficult Debugging**: Without the error handling and debugging tools provided by operating systems, all error detection and debugging must be implemented by the developers themselves.
 - **Maintenance Cost**: Direct hardware manipulation makes the code more susceptible to changes in hardware, leading to increased maintenance costs.
@@ -56,6 +57,7 @@ Although bare-metal programming provides high efficiency and control capabilitie
 ### How to Start with Bare-metal Programming
 
 Before starting bare-metal programming, it is necessary to choose the appropriate hardware platform and development tools. Typically, this includes:
+
 - **Choosing the Right Microcontroller or Processor**: Select a chip that supports bare-metal programming based on application requirements.
 - **Setting Up the Development Environment**: Install necessary compilers, linkers, and debuggers.
 - **Writing Boot Code**: Implement hardware initialization and the program entry point.
@@ -105,11 +107,7 @@ From setting up the development environment to ultimately running the program on
 
 In the upcoming series of explanations, we will delve deeper into each step, helping everyone better understand and master the relevant knowledge and skills in bare-metal programming. Through this series of in-depth discussions, you will gain a better understanding of how to interact directly with hardware in an environment without operating system support, completing complex programming tasks. We hope that through these explanations, everyone can deepen their understanding of bare-metal programming and enhance their technical skills.
 
-
-
 ---
-
-
 
 ### Reference Materials
 
@@ -129,6 +127,6 @@ In the upcoming series of explanations, we will delve deeper into each step, hel
 
 【2024-04-24】 Added  Bare Metal 5-8，Code tree explanation
 
-【2024-04-07】 Added  Bare Metal 4-4½ 
+【2024-04-07】 Added  Bare Metal 4-4½
 
 【2024-04-06】 Added Bare Metal 0-3

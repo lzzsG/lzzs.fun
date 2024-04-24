@@ -104,3 +104,21 @@ The final step is to upload the generated image file to the target RISC-V hardwa
 From setting up the development environment to ultimately running the program on the target platform, this process covers all the key steps of bare-metal programming, including environment setup, project creation, code writing, compilation, linking, image generation, and deployment and execution on hardware.
 
 In the upcoming series of explanations, we will delve deeper into each step, helping everyone better understand and master the relevant knowledge and skills in bare-metal programming. Through this series of in-depth discussions, you will gain a better understanding of how to interact directly with hardware in an environment without operating system support, completing complex programming tasks. We hope that through these explanations, everyone can deepen their understanding of bare-metal programming and enhance their technical skills.
+
+
+
+---
+
+
+
+### Reference Materials
+
+#### 1. rCore-Tutorial-Guide-2024S Document
+
+- **Description**: This tutorial demonstrates how to write a **Unix-like kernel** from scratch using the **Rust** language on the **RISC-V** architecture. It serves as experimental guidance for the operating system course in the spring semester of 2024.
+- **Link**: [rCore-Tutorial-Guide-2024S Document](https://learningos.cn/rCore-Tutorial-Guide-2024S/index.html)
+
+#### 2. rCore-Tutorial-Book-v3 3.6.0-alpha.1 Document
+
+- **Description**: This tutorial aims to step by step illustrate how to write a **Unix-like kernel** from scratch using the **Rust** language on the **RISC-V** architecture. It's worth noting that this project not only supports simulator environments (such as Qemu/terminus, etc.) but also supports running on real hardware platform Kendryte K210 (currently maintained mainly on the [k210](https://github.com/rcore-os/rCore-Tutorial-v3/tree/k210/) branch of the rCore-Tutorial-v3 repository).
+- **Link**: [rCore-Tutorial-Book-v3 3.6.0-alpha.1 Document](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html#)

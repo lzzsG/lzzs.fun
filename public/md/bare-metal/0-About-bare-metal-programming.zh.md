@@ -107,3 +107,12 @@
 - **描述**: 这本教程旨在一步一步展示如何 **从零开始** 用 **Rust** 语言写一个基于 **RISC-V** 架构的 **类 Unix 内核** 。值得注意的是，本项目不仅支持模拟器环境（如 Qemu/terminus 等），还支持在真实硬件平台 Kendryte K210 上运行（目前主要在 rCore-Tutorial-v3 仓库的 [k210](https://github.com/rcore-os/rCore-Tutorial-v3/tree/k210/) 分支上维护）。
 - **链接**: [rCore-Tutorial-Book-v3 3.6.0-alpha.1 文档](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html#)
 
+---
+
+### 历史记录
+
+【2024-04-24】 Added  Bare Metal 5-8，Code tree explanation
+
+【2024-04-07】 Added  Bare Metal 4-4½ 
+
+【2024-04-06】 Added Bare Metal 0-3

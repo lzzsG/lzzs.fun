@@ -1,13 +1,15 @@
 # 关于裸机编程
 
-
-
 - [裸机编程 - 0 关于裸机编程](0-About-bare-metal-programming)
 - [裸机编程 - 1 开发环境搭建](1-Development-environment-setup)
 - [裸机编程 - 2 创建项目](2-Create-project)
 - [裸机编程 - 3 编写启动代码](3-Writing-boot-code)
 - [裸机编程 - 4 编写主程序](4-Writing-the-main-program)
 - [裸机编程 - 4½ 对于操作系统主程序的补充](4½-Supplement-for-the-main-program-of-operating-systems)
+- [裸机编程 - 5 编译代码](5-Compiling-code)
+- [裸机编程 - 6 链接代码](6-Linking-code)
+- [裸机编程 - 7 生成镜像文件](7-Generating-image-files)
+- [裸机编程 - 8 在目标平台上运行](8-Running-on-the-target-platform)
 
 ## 介绍
 
@@ -39,6 +41,7 @@
 ### 裸机编程的挑战
 
 尽管裸机编程提供了极高的效率和控制能力，但它也带来了不少挑战：
+
 - **复杂性高**：开发者需要对硬件有深入的了解，包括处理器的内部结构和外设的详细规格。
 - **调试困难**：没有操作系统提供的错误处理和调试工具，所有的错误检测和调试都需要开发者自己实现。
 - **维护成本**：直接操作硬件使得代码更容易受到硬件变更的影响，导致维护成本增加。
@@ -46,6 +49,7 @@
 ### 如何开始裸机编程
 
 开始裸机编程之前，需要选择合适的硬件平台和开发工具。通常，这包括：
+
 - **选择合适的微控制器或处理器**：根据应用需求选择支持裸机编程的芯片。
 - **搭建开发环境**：安装必要的编译器、链接器和调试器。
 - **编写启动代码**：实现硬件初始化和程序入口点。
@@ -113,6 +117,6 @@
 
 【2024-04-24】 Added  Bare Metal 5-8，Code tree explanation
 
-【2024-04-07】 Added  Bare Metal 4-4½ 
+【2024-04-07】 Added  Bare Metal 4-4½
 
 【2024-04-06】 Added Bare Metal 0-3

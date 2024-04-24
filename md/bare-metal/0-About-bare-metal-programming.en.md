@@ -122,3 +122,13 @@ In the upcoming series of explanations, we will delve deeper into each step, hel
 
 - **Description**: This tutorial aims to step by step illustrate how to write a **Unix-like kernel** from scratch using the **Rust** language on the **RISC-V** architecture. It's worth noting that this project not only supports simulator environments (such as Qemu/terminus, etc.) but also supports running on real hardware platform Kendryte K210 (currently maintained mainly on the [k210](https://github.com/rcore-os/rCore-Tutorial-v3/tree/k210/) branch of the rCore-Tutorial-v3 repository).
 - **Link**: [rCore-Tutorial-Book-v3 3.6.0-alpha.1 Document](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html#)
+
+---
+
+### History
+
+【2024-04-24】 Added  Bare Metal 5-8，Code tree explanation
+
+【2024-04-07】 Added  Bare Metal 4-4½ 
+
+【2024-04-06】 Added Bare Metal 0-3

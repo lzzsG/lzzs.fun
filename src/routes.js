@@ -73,6 +73,34 @@ const routes = [
             filePath="/md/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems.md"
         />,
     },
+    {
+        path: "/:lang/blog/bare-metal/5-Compiling-code",
+        element: <MarkdownPage
+            i18nKey="bareMetal.5-Compiling-code"
+            filePath="/md/bare-metal/5-Compiling-code.md"
+        />,
+    },
+    {
+        path: "/:lang/blog/bare-metal/6-Linking-code",
+        element: <MarkdownPage
+            i18nKey="bareMetal.6-Linking-code"
+            filePath="/md/bare-metal/6-Linking-code.md"
+        />,
+    },
+    {
+        path: "/:lang/blog/bare-metal/7-Generating-image-files",
+        element: <MarkdownPage
+            i18nKey="bareMetal.7-Generating-image-files"
+            filePath="/md/bare-metal/7-Generating-image-files.md"
+        />,
+    },
+    {
+        path: "/:lang/blog/bare-metal/8-Running-on-the-target-platform",
+        element: <MarkdownPage
+            i18nKey="bareMetal.8-Running-on-the-target-platform"
+            filePath="/md/bare-metal/8-Running-on-the-target-platform.md"
+        />,
+    },
 ];
 export default routes;
 

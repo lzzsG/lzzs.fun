@@ -130,16 +130,18 @@ const BlogPage = () => {
                                         {i18n.t('bareMetal.4½-Supplement-for-the-main-program-of-operating-systems.title')}</li>
                                 </Link>
 
-                                <li class="text-base mb-2 hover:underline">
-                                    5 。。。({t('ing')}) 。。。</li>
-                                <li class="text-base mb-2 hover:underline">
-                                    6 。。。 。。。</li>
-                                <li class="text-base mb-2 hover:underline">
-                                    7 。。。 。。。</li>
-                                <li class="text-base mb-2 hover:underline">
-                                    8 。。。 。。。</li>
-                                <li class="text-base mb-2 hover:underline">
-                                    。。。 。。。</li>
+                                <Link to={`/${currentLang}/blog/bare-metal/5-Compiling-code`}>
+                                    <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.5-Compiling-code.title')}</li>
+                                </Link>
+                                <Link to={`/${currentLang}/blog/bare-metal/6-Linking-code`}>
+                                    <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.6-Linking-code.title')}</li>
+                                </Link>
+                                <Link to={`/${currentLang}/blog/bare-metal/7-Generating-image-files`}>
+                                    <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.7-Generating-image-files.title')}</li>
+                                </Link>
+                                <Link to={`/${currentLang}/blog/bare-metal/8-Running-on-the-target-platform`}>
+                                    <li class="text-base mb-2 hover:underline">{i18n.t('bareMetal.8-Running-on-the-target-platform.title')}</li>
+                                </Link>
                             </ul>
                         </div>
                     </div>

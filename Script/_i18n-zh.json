@@ -22,5 +22,21 @@
   "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems": {
     "title": "",
     "description": ""
+  },
+  "bareMetal.5-Compiling-code": {
+    "title": "",
+    "description": ""
+  },
+  "bareMetal.6-Linking-code": {
+    "title": "",
+    "description": ""
+  },
+  "bareMetal.7-Generating-image-files": {
+    "title": "",
+    "description": ""
+  },
+  "bareMetal.8-Running-on-the-target-platform": {
+    "title": "",
+    "description": ""
   }
 }

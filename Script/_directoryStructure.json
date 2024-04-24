@@ -23,6 +23,22 @@
     {
       "i18nKey": "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems",
       "path": "/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems"
+    },
+    {
+      "i18nKey": "bareMetal.5-Compiling-code",
+      "path": "/bare-metal/5-Compiling-code"
+    },
+    {
+      "i18nKey": "bareMetal.6-Linking-code",
+      "path": "/bare-metal/6-Linking-code"
+    },
+    {
+      "i18nKey": "bareMetal.7-Generating-image-files",
+      "path": "/bare-metal/7-Generating-image-files"
+    },
+    {
+      "i18nKey": "bareMetal.8-Running-on-the-target-platform",
+      "path": "/bare-metal/8-Running-on-the-target-platform"
     }
   ]
 }

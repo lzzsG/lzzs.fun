@@ -1,4 +1,4 @@
-# Chapter IV: Writing the Main Program
+# IV: Writing the Main Program
 
 Writing the main program involves transforming the startup code and the environment initialized by the system into specific application logic.
 

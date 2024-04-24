@@ -81,6 +81,22 @@
         "title": "[裸机编程] - 4½ 对于操作系统主程序的补充",
         "description": "操作系统（OS）充当着软件与硬件之间的桥梁，管理着计算资源并提供用户与计算机交云的基本接口。随着技术的不断进步，操作系统的设计和实现面临着新的挑战和机遇，尤其是在保证系统安全、高效并发处理以及支持复杂网络通信等方面。"
     },
+    "bareMetal.5-Compiling-code": {
+        "title": "[裸机编程] - 5 编译代码",
+        "description": ""
+    },
+    "bareMetal.6-Linking-code": {
+        "title": "[裸机编程] - 6 链接代码",
+        "description": ""
+    },
+    "bareMetal.7-Generating-image-files": {
+        "title": "[裸机编程] - 7 生成镜像文件",
+        "description": ""
+    },
+    "bareMetal.8-Running-on-the-target-platform": {
+        "title": "[裸机编程] - 8 在目标平台上运行",
+        "description": ""
+    },
     "singleBlog": "项目与博客",
     "seriesArticles": "系列文章",
     "latestUpdates": "最新更新",

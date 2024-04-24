@@ -20,7 +20,7 @@ This involves how to organize the program's memory layout and how to jump from t
   - **`memory.x` file**: Often used for simplified memory layout definitions. In Rust projects, this file specifies the memory layout, such as heap, stack, code, and data segments.
   - **`linker.ld` file**: Provides more complex and detailed linking configurations than `memory.x`, offering more power and flexibility. It can control the specific location and size of various memory segments and special linking requirements.
 
-- **Kernel Entry**: After completing all necessary initialization, the boot code needs to jump to the kernel's main entry point, usually a `main` function written in Rust.
+- **Kernel Entry**: After the boot code completes all necessary hardware-related initializations, it jumps to the entry point of the main program (e.g., a kernel written in Rust). This usually involves setting the program counter (PC) to a new address, which is where the kernel code begins.
 
 ### Optional or Higher-Level Design Steps
 
@@ -350,6 +350,60 @@ In the project you mentioned, choosing to use `linker.ld` instead of `memory.x` 
 Although both `memory.x` and `linker.ld` can be used to configure the project's memory layout and linking process, `linker.ld` offers a wider range of
 
  functionality and flexibility. In some cases, choosing `linker.ld` is due to considerations of project complexity and specific requirements. This choice reflects the decision made by the project's designers based on their needs and preferences. In the project you mentioned, using `linker.ld` indicates that the developers might need to take advantage of advanced features provided by the GNU linker, or it is due to the need to cooperate with other non-Rust components.
+
+---
+
+# Supplement 5: Startup entry assembly code example
+[rCore-Tutorial-Code-2024S](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1)/[os](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os)/[src](https://github.com/LearningOS/rCore-Tutorial-Code-2024S/tree/ch1/os/src)/entry.asm
+
+In the startup code for bare-metal programs or operating systems, assembly language is often used to set up the most basic execution environment, especially at the initial stage of system startup when the high-level language runtime has not been initialized yet. This piece of code provides an excellent example of how to prepare and hand over control to a main program written in Rust. Let's analyze this code line by line to deeply understand each step's purpose and significance.
+
+### Assembly Code Explanation
+
+```asm
+.section .text.entry
+.globl _start
+_start:
+    la sp, boot_stack_top
+    call rust_main
+```
+
+- `.section .text.entry`: This directive places the following code into a segment named `.text.entry`. This name is often used to specify the entry segment of the program, specially referenced in the linker script to ensure this section is positioned at the beginning of the program.
+
+- `.globl _start`: This line declares the `_start` label as a global symbol, making it visible to other files and modules during the linking process. This is the entry point for the operating system or bare-metal program startup.
+
+- `_start:`: This is the actual label definition, indicating that the instructions starting here are the beginning of the program.
+
+- `la sp, boot_stack_top`: The `la` (Load Address) instruction loads the address of `boot_stack_top` into the stack pointer `sp`. This is a critical step in setting up the initial stack before preparing the stack space for subsequent program execution.
+
+- `call rust_main`: Calls a function named `rust_main`, which is assumed to be the entry point of a program written in Rust. The `call` instruction not only jumps to execute `rust_main` but also pushes the return address onto the stack, enabling a correct return after `rust_main` is executed.
+
+### Stack Space Setup
+
+```asm
+.section .bss.stack
+.globl boot_stack_lower_bound
+boot_stack_lower_bound:
+    .space 4096 * 16
+.globl boot_stack_top
+boot_stack_top:
+```
+
+- `.section .bss.stack`: Specifies that the following instructions and data are located in a segment named `.bss.stack`. The `BSS` segment is used to store uninitialized data needed during program execution, here used to define the stack.
+
+- `.globl boot_stack_lower_bound` and `.globl boot_stack_top`: These lines declare `boot_stack_lower_bound` and `boot_stack_top` as global symbols, making them visible during the linking process and accessible to other modules.
+
+- `boot_stack_lower_bound:`: Marks the beginning address of the stack.
+
+- `.space 4096 * 16`: Allocates space for the stack, here allocating `4096 * 16` bytes, which is 64KB. The `.space` directive reserves space for the specified number of bytes in the target file but does not initialize them.
+
+- `boot_stack_top:`: Marks the top address of the stack. Used to initialize the stack pointer `sp` in `la sp, boot_stack_top`.
+
+### Summary
+
+This assembly code is a crucial part of the startup process for bare-metal programs, responsible for setting up the initial execution environment, including stack initialization and program entry invocation. By precisely controlling the setup of the stack and program entry, it ensures that the kernel or main program written in Rust can start and run correctly in the appropriate environment. Such startup code bridges the gap between hardware and the application logic written in high-level languages, an indispensable component in the design of operating systems and bare-metal programs.
+
+
 
 ---
 

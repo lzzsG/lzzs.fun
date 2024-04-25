@@ -111,6 +111,11 @@
 - **描述**: 这本教程旨在一步一步展示如何 **从零开始** 用 **Rust** 语言写一个基于 **RISC-V** 架构的 **类 Unix 内核** 。值得注意的是，本项目不仅支持模拟器环境（如 Qemu/terminus 等），还支持在真实硬件平台 Kendryte K210 上运行（目前主要在 rCore-Tutorial-v3 仓库的 [k210](https://github.com/rcore-os/rCore-Tutorial-v3/tree/k210/) 分支上维护）。
 - **链接**: [rCore-Tutorial-Book-v3 3.6.0-alpha.1 文档](https://rcore-os.cn/rCore-Tutorial-Book-v3/index.html#)
 
+#### **3.The Embedded Rust Book**
+
+- **描述**：这本书专门针对在嵌入式系统上使用 Rust 进行编程，尽管它不专门针对 RISC-V 架构，但提供了大量关于如何在没有标准库支持的情况下使用 Rust 的信息，这对于任何裸机编程项目都非常有用。
+- **链接**：[The Embedded Rust Book](https://docs.rust-embedded.org/book/start/qemu.html)
+
 ---
 
 ### 历史记录

@@ -26,11 +26,12 @@
     "ing": "进行中",
     "rustlingsAbout": "rustlings 110题版本的解答和扩展mdbook。",
     "MITAbout": "MIT电子工程和计算机科学课程系列笔记 (MIT6.004 计算结构、MIT6.175 构造可靠的数字系统、MIT6.375 复杂数字系统)",
+    "MITlabsAbout": "MIT电子工程和计算机科学课程系列笔记配套代码仓库 | 计算机体系结构- MIT课程学习社区代码仓库记录",
     "lzzsfunAbout": "本站源码，未来可能会做一个静态网站系列，虽然作者很业余。",
     "alltoMDAbout": " 一种自动化的方式来部署包含 Markdown 文件结构的仓库到 mdBook。利用 GitHub Actions，它能够自动识别指定仓库中的 Markdown 文件，并生成相应的 mdBook。此外，它支持自定义配置，如目标仓库链接、忽略特定文件夹、启用自然排序等，使得生成的书籍结构更加合理和美观。",
     "thpptAbout": "清华操作系统幻灯片 mdbook 版",
-    "175LabInsAbout": "6.175 实验指导的翻译 中英对照",
-    "MdbookSeries": "Rust/Mdbook 系列",
+    "175LabInsAbout": "6.175 实验指导的翻译 中英对照版 另外还有",
+    "MdbookSeries": "Rust/mdbook 系列",
     "quote": "学海无涯，回头是岸。",
     "items": [
         {
@@ -52,13 +53,14 @@
     "featuredProducts": "精选产品",
     "hideTOC": "收起",
     "showTOC": "目录",
-    "bareMetal": "关于裸机编程",
+    "bareMetal": "裸机编程系列",
+    "MITseries": "MIT 电子工程与计算机科学系列",
     "WhatToOut": {
         "title": "Markdown 排版 - \"接下来可以期待什么\"",
         "description": "探索使用daisyUI、tailwindcss、markdown、hljs设计的排版和布局：本文翻译自daisyUI官方文档，带你一步步走进Markdown的世界。从基本的文本格式到复杂的代码块和列表，体验如何利用Markdown优雅地展现内容。无论是粗体、斜体、有序/无序列表，还是代码高亮，每一个细节都旨在提升阅读体验。通过本文，开启你的Markdown旅程，发现排版和布局的无限可能性。"
     },
     "bareMetal.0-About-bare-metal-programming": {
-        "title": "[裸机编程系列] - 0 关于裸机编程",
+        "title": "[裸机编程] - 0 关于裸机编程",
         "description": "Bare-metal 编程指的是直接在硬件上编写软件，不经过操作系统或任何抽象层的干预。这种编程方式通常用于嵌入式系统、游戏机、专用计算设备或其他需要直接硬件控制的场合。"
     },
     "bareMetal.1-Development-environment-setup": {
@@ -97,7 +99,8 @@
         "title": "[裸机编程] - 8 在目标平台上运行",
         "description": ""
     },
-    "singleBlog": "项目与博客",
+    "projectBlog": "项目展示",
+    "singleBlog": "博客文章",
     "seriesArticles": "系列文章",
     "latestUpdates": "最新更新",
     "websiteUpdate": "网站更新",

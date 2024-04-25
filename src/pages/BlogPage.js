@@ -30,42 +30,21 @@ const BlogPage = () => {
     return (
         <div class="m-6 mt-20 sm:mt-6 md:m-12 flex justify-center items-center">
 
+
             <div class="grid grid-cols-1 md:grid-cols-2 max-w-full md:max-w-[1200px] md:gap-4">
-                <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('singleBlog')}
+                {/* 项目展示 */}
+                <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('projectBlog')}
                     <Link to="/zh/blog" className="text-accent-content text-base hover:underline ml-2"><div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
-
                     </Link></h2>
-                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow  flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/markdown-test`}>
-                                <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('WhatToOut.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('WhatToOut.description')}</p>
-                        </div>
-                        <div className="card-actions">
-                            {/* <button className="btn size-16 ml-4 btn-ghost">Watch</button> */}
-                        </div>
-                    </div>
-                </div>
-                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
-                    <div className="flex-grow flex justify-between items-center m-4">
-                        <div>
-                            <Link to={`/${currentLang}/blog/bare-metal/0-About-bare-metal-programming`}>
-                                <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.0-About-bare-metal-programming.title')}</h3>
-                            </Link>
-                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.0-About-bare-metal-programming.description')}</p>
-                        </div>
-                    </div>
-                </div>
 
+                {/* all-to-mdbooks */}
                 <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
                             <div className="flex">
                                 <LinkIcon className="size-4 mr-1 translate-y-1.5" />
                                 <a href='https://github.com/lzzsG/all-to-mdbook' target="_blank" rel="noopener noreferrer">
-                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">all-to-mdbook</h3>
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">All To Mdbook</h3>
                                 </a>
                             </div>
                             <p className="overflow-hidden line-clamp-2">
@@ -76,6 +55,7 @@ const BlogPage = () => {
                     </div>
                 </div>
 
+                {/* lzzsg.github.io */}
                 <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
                     <div className="flex-grow flex justify-between items-center m-4">
                         <div>
@@ -96,11 +76,15 @@ const BlogPage = () => {
 
 
                 <div className="divider md:col-span-2 m-0 "></div>
+                {/* 系列文章 */}
                 <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('seriesArticles')}
                     <Link to="/zh/blog" className="text-accent-content text-base hover:underline ml-2">
                         <div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
                     </Link></h2>
+
+                {/* 左边系列 */}
                 <div className="z-10 ">
+                    {/* 裸机编程系列 */}
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-2" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
@@ -145,7 +129,7 @@ const BlogPage = () => {
                             </ul>
                         </div>
                     </div>
-
+                    {/* 占位 */}
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
                         <input type="radio" name="my-accordion-2" />
                         <div className="collapse-title text-xl font-medium">
@@ -164,35 +148,63 @@ const BlogPage = () => {
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div className="z-0 ">
 
+                </div>
+
+                {/* 右边系列 */}
+                <div className="z-0 ">
+                    {/* MITseries */}
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-1" />
+                        <input type="radio" name="my-accordion-1" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
-                            {t('ClickToOpen')}
+                            {t('MITseries')}
                         </div>
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
+                                {/* MIT-digital-systems */}
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://lzzs.fun/MIT-digital-systems/' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            MIT Digital Systems Design ({t('ing')})</li>
+                                    </a>
+                                </div>
+                                <p className="overflow-hidden mb-1 line-clamp-2">{t('MITAbout')}
+                                </p>
+                                <div className="divider"></div>
 
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base mb-2 hover:underline">{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline mb-2">{t('aboutPage')},{t('aboutPage')},{t('aboutPage')}</li>
-                                </Link>
-                                <Link to={`/${currentLang}/blog/markdown-test`}>
-                                    <li className="text-base hover:underline ">{t('aboutPage')}</li>
-                                </Link>
+                                {/* mit6.175-labs-instruction */}
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://lzzs.fun/mit6.175-labs-instruction/' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            MIT6.175 Labs Instruction</li>
+                                    </a>
+                                </div>
+                                <p className="overflow-hidden mb-1 line-clamp-2">{t('175LabInsAbout')}  <a className="hover:underline" href='https://lzzs.fun/6.175-labs-instruction/' target="_blank" rel="noopener noreferrer"> "BSV highlighted version" </a>
+                                </p>
+                                <div className="divider"></div>
+
+                                {/* Labs */}
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://github.com/lzzsG/MIT-digital-systems-design-series-labs' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            MIT Digital Systems Design Series Labs ({t('ing')})</li>
+                                    </a>
+                                </div>
+                                <p className="overflow-hidden mb-1 line-clamp-2">{t('MITlabsAbout')}
+                                </p>
+
+
+
                             </ul>
                         </div>
                     </div>
+                    {/* rust/mdbook */}
                     <div className="collapse collapse-arrow bg-base-200 mb-2 md:mb-4">
-                        <input type="radio" name="my-accordion-1" defaultChecked />
+                        <input type="radio" name="my-accordion-1" />
                         <div className="collapse-title text-xl font-medium">
                             {t('MdbookSeries')}
                         </div>
@@ -209,26 +221,8 @@ const BlogPage = () => {
                                 </div>
                                 <p className="overflow-hidden mb-1 line-clamp-2"> {t('rustlingsAbout')}
                                 </p>
-                                <div className="divider"></div>
-                                <div className="flex">
-                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <a href='https://lzzs.fun/MIT-digital-systems-notebook/' target="_blank" rel="noopener noreferrer">
-                                        <li className="text-base mb-1 hover:underline">
-                                            MIT-digital-systems-notebook ({t('ing')})</li>
-                                    </a>
-                                </div>
-                                <p className="overflow-hidden mb-1 line-clamp-2">{t('MITAbout')}
-                                </p>
-                                <div className="divider"></div>
-                                <div className="flex">
-                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
-                                    <a href='https://lzzs.fun/mit6.175-labs-instruction/' target="_blank" rel="noopener noreferrer">
-                                        <li className="text-base mb-1 hover:underline">
-                                            mit6.175-labs-instruction</li>
-                                    </a>
-                                </div>
-                                <p className="overflow-hidden mb-1 line-clamp-2">{t('175LabInsAbout')}
-                                </p>
+
+
                                 <div className="divider"></div>
 
 
@@ -249,8 +243,46 @@ const BlogPage = () => {
                     </div>
                 </div>
                 <div className="divider md:col-span-2 m-0 "></div>
+
+                {/* 博客文章 */}
+                <h2 className="text-xl md:col-span-2 m-0 font-semibold text-base-content">{t('singleBlog')}
+                    <Link to="/zh/blog" className="text-accent-content text-base hover:underline ml-2"><div className="tooltip" data-tip="暂时还没">  {t('more')}</div>
+                    </Link></h2>
+                {/* Markdown 排版 */}
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow  flex justify-between items-center m-4">
+                        <div>
+                            <Link to={`/${currentLang}/blog/markdown-test`}>
+                                <div className="flex-grow flex justify-between items-center">
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('WhatToOut.title')}</h3>
+                                    <div className="mb-2 text-sm text-gray-400 mr-2">2024-04-02</div>
+                                </div>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('WhatToOut.description')}</p>
+                        </div>
+                        <div className="card-actions">
+                            {/* <button className="btn size-16 ml-4 btn-ghost">Watch</button> */}
+                        </div>
+                    </div>
+                </div>
+                {/* [裸机编程系列] - 0 关于裸机编程 */}
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow flex justify-between items-center m-4">
+                        <div >
+                            <Link to={`/${currentLang}/blog/bare-metal/0-About-bare-metal-programming`}>
+                                <div className="flex-grow flex justify-between items-center">
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('bareMetal.0-About-bare-metal-programming.title')}</h3>
+                                    <div className="mb-2 text-sm text-gray-400 mr-2">2024-04-06</div>
+                                </div>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('bareMetal.0-About-bare-metal-programming.description')}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="divider md:col-span-2 m-0 "></div>
                 <div className="md:col-span-2">
-                    <UpdatesLog filterType="blogAddition" /></div>
+                    <UpdatesLog filterType="blogAddition" limit={6} /></div>
             </div>
         </div >
     );

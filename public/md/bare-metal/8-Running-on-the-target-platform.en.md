@@ -120,3 +120,29 @@ With these enhancements, using QEMU as a simulation platform for RISC-V bare-met
 ---
 
 - **`bootloader/rustsbi-qemu.bin`**: RISC-V's SBI implementation, used to provide a standard system call interface. This is necessary when running on target hardware or a simulator, providing a standard service interface for the operating system.
+
+---
+
+Here's the translation of your text into English:
+
+---
+
+# Final Summary
+
+After completing a detailed study of bare-metal programming with RISC-V and Rust, you should now have gained the following understanding:
+
+1. **Importance of Environment Setup**: You have learned how to set up a programming environment for a specific hardware architecture, including cross-compilers and necessary tools. This is the foundation for all subsequent activities.
+
+2. **Systematic Project Structure**: You understand how to set up and configure a bare-metal project, including managing dependencies and the build process using Cargo and potentially Makefiles.
+
+3. **Hardware-Level Programming**: Through learning startup code and main programs, you've understood how to interact directly with hardware, including how to initialize hardware, set up memory, and configure the execution environment without operating system support.
+
+4. **In-depth Interaction with Memory and Processor**: Through linker scripts and startup code, you've gained a deep understanding of memory layout and the processor boot process, which is crucial for optimizing program performance and resource utilization.
+
+5. **Debugging and Logging**: You have learned how to implement basic debugging and logging functions in an environment without advanced operating system support, which are key skills for monitoring and optimizing program behavior.
+
+6. **Practical Deployment and Testing**: By generating image files and running them on target platforms or simulators, you are not only able to put theory into practice but also understand how to deploy and debug programs on actual hardware.
+
+With these learnings, you should be able to independently conduct development of bare-metal projects using RISC-V and Rust, managing the entire process from project initiation to deployment. These skills are not only limited to embedded system development but are also valuable assets for any field that requires a deep understanding of direct interactions between hardware and software.
+
+I hope this summary helps you better understand and integrate your learning outcomes, laying a solid foundation for future programming challenges. If you have any questions or suggestions about this series, please feel free to tell me!

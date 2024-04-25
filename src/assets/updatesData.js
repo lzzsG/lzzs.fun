@@ -1,5 +1,20 @@
 const updatesData = [
     {
+        date: '2024-04-24',
+        type: 'blogAddition',
+        topicKey: 'blogAddition0424BareMetal',
+    },
+    {
+        date: '2024-04-22',
+        type: 'blogAddition',
+        topicKey: 'blogAddition0422mit',
+    },
+    {
+        date: '2024-04-20',
+        type: 'blogAddition',
+        topicKey: 'blogAddition0420mit',
+    },
+    {
         date: '2024-04-18',
         type: 'blogAddition',
         topicKey: 'blogAddition0418rustlings',

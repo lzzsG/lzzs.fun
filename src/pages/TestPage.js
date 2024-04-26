@@ -3,6 +3,11 @@ import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
 import UpdatesLog from '../components/UpdatesLog.js'
+import TreeChart from '../components/D3.js';
+import treeData from '../assets/d3/treeData.json';
+
+
+
 
 
 const TestPage = () => {
@@ -39,6 +44,8 @@ const TestPage = () => {
                 <div class="grid grid-cols-1 max-w-full md:max-w-[1000px] md:gap-4">
                     这是TestPage，用于测试各种组件
                     <div className="divider mt-4"></div>
+
+
 
                     <UpdatesLog limit={8} />
                     <div className="divider mt-4"></div>
@@ -330,6 +337,7 @@ const TestPage = () => {
             </div>
 
             <div className="divider m-0"></div>
+            <TreeChart data={treeData} />
         </div>
     )
 };

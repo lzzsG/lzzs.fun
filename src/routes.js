@@ -5,6 +5,9 @@ import AboutPage from './pages/AboutPage';
 import TestPage from './pages/TestPage';
 import MarkdownPage from './pages/MarkdownPage';
 import BlogPage from './pages/BlogPage';
+import D3Page from './pages/D3Pages';
+
+
 import i18n from './i18n/i18n';
 
 const routes = [
@@ -30,6 +33,10 @@ const routes = [
             filePath="/md/WhatToOut.md"
             i18nKey="WhatToOut"
         />,
+    },
+    {
+        path: '/:lang/D3',
+        element: <D3Page />,
     },
     {
         path: "/:lang/blog/bare-metal/0-About-bare-metal-programming",

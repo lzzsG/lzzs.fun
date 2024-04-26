@@ -126,6 +126,8 @@
     "blogAddition0420mit": "MIT 笔记 - 6.004 L9-L10, 6.175 组合电路",
     "blogAddition0422mit": "MIT 笔记 - 6.004 L11-L12",
     "blogAddition0424BareMetal": "裸机编程 5-8，ch1代码树解释",
+    "Ruststd": "Rust 标准库使用频率统计",
+    "RustSankey": "另：Rust Std Sankey Diagram (Rust 标准库桑基图(做着玩的，大概会卡))",
     "-----------------": "----------",
     "blogAddition0406BareMetal": "裸机编程 0-3",
     "blogAddition0407BareMetal": "裸机编程 4-4½"

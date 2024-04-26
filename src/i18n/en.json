@@ -124,6 +124,8 @@
     "blogAddition0422mit": "MIT Notes - 6.004 L9-L10, 6.175 Combinatorial Circuits",
     "blogAddition0424BareMetal": "Bare Metal Programming 5-8, ch1 Code Tree Explained",
     "blogAddition0424BareMetal": "Bare Metal Programming 5-8, ch1 Code Tree Explained",
+    "Ruststd": "The Rust standard library uses frequency statistics",
+    "RustSankey": "Another: Rust Std Sankey Diagram (Rust standard library Sankey Diagram (just doing it for fun, it may get stuck))",
     "-----------------": "----------",
     "AddLatestUpdates": "Add \"Latest Updates\"",
     "ClickToOpen": "Click to open this one and close others",

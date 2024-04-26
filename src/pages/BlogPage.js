@@ -211,7 +211,7 @@ const BlogPage = () => {
                         <div className="collapse-content m-0">
                             <div className="divider -translate-y-1 m-0 mb-1"></div>
                             <ul class="list-decimal list-inside">
-
+                                {/* rustlings-notebook */}
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
                                     <a href='https://lzzs.fun/rustlings-notebook/' target="_blank" rel="noopener noreferrer">
@@ -225,7 +225,7 @@ const BlogPage = () => {
 
                                 <div className="divider"></div>
 
-
+                                {/* Tsinghua-OS-mdbook */}
                                 <div className="flex">
                                     <LinkIcon className="size-4 mr-1 translate-y-1" />
                                     <a href='https://lzzs.fun/Tsinghua-OS-mdbook/' target="_blank" rel="noopener noreferrer">
@@ -238,6 +238,27 @@ const BlogPage = () => {
                                 <p className="overflow-hidden mb-1 line-clamp-2">
                                     {t('thpptAbout')}
                                 </p>
+                                <div className="divider"></div>
+
+
+                                {/* Tsinghua-OS-mdbook */}
+                                <div className="flex">
+                                    <LinkIcon className="size-4 mr-1 translate-y-1" />
+                                    <a href='https://lzzs.fun/rustlings-notebook/final/std.html' target="_blank" rel="noopener noreferrer">
+                                        <li className="text-base mb-1 hover:underline">
+                                            {t('Ruststd')}
+                                        </li>
+                                    </a>
+                                </div>
+
+                                <p className="overflow-hidden mb-1 line-clamp-2">
+                                    <Link to={`/${currentLang}/d3`}>
+                                        <p class="text-base hover:underline">
+                                            {t('RustSankey')}
+                                        </p>
+                                    </Link>
+                                </p>
+
                             </ul>
                         </div>
                     </div>

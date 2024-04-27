@@ -5,6 +5,9 @@ import ScrollToTopButton from '../components/ScrollToTopButton.js';
 import UpdatesLog from '../components/UpdatesLog.js'
 import TreeChart from '../components/D3.js';
 import treeData from '../assets/d3/treeData.json';
+import RecursiveBoxes from '../components/iconBox.js';
+
+
 
 
 
@@ -45,6 +48,7 @@ const TestPage = () => {
                     这是TestPage，用于测试各种组件
                     <div className="divider mt-4"></div>
 
+                    <RecursiveBoxes size={200} />
 
 
                     <UpdatesLog limit={8} />

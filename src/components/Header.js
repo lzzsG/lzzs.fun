@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher'
+import RecursiveBoxes from '../components/iconBox.js';
 
 import { ReactComponent as TranslateIcon } from '../assets/svg/trasnlate.svg';
 import { ReactComponent as HomeIcon } from '../assets/svg/home.svg';
@@ -140,11 +141,19 @@ const Header = () => {
                         </ul>
                     </div>
                     <Link to={`/${currentLang}/`}>
-                        <div className="justify-center items-center flex h-24 w-48">
-                            <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 animate-spin" />
-                            <div className="flex-col ">
-                                <a className="text-lg font-bold w-24 -ml-6 -mb-2 flex justify-center content-center">{t('siteName')}</a>
-                                <a className="text-sm font-bold w-24 -ml-6  flex justify-center content-center">temp</a>
+                        <div className="justify-between items-center flex h-24 w-48">
+                            <div className="justify-center items-center flex h-24 w-24">
+
+                                <RecursiveBoxes size={60} />
+                            </div>
+
+                            <div className="justify-center items-center flex h-24 w-24">
+                                {/* <RustIcon className="hidden md:flex px-6 -ml-5 w-24 h-24 animate-spin" /> */}
+
+                                <div className="flex-col ">
+                                    <a className="text-lg font-bold w-24 flex justify-center content-center">{t('siteName')}</a>
+                                    <a className="text-sm font-bold w-24  flex justify-center content-center">temp</a>
+                                </div>
                             </div>
                         </div>
                     </Link>

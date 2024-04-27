@@ -300,6 +300,42 @@ const BlogPage = () => {
                         </div>
                     </div>
                 </div>
+                {/* learning */}
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow  flex justify-between items-center m-4">
+                        <div>
+                            <Link to={`/${currentLang}/blog/learning`}>
+                                <div className="flex-grow flex justify-between items-center">
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('learning.title')}</h3>
+                                    <div className="mb-2 text-sm text-gray-400 mr-2">2024-04-28</div>
+                                </div>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('learning.description')}</p>
+                        </div>
+                        <div className="card-actions">
+                            {/* <button className="btn size-16 ml-4 btn-ghost">Watch</button> */}
+                        </div>
+                    </div>
+                </div>
+                {/* 5A */}
+                <div className="flex bg-base-200 h-28 mb-2 md:mb-0">
+                    <div className="flex-grow  flex justify-between items-center m-4">
+                        <div>
+                            <Link to={`/${currentLang}/blog/5A`}>
+                                <div className="flex-grow flex justify-between items-center">
+                                    <h3 className="text-lg overflow-hidden line-clamp-1 hover:underline mb-2">{i18n.t('5A.title')}</h3>
+                                    <div className="mb-2 text-sm text-gray-400 mr-2">2024-04-28</div>
+                                </div>
+                            </Link>
+                            <p className="overflow-hidden line-clamp-2">{i18n.t('5A.description')}</p>
+                        </div>
+                        <div className="card-actions">
+                            {/* <button className="btn size-16 ml-4 btn-ghost">Watch</button> */}
+                        </div>
+                    </div>
+                </div>
+
+
 
                 <div className="divider md:col-span-2 m-0 "></div>
                 <div className="md:col-span-2">

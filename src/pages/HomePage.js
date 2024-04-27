@@ -124,7 +124,7 @@ const HomePage = () => {
                         请注意，这些材料是为了辅助理解和掌握知识点，它们并非官方认可的答案或教学资源，并且可能包含错误。鼓励您在使用这些资源时保持批判性思维，自行解决问题并形成独立的见解。如果您正在进行相关课程学习，请尽量先独立完成作业或任务。使用本站资源默认不会破坏您的独立学习过程。同时，为尊重教育者的意愿并减少潜在冲突，请避免在相关课程社区或团体中传播这些内容。</div>
 
                 </div>
-                {/* <button className="btn btn-outline">About</button> */}
+                <button className="btn btn-outline ml-2 md:ml-12">About</button>
             </div>
 
             <div className="divider mt-6 md:mt-12"></div>

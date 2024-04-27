@@ -58,6 +58,14 @@
         "title": "Markdown typesetting - What to expect next",
         "description": "Explore the fascination of typography and layout designed with daisyUI, tailwindcss, markdown, hljs: This article, translated from the official daisyUI documentation, takes you step by step into the world of Markdown. From basic text formatting to complex code blocks and lists, experience how to elegantly present content with Markdown. Whether it's bold, italic, ordered/unordered lists, or code highlighting, every detail is designed to enhance the reading experience. Start your Markdown journey with this article and discover the endless possibilities of typography and layout."
     },
+    "learning": {
+        "title": "Learning Methods of Recording and Practicing",
+        "description": "This article explains two common, simple, practical yet easily overlooked learning methods. First, we explore the method of learning through recording and documenting the learning process, which borrows from the Feynman Technique, i.e., deepening personal understanding and memory by teaching others (actual or hypothetical readers). This method not only helps learners organize and convey complex concepts but also motivates them to participate more actively in learning, while providing instant feedback to verify their understanding."
+    },
+    "5A": {
+        "title": "5A Mindset Framework and ▉▉",
+        "description": "This article explains two common, simple, and practical yet easily overlooked ways of thinking. In the learning process, I have summarized a mindset framework that is both recursive and iterative, known as the '5A method' (Analyse, Action, Accumulate, Anti-Fear, and Again). It is a systematic process of thinking and acting, aimed at helping individuals effectively solve problems and enhance their abilities. Below, we will conduct a detailed analysis of this method."
+    },
     "bareMetal.0-About-bare-metal-programming": {
         "title": "Bare Metal - 0 About bare metal programming",
         "description": "Bare-metal programming refers to writing software that runs directly on hardware, without going through an operating system or any abstraction layers. This type of programming is commonly used in embedded systems, gaming consoles, dedicated computing devices, or other scenarios requiring direct hardware control."

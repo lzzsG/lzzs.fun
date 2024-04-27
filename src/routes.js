@@ -7,9 +7,6 @@ import MarkdownPage from './pages/MarkdownPage';
 import BlogPage from './pages/BlogPage';
 import D3Page from './pages/D3Pages';
 
-
-import i18n from './i18n/i18n';
-
 const routes = [
     {
         path: '/:lang/',
@@ -32,6 +29,20 @@ const routes = [
         element: <MarkdownPage
             filePath="/md/WhatToOut.md"
             i18nKey="WhatToOut"
+        />,
+    },
+    {
+        path: '/:lang/blog/learning',
+        element: <MarkdownPage
+            filePath="/md/single/learning.md"
+            i18nKey="learning"
+        />,
+    },
+    {
+        path: '/:lang/blog/5A',
+        element: <MarkdownPage
+            filePath="/md/single/5A.md"
+            i18nKey="5A"
         />,
     },
     {

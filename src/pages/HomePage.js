@@ -83,13 +83,6 @@ const HomePage = () => {
             <br /><br /><br />
 
             <div className="divider -mt-14 md:-mt-7 2xl:mt-4"></div>
-            <div className="flex justify-between bg-base-200 rounded-none mt-4 md:mt-12 2xl:mt-24  items-center  p-6 md:p-12">
-                <div className="text">
-                    <h2 className="text-4xl font-bold ">{t('nothing')}</h2>
-
-                </div>
-                {/* <button className="btn btn-outline">About</button> */}
-            </div>
 
             <div className="flex justify-between bg-base-100 rounded-none items-center mt-6 md:mt-12   p-6 md:p-12 border border-base-200">
                 <div className="text">
@@ -120,6 +113,16 @@ const HomePage = () => {
                     <h1 class="bg-clip-text text-transparent bg-gradient-to-b from-base-content via-base-content to-base-200 text-4xl font-bold mb-5">
                         使用React、tailwindcss、daisyUI、GitHub Pages构建
                     </h1>
+                </div>
+                {/* <button className="btn btn-outline">About</button> */}
+            </div>
+
+            <div className="flex justify-between bg-base-200 rounded-none mt-4 md:mt-12   items-center  p-6 md:p-12">
+                <div className="text">
+
+                    <div className="text-xl font-bold ">告知：感谢您访问和使用本站资源。这里分享的是我个人的学习项目和记录，包括我在学习过程中遇到的问题及我所采用的解答方式。这些内容是参考费曼学习法的模式，通过记录和文档化我的学习过程形成的笔记和教程。
+                        请注意，这些材料是为了辅助理解和掌握知识点，它们并非官方认可的答案或教学资源，并且可能包含错误。鼓励您在使用这些资源时保持批判性思维，自行解决问题并形成独立的见解。如果您正在进行相关课程学习，请尽量先独立完成作业或任务。使用本站资源默认不会破坏您的独立学习过程。同时，为尊重教育者的意愿并减少潜在冲突，请避免在相关课程社区或团体中传播这些内容。</div>
+
                 </div>
                 {/* <button className="btn btn-outline">About</button> */}
             </div>

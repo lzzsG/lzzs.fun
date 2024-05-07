@@ -21,15 +21,7 @@ const ScrollToTopOrBackButton = () => {
     useEffect(() => {
         const hash = window.location.hash;
 
-        if (hash) {
-            // 使用 setTimeout 确保页面完全加载
-            setTimeout(() => {
-                const targetElement = document.getElementById(hash.substring(1));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            }, 300); // 延迟 100ms
-        } else {
+        if (!hash) {
             // 没有 hash 时滚动到页面顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }

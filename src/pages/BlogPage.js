@@ -5,11 +5,13 @@ import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import UpdatesLog from '../components/UpdatesLog.js'
 import { ReactComponent as LinkIcon } from '../assets/svg/link.svg';
+import { useLocation } from 'react-router-dom';
 
 const BlogPage = () => {
     const { t } = useTranslation();
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
+    const location = useLocation();
     console.log("Current language:", i18n.language);
 
 

@@ -5,13 +5,11 @@ import { useTranslation } from 'react-i18next';
 import config from '../config/config.js';
 import UpdatesLog from '../components/UpdatesLog.js'
 import { ReactComponent as LinkIcon } from '../assets/svg/link.svg';
-import { useLocation } from 'react-router-dom';
 
 const BlogPage = () => {
     const { t } = useTranslation();
     const { i18n } = useTranslation();
     const currentLang = i18n.language;
-    const location = useLocation();
     console.log("Current language:", i18n.language);
 
 
@@ -28,20 +26,6 @@ const BlogPage = () => {
         }
         descriptionMetaTag.setAttribute('content', descriptionContent);
     }, [t, config.siteName]);
-
-    useEffect(() => {
-        const hash = window.location.hash;
-
-        // 如果有锚点，滚动到对应元素
-        if (hash) {
-            const targetElement = document.getElementById(hash.substring(1));
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        } else {
-            window.scrollTo(0, 0);  // 没有锚点时滚动到页面顶部
-        }
-    }, [location]);
 
     return (
         <div class="m-6 mt-20 sm:mt-6 md:m-12 flex justify-center items-center">

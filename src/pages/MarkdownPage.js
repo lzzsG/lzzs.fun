@@ -144,13 +144,14 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
             const element = document.getElementById(id);
             if (element) {
                 const offsetTop = element.offsetTop;
-                const navbarHeight = document.querySelector('.mynavbar').offsetHeight; // 获取导航栏高度
+                const navbarHeight = document.querySelector('.mynavbar')?.offsetHeight || 0;
                 window.scrollTo({
-                    top: offsetTop - navbarHeight, // 调整滚动位置，使目标元素位于导航栏下方
+                    top: offsetTop - navbarHeight,
+                    behavior: 'smooth',
                 });
             }
         }
-    }, [hash]); // 当URL的hash部分变化时触发
+    }, [hash]);
 
     useEffect(() => {
         // 根据滚动位置更新活跃的标题ID

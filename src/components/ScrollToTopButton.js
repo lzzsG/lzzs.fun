@@ -17,8 +17,11 @@ const ScrollToTopOrBackButton = () => {
     }, []);
 
     useEffect(() => {
-        window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
-    }, [location]);  // 当 location 变化时触发
+        // 当 location 变化时触发
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
+        }
+    }, [location]);
 
     const handleScrollToTop = () => {
         // 仅当当前位置非顶部时记录位置并滚动到顶部

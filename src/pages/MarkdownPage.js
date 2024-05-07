@@ -47,7 +47,7 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
             // 在 TOC 切换可见性后确保正确滚动
             setTimeout(() => scrollToHash(hash), 1000); // 延迟滚动
         }
-    }, [location.hash, isTocVisible]);
+    }, [location.hash]);
 
     // 切换目录可见状态的函数
     const toggleTocVisibility = () => {

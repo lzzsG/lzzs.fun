@@ -45,7 +45,7 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
         const { hash } = location;
         if (hash) {
             // 在 TOC 切换可见性后确保正确滚动
-            setTimeout(() => scrollToHash(hash), 100); // 延迟滚动
+            setTimeout(() => scrollToHash(hash), 1000); // 延迟滚动
         }
     }, [location.hash, isTocVisible]);
 

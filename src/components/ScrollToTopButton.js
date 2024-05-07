@@ -28,7 +28,7 @@ const ScrollToTopOrBackButton = () => {
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
-            }, 100); // 延迟 100ms
+            }, 300); // 延迟 100ms
         } else {
             // 没有 hash 时滚动到页面顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });

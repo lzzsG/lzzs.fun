@@ -17,25 +17,10 @@ const ScrollToTopOrBackButton = () => {
     }, []);
 
     useEffect(() => {
-        const hash = window.location.hash;
-
-        // 等待页面完全加载后，再滚动到锚点
-        const scrollToHash = () => {
-            if (hash) {
-                const targetElement = document.getElementById(hash.substring(1));
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
-            } else {
-                window.scrollTo(0, 0);
-            }
-        };
-
-        // 通过 `load` 事件确保页面完全加载
-        window.addEventListener('load', scrollToHash);
-
-        // 确保 `load` 事件只被触发一次
-        return () => window.removeEventListener('load', scrollToHash);
+        // 当 location 变化时触发
+        if (!window.location.hash) {
+            window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
+        }
     }, [location]);
 
     const handleScrollToTop = () => {

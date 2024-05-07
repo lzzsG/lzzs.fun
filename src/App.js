@@ -1,36 +1,13 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+//应用的主组件，通常用于定义路由和全局布局。
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';
 import './assets/styles/global.css';
 import Redirector from './utils/Redirector';
 
-function ScrollToHash() {
-  const location = useLocation();
-
-  useEffect(() => {
-    // 检查 URL 中是否包含锚点
-    const hash = location.hash;
-
-    // 从 localStorage 读取并清除重定向路径
-    const redirectPathname = localStorage.getItem('redirectPathname');
-    if (redirectPathname && redirectPathname === location.pathname + location.search + location.hash) {
-      localStorage.removeItem('redirectPathname');
-    }
-
-    // 如果包含锚点，则滚动到目标元素
-    if (hash) {
-      const targetElement = document.getElementById(hash.substring(1));
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  }, [location]);
-
-  return null;
-}
-
 function App() {
+
   const getDefaultLanguagePath = () => {
     // 默认语言逻辑保持不变
     const preferredLanguage = window.navigator.language.startsWith('zh') ? '/zh' : '/en';
@@ -48,9 +25,8 @@ function App() {
     <div>
       <Router>
         <Redirector />
-        <ScrollToHash />
         <MainLayout>
-          <Routes>
+          <Routes >
             <Route path="/" element={<Navigate replace to={getDefaultLanguagePath()} />} />
             {routes.map((route, index) => (
               <Route key={index} path={route.path} element={route.element} />
@@ -59,6 +35,7 @@ function App() {
         </MainLayout>
       </Router>
     </div>
+
   );
 }
 

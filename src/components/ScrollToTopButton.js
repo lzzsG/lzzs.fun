@@ -3,11 +3,12 @@ import { useLocation } from 'react-router-dom';
 
 const ScrollToTopOrBackButton = () => {
     const [isVisible, setIsVisible] = useState(false);
-    const [showBack, setShowBack] = useState(false); // 单独控制Back按钮的显示
+    const [showBack, setShowBack] = useState(false); // 控制Back按钮显示
     const [scrollBeforeTop, setScrollBeforeTop] = useState(0); // 记录点击向上按钮前的滚动位置
     const location = useLocation();
 
     useEffect(() => {
+        // 控制按钮的可见性
         const handleScroll = () => {
             setIsVisible(window.scrollY > 1600);
         };
@@ -16,25 +17,37 @@ const ScrollToTopOrBackButton = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // 滚动到目标锚点
     useEffect(() => {
-        // 当 location 变化时触发
-        if (!window.location.hash) {
-            window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
+        const hash = window.location.hash;
+
+        if (hash) {
+            // 使用 setTimeout 确保页面完全加载
+            setTimeout(() => {
+                const targetElement = document.getElementById(hash.substring(1));
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100); // 延迟 100ms
+        } else {
+            // 没有 hash 时滚动到页面顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }, [location]);
 
+    // 处理向上按钮点击
     const handleScrollToTop = () => {
-        // 仅当当前位置非顶部时记录位置并滚动到顶部
         if (window.scrollY !== 0) {
             setScrollBeforeTop(window.scrollY);
             window.scrollTo({
                 top: 0,
-
+                behavior: 'smooth',
             });
             setShowBack(true); // 显示Back按钮
         }
     };
 
+    // 处理返回按钮点击
     const handleBack = () => {
         window.scrollTo({
             top: scrollBeforeTop,

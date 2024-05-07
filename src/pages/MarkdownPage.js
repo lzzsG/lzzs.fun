@@ -17,6 +17,7 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
     const [activeId, setActiveId] = useState('');
     const [directoryItems, setDirectoryItems] = useState([]);
     const bookId = i18nKey.split('.')[0];
+    const location = useLocation();
     const [isTocVisible, setIsTocVisible] = useState(() => {
         const saved = localStorage.getItem('tocVisible');
         return saved === 'true' ? true : false; // 注意 localStorage 只能存储字符串
@@ -27,9 +28,34 @@ const MarkdownPage = ({ i18nKey, filePath }) => {
         localStorage.setItem('tocVisible', isTocVisible.toString());
     }, [isTocVisible]);
 
+    const scrollToHash = (hash) => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+            // 获取导航栏高度，确保内容不会被遮挡
+            const navbarHeight = document.querySelector('.mynavbar')?.offsetHeight || 0;
+            window.scrollTo({
+                top: element.offsetTop - navbarHeight, // 确保锚点下方
+                behavior: 'smooth',
+            });
+        }
+    };
+
+    useEffect(() => {
+        const { hash } = location;
+        if (hash) {
+            // 在 TOC 切换可见性后确保正确滚动
+            setTimeout(() => scrollToHash(hash), 100); // 延迟滚动
+        }
+    }, [location.hash, isTocVisible]);
+
     // 切换目录可见状态的函数
     const toggleTocVisibility = () => {
-        setIsTocVisible(prevState => !prevState);
+        setIsTocVisible((prev) => {
+            const newValue = !prev;
+            localStorage.setItem('tocVisible', newValue.toString());
+            return newValue;
+        });
     };
 
     useEffect(() => {

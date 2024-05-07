@@ -17,9 +17,16 @@ const ScrollToTopOrBackButton = () => {
     }, []);
 
     useEffect(() => {
-        // 当 location 变化时触发
-        if (!window.location.hash) {
-            window.scrollTo(0, 0);  // 路由变化时滚动到页面顶部
+        const hash = window.location.hash;
+
+        // 如果有锚点，滚动到对应元素
+        if (hash) {
+            const targetElement = document.getElementById(hash.substring(1));
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+        } else {
+            window.scrollTo(0, 0);  // 没有锚点时滚动到页面顶部
         }
     }, [location]);
 

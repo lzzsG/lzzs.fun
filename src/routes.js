@@ -1,13 +1,51 @@
 //路由配置比较复杂，提取到一个单独的文件中// src/routes.js// src/routes.js// src/routes.js
-
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import TestPage from './pages/TestPage';
 import MarkdownPage from './pages/MarkdownPage';
-import BlogPage from './pages/BlogPage';
+import NewMarkdownPage from './pages/NewMarkdownPage';
+import NewBlogPage from './pages/NewBlogPage';
 import D3Page from './pages/D3Pages';
+import blogConfig from './blogConfig.json';
+
+const generateRoutesFromConfig = (config) => {
+    const routes = [];
+
+    config.sections.forEach(section => {
+        // 如果是系列文章，遍历里面的 articles
+        if (section.type === 'series') {
+            section.articles.forEach(article => {
+                if (article.linkType === 'internal' && article.filePath) {
+                    routes.push({
+                        path: article.link,
+                        element: <NewMarkdownPage filePath={article.filePath} />,
+                    });
+                }
+            });
+        } else {
+            // 对于非系列文章的内容
+            if (section.linkType === 'internal' && section.filePath) {
+                routes.push({
+                    path: section.link,
+                    element: <NewMarkdownPage filePath={section.filePath} />,
+                });
+            }
+        }
+    });
+
+    return routes;
+};
 
 const routes = [
+    ...generateRoutesFromConfig(blogConfig),
+    // 其他已有的路由
+    {
+        path: "/:lang/blog/bare-metal/2-Create-project",
+        element: <MarkdownPage
+            i18nKey="bareMetal.2-Create-project"
+            filePath="/md/bare-metal/2-Create-project.md"
+        />,
+    },
     {
         path: '/:lang/',
         element: <HomePage />,
@@ -22,7 +60,7 @@ const routes = [
     },
     {
         path: '/:lang/blog',
-        element: <BlogPage />,
+        element: <NewBlogPage configData={blogConfig} />,
     },
     {
         path: '/:lang/blog/markdown-test',
@@ -31,6 +69,12 @@ const routes = [
             i18nKey="WhatToOut"
         />,
     },
+    // {
+    //     path: '/blog/markdown-test0',
+    //     element: <NewMarkdownPage
+    //         filePath="/md/WhatToOut.zh.md"
+    //     />,
+    // },
     {
         path: '/:lang/blog/learning',
         element: <MarkdownPage
@@ -127,6 +171,7 @@ const routes = [
         />,
     },
 ];
+
 export default routes;
 
 

@@ -1,0 +1,55 @@
+{
+    "sections": [
+        {
+            "type": "project",
+            "title": "All To Mdbook",
+            "link": "https://github.com/lzzsG/all-to-mdbook",
+            "description": "这是一个将文档转换为 Mdbook 的工具。",
+            "linkType": "external",
+            "date": "2024-08-20"
+        },
+        {
+            "type": "project",
+            "title": "Another Project",
+            "link": "https://github.com/another/project",
+            "description": "这是另一个项目。",
+            "linkType": "external",
+            "date": "2024-08-18"
+        },
+        {
+            "type": "series",
+            "title": "Bare Metal Programming",
+            "date": "2024-08-19",
+            "description": "这是一个关于裸机编程的系列文章，涵盖从开发环境搭建到项目创建的各个方面。",
+            "articles": [
+                {
+                    "title": "0-关于裸机编程",
+                    "link": "/blog/bare-metal/0-About-bare-metal-programming",
+                    "filePath": "/md/bare-metal/0-About-bare-metal-programming.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-开发环境搭建",
+                    "link": "/blog/bare-metal/1-Development-environment-setup",
+                    "filePath": "/md/bare-metal/1-Development-environment-setup.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "2-创建项目",
+                    "link": "/blog/bare-metal/2-Create-project",
+                    "filePath": "/md/bare-metal/2-Create-project.zh.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "blog",
+            "title": "Markdown 测试",
+            "link": "/blog/markdown-test",
+            "description": "探索使用 DaisyUI、TailwindCSS、Markdown、HLJS 设计的排版和布局。",
+            "linkType": "internal",
+            "filePath": "/md/WhatToOut.zh.md",
+            "date": "2024-08-15"
+        }
+    ]
+}

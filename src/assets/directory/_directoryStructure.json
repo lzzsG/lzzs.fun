@@ -1,43 +1,43 @@
 {
     "bareMetal": [
         {
-            "i18nKey": "bareMetal.0-About-bare-metal-programming",
+            "title": "bareMetal.0-About-bare-metal-programming",
             "path": "/bare-metal/0-About-bare-metal-programming"
         },
         {
-            "i18nKey": "bareMetal.1-Development-environment-setup",
+            "title": "bareMetal.1-Development-environment-setup",
             "path": "/bare-metal/1-Development-environment-setup"
         },
         {
-            "i18nKey": "bareMetal.2-Create-project",
+            "title": "bareMetal.2-Create-project",
             "path": "/bare-metal/2-Create-project"
         },
         {
-            "i18nKey": "bareMetal.3-Writing-boot-code",
+            "title": "bareMetal.3-Writing-boot-code",
             "path": "/bare-metal/3-Writing-boot-code"
         },
         {
-            "i18nKey": "bareMetal.4-Writing-the-main-program",
+            "title": "bareMetal.4-Writing-the-main-program",
             "path": "/bare-metal/4-Writing-the-main-program"
         },
         {
-            "i18nKey": "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems",
+            "title": "bareMetal.4½-Supplement-for-the-main-program-of-operating-systems",
             "path": "/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems"
         },
         {
-            "i18nKey": "bareMetal.5-Compiling-code",
+            "title": "bareMetal.5-Compiling-code",
             "path": "/bare-metal/5-Compiling-code"
         },
         {
-            "i18nKey": "bareMetal.6-Linking-code",
+            "title": "bareMetal.6-Linking-code",
             "path": "/bare-metal/6-Linking-code"
         },
         {
-            "i18nKey": "bareMetal.7-Generating-image-files",
+            "title": "bareMetal.7-Generating-image-files",
             "path": "/bare-metal/7-Generating-image-files"
         },
         {
-            "i18nKey": "bareMetal.8-Running-on-the-target-platform",
+            "title": "bareMetal.8-Running-on-the-target-platform",
             "path": "/bare-metal/8-Running-on-the-target-platform"
         }
     ]

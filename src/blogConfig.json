@@ -49,7 +49,16 @@
             "description": "探索使用 DaisyUI、TailwindCSS、Markdown、HLJS 设计的排版和布局。",
             "linkType": "internal",
             "filePath": "/md/WhatToOut.zh.md",
-            "date": "2024-08-15"
+            "date": "2024-04"
+        },
+        {
+            "type": "blog",
+            "title": "关于学习资源的分享与使用",
+            "link": "/blog/sharing-and-using-learning-resources",
+            "description": "随着信息和知识的广泛传播，学习者越来越多地依赖各类教程、笔记攻略等资源来辅助学习。然而，关于这些资源的使用和分享却有一定的争议。在本文中，通过多次相互反驳的观点，我们试图探讨是否应该分享和使用心得攻略。",
+            "linkType": "internal",
+            "filePath": "/md/sharing-and-using-learning-resources.md",
+            "date": "2024-08-26"
         }
     ]
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config/config.js';
 import { ReactComponent as LinkIcon } from '../assets/svg/link.svg';
+import GiscusComments from '../components/GiscusComments';
 
 const generateLink = (link, title, linkType, date) => {
     return (
@@ -87,7 +88,9 @@ const NewBlogPage = ({ configData }) => {
                         <div className="divider md:col-span-2 lg:col-span-3 m-0"></div>
                     </React.Fragment>
                 ))}
+
             </div>
+
         </div>
     );
 };

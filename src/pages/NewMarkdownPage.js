@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { marked } from 'marked';
 import PropTypes from 'prop-types';
 import ScrollToTopButton from '../components/ScrollToTopButton.js';
+import GiscusComments from '../components/GiscusComments';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight.js样式
 import { useLocation, Link } from 'react-router-dom';
@@ -57,18 +58,29 @@ const NewMarkdownPage = ({ filePath }) => {
     };
 
     useEffect(() => {
-        // 设置页面标题和描述
-        const fileName = filePath.split('/').pop().replace('.md', '');
-        document.title = `${fileName} - ${config.siteName}`;
+        // 从 blogConfig 中查找与当前 filePath 匹配的条目
+        const matchedSection = blogConfig.sections.find(section =>
+            (section.type === 'series' && section.articles.some(article => article.filePath === filePath)) ||
+            (section.type === 'blog' && section.filePath === filePath)
+        );
 
-        let descriptionTag = document.querySelector('meta[name="description"]');
-        if (!descriptionTag) {
-            descriptionTag = document.createElement('meta');
-            descriptionTag.setAttribute('name', 'description');
-            document.head.appendChild(descriptionTag);
+        // 如果找到了匹配的条目，则设置页面标题和描述
+        if (matchedSection) {
+            const title = matchedSection.title;
+            const description = matchedSection.description || `Documentation for ${title}`;
+
+            document.title = `${title} - ${config.siteName}`;
+
+            let descriptionTag = document.querySelector('meta[name="description"]');
+            if (!descriptionTag) {
+                descriptionTag = document.createElement('meta');
+                descriptionTag.setAttribute('name', 'description');
+                document.head.appendChild(descriptionTag);
+            }
+            descriptionTag.setAttribute('content', description);
         }
-        descriptionTag.setAttribute('content', `Documentation for ${fileName}`);
     }, [filePath]);
+
 
     useEffect(() => {
         fetch(filePath)
@@ -264,8 +276,11 @@ const NewMarkdownPage = ({ filePath }) => {
             <ul className="list-disc list-inside"></ul>
             <article className="prose max-w-full md:max-w-[780px] ">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
+                <GiscusComments />
+                <br />
             </article>
-        </div>
+
+        </div >
     );
 };
 

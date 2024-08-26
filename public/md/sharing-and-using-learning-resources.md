@@ -198,19 +198,3 @@
 讨论暂告一段落。在本文中，通过多次相互反驳的观点，我们试图探讨是否应该分享和使用心得攻略。然而，本文并没有给出最终的解答，实际上在这个问题上也不存在通用的标准答案。正如你可能已经注意到的，本文中提出的观点也有很多漏洞和不足之处。
 
 再次重申，本文只是使用了相互反驳的方法来促进思考，意在激发读者独立思考，并没有意图攻击任意一方。或许在阅读完本文之后，你已经对这一问题有了自己的思考，或者更加明确了自己在分享或使用资源方面的选择。
-
-<script src="https://giscus.app/client.js"
-        data-repo="lzzsG/lzzsg.github.io"
-        data-repo-id="R_kgDOLm4KXQ"
-        data-category="Announcements"
-        data-category-id="DIC_kwDOLm4KXc4Ch8BA"
-        data-mapping="pathname"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="dark_high_contrast"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>

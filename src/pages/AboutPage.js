@@ -28,10 +28,10 @@ const AboutPage = () => {
                 <ScrollToTopButton />
                 {/* <CircularNavigation /> */}
 
-                <div className="flex justify-between bg-base-200 rounded-none mt-4 md:mt-12 2xl:mt-24  items-center  p-6 md:p-12">
+                <div className="flex bg-base-200 rounded-none mt-4 md:mt-12 2xl:mt-24 justify-between items-center  p-6 md:p-12">
                     <div className="text">
                         <h2 className="text-4xl font-bold ">{t('nothing')}</h2>
-
+                        {/* <div>Re:Zero − Starting Life in Computer Science, Graduated from Bioengineering</div> */}
                     </div>
                     {/* <button className="btn btn-outline">About</button> */}
                 </div>

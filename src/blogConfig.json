@@ -2,51 +2,92 @@
     "sections": [
         {
             "type": "project",
+            "label": "项目展示",
             "title": "All To Mdbook",
             "link": "https://github.com/lzzsG/all-to-mdbook",
-            "description": "这是一个将文档转换为 Mdbook 的工具。",
+            "description": "该仓库提供一种将包含 Markdown 文件结构的仓库部署到 mdBook 的自动化方法。利用GitHub Actions，它可以自动识别指定仓库中的Markdown文件并生成相应的mdBook。",
             "linkType": "external",
-            "date": "2024-08-20"
+            "date": "2024-03"
         },
         {
             "type": "project",
-            "title": "Another Project",
-            "link": "https://github.com/another/project",
-            "description": "这是另一个项目。",
+            "title": "lzzs.fun",
+            "link": "https://github.com/lzzsG/lzzsg.github.io",
+            "description": "一个用于学习和演示的自动化部署的网站，包括测试静态网页构建、汇总我的学习项目以及一些简单的博客。使用React、tailwindcss、daisyUI、GitHub Pages构建。",
             "linkType": "external",
-            "date": "2024-08-18"
+            "date": "2024-03"
         },
         {
-            "type": "series",
-            "title": "Bare Metal Programming",
-            "date": "2024-08-19",
-            "description": "这是一个关于裸机编程的系列文章，涵盖从开发环境搭建到项目创建的各个方面。",
-            "articles": [
-                {
-                    "title": "0-关于裸机编程",
-                    "link": "/blog/bare-metal/0-About-bare-metal-programming",
-                    "filePath": "/md/bare-metal/0-About-bare-metal-programming.zh.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "1-开发环境搭建",
-                    "link": "/blog/bare-metal/1-Development-environment-setup",
-                    "filePath": "/md/bare-metal/1-Development-environment-setup.zh.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "2-创建项目",
-                    "link": "/blog/bare-metal/2-Create-project",
-                    "filePath": "/md/bare-metal/2-Create-project.zh.md",
-                    "linkType": "internal"
-                }
-            ]
+            "type": "nootbook",
+            "label": "课程笔记",
+            "title": "CS 61A",
+            "description": "( Ongoing🟢 ) UC Berkeley CS 61A: Structure and Interpretation of Computer Programs Fall 2020",
+            "link": "https://lzzs.fun/CS61A-notebook/",
+            "linkType": "external",
+            "date": "2024-09"
+        },
+        {
+            "type": "nootbook",
+            "title": "CS 61C",
+            "description": "( Drafted🔵 ) UC Berkeley CS 61C: Great Ideas in Computer Architecture (Machine Structures) Fall 2022",
+            "link": "https://lzzs.fun/CS61C-notebook/",
+            "linkType": "external",
+            "date": "2024-08"
+        },
+        {
+            "type": "nootbook",
+            "title": "MIT 6.S081",
+            "description": "( Paused🔵 ) MIT 6.S081: Introduction to Operating Systems Fall 2020",
+            "link": "https://lzzs.fun/6.S081-notebook/",
+            "linkType": "external",
+            "date": "2024-08"
+        },
+        {
+            "type": "nootbook",
+            "title": "EECS 151/251A",
+            "description": "( Paused🟠 ) UC Berkeley EECS 151/251A: Introduction to Digital Deisgn and Integrated Circuits Spring 2022",
+            "link": "https://lzzs.fun/EECS151-notebook/",
+            "linkType": "external",
+            "date": "2024-09"
+        },
+        {
+            "type": "nootbook",
+            "title": "CS 152/252A",
+            "description": "( Paused🟠 ) UC Berkeley CS 152/252A: Computer Architecture and Engineering Spring 2023",
+            "link": "https://lzzs.fun/CS152-notebook/",
+            "linkType": "external",
+            "date": "2024-09"
+        },
+        {
+            "type": "nootbook",
+            "title": "MIT Computer Architecture and Digital Systems",
+            "description": "( Paused🟡 ) 在这里我们将集中探讨学习 MIT 的三门核心课程：MIT 6.004, MIT 6.175, 和 MIT 6.375，这些课程覆盖了计算机科学和电子工程的高级主题。",
+            "link": "https://lzzs.fun/MIT-digital-systems/",
+            "linkType": "external",
+            "date": "2024-05"
+        },
+        {
+            "type": "nootbook",
+            "title": "rCore Notebook",
+            "description": "( Paused🟡 ) 清华大学操作系统2022-课程笔记",
+            "link": "https://lzzs.fun/rCore-series/",
+            "linkType": "external",
+            "date": "2024-05"
+        },
+        {
+            "type": "nootbook",
+            "title": "Rustlings Notebook",
+            "description": "( Finished🔴 ) 一个违背了不要提供答案的原则的 Rustlings Notebook",
+            "link": "https://lzzs.fun/rustlings-notebook/",
+            "linkType": "external",
+            "date": "2024-05"
         },
         {
             "type": "blog",
+            "label": "博客文章",
             "title": "Markdown 测试",
             "link": "/blog/markdown-test",
-            "description": "探索使用 DaisyUI、TailwindCSS、Markdown、HLJS 设计的排版和布局。",
+            "description": "探索使用React、DaisyUI、TailwindCSS、Markdown设计的排版和布局。只是一堆完全没有意义的废话，用来测试BlogPages。它包括各种排版元素，像是加粗文字、无序列表、有序列表、代码块、引用块、斜体。",
             "linkType": "internal",
             "filePath": "/md/WhatToOut.zh.md",
             "date": "2024-04"
@@ -64,10 +105,37 @@
             "type": "blog",
             "title": "“富二代”，“继承”了什么？",
             "link": "/blog/what-did-the-rich-second-generation-inherit",
-            "description": "本文旨在帮助普通人认清自身与“富二代”之间的差距，并找到有效弥补这些差距的方向和方法。通过对资源、环境和心理影响的分析，文章揭示了外部条件对个人发展的深远影响。然而，努力与成功之间的关联并不仅仅依赖于外部资源的多少，真正的关键在于能否采取正确的策略和保持积极的心态。",
+            "description": "本文旨讨论“普通人”与“富二代”之间的差距，并找到有效弥补这些差距的方向和方法。通过对资源、环境和心理影响的分析，文章揭示了外部条件对个人发展的深远影响。然而，努力与成功之间的关联并不仅仅依赖于外部资源的多少，真正的关键在于能否采取正确的策略和保持积极的心态。",
             "linkType": "internal",
             "filePath": "/md/what-did-the-rich-second-generation-inherit.md",
             "date": "2024-09-11"
+        },
+        {
+            "type": "series",
+            "label": "系列文章",
+            "title": "Bare Metal Programming",
+            "date": "2024-04",
+            "description": "这是一个关于裸机编程的系列文章。 （仅做测试和参考）",
+            "articles": [
+                {
+                    "title": "0-关于裸机编程",
+                    "link": "/blog/bare-metal/0-About-bare-metal-programming",
+                    "filePath": "/md/bare-metal/0-About-bare-metal-programming.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-开发环境搭建",
+                    "link": "/blog/bare-metal/1-Development-environment-setup",
+                    "filePath": "/md/bare-metal/1-Development-environment-setup.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "2-创建项目...",
+                    "link": "/blog/bare-metal/2-Create-project",
+                    "filePath": "/md/bare-metal/2-Create-project.zh.md",
+                    "linkType": "internal"
+                }
+            ]
         }
     ]
 }

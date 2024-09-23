@@ -111,6 +111,15 @@
             "date": "2024-09-11"
         },
         {
+            "type": "blog",
+            "title": "如何科学地提问和解决问题",
+            "link": "/blog/How-To-Ask-SICP",
+            "description": "如何科学地提问和解决问题 SICP类比",
+            "linkType": "internal",
+            "filePath": "/md/How-To-Ask-SICP.md",
+            "date": "2024-09-23"
+        },
+        {
             "type": "series",
             "label": "系列文章",
             "title": "Bare Metal Programming",

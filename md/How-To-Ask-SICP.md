@@ -1,6 +1,6 @@
 # 读后感-如何科学地提问
 
-在阅读两篇文章后，来关于"好的提问"以及"通过STFW和RTFM独立解决问题"，我想结合最近所学的SICP（*Structure and Interpretation of Computer Programs*）中的函数和环境的相关概念来讨论。
+在阅读两篇文章（[提问的智慧在](https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/master/README-zh_CN.md)和[别像弱智一样提问](https://github.com/tangx/Stop-Ask-Questions-The-Stupid-Ways/blob/master/README.md)）后，关于"好的提问"以及"通过STFW和RTFM独立解决问题"，我想结合最近所学的SICP（*Structure and Interpretation of Computer Programs*）中的函数和环境的相关概念来讨论。
 
 ## 一、函数和环境的类比 - 提问与信息传递
 

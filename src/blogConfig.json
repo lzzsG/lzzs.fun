@@ -69,16 +69,16 @@
         {
             "type": "nootbook",
             "title": "rCore Notebook",
-            "description": "( Paused🟡 ) 清华大学操作系统2022-课程笔记",
-            "link": "https://lzzs.fun/rCore-series/",
+            "description": "( Ongoing🟢 ) 清华大学操作系统2022-课程笔记，以及以一些相关资源工具的学习补充",
+            "link": "https://lzzs.fun/rCore-notebook/",
             "linkType": "external",
             "date": "2024-05"
         },
         {
             "type": "nootbook",
             "title": "Rustlings Notebook",
-            "description": "( Finished🔴 ) 一个违背了不要提供答案的原则的 Rustlings Notebook",
-            "link": "https://lzzs.fun/rustlings-notebook/",
+            "description": "( Revoked🔴 ) 一个违背了不要提供答案的原则的 Rustlings Notebook (已私有)",
+            "link": "https://lzzs.fun/",
             "linkType": "external",
             "date": "2024-05"
         },
@@ -114,7 +114,7 @@
             "type": "blog",
             "title": "如何科学地提问和解决问题",
             "link": "/blog/How-To-Ask-SICP",
-            "description": "如何科学地提问和解决问题 SICP类比",
+            "description": "关于如何科学地提问和解决问题，结合最近所学的SICP（Structure and Interpretation of Computer Programs）中的函数和环境的相关概念来讨论。",
             "linkType": "internal",
             "filePath": "/md/How-To-Ask-SICP.md",
             "date": "2024-09-23"

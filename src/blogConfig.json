@@ -84,22 +84,12 @@
         },
         {
             "type": "blog",
-            "label": "博客文章",
-            "title": "Markdown 测试",
-            "link": "/blog/markdown-test",
-            "description": "探索使用React、DaisyUI、TailwindCSS、Markdown设计的排版和布局。只是一堆完全没有意义的废话，用来测试BlogPages。它包括各种排版元素，像是加粗文字、无序列表、有序列表、代码块、引用块、斜体。",
+            "title": "如何科学地提问和解决问题",
+            "link": "/blog/How-To-Ask-SICP",
+            "description": "关于如何科学地提问和解决问题，结合最近所学的SICP（Structure and Interpretation of Computer Programs）中的函数和环境的相关概念来讨论。",
             "linkType": "internal",
-            "filePath": "/md/WhatToOut.zh.md",
-            "date": "2024-04"
-        },
-        {
-            "type": "blog",
-            "title": "关于学习资源的分享与使用",
-            "link": "/blog/sharing-and-using-learning-resources",
-            "description": "随着信息和知识的广泛传播，学习者越来越多地依赖各类教程、笔记攻略等资源来辅助学习。然而，关于这些资源的使用和分享却有一定的争议。在本文中，通过多次相互反驳的观点，我们试图探讨是否应该分享和使用心得攻略。",
-            "linkType": "internal",
-            "filePath": "/md/sharing-and-using-learning-resources.md",
-            "date": "2024-08-26"
+            "filePath": "/md/How-To-Ask-SICP.md",
+            "date": "2024-09-23"
         },
         {
             "type": "blog",
@@ -112,19 +102,110 @@
         },
         {
             "type": "blog",
-            "title": "如何科学地提问和解决问题",
-            "link": "/blog/How-To-Ask-SICP",
-            "description": "关于如何科学地提问和解决问题，结合最近所学的SICP（Structure and Interpretation of Computer Programs）中的函数和环境的相关概念来讨论。",
+            "title": "关于学习资源的分享与使用",
+            "link": "/blog/sharing-and-using-learning-resources",
+            "description": "随着信息和知识的广泛传播，学习者越来越多地依赖各类教程、笔记攻略等资源来辅助学习。然而，关于这些资源的使用和分享却有一定的争议。在本文中，通过多次相互反驳的观点，我们试图探讨是否应该分享和使用心得攻略。",
             "linkType": "internal",
-            "filePath": "/md/How-To-Ask-SICP.md",
-            "date": "2024-09-23"
+            "filePath": "/md/sharing-and-using-learning-resources.md",
+            "date": "2024-08-26"
+        },
+        {
+            "type": "blog",
+            "label": "博客文章",
+            "title": "Markdown 测试",
+            "link": "/blog/markdown-test",
+            "description": "测试使用React、DaisyUI、TailwindCSS、Markdown设计的排版和布局。只是一堆完全没有意义的废话，用来测试BlogPages。它包括各种排版元素，像是加粗文字、无序列表、有序列表、代码块、引用块、斜体，还有自定义的TOC。",
+            "linkType": "internal",
+            "filePath": "/md/WhatToOut.zh.md",
+            "date": "2024-04"
         },
         {
             "type": "series",
-            "label": "系列文章",
+            "label": "系列博客",
+            "title": "调试(GDB)",
+            "date": "2024-09",
+            "description": " GDB 从安装到使用。",
+            "articles": [
+                {
+                    "title": "介绍和GDB",
+                    "link": "/blog/GDB",
+                    "filePath": "/md/GDB.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "🔗 GDB安装",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/0-GDB-install.html"
+                },
+                {
+                    "title": "🔗 GDB使用/C",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/0-GDB-use.html"
+                },
+                {
+                    "title": "🔗 riscv64-unknown-elf-gdb/QEMU/C",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/0-riscv64-unknown-elf-gdb-and-qemu.html"
+                }
+            ]
+        },
+        {
+            "type": "series",
+            "label": "系列博客",
+            "title": "Linux基本使用记录",
+            "date": "2024-09",
+            "description": "学习 Linux 时的一些备忘笔记。",
+            "articles": [
+                {
+                    "title": "0-关于",
+                    "link": "/blog/use-Linux/0-About",
+                    "filePath": "/md/use-Linux/0-About.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-Shell工具和脚本",
+                    "link": "/blog/use-Linux/1-Shell-Tools-and-Scripting",
+                    "filePath": "/md/use-Linux/1-Shell-Tools-and-Scripting.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "2-编辑器(Vim)",
+                    "link": "/blog/use-Linux/Editors-Vim",
+                    "filePath": "/md/use-Linux/Editors-Vim.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "3-数据整理(正则表达式)",
+                    "link": "/blog/use-Linux/Data-Wrangling",
+                    "filePath": "/md/use-Linux/Data-Wrangling.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "4-命令行环境(任务控制/tmux)",
+                    "link": "/blog/use-Linux/Command-line-Environment",
+                    "filePath": "/md/use-Linux/Command-line-Environment.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "5-版本控制(Git)",
+                    "link": "/blog/use-Linux/Version-Control-Git",
+                    "filePath": "/md/use-Linux/Version-Control-Git.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "6-调试(GDB)",
+                    "link": "/blog/use-Linux/Debugging-GDB",
+                    "filePath": "/md/use-Linux/Debugging-GDB.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "series",
+            "label": "系列博客",
             "title": "Bare Metal Programming",
             "date": "2024-04",
-            "description": "这是一个关于裸机编程的系列文章。 （仅做测试和参考）",
+            "description": "这是一个关于裸机编程的系列博客。 （仅做测试和参考）",
             "articles": [
                 {
                     "title": "0-关于裸机编程",

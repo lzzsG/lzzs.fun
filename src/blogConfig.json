@@ -170,32 +170,26 @@
                 },
                 {
                     "title": "2-编辑器(Vim)",
-                    "link": "/blog/use-Linux/Editors-Vim",
-                    "filePath": "/md/use-Linux/Editors-Vim.md",
+                    "link": "/blog/use-Linux/2-Editors-Vim",
+                    "filePath": "/md/use-Linux/2-Editors-Vim.md",
                     "linkType": "internal"
                 },
                 {
                     "title": "3-数据整理(正则表达式)",
-                    "link": "/blog/use-Linux/Data-Wrangling",
-                    "filePath": "/md/use-Linux/Data-Wrangling.md",
+                    "link": "/blog/use-Linux/3-Data-Wrangling",
+                    "filePath": "/md/use-Linux/3-Data-Wrangling.md",
                     "linkType": "internal"
                 },
                 {
                     "title": "4-命令行环境(任务控制/tmux)",
-                    "link": "/blog/use-Linux/Command-line-Environment",
-                    "filePath": "/md/use-Linux/Command-line-Environment.md",
+                    "link": "/blog/use-Linux/4-Command-line-Environment",
+                    "filePath": "/md/use-Linux/4-Command-line-Environment.md",
                     "linkType": "internal"
                 },
                 {
                     "title": "5-版本控制(Git)",
-                    "link": "/blog/use-Linux/Version-Control-Git",
-                    "filePath": "/md/use-Linux/Version-Control-Git.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "6-调试(GDB)",
-                    "link": "/blog/use-Linux/Debugging-GDB",
-                    "filePath": "/md/use-Linux/Debugging-GDB.md",
+                    "link": "/blog/use-Linux/5-Version-Control-Git",
+                    "filePath": "/md/use-Linux/5-Version-Control-Git.md",
                     "linkType": "internal"
                 }
             ]

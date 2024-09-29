@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import config from '../config/config.js';
+import { useTranslation } from 'react-i18next';
 import { ReactComponent as LinkIcon } from '../assets/svg/link.svg';
 
 // 公用的生成链接的函数
@@ -40,11 +41,25 @@ const generateSeries = (series) => {
                     <div className="divider -translate-y-1 m-0"></div>
                     <ul className="list-disc list-inside">
                         {series.articles.map((article, index) => (
-                            <Link key={index} to={article.link}>
-                                <li className="text-base mb-2 hover:underline">
-                                    {article.title}
-                                </li>
-                            </Link>
+                            <li key={index} className="text-base mb-2 hover:underline flex items-center">
+                                {article.linkType === 'external' ? (
+                                    <>
+                                        <LinkIcon className="size-4 mr-1 " /> {/* 图标 */}
+                                        <a
+                                            href={article.link}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="flex items-center"
+                                        >
+                                            {article.title}
+                                        </a>
+                                    </>
+                                ) : (
+                                    <Link to={article.link} className="flex items-center">
+                                        {article.title}
+                                    </Link>
+                                )}
+                            </li>
                         ))}
                     </ul>
                 </div>
@@ -53,8 +68,25 @@ const generateSeries = (series) => {
     );
 };
 
+
 // 动态生成页面的主函数
 const NewBlogPage = ({ configData }) => {
+    const { t } = useTranslation();
+
+    useEffect(() => {
+        // 动态设置页面标题
+        document.title = `${t('blog')} - ${config.siteName}`;
+
+        // 设置页面描述
+        const descriptionContent = "这是lzzsSite的BlogPage";
+        let descriptionMetaTag = document.querySelector('meta[name="description"]');
+        if (!descriptionMetaTag) {
+            descriptionMetaTag = document.createElement('meta');
+            descriptionMetaTag.setAttribute('name', 'description');
+            document.head.appendChild(descriptionMetaTag);
+        }
+        descriptionMetaTag.setAttribute('content', descriptionContent);
+    }, [t, config.siteName]);
     // 根据类型对sections进行分类
     const sectionsByType = configData.sections.reduce((acc, section) => {
         if (!acc[section.type]) {

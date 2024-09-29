@@ -1,21 +1,29 @@
-// Redirector.js
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Redirector() {
     const navigate = useNavigate();
-
+    const location = useLocation();
     useEffect(() => {
         const redirectPathname = localStorage.getItem('redirectPathname');
-        console.log('Redirecting to:', redirectPathname); // 调试输出
+        console.log('Current pathname:', location.pathname, 'Redirecting to:', redirectPathname); // 调试输出
+
+        // 检查当前路径和重定向逻辑
+        const isEnglishPath = location.pathname.startsWith('/en') || redirectPathname?.startsWith('/en');
+
         if (redirectPathname) {
-            navigate(redirectPathname);
+            const redirectTo = isEnglishPath
+                ? redirectPathname // 英文路径
+                : redirectPathname; // 中文路径
+
+            console.log('Navigating to:', redirectTo); // 输出最终重定向路径
+            navigate(redirectTo, { replace: true });
             localStorage.removeItem('redirectPathname');
         }
-    }, [navigate]);
+    }, [navigate, location]);
 
 
-    return null; // 该组件不渲染任何东西
+    return null;
 }
 
 export default Redirector;

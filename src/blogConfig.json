@@ -127,22 +127,22 @@
             "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",
             "articles": [
                 {
-                    "title": "🔗 开始",
+                    "title": "0-开始",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-GDB.html"
                 },
                 {
-                    "title": "🔗 GDB安装",
+                    "title": "1-GDB安装",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-GDB-install.html"
                 },
                 {
-                    "title": "🔗 GDB使用 /gdb/C",
+                    "title": "2-GDB使用 /gdb/C",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-GDB-use.html"
                 },
                 {
-                    "title": "🔗 riscv64-unknown-elf-gdb和QEMU /C",
+                    "title": "3-riscv64-unknown-elf-gdb和QEMU /C",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-riscv64-unknown-elf-gdb-and-qemu.html"
                 }

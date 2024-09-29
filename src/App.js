@@ -1,51 +1,51 @@
-//应用的主组件，通常用于定义路由和全局布局。
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import routes from './routes';
 import './assets/styles/global.css';
 import Redirector from './utils/Redirector';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
+import { useTranslation } from 'react-i18next';
 
+const AppContent = () => {
+  const { i18n } = useTranslation();
+  const location = useLocation();
 
-function App() {
-  const getDefaultLanguagePath = () => {
-    const preferredLanguage = window.navigator.language.startsWith('zh') ? '/' : '/en';
-    const redirectPathname = localStorage.getItem('redirectPathname');
-
-    console.log('Preferred Language:', preferredLanguage, 'Redirect Path:', redirectPathname); // 输出调试信息
-
-    if (redirectPathname) {
-      return redirectPathname;
+  useEffect(() => {
+    // 如果是根路径，没有指定语言前缀，则设置默认语言为中文
+    if (location.pathname === '/') {
+      i18n.changeLanguage('zh');
     }
-
-    return preferredLanguage;
-  };
-
+  }, [location, i18n]);
 
   return (
-    <div>
-      <Router>
-        <Redirector />
-        <MainLayout>
-          <Routes>
+    <MainLayout>
+      <Routes>
+        {/* 中文首页 */}
+        <Route path="/" element={<HomePage />} />
 
-            {/* 检查根路径的渲染 */}
-            <Route path="/" element={<HomePage />} />  // 中文首页
-            <Route path="/en/" element={<HomePage />} />  // 英文首页
+        {/* 英文首页 */}
+        <Route path="/en" element={<HomePage />} />
 
-            {/* 其他路由 */}
-            {routes.map((route, index) => (
-              <Route key={index} path={route.path} element={route.element} />
-            ))}
-            {/* 捕获所有未定义路径的路由 */}
-            <Route path="*" element={<NotFoundPage />} />
+        {/* 其他路由 */}
+        {routes.map((route, index) => (
+          <Route key={index} path={route.path} element={route.element} />
+        ))}
 
-          </Routes>
-        </MainLayout>
-      </Router>
-    </div>
+        {/* 捕获所有未定义路径的路由 */}
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </MainLayout>
+  );
+};
+
+function App() {
+  return (
+    <Router>
+      <Redirector />
+      <AppContent />
+    </Router>
   );
 }
 

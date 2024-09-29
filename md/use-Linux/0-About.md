@@ -2,6 +2,8 @@
 
 本系列作为 Linux 使用学习的记录和备忘，旨在帮助初学者或有一定基础的用户快速查阅常用的 Linux 工具和技巧。每个章节覆盖了不同方面的知识，从基本的命令行操作到高级的脚本编写，再到数据整理和版本控制。更多内容参见[The missing semester of your CS education](https://missing-semester-cn.github.io/)
 
+<div class="L-alert L-alert-error">注意：本系列 Linux 笔记与其他文字或视频教程一样，仅作为学习辅助资料，无法代替实际操作的学习效果。如果没有自己的实践，学习效果将大打折扣。请确保你已经安装并准备好 Linux 环境，并承诺通过一定的实践练习来真正掌握 Linux。</div>
+
 ### **内容概览：**
 
 1. **Shell 工具和脚本**：介绍 Linux 系统下常用的命令行工具，如 `ls`、`grep`、`awk`，以及如何编写基础脚本来自动化任务。

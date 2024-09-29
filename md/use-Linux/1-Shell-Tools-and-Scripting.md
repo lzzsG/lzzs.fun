@@ -1,4 +1,4 @@
-## Shell 及其常用命令与组合
+# Shell 及其常用命令与组合
 
 Shell 是一种命令行界面，它允许用户通过输入命令与操作系统进行交互。常见的 Shell 包括 Bash（Bourne Again SHell）、Zsh 和 Fish 等。Shell 不仅支持命令执行，还能进行脚本编程，自动化任务。
 

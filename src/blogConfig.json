@@ -11,6 +11,7 @@
         },
         {
             "type": "project",
+            "label": "项目展示",
             "title": "lzzs.fun",
             "link": "https://github.com/lzzsG/lzzsg.github.io",
             "description": "一个用于学习和演示的自动化部署的网站，包括测试静态网页构建、汇总我的学习项目以及一些简单的博客。使用React、tailwindcss、daisyUI、GitHub Pages构建。",
@@ -28,6 +29,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "CS 61C",
             "description": "( Drafted🔵 ) UC Berkeley CS 61C: Great Ideas in Computer Architecture (Machine Structures) Fall 2022",
             "link": "https://lzzs.fun/CS61C-notebook/",
@@ -36,6 +38,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "MIT 6.S081",
             "description": "( Paused🔵 ) MIT 6.S081: Introduction to Operating Systems Fall 2020",
             "link": "https://lzzs.fun/6.S081-notebook/",
@@ -44,6 +47,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "EECS 151/251A",
             "description": "( Paused🟠 ) UC Berkeley EECS 151/251A: Introduction to Digital Deisgn and Integrated Circuits Spring 2022",
             "link": "https://lzzs.fun/EECS151-notebook/",
@@ -52,6 +56,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "CS 152/252A",
             "description": "( Paused🟠 ) UC Berkeley CS 152/252A: Computer Architecture and Engineering Spring 2023",
             "link": "https://lzzs.fun/CS152-notebook/",
@@ -60,6 +65,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "MIT Computer Architecture and Digital Systems",
             "description": "( Paused🟡 ) 在这里我们将集中探讨学习 MIT 的三门核心课程：MIT 6.004, MIT 6.175, 和 MIT 6.375，这些课程覆盖了计算机科学和电子工程的高级主题。",
             "link": "https://lzzs.fun/MIT-digital-systems/",
@@ -68,6 +74,7 @@
         },
         {
             "type": "nootbook",
+            "label": "课程笔记",
             "title": "rCore Notebook",
             "description": "( Ongoing🟢 ) 清华大学操作系统2022-课程笔记，以及以一些相关资源工具的学习补充",
             "link": "https://lzzs.fun/rCore-notebook/",
@@ -84,6 +91,7 @@
         },
         {
             "type": "blog",
+            "label": "博客文章",
             "title": "如何科学地提问和解决问题",
             "link": "/blog/How-To-Ask-SICP",
             "description": "关于如何科学地提问和解决问题，结合最近所学的SICP（Structure and Interpretation of Computer Programs）中的函数和环境的相关概念来讨论。",
@@ -93,6 +101,7 @@
         },
         {
             "type": "blog",
+            "label": "博客文章",
             "title": "“富二代”，“继承”了什么？",
             "link": "/blog/what-did-the-rich-second-generation-inherit",
             "description": "本文旨讨论“普通人”与“富二代”之间的差距，并找到有效弥补这些差距的方向和方法。通过对资源、环境和心理影响的分析，文章揭示了外部条件对个人发展的深远影响。然而，努力与成功之间的关联并不仅仅依赖于外部资源的多少，真正的关键在于能否采取正确的策略和保持积极的心态。",
@@ -102,6 +111,7 @@
         },
         {
             "type": "blog",
+            "label": "博客文章",
             "title": "关于学习资源的分享与使用",
             "link": "/blog/sharing-and-using-learning-resources",
             "description": "随着信息和知识的广泛传播，学习者越来越多地依赖各类教程、笔记攻略等资源来辅助学习。然而，关于这些资源的使用和分享却有一定的争议。在本文中，通过多次相互反驳的观点，我们试图探讨是否应该分享和使用心得攻略。",

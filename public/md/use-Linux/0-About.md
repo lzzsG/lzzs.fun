@@ -1,8 +1,19 @@
-0-About.md
----
+# Linux基本使用记录
 
-0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md
-0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md0-About.md
+本系列作为 Linux 使用学习的记录和备忘，旨在帮助初学者或有一定基础的用户快速查阅常用的 Linux 工具和技巧。每个章节覆盖了不同方面的知识，从基本的命令行操作到高级的脚本编写，再到数据整理和版本控制。更多内容参见[The missing semester of your CS education](https://missing-semester-cn.github.io/)
 
----
-0-About.md
+### **内容概览：**
+
+1. **Shell 工具和脚本**：介绍 Linux 系统下常用的命令行工具，如 `ls`、`grep`、`awk`，以及如何编写基础脚本来自动化任务。
+2. **编辑器 (Vim)**：深入讲解 Vim 编辑器的使用技巧，从基础操作到高效编辑代码的快捷键和自定义设置。
+3. **数据整理（正则表达式）**：教你如何使用正则表达式处理和过滤文本数据，提高处理数据的效率。
+4. **命令行环境（任务控制/tmux）**：学习如何管理 Linux 环境中的多任务，使用 `tmux` 进行终端会话的管理和分屏操作。
+5. **版本控制（Git）**：学习 Git 的使用，包括分支、合并、冲突解决等技巧。
+6. **调试（GDB）**：学习使用 GDB 调试代码，处理代码中的 bug。（见[rCore - GDB章节](https://lzzs.fun/rCore-notebook/0-GDB.html)）
+
+> 大学里的计算机课程通常专注于讲授从操作系统到机器学习这些学院派的课程或主题，而对于如何精通工具这一主题则往往会留给学生自行探索。精通这些工具不仅可以帮助您更快的使用工具完成任务，并且可以帮助您解决在之前看来似乎无比复杂的问题。因此，花时间打磨使用这些工具的能力并能够最终熟练地、流畅地使用它们是非常有必要的。
+>
+> 在这个系列课程中，我们讲授命令行、强大的文本编辑器的使用、使用版本控制系统提供的多种特性等等。学生在他们受教育阶段就会和这些工具朝夕相处（在他们的职业生涯中更是这样）。关于[开设此课程的动机](https://missing-semester-cn.github.io/about/)。
+>
+> ——The missing semester of your CS education
+

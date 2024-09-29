@@ -72,7 +72,7 @@
             "description": "( Ongoing🟢 ) 清华大学操作系统2022-课程笔记，以及以一些相关资源工具的学习补充",
             "link": "https://lzzs.fun/rCore-notebook/",
             "linkType": "external",
-            "date": "2024-05"
+            "date": "2024-05 / 2024-09"
         },
         {
             "type": "nootbook",
@@ -124,13 +124,12 @@
             "label": "系列博客",
             "title": "调试(GDB)",
             "date": "2024-09",
-            "description": " GDB 从安装到使用。",
+            "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",
             "articles": [
                 {
-                    "title": "介绍和GDB",
-                    "link": "/blog/GDB",
-                    "filePath": "/md/GDB.md",
-                    "linkType": "internal"
+                    "title": "🔗 开始",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/0-GDB.html"
                 },
                 {
                     "title": "🔗 GDB安装",
@@ -138,12 +137,12 @@
                     "link": "https://lzzs.fun/rCore-notebook/0-GDB-install.html"
                 },
                 {
-                    "title": "🔗 GDB使用/C",
+                    "title": "🔗 GDB使用 /gdb/C",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-GDB-use.html"
                 },
                 {
-                    "title": "🔗 riscv64-unknown-elf-gdb/QEMU/C",
+                    "title": "🔗 riscv64-unknown-elf-gdb和QEMU /C",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/0-riscv64-unknown-elf-gdb-and-qemu.html"
                 }
@@ -154,7 +153,7 @@
             "label": "系列博客",
             "title": "Linux基本使用记录",
             "date": "2024-09",
-            "description": "学习 Linux 时的一些备忘笔记。",
+            "description": "学习 Linux 时的一些备忘笔记，提供一些便于查找的常见问题的解决方法。",
             "articles": [
                 {
                     "title": "0-关于",
@@ -199,7 +198,7 @@
             "label": "系列博客",
             "title": "Bare Metal Programming",
             "date": "2024-04",
-            "description": "这是一个关于裸机编程的系列博客。 （仅做测试和参考）",
+            "description": "这是一个关于裸机编程的系列博客。（仅做测试和参考）",
             "articles": [
                 {
                     "title": "0-关于裸机编程",

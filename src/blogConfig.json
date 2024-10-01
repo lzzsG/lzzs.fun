@@ -92,6 +92,16 @@
         {
             "type": "blog",
             "label": "博客文章",
+            "title": "关于链接脚本中的内存对齐",
+            "link": "/blog/memory-alignment-in-linker-script",
+            "description": "在操作系统开发、嵌入式系统或高性能应用开发中，内存对齐是优化系统性能的关键技术之一。它不仅影响数据的访问效率，还会影响到诸如分页、缓存以及 I/O 等底层硬件操作。本文我们将重点讨论链接脚本中的对齐操作，以及如何通过对齐优化内存管理。",
+            "linkType": "internal",
+            "filePath": "/md/241001-memory-alignment-in-linker-script.md",
+            "date": "2024-10-1"
+        },
+        {
+            "type": "blog",
+            "label": "博客文章",
             "title": "如何科学地提问和解决问题",
             "link": "/blog/How-To-Ask-SICP",
             "description": "关于如何科学地提问和解决问题，结合最近所学的SICP（Structure and Interpretation of Computer Programs）中的函数和环境的相关概念来讨论。",
@@ -131,7 +141,7 @@
         },
         {
             "type": "series",
-            "label": "系列博客",
+            "label": "系列内容",
             "title": "调试(GDB)",
             "date": "2024-09",
             "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",
@@ -160,7 +170,7 @@
         },
         {
             "type": "series",
-            "label": "系列博客",
+            "label": "系列内容",
             "title": "Linux基本使用记录",
             "date": "2024-09",
             "description": "学习 Linux 时的一些备忘笔记，提供一些便于查找的常见问题的解决方法。",
@@ -205,10 +215,10 @@
         },
         {
             "type": "series",
-            "label": "系列博客",
+            "label": "系列内容",
             "title": "Bare Metal Programming",
             "date": "2024-04",
-            "description": "这是一个关于裸机编程的系列博客。（仅做测试和参考）",
+            "description": "这是一个关于裸机编程的系列内容。（仅做测试和参考）",
             "articles": [
                 {
                     "title": "0-关于裸机编程",

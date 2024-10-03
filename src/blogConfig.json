@@ -149,22 +149,32 @@
                 {
                     "title": "0-开始",
                     "linkType": "external",
-                    "link": "https://lzzs.fun/rCore-notebook/0-GDB.html"
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/GDB.html"
                 },
                 {
-                    "title": "1-GDB安装",
+                    "title": "1-GDB 安装",
                     "linkType": "external",
-                    "link": "https://lzzs.fun/rCore-notebook/0-GDB-install.html"
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/GDB-install.html"
                 },
                 {
-                    "title": "2-GDB使用 /gdb/C",
+                    "title": "2-GDB 使用(C gdb)",
                     "linkType": "external",
-                    "link": "https://lzzs.fun/rCore-notebook/0-GDB-use.html"
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/GDB-use.html"
                 },
                 {
-                    "title": "3-riscv64-unknown-elf-gdb和QEMU /C",
+                    "title": "3-RISC-V: 使用GDB/QEMU调试 (C)",
                     "linkType": "external",
-                    "link": "https://lzzs.fun/rCore-notebook/0-riscv64-unknown-elf-gdb-and-qemu.html"
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/riscv64-unknown-elf-gdb-and-qemu.html"
+                },
+                {
+                    "title": "4-GDB 使用(Rust rust-gdb)",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/riscv64-unknown-elf-gdb-and-qemu.html"
+                },
+                {
+                    "title": "5-RISC-V: 使用GDB/QEMU调试 (Rust)",
+                    "linkType": "external",
+                    "link": "https://lzzs.fun/rCore-notebook/GDB/riscv64-unknown-elf-gdb-and-qemu-Rust.html"
                 }
             ]
         },

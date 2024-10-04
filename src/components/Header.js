@@ -50,7 +50,10 @@ const Header = () => {
             if (window.innerWidth <= 640) {
                 setShowNav(true); // 在sm以下尺寸始终显示导航
             } else {
-                setShowNav(window.scrollY > 48); // 在大屏上滚动一定距离后显示
+                if (location.pathname.includes('/code')) {
+                    // 当路径包含 /code 时，隐藏导航栏
+                    setShowNav(true);
+                }
             }
         };
 
@@ -79,18 +82,67 @@ const Header = () => {
 
     return (
         <>
-            <header className="flex justify-between items-center">
-                <div className="navbar justify-between items-center z-[100] bg-base-300 hidden sm:flex rounded-none h-24 top-0 p-0 border-b-2 border-base-100">
-                    <div className="flex">
-                        <div className="dropdown h-24">
-                            <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-base-100 w-20 h-20 m-2 flex items-center md:hidden p-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
-                                </svg>
+            {!location.pathname.includes('/code') && showNav && (
+                <header className="flex justify-between items-center">
+                    <div className={`navbar justify-between items-center z-[100] bg-base-300 hidden sm:flex rounded-none h-24 top-0 p-0 border-b-2 border-base-100`}>
+                        <div className="flex">
+                            <div className="dropdown h-24">
+                                <div tabIndex={0} role="button" className="btn btn-ghost hover:bg-base-100 w-20 h-20 m-2 flex items-center md:hidden p-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
+                                    </svg>
+                                </div>
+                                <ul tabIndex={0} className="menu menu-sm dropdown-content shadow w-24 bg-base-300 ring-2 ring-base-100 ring-inset">
+                                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
+                                        <button className={`text-base btn h-20 w-20 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
+                                            <div className="flex items-center">
+                                                <HomeIcon className="-ml-0.5 mx-0.5" />
+                                                {t('home')}
+                                            </div>
+                                        </button>
+                                    </Link>
+                                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}about`}>
+                                        <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
+                                            <div className="flex items-center">
+                                                <AboutMeIcon className="-ml-0.5 mx-0.5" />
+                                                {t('about')}
+                                            </div>
+                                        </button>
+                                    </Link>
+                                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}blog`}>
+                                        <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                                            <div className="flex items-center">
+                                                <BlogIcon className="-ml-0.5 mx-0.5" />
+                                                {t('blog')}
+                                            </div>
+                                        </button>
+                                    </Link>
+                                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}test`}>
+                                        <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
+                                            <div className="flex items-center">
+                                                <TestIcon className="-ml-0.5 mx-0.5" />
+                                                {t('test')}
+                                            </div>
+                                        </button>
+                                    </Link>
+                                </ul>
                             </div>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content shadow w-24 bg-base-300 ring-2 ring-base-100 ring-inset">
+                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
+                                <div className="justify-between items-center flex h-24 w-48">
+                                    <div className="justify-center items-center flex h-24 w-24">
+                                        <RecursiveBoxes size={60} />
+                                    </div>
+                                    <div className="justify-center items-center flex h-24 w-24">
+                                        <div className="flex-col">
+                                            <a className="text-lg font-bold w-24 flex justify-center content-center">{t('siteName')}</a>
+                                            <a className="text-sm font-bold w-24 flex justify-center content-center">temp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                            <div className="hidden md:flex">
                                 <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                                    <button className={`text-base btn h-20 w-20 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
+                                    <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
                                         <div className="flex items-center">
                                             <HomeIcon className="-ml-0.5 mx-0.5" />
                                             {t('home')}
@@ -98,15 +150,15 @@ const Header = () => {
                                     </button>
                                 </Link>
                                 <Link to={`/${currentLang === 'en' ? 'en/' : ''}about`}>
-                                    <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
+                                    <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
                                         <div className="flex items-center">
-                                            <AboutMeIcon className="-ml-0.5 mx-0.5" />
+                                            <AboutMeIcon className="-ml-0.5" />
                                             {t('about')}
                                         </div>
                                     </button>
                                 </Link>
                                 <Link to={`/${currentLang === 'en' ? 'en/' : ''}blog`}>
-                                    <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
+                                    <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
                                         <div className="flex items-center">
                                             <BlogIcon className="-ml-0.5 mx-0.5" />
                                             {t('blog')}
@@ -114,84 +166,36 @@ const Header = () => {
                                     </button>
                                 </Link>
                                 <Link to={`/${currentLang === 'en' ? 'en/' : ''}test`}>
-                                    <button className={`text-base btn h-20 w-20 mt-2 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
+                                    <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
                                         <div className="flex items-center">
                                             <TestIcon className="-ml-0.5 mx-0.5" />
                                             {t('test')}
                                         </div>
                                     </button>
                                 </Link>
-                            </ul>
-                        </div>
-                        <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                            <div className="justify-between items-center flex h-24 w-48">
-                                <div className="justify-center items-center flex h-24 w-24">
-                                    <RecursiveBoxes size={60} />
-                                </div>
-                                <div className="justify-center items-center flex h-24 w-24">
-                                    <div className="flex-col">
-                                        <a className="text-lg font-bold w-24 flex justify-center content-center">{t('siteName')}</a>
-                                        <a className="text-sm font-bold w-24 flex justify-center content-center">temp</a>
-                                    </div>
-                                </div>
                             </div>
+                        </div>
+                        <div className="">
+                            <div className="bg-base-300 -translate-y-0.5">
+                                <button className="text-base btn h-24 w-24 btn-sm btn-ghost translate-y-0.5" onClick={toggleLanguage}>
+                                    <div className="flex items-center">
+                                        <TranslateIcon className="-ml-0.5 mx-0.5" />
+                                        {i18n.language === 'en' ? '中文' : 'English'}
+                                    </div>
+                                </button>
+                            </div>
+                            <ThemeSwitcher />
+                        </div>
+                    </div>
+                    <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
+                        <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
+                            {t('siteName')}
                         </Link>
-                        <div className="hidden md:flex">
-                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                                <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/') ? 'bg-base-100' : ''}`}>
-                                    <div className="flex items-center">
-                                        <HomeIcon className="-ml-0.5 mx-0.5" />
-                                        {t('home')}
-                                    </div>
-                                </button>
-                            </Link>
-                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}about`}>
-                                <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/about') ? 'bg-base-100' : ''}`}>
-                                    <div className="flex items-center">
-                                        <AboutMeIcon className="-ml-0.5" />
-                                        {t('about')}
-                                    </div>
-                                </button>
-                            </Link>
-                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}blog`}>
-                                <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/blog') ? 'bg-base-100' : ''}`}>
-                                    <div className="flex items-center">
-                                        <BlogIcon className="-ml-0.5 mx-0.5" />
-                                        {t('blog')}
-                                    </div>
-                                </button>
-                            </Link>
-                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}test`}>
-                                <button className={`text-base btn h-24 w-24 btn-sm btn-ghost hover:bg-base-100 ${isActive('/test') ? 'bg-base-100' : ''}`}>
-                                    <div className="flex items-center">
-                                        <TestIcon className="-ml-0.5 mx-0.5" />
-                                        {t('test')}
-                                    </div>
-                                </button>
-                            </Link>
-                        </div>
+                        <a className="tooltip ml-1" data-tip="GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer">
+                            <GithubIcon className="size-6" />
+                        </a>
                     </div>
-                    <div className="">
-                        <div className="bg-base-300 -translate-y-0.5">
-                            <button className="text-base btn h-24 w-24 btn-sm btn-ghost translate-y-0.5" onClick={toggleLanguage}>
-                                <div className="flex items-center">
-                                    <TranslateIcon className="-ml-0.5 mx-0.5" />
-                                    {i18n.language === 'en' ? '中文' : 'English'}
-                                </div>
-                            </button>
-                        </div>
-                        <ThemeSwitcher />
-                    </div>
-                </div>
-                <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
-                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                        {t('siteName')}
-                    </Link>
-                    <a className="tooltip ml-1" data-tip="GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer">
-                        <GithubIcon className="size-6" />
-                    </a>
-                </div>
-            </header>
+                </header>)}
 
             {/* 滚动后显示的小导航 */}
             <div className={`mynavbar block z-30 fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>

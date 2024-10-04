@@ -142,6 +142,39 @@
         {
             "type": "series",
             "label": "系列内容",
+            "title": "C代码示例手册",
+            "date": "2024-10",
+            "description": "本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
+            "articles": [
+                {
+                    "title": "0-关于",
+                    "link": "/blog/c-code/0-About",
+                    "filePath": "/md/c-code/0-About.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-基础语法与数据类型",
+                    "link": "/blog/c-code/1-Basic-syntax-and-data-types",
+                    "filePath": "/md/c-code/1-Basic-syntax-and-data-types.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "2-控制结构",
+                    "link": "/blog/c-code/2-Control-structure",
+                    "filePath": "/md/c-code/2-Control-structure.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "3-数据整理(正则表达式)",
+                    "link": "/blog/c-code/3-Function-and-scope",
+                    "filePath": "/md/c-code/3-Function-and-scope.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "series",
+            "label": "系列内容",
             "title": "调试(GDB)",
             "date": "2024-09",
             "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",

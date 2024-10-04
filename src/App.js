@@ -8,6 +8,16 @@ import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import { useTranslation } from 'react-i18next';
 
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/components/prism-c';     // C 语言
+import 'prismjs/components/prism-rust';  // Rust 语言
+import 'prismjs/components/prism-python'; // Python 语言
+import 'prismjs/plugins/line-numbers/prism-line-numbers.css'; // 行号样式
+import 'prismjs/plugins/line-numbers/prism-line-numbers';     // 行号插件
+
+
+
+
 const AppContent = () => {
   const { i18n } = useTranslation();
   const location = useLocation();

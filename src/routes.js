@@ -5,6 +5,7 @@ import TestPage from './pages/TestPage';
 import MarkdownPage from './pages/MarkdownPage';
 import NewMarkdownPage from './pages/NewMarkdownPage';
 import NewBlogPage from './pages/NewBlogPage';
+import CodeExplanationPage from './pages/CodeExplanationPage';
 import D3Page from './pages/D3Pages';
 import blogConfig from './blogConfig.json';
 
@@ -79,6 +80,15 @@ const routes = [
     {
         path: '/en/blog',
         element: <NewBlogPage configData={blogConfig} />,
+    },
+
+    // 代码解释页面
+    {
+        path: '/code',
+        element: <CodeExplanationPage
+            codeFile="/code.c"
+            markdownFile="/explanation.md"
+        />,
     },
 
     // Markdown 测试页面

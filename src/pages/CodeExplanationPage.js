@@ -57,7 +57,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
     }, [markdownFile]);
 
     return (
-        <div className="flex h-screen mt-12">
+        <div className="flex h-screen">
             {/* 左边代码区域 */}
             <div
                 ref={codeRef}

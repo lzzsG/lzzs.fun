@@ -76,8 +76,9 @@ const SmallNavBar = ({ showNav, isActive, toggleLanguage, currentLang, theme, ch
     };
 
     return (
-        <div className="mynavbar bg-base-200 z-[90] fixed top-0 w-full flex justify-center items-center ">
+        <div className="mynavbar bg-base-200 z-[90] fixed top-0 w-full flex justify-center items-center -translate-x-4">
 
+            <span className="text-sm font-bold mr-2 hidden sm:block">Lzzs.fun</span>
             {renderNavItems(navItems)}
             {/* 切换语言和主题的按钮 */}
             <button className="text-sm btn btn-ghost m-0 p-0 w-12" onClick={toggleLanguage}>

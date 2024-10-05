@@ -148,7 +148,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
 
             {/* TOC 目录 (仅显示系列信息) */}
             {isTocVisible && series && (
-                <div className="toc-sidebar fixed top-12 right-2 z-40 h-full overflow-y-auto bg-base-300 p-4 w-64">
+                <div className="toc-sidebar fixed top-12 right-2 z-40 h-full overflow-y-auto bg-base-200 p-4 w-64 border border-base-100 border-2">
                     <h2 className="text-lg font-bold">{series?.title || '目录'}</h2>
                     {generateCodeSeries(series)}
                 </div>

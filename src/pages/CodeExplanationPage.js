@@ -84,8 +84,21 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             .catch((error) => console.error('Error loading code file:', error));
     }, [codeFile]);
 
-    // 加载并解析 Markdown 文件
+    // 配置 Markdown 解析器并加载 Markdown 文件
     useEffect(() => {
+        const renderer = new marked.Renderer();
+
+        // 配置高亮代码块
+        marked.setOptions({
+            renderer: renderer,
+            gfm: true,
+            breaks: true, // 支持换行符
+            highlight: function (code, lang) {
+                const language = Prism.languages[lang] || Prism.languages.plaintext;
+                return Prism.highlight(code, language, lang);
+            }
+        });
+
         fetch(markdownFile)
             .then((response) => response.text())
             .then((text) => {
@@ -137,7 +150,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
     };
 
     return (
-        <div className="flex h-screen mt-12">
+        <div className="flex h-screen mt-10 -mb-2">
             {/* TOC 按钮 */}
             <button
                 onClick={toggleTocVisibility}
@@ -157,7 +170,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             {/* 左边代码区域 */}
             <div
                 ref={codeRef}
-                className="w-1/2 -my-2 overflow-y-scroll"
+                className="w-1/2 overflow-y-scroll"
                 onScroll={() => syncScroll(codeRef, explanationRef)}
             >
                 {/* 使用 codeType 来动态设置 Prism.js 的语言类 */}
@@ -172,7 +185,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             {/* 右边讲解区域 */}
             <div
                 ref={explanationRef}
-                className="w-1/2 p-4 bg-base-100 overflow-y-scroll"
+                className="w-1/2 p-4 bg-base-100 overflow-y-scroll prose max-w-none" // 确保右边内容占满 1/2
                 onScroll={() => syncScroll(explanationRef, codeRef)}
                 dangerouslySetInnerHTML={{ __html: markdown }} // 渲染解析后的 Markdown 内容
             ></div>

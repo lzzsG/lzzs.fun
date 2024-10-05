@@ -21,23 +21,17 @@ const navItems = [
         icon: BlogIcon,
     },
     {
-        name: 'test',
-        path: '/test',
-        icon: TestIcon,
-    },
-    {
-        name: '展开',
-        path: '/services',
+        name: 'more',
         icon: TestIcon,
         children: [
             {
-                name: 'Consulting',
-                path: '/services/consulting',
+                name: 'test',
+                path: '/test',
                 icon: TestIcon,
             },
             {
-                name: 'Support',
-                path: '/services/support',
+                name: 'Code',
+                path: '/code',
                 icon: TestIcon,
             },
         ],

@@ -74,7 +74,7 @@ const NavbarLinks = ({ currentLang, isActive, t }) => {
                                         <li key={child.name}>
                                             <Link to={childPath} className={` ${isActive(child.path) ? 'bg-base-200' : ''}`}>
                                                 <ChildIcon className="mr-1" />
-                                                <span className="truncate">{t(child.name)}</span>
+                                                <span className="">{t(child.name)}</span>
                                             </Link>
                                         </li>
                                     );
@@ -90,9 +90,9 @@ const NavbarLinks = ({ currentLang, isActive, t }) => {
                         <button
                             className={`btn btn-ghost h-24 w-24 hover:bg-base-100 ${isActive(item.path) ? 'bg-base-100' : ''}`}
                         >
-                            <div className="flex items-center text-base truncate">
+                            <div className="flex items-center text-base ">
                                 <Icon className="mr-1" />
-                                <span className="truncate">{t(item.name)}</span>
+                                <span className="">{t(item.name)}</span>
                             </div>
                         </button>
                     </Link>

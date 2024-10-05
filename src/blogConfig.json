@@ -3,6 +3,15 @@
         {
             "type": "project",
             "label": "项目展示",
+            "title": "c-project-gen",
+            "link": "https://github.com/lzzsG/c-project-gen",
+            "description": "c-project-gen 是一个用于快速生成 C 语言项目模板的工具，支持单元测试和跨平台构建。通过自动创建项目结构、提供样例代码与单元测试，简化 C 语言项目的初始化工作。",
+            "linkType": "external",
+            "date": "2024-10"
+        },
+        {
+            "type": "project",
+            "label": "项目展示",
             "title": "All To Mdbook",
             "link": "https://github.com/lzzsG/all-to-mdbook",
             "description": "该仓库提供一种将包含 Markdown 文件结构的仓库部署到 mdBook 的自动化方法。利用GitHub Actions，它可以自动识别指定仓库中的Markdown文件并生成相应的mdBook。",
@@ -17,31 +26,6 @@
             "description": "一个用于学习和演示的自动化部署的网站，包括测试静态网页构建、汇总我的学习项目以及一些简单的博客。使用React、tailwindcss、daisyUI、GitHub Pages构建。",
             "linkType": "external",
             "date": "2024-03"
-        },
-        {
-            "type": "code",
-            "label": "代码系列",
-            "title": "C代码示例手册",
-            "description": "本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
-            "date": "2024-10",
-            "articles": [
-                {
-                    "title": "1-基础语法与数据类型",
-                    "codeFile": "/codePage/1-basic-syntax-and-data-types.c",
-                    "codeType": "c",
-                    "markdownFile": "/codePage/1-basic-syntax-and-data-types.md",
-                    "link": "/code/c-code/1-basic-syntax-and-data-types",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "2-控制结构",
-                    "codeFile": "/codePage/2-control-structure.c",
-                    "codeType": "rust",
-                    "markdownFile": "/codePage/2-control-structure.md",
-                    "link": "/code/c-code/2-control-structure",
-                    "linkType": "internal"
-                }
-            ]
         },
         {
             "type": "nootbook",
@@ -167,39 +151,6 @@
         {
             "type": "series",
             "label": "系列内容",
-            "title": "C代码示例手册",
-            "date": "2024-10",
-            "description": "本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
-            "articles": [
-                {
-                    "title": "0-关于",
-                    "link": "/blog/c-code/0-About",
-                    "filePath": "/md/c-code/0-About.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "1-基础语法与数据类型",
-                    "link": "/blog/c-code/1-Basic-syntax-and-data-types",
-                    "filePath": "/md/c-code/1-Basic-syntax-and-data-types.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "2-控制结构",
-                    "link": "/blog/c-code/2-Control-structure",
-                    "filePath": "/md/c-code/2-Control-structure.md",
-                    "linkType": "internal"
-                },
-                {
-                    "title": "3-数据整理(正则表达式)",
-                    "link": "/blog/c-code/3-Functionand-scope",
-                    "filePath": "/md/c-code/3-Functionand-scope.md",
-                    "linkType": "internal"
-                }
-            ]
-        },
-        {
-            "type": "series",
-            "label": "系列内容",
             "title": "调试(GDB)",
             "date": "2024-09",
             "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",
@@ -304,6 +255,31 @@
                     "title": "2-创建项目...",
                     "link": "/blog/bare-metal/2-Create-project",
                     "filePath": "/md/bare-metal/2-Create-project.zh.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "code",
+            "label": "代码系列",
+            "title": "C代码示例手册",
+            "description": "( Ongoing🟢 ) 本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
+            "date": "2024-10",
+            "articles": [
+                {
+                    "title": "1-基础语法与数据类型",
+                    "codeFile": "/codePage/1-basic-syntax-and-data-types.c",
+                    "codeType": "c",
+                    "markdownFile": "/codePage/1-basic-syntax-and-data-types.md",
+                    "link": "/code/c-code/1-basic-syntax-and-data-types",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "2-控制结构",
+                    "codeFile": "/codePage/2-control-structure.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/2-control-structure.md",
+                    "link": "/code/c-code/2-control-structure",
                     "linkType": "internal"
                 }
             ]

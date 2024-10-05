@@ -21,7 +21,12 @@ const navItems = [
         icon: BlogIcon,
     },
     {
-        name: 'blog',
+        name: 'test',
+        path: '/test',
+        icon: TestIcon,
+    },
+    {
+        name: 'code',
         path: '/code',
         icon: TestIcon,
     },

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import ThemeSwitcher from './ThemeSwitcher.js';
+import ThemeSwitcher from './ThemeSwitcher';
 import RecursiveBoxes from '../iconBox.js';
-import SmallNavBar from './SmallNavBar.js';
-import NavbarDropdown from './NavbarDropdown.js';
-import NavbarLinks from './NavbarLinks.js';
-import LanguageSwitcher from './LanguageSwitcher.js';
+import SmallNavBar from './SmallNavBar';
+import NavbarDropdown from './NavbarDropdown';
+import NavbarLinks from './NavbarLinks';
+import LanguageSwitcher from './LanguageSwitcher';
 import { ReactComponent as GithubIcon } from '../../assets/svg/github.svg';
 
 const Header = () => {

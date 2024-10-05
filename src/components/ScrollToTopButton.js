@@ -23,7 +23,7 @@ const ScrollToTopOrBackButton = () => {
 
         if (!hash) {
             // 没有 hash 时滚动到页面顶部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'auto' });
         }
     }, [location]);
 

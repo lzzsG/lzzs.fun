@@ -166,8 +166,8 @@
                 },
                 {
                     "title": "3-数据整理(正则表达式)",
-                    "link": "/blog/c-code/3-Function-and-scope",
-                    "filePath": "/md/c-code/3-Function-and-scope.md",
+                    "link": "/blog/c-code/3-Functionand-scope",
+                    "filePath": "/md/c-code/3-Functionand-scope.md",
                     "linkType": "internal"
                 }
             ]

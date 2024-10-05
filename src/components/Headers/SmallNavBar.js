@@ -76,7 +76,8 @@ const SmallNavBar = ({ showNav, isActive, toggleLanguage, currentLang, theme, ch
     };
 
     return (
-        <div className={`mynavbar block z-[90] fixed top-0 w-full flex justify-center items-center bg-base-200 border-b-2 border-base-100 ${showNav ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="mynavbar bg-base-200 z-[90] fixed top-0 w-full flex justify-center items-center ">
+
             {renderNavItems(navItems)}
             {/* 切换语言和主题的按钮 */}
             <button className="text-sm btn btn-ghost m-0 p-0 w-12" onClick={toggleLanguage}>

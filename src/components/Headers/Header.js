@@ -46,22 +46,13 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            // 判断当前路径是否包含 '/code'
-            const isCodePage = location.pathname.includes('/code');
-
-            // 如果在小屏幕，始终显示导航栏
             if (window.innerWidth <= 640) {
-                setShowNav(true);
+                setShowNav(true); // 在sm以下尺寸始终显示导航
             } else {
-                // 如果当前路由不包含 '/code'，则根据滚动距离控制导航栏显示
-                if (!isCodePage) {
-                    setShowNav(window.scrollY > 48); // 大屏上滚动超过 48px 后显示
-                } else {
-                    setShowNav(false); // 如果是 /code 页面，隐藏导航栏
-                }
+                // setShowNav(window.scrollY > 48); // 在大屏上滚动一定距离后显示
+                setShowNav(true);
             }
         };
-
 
         const handleResize = () => {
             if (window.innerWidth <= 640) {

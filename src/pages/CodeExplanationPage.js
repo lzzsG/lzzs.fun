@@ -11,6 +11,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
     const [code, setCode] = useState('');
     const [markdown, setMarkdown] = useState(''); // 存储解析后的 Markdown 内容
     const [series, setSeries] = useState(null); // 存储系列信息
+    const [codeType, setCodeType] = useState('plaintext'); // 默认代码类型为 plaintext
     const [isTocVisible, setIsTocVisible] = useState(() => {
         const saved = localStorage.getItem('tocVisible');
         return saved === 'true';
@@ -40,6 +41,38 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
         });
     };
 
+    // 根据 codeFile 查找对应的 codeType
+    useEffect(() => {
+        if (blogConfig?.sections && Array.isArray(blogConfig.sections)) {
+            const matchedSection = blogConfig.sections.find(section =>
+                section.articles && Array.isArray(section.articles) &&
+                section.articles.some(article => article.codeFile === codeFile)
+            );
+
+            if (matchedSection) {
+                const matchedArticle = matchedSection.articles.find(article => article.codeFile === codeFile);
+                if (matchedArticle) {
+                    setCodeType(matchedArticle.codeType || 'plaintext'); // 根据配置文件中的 codeType 设置高亮类型
+                }
+                setSeries(matchedSection);
+
+                // 动态设置页面标题和描述
+                const title = matchedSection.title || 'Code Explanation';
+                const description = matchedSection.description || `Learn more about ${title}`;
+
+                document.title = `${title} - Code Explanation`;
+
+                let metaDescriptionTag = document.querySelector('meta[name="description"]');
+                if (!metaDescriptionTag) {
+                    metaDescriptionTag = document.createElement('meta');
+                    metaDescriptionTag.setAttribute('name', 'description');
+                    document.head.appendChild(metaDescriptionTag);
+                }
+                metaDescriptionTag.setAttribute('content', description);
+            }
+        }
+    }, [codeFile]);
+
     // 加载代码文件
     useEffect(() => {
         fetch(codeFile)
@@ -63,31 +96,6 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             .catch((error) => console.error('Error loading markdown file:', error));
     }, [markdownFile]);
 
-    // 查找 series 相关信息
-    useEffect(() => {
-        const matchedSection = blogConfig.sections.find(section =>
-            (section.type === 'series' && section.articles.some(article => article.codeFile === codeFile)) ||
-            (section.type === 'code' && section.articles.some(article => article.codeFile === codeFile))
-        );
-        if (matchedSection) {
-            setSeries(matchedSection);
-
-            // 动态设置页面标题和描述
-            const title = matchedSection.title || 'Code Explanation';
-            const description = matchedSection.description || `Learn more about ${title}`;
-
-            document.title = `${title} - Code Explanation`;
-
-            let metaDescriptionTag = document.querySelector('meta[name="description"]');
-            if (!metaDescriptionTag) {
-                metaDescriptionTag = document.createElement('meta');
-                metaDescriptionTag.setAttribute('name', 'description');
-                document.head.appendChild(metaDescriptionTag);
-            }
-            metaDescriptionTag.setAttribute('content', description);
-        }
-    }, [codeFile]);
-
     // 切换目录可见性
     const toggleTocVisibility = () => {
         setIsTocVisible((prev) => {
@@ -102,7 +110,6 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
         return (
             <div className="w-full mb-4">
                 <div className="flex">
-
                 </div>
                 {series.date && <p className="text-sm text-gray-500 mb-2">{series.date}</p>}
                 {series.description && <p className="mb-2">{series.description}</p>}
@@ -153,8 +160,9 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
                 className="w-1/2 -my-2 overflow-y-scroll"
                 onScroll={() => syncScroll(codeRef, explanationRef)}
             >
+                {/* 使用 codeType 来动态设置 Prism.js 的语言类 */}
                 <pre className="line-numbers" style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word', overflowWrap: 'break-word' }}>
-                    <code className="language-c">{code}</code>
+                    <code className={`language-${codeType}`}>{code}</code>
                 </pre>
             </div>
 

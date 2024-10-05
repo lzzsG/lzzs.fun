@@ -28,14 +28,16 @@
                 {
                     "title": "C Code Example 1",
                     "codeFile": "/code.c",
+                    "codeType": "c",
                     "markdownFile": "/explanation.md",
                     "link": "/code/code1",
                     "linkType": "internal"
                 },
                 {
                     "title": "C Code Example 2",
-                    "codeFile": "/code2.c",
-                    "markdownFile": "/explanation2.md",
+                    "codeFile": "/code2.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/explanation.md",
                     "link": "/code/code2",
                     "linkType": "internal"
                 }

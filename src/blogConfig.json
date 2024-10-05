@@ -19,6 +19,29 @@
             "date": "2024-03"
         },
         {
+            "type": "code",
+            "title": "C Code Series",
+            "label": "代码系列",
+            "description": "这是一个 C 语言代码系列，包含多个示例和解释。",
+            "date": "2024-03",
+            "articles": [
+                {
+                    "title": "C Code Example 1",
+                    "codeFile": "/code.c",
+                    "markdownFile": "/explanation.md",
+                    "link": "/code/code1",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "C Code Example 2",
+                    "codeFile": "/code2.c",
+                    "markdownFile": "/explanation2.md",
+                    "link": "/code/code2",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
             "type": "nootbook",
             "label": "课程笔记",
             "title": "CS 61A",

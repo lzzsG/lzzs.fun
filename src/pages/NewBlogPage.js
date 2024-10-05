@@ -68,16 +68,48 @@ const generateSeries = (series) => {
     );
 };
 
+// 生成代码系列卡片的函数，类似于 `generateSeries`
+const generateCodeSeries = (series) => {
+    return (
+        <div className="flex bg-base-200 mb-2 md:mb-0">
+            <div className="flex-grow flex m-4">
+                <div className="w-full">
+                    <div className="flex">
+                        <h3 className="text-lg mb-2 font-bold">{series.title}</h3>
+                    </div>
+                    {series.date && <p className="text-sm text-gray-500 mb-2">{series.date}</p>}
+                    {series.description && <p className="mb-2">{series.description}</p>}
+                    <div className="divider -translate-y-1 m-0"></div>
+                    <ul className="list-disc list-inside">
+                        {series.articles.map((article, index) => (
+                            <li key={index} className="text-base mb-2 hover:underline flex items-center">
+                                {article.linkType === 'internal' ? (
+                                    <Link to={article.link} className="flex items-center">
+                                        {article.title}
+                                    </Link>
+                                ) : (
+                                    <>
+                                        <LinkIcon className="size-4 mr-1" />
+                                        <a href={article.link} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                                            {article.title}
+                                        </a>
+                                    </>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    );
+};
 
 // 动态生成页面的主函数
 const NewBlogPage = ({ configData }) => {
     const { t } = useTranslation();
 
     useEffect(() => {
-        // 动态设置页面标题
         document.title = `${t('blog')} - ${config.siteName}`;
-
-        // 设置页面描述
         const descriptionContent = "这是lzzsSite的BlogPage";
         let descriptionMetaTag = document.querySelector('meta[name="description"]');
         if (!descriptionMetaTag) {
@@ -87,7 +119,7 @@ const NewBlogPage = ({ configData }) => {
         }
         descriptionMetaTag.setAttribute('content', descriptionContent);
     }, [t, config.siteName]);
-    // 根据类型对sections进行分类
+
     const sectionsByType = configData.sections.reduce((acc, section) => {
         if (!acc[section.type]) {
             acc[section.type] = [];
@@ -96,11 +128,12 @@ const NewBlogPage = ({ configData }) => {
         return acc;
     }, {});
 
-    // 动态渲染不同的内容块
     const renderSection = (type, section) => {
         switch (type) {
             case 'series':
                 return generateSeries(section);
+            case 'code':
+                return generateCodeSeries(section);  // 调用 `generateCodeSeries`
             case 'project':
             case 'blog':
             default:
@@ -123,7 +156,6 @@ const NewBlogPage = ({ configData }) => {
                 {Object.keys(sectionsByType).map((type, index) => (
                     <React.Fragment key={index}>
                         <h2 className="text-xl md:col-span-2 lg:col-span-3 m-0 ml-2 font-semibold text-base-content">
-                            {/* 使用配置文件中的 label，如果没有则使用 type */}
                             {sectionsByType[type][0].label || type}
                         </h2>
                         {sectionsByType[type].map((section, sectionIndex) => (

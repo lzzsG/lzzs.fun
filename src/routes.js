@@ -13,7 +13,6 @@ const generateRoutesFromConfig = (config) => {
     const routes = [];
 
     config.sections.forEach(section => {
-        // 如果是系列文章，遍历里面的 articles
         if (section.type === 'series') {
             section.articles.forEach(article => {
                 if (article.linkType === 'internal' && article.filePath) {
@@ -23,8 +22,17 @@ const generateRoutesFromConfig = (config) => {
                     });
                 }
             });
+        } else if (section.type === 'code') {
+            section.articles.forEach(article => {
+                routes.push({
+                    path: article.link,
+                    element: <CodeExplanationPage
+                        codeFile={article.codeFile}
+                        markdownFile={article.markdownFile}
+                    />,
+                });
+            });
         } else {
-            // 对于非系列文章的内容
             if (section.linkType === 'internal' && section.filePath) {
                 routes.push({
                     path: section.link,

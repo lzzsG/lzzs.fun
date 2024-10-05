@@ -46,12 +46,22 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
+            // 判断当前路径是否包含 '/code'
+            const isCodePage = location.pathname.includes('/code');
+
+            // 如果在小屏幕，始终显示导航栏
             if (window.innerWidth <= 640) {
-                setShowNav(true); // 在sm以下尺寸始终显示导航
+                setShowNav(true);
             } else {
-                setShowNav(window.scrollY > 48); // 在大屏上滚动一定距离后显示
+                // 如果当前路由不包含 '/code'，则根据滚动距离控制导航栏显示
+                if (!isCodePage) {
+                    setShowNav(window.scrollY > 48); // 大屏上滚动超过 48px 后显示
+                } else {
+                    setShowNav(false); // 如果是 /code 页面，隐藏导航栏
+                }
             }
         };
+
 
         const handleResize = () => {
             if (window.innerWidth <= 640) {
@@ -75,43 +85,50 @@ const Header = () => {
         document.documentElement.setAttribute('data-theme', newTheme);
     };
 
+    // 判断是否为特定页面下显示 SmallNavBar
+    const isSmallNavBarOnlyPage = location.pathname.includes('/code');
+
+
     return (
         <>
-            <header className="flex justify-between items-center">
-                <div className="navbar justify-between items-center z-[100] bg-base-300 hidden sm:flex rounded-none h-24 top-0 p-0 border-b-2 border-base-100">
-                    <div className="flex">
-                        <NavbarDropdown currentLang={currentLang} isActive={isActive} t={t} />
-                        <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                            <div className="justify-between items-center flex h-24 w-48">
-                                <div className="justify-center items-center flex h-24 w-24">
-                                    <RecursiveBoxes size={60} />
-                                </div>
-                                <div className="justify-center items-center flex h-24 w-24">
-                                    <div className="flex-col">
-                                        <a className="text-lg font-bold w-24 flex justify-center content-center">{t('siteName')}</a>
-                                        <a className="text-sm font-bold w-24 flex justify-center content-center">temp</a>
+            {!isSmallNavBarOnlyPage && (
+                <header className="flex justify-between items-center">
+                    <div className="navbar justify-between items-center z-[100] bg-base-300 hidden sm:flex rounded-none h-24 top-0 p-0 border-b-2 border-base-100">
+                        <div className="flex">
+                            <NavbarDropdown currentLang={currentLang} isActive={isActive} t={t} />
+                            <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
+                                <div className="justify-between items-center flex h-24 w-48">
+                                    <div className="justify-center items-center flex h-24 w-24">
+                                        <RecursiveBoxes size={60} />
+                                    </div>
+                                    <div className="justify-center items-center flex h-24 w-24">
+                                        <div className="flex-col">
+                                            <a className="text-lg font-bold w-24 flex justify-center content-center">{t('siteName')}</a>
+                                            <a className="text-sm font-bold w-24 flex justify-center content-center">temp</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
+                            <NavbarLinks currentLang={currentLang} isActive={isActive} t={t} />
+                        </div>
+                        <div className="">
+                            <LanguageSwitcher toggleLanguage={toggleLanguage} currentLang={currentLang} />
+                            <ThemeSwitcher />
+                        </div>
+                    </div>
+
+                    <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
+                        <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
+                            {t('siteName')}
                         </Link>
-                        <NavbarLinks currentLang={currentLang} isActive={isActive} t={t} />
+                        <a className="tooltip ml-1" data-tip="GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer">
+                            <GithubIcon className="size-6" />
+                        </a>
                     </div>
-                    <div className="">
-                        <LanguageSwitcher toggleLanguage={toggleLanguage} currentLang={currentLang} />
-                        <ThemeSwitcher />
-                    </div>
-                </div>
+                </header>
+            )}
 
-                <div className="block sm:hidden fixed bottom-0 w-full h-12 bg-base-200 border-t-2 border-base-100 z-30 flex justify-center items-center text-2xl">
-                    <Link to={`/${currentLang === 'en' ? 'en/' : ''}`}>
-                        {t('siteName')}
-                    </Link>
-                    <a className="tooltip ml-1" data-tip="GitHub: LzzsG" href="https://github.com/lzzsG" target="_blank" rel="noopener noreferrer">
-                        <GithubIcon className="size-6" />
-                    </a>
-                </div>
-            </header>
-
+            {/* 根据路由条件渲染 SmallNavBar */}
             <SmallNavBar
                 showNav={showNav}
                 isActive={isActive}

@@ -7,9 +7,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/monokai-sublime.css'; // 引入你喜欢的highlight.js样式
 import { useLocation, Link } from 'react-router-dom';
 import config from '../config/config.js';
-import directoryStructure from '../assets/directory/_directoryStructure.json';
 import blogConfig from '../blogConfig.json';
-
 
 const NewMarkdownPage = ({ filePath }) => {
     const [markdown, setMarkdown] = useState('');
@@ -31,7 +29,6 @@ const NewMarkdownPage = ({ filePath }) => {
         const id = hash.replace('#', '');
         const element = document.getElementById(id);
         if (element) {
-            // 获取导航栏高度，确保内容不会被遮挡
             const navbarHeight = document.querySelector('.mynavbar')?.offsetHeight || 0;
             window.scrollTo({
                 top: element.offsetTop - navbarHeight, // 确保锚点下方
@@ -80,7 +77,6 @@ const NewMarkdownPage = ({ filePath }) => {
             descriptionTag.setAttribute('content', description);
         }
     }, [filePath]);
-
 
     useEffect(() => {
         fetch(filePath)
@@ -251,7 +247,7 @@ const NewMarkdownPage = ({ filePath }) => {
                                         <ul className="list-disc list-inside">
                                             {series.articles.map((article, index) => (
                                                 <Link key={index} to={article.link}>
-                                                    <li className="text-base mb-2 hover:underline">
+                                                    <li className={`text-base mb-2 hover:underline ${location.pathname === article.link ? 'bg-base-300' : ''}`}>
                                                         {article.title}
                                                     </li>
                                                 </Link>

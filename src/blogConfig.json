@@ -37,7 +37,7 @@
                     "title": "2-控制结构",
                     "codeFile": "/codePage/2-control-structure.c",
                     "codeType": "rust",
-                    "markdownFile": "/2-control-structure.md",
+                    "markdownFile": "/codePage/2-control-structure.md",
                     "link": "/code/c-code/2-control-structure",
                     "linkType": "internal"
                 }

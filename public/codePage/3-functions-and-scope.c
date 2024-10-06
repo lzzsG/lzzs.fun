@@ -185,3 +185,198 @@ float multiply(float a, float b)
 {
     return a * b;
 }
+
+// 示例11：多个返回值 - 使用指针返回多个值
+
+#include <stdio.h>
+
+void get_min_max(int arr[], int size, int *min, int *max)
+{
+    *min = *max = arr[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < *min)
+        {
+            *min = arr[i];
+        }
+        if (arr[i] > *max)
+        {
+            *max = arr[i];
+        }
+    }
+}
+
+int main()
+{
+    printf("示例11：多个返回值 - 使用指针返回多个值\n");
+    int arr[] = {5, 3, 8, 1, 9};
+    int min, max;
+    get_min_max(arr, 5, &min, &max);
+    printf("Min: %d, Max: %d\n", min, max);
+    return 0;
+}
+
+// 示例12：函数指针作为参数
+
+#include <stdio.h>
+
+void perform_operation(int a, int b, int (*operation)(int, int))
+{
+    int result = operation(a, b);
+    printf("Result: %d\n", result);
+}
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int subtract(int a, int b)
+{
+    return a - b;
+}
+
+int main()
+{
+    printf("示例12：函数指针作为参数\n");
+    perform_operation(10, 5, add);
+    perform_operation(10, 5, subtract);
+    return 0;
+}
+
+// 示例13：变量隐藏（局部变量与全局变量同名）
+
+#include <stdio.h>
+
+int global_var = 10; // 全局变量
+
+void show_global_var()
+{
+    printf("Global variable: %d\n", global_var);
+}
+
+void hidden_global_var()
+{
+    int global_var = 20; // 局部变量, 隐藏了全局变量
+    printf("Local variable: %d\n", global_var);
+}
+
+int main()
+{
+    printf("示例13：变量隐藏（局部变量与全局变量同名）\n");
+    show_global_var();
+    hidden_global_var();
+    printf("Global variable after hiding: %d\n", global_var);
+    return 0;
+}
+
+// 示例14：内联函数
+
+#include <stdio.h>
+
+inline int sqare(int x)
+{
+    return x * x;
+}
+
+int main()
+{
+    printf("示例14：内联函数\n");
+    printf("Square of 5: %d\n", sqare(5));
+    return 0;
+}
+
+// 示例15：递归函数 - 斐波那契数列
+
+#include <stdio.h>
+
+int fibonacci(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+
+int main()
+{
+    printf("示例15：递归函数 - 斐波那契数列\n");
+    for (int i = 0; i < 10; i++)
+    {
+        printf("fibonacci(%d) = %d\n", i, fibonacci(i));
+    }
+    return 0;
+}
+
+// 示例16：函数的可变参数
+
+#include <stdio.h>
+#include <stdarg.h>
+
+int sum_of_numbers(int count, ...)
+{
+    int sum = 0;
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; i++)
+    {
+        sum += va_arg(args, int);
+    }
+    va_end(args);
+    return sum;
+}
+
+int main()
+{
+    printf("示例16：函数的可变参数\n");
+    printf("3个数字的和: %d\n", sum_of_numbers(3, 1, 2, 3));
+    printf("5个数字的和: %d\n", sum_of_numbers(5, 1, 2, 3, 4, 5));
+    return 0;
+}
+
+// 示例17：作用域中的静态全局变量
+
+#include <stdio.h>
+
+static int static_global_var = 30;
+
+void show_static_global_var()
+{
+    printf("Static global variable: %d\n", static_global_var);
+    static_global_var += 10;
+}
+
+int main()
+{
+    printf("示例17：作用域中的静态全局变量\n");
+    show_static_global_var();
+    show_static_global_var();
+    show_static_global_var();
+    return 0;
+}
+
+// 示例18：嵌套函数调用
+
+#include <stdio.h>
+
+void function_b()
+{
+    printf("Function B\n");
+}
+
+void function_a()
+{
+    printf("Function A, calling function B...\n");
+    function_b();
+}
+
+int main()
+{
+    printf("示例18：嵌套函数调用\n");
+    function_a();
+    return 0;
+}

@@ -101,6 +101,16 @@
         {
             "type": "blog",
             "label": "博客文章",
+            "title": "游戏、计算、世界、量子力学和墒",
+            "link": "/blog/Games-Computation-Worlds-Quantum-Mechanics-and-Entropy",
+            "description": "作为游戏玩家，你可以通过理解游戏的规则和机制，逐渐熟悉并预测游戏中的计算和操作的逻辑和效果。或者你了解游戏开发或计算机科学，能看透游戏世界中每一次变化的背后，程序和设备可能为你进行了哪些计算。但这时问题来了：现实世界中的变化背后，谁在进行着“计算”？",
+            "linkType": "internal",
+            "filePath": "/md/241006-Games-Computation-Worlds-Quantum-Mechanics-and-Entropy.md",
+            "date": "2024-10-6"
+        },
+        {
+            "type": "blog",
+            "label": "博客文章",
             "title": "关于链接脚本中的内存对齐",
             "link": "/blog/memory-alignment-in-linker-script",
             "description": "在操作系统开发、嵌入式系统或高性能应用开发中，内存对齐是优化系统性能的关键技术之一。它不仅影响数据的访问效率，还会影响到诸如分页、缓存以及 I/O 等底层硬件操作。本文我们将重点讨论链接脚本中的对齐操作，以及如何通过对齐优化内存管理。",

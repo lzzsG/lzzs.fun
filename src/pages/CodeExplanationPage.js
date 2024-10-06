@@ -17,10 +17,16 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
         return saved === 'true';
     });
 
+    // 初始比例为 1:1
+    const [layoutRatio, setLayoutRatio] = useState({ left: 'w-1/2', right: 'w-1/2' });
+
+    const [isBubbleVisible, setIsBubbleVisible] = useState(false); // 控制气泡显示的状态
+
     const location = useLocation(); // 获取当前路由信息
     const codeRef = useRef(null);
     const explanationRef = useRef(null);
     const isSyncingScroll = useRef(false);
+    const bubbleRef = useRef(null); // 气泡的 ref
 
     // 同步滚动功能，按照比例滚动
     const syncScroll = (source, target) => {
@@ -149,6 +155,42 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
         );
     };
 
+    // 修改布局比例
+    const changeLayout = (ratio) => {
+        if (ratio === '1:1') {
+            setLayoutRatio({ left: 'w-1/2', right: 'w-1/2' });
+        } else if (ratio === '2:1') {
+            setLayoutRatio({ left: 'w-2/3', right: 'w-1/3' });
+        } else if (ratio === '1:2') {
+            setLayoutRatio({ left: 'w-1/3', right: 'w-2/3' });
+        } else if (ratio === '2:3') {
+            setLayoutRatio({ left: 'w-2/5', right: 'w-3/5' });  // 40% 左边，60% 右边
+        } else if (ratio === '3:2') {
+            setLayoutRatio({ left: 'w-3/5', right: 'w-2/5' });  // 60% 左边，40% 右边
+        }
+        setIsBubbleVisible(false); // 修改布局后关闭气泡
+    };
+
+
+    // 点击分割线显示/隐藏气泡菜单
+    const toggleBubble = () => {
+        setIsBubbleVisible((prev) => !prev);
+    };
+
+    // 监听点击事件，点击页面其他地方时关闭气泡
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (bubbleRef.current && !bubbleRef.current.contains(event.target)) {
+                setIsBubbleVisible(false); // 如果点击发生在气泡外，关闭气泡
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <div className="flex h-screen mt-10 -mb-2">
             {/* TOC 按钮 */}
@@ -170,7 +212,7 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             {/* 左边代码区域 */}
             <div
                 ref={codeRef}
-                className="w-1/2 overflow-y-scroll"
+                className={`${layoutRatio.left} overflow-y-scroll`}
                 onScroll={() => syncScroll(codeRef, explanationRef)}
             >
                 {/* 使用 codeType 来动态设置 Prism.js 的语言类 */}
@@ -180,12 +222,33 @@ const CodeExplanationPage = ({ codeFile, markdownFile }) => {
             </div>
 
             {/* 分割线 */}
-            <div className="w-0.5 bg-gray-500"></div>
+            <div
+                className="relative w-0.5 bg-gray-500 cursor-pointer"
+                onClick={toggleBubble} // 点击时展示气泡菜单
+            >
+                {/* 气泡菜单 */}
+                {isBubbleVisible && (
+                    <div
+                        ref={bubbleRef}
+                        className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-base-200 shadow-md p-2 rounded z-50" // 确保气泡 z-index 足够高
+                    >
+                        <button className="btn btn-xs mt-1 hover:bg-base-100" onClick={() => changeLayout('1:1')}>1:1</button>
+
+                        <button className="btn btn-xs mt-1 hover:bg-base-100" onClick={() => changeLayout('2:3')}>2:3</button>
+                        <button className="btn btn-xs mt-1 hover:bg-base-100" onClick={() => changeLayout('3:2')}>3:2</button>
+
+                        <button className="btn btn-xs mt-1 hover:bg-base-100" onClick={() => changeLayout('1:2')}>1:2</button>
+                        <button className="btn btn-xs mt-1 hover:bg-base-100" onClick={() => changeLayout('2:1')}>2:1</button>
+                    </div>
+
+
+                )}
+            </div>
 
             {/* 右边讲解区域 */}
             <div
                 ref={explanationRef}
-                className="w-1/2 p-4 bg-base-100 overflow-y-scroll prose max-w-none" // 确保右边内容占满 1/2
+                className={`${layoutRatio.right} p-4 bg-base-100 overflow-y-scroll prose max-w-none`} // 确保右边内容占满 1/2
                 onScroll={() => syncScroll(explanationRef, codeRef)}
                 dangerouslySetInnerHTML={{ __html: markdown }} // 渲染解析后的 Markdown 内容
             ></div>

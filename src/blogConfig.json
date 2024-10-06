@@ -281,6 +281,14 @@
                     "markdownFile": "/codePage/2-control-structure.md",
                     "link": "/code/c-code/2-control-structure",
                     "linkType": "internal"
+                },
+                {
+                    "title": "3-函数与作用域",
+                    "codeFile": "/codePage/3-functions-and-scope.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/3-functions-and-scope.md",
+                    "link": "/code/c-code/3-functions-and-scope",
+                    "linkType": "internal"
                 }
             ]
         }

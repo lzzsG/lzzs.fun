@@ -307,6 +307,62 @@
                     "markdownFile": "/codePage/4-arrays-and-strings.md",
                     "link": "/code/c-code/4-arrays-and-strings",
                     "linkType": "internal"
+                },
+                {
+                    "title": "6-结构体与联合体",
+                    "codeFile": "/codePage/6-structs-and-unions.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/6-structs-and-unions.md",
+                    "link": "/code/c-code/6-structs-and-unions",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "7-文件操作",
+                    "codeFile": "/codePage/7-file-operations.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/7-file-operations.md",
+                    "link": "/code/c-code/7-file-operations",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "8-C语言的预处理指令",
+                    "codeFile": "/codePage/8-c-preprocessor-directives.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/8-c-preprocessor-directives.md",
+                    "link": "/code/c-code/8-c-preprocessor-directives",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "9-动态数据结构",
+                    "codeFile": "/codePage/9-dynamic-data-structures.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/9-dynamic-data-structures.md",
+                    "link": "/code/c-code/9-dynamic-data-structures",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "10-常见算法实现",
+                    "codeFile": "/codePage/10-common-algorithms-implementation.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/10-common-algorithms-implementation.md",
+                    "link": "/code/c-code/10-common-algorithms-implementation",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "11-高级主题-数字设计与计算机体系结构",
+                    "codeFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.md",
+                    "link": "/code/c-code/11-advanced-topics-digital-design-and-computer-architecture",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "12-高级主题-操作系统",
+                    "codeFile": "/codePage/12-advanced-topics-operating-systems.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/12-advanced-topics-operating-systems.md",
+                    "link": "/code/c-code/12-advanced-topics-operating-systems",
+                    "linkType": "internal"
                 }
             ]
         }

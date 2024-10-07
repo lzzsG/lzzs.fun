@@ -350,3 +350,651 @@ printf("2.5 * 4.0 = %.2f\n", product);
 ```
 
 - **使用场景**：函数原型声明在函数使用之前，可以提前声明函数接口，保证函数可以在任意位置调用。它在大规模程序中非常有用，确保函数可以互相调用。
+
+### 示例11：多个返回值 - 使用指针返回多个值
+
+**函数定义**：
+`get_min_max` 函数用于从数组中找出最小值和最大值。因为 C 函数一次只能返回一个值，这里使用了指针参数 `*min` 和 `*max`，通过指针返回多个值。
+
+```c
+void get_min_max(int arr[], int size, int *min, int *max)
+{
+    *min = *max = arr[0];
+    for (int i = 1; i < size; i++)
+    {
+        if (arr[i] < *min)
+        {
+            *min = arr[i];
+        }
+        if (arr[i] > *max)
+        {
+            *max = arr[i];
+        }
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `get_min_max` 来获取数组的最小值和最大值。
+
+```c
+int arr[] = {5, 3, 8, 1, 9};
+int min, max;
+get_min_max(arr, 5, &min, &max);
+printf("Min: %d, Max: %d\n", min, max);
+```
+
+**解释**：
+
+- 通过传递指针参数，可以在函数内部修改外部变量的值。
+- 使用循环遍历数组，将最小值和最大值分别赋给 `*min` 和 `*max`。
+
+**输出示例**：
+
+```
+Min: 1, Max: 9
+```
+
+### 示例12：函数指针作为参数
+
+**函数定义**：
+`perform_operation` 函数接收一个函数指针作为参数，该指针指向一个操作函数（如 `add` 或 `subtract`）。函数根据传入的操作函数执行计算。
+
+```c
+void perform_operation(int a, int b, int (*operation)(int, int))
+{
+    int result = operation(a, b);
+    printf("Result: %d\n", result);
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `perform_operation`，分别传递 `add` 和 `subtract` 函数指针。
+
+```c
+perform_operation(10, 5, add);
+perform_operation(10, 5, subtract);
+```
+
+**解释**：
+
+- 函数指针作为参数允许程序在运行时选择具体执行的函数。
+- 调用 `perform_operation(10, 5, add)` 将执行加法操作，调用 `perform_operation(10, 5, subtract)` 则执行减法操作。
+
+**输出示例**：
+
+```
+Result: 15
+Result: 5
+```
+
+### 示例13：变量隐藏（局部变量与全局变量同名）
+
+**函数定义**：
+这个示例展示了局部变量隐藏全局变量的情况。在 `hidden_global_var` 函数中，局部变量 `global_var` 屏蔽了同名的全局变量。
+
+```c
+int global_var = 10; // 全局变量
+
+void show_global_var()
+{
+    printf("Global variable: %d\n", global_var);
+}
+
+void hidden_global_var()
+{
+    int global_var = 20; // 局部变量, 隐藏全局变量
+    printf("Local variable: %d\n", global_var);
+}
+```
+
+**函数调用**：
+在 `main` 函数中，先调用 `show_global_var` 显示全局变量，再调用 `hidden_global_var` 显示局部变量，并且在局部作用域外再次显示全局变量。
+
+```c
+show_global_var();
+hidden_global_var();
+printf("Global variable after hiding: %d\n", global_var);
+```
+
+**解释**：
+
+- 在 `hidden_global_var` 中，局部变量 `global_var` 屏蔽了同名的全局变量，但只在该函数内部有效。
+- 函数结束后，程序恢复对全局变量的访问。
+
+**输出示例**：
+
+```
+Global variable: 10
+Local variable: 20
+Global variable after hiding: 10
+```
+
+### 示例14：内联函数（C99 引入，建议用于小型、频繁调用的函数）
+
+**函数定义**：
+`inline` 关键字用于定义内联函数，适合小型且频繁调用的函数。内联函数通过展开函数代码而不是通过函数调用来提高效率。
+
+```c
+inline int sqare(int x)
+{
+    return x * x;
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `sqare(5)` 计算5的平方。
+
+```c
+printf("Square of 5: %d\n", sqare(5));
+```
+
+**解释**：
+
+- 内联函数 `sqare` 将计算 `x * x`。在编译时，编译器会将函数调用展开为代码，以减少函数调用的开销。
+- 适合频繁调用的小型函数，如计算平方。
+
+**输出示例**：
+
+```
+Square of 5: 25
+```
+
+### 示例15：递归函数 - 斐波那契数列
+
+**函数定义**：
+`fibonacci` 函数使用递归方法计算斐波那契数列的第 `n` 项。斐波那契数列定义为：`F(0) = 0`，`F(1) = 1`，从 `F(2)` 开始，每一项是前两项的和。
+
+```c
+int fibonacci(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    else
+    {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中，使用 `fibonacci(i)` 计算前 10 项的斐波那契数列，并输出结果。
+
+```c
+for (int i = 0; i < 10; i++)
+{
+    printf("fibonacci(%d) = %d\n", i, fibonacci(i));
+}
+```
+
+**解释**：
+
+- 斐波那契函数使用递归，每次调用时根据 `n` 的值确定是否递归调用。对于 `n > 1` 的情况，递归调用 `fibonacci(n - 1)` 和 `fibonacci(n - 2)`，并返回它们的和。
+- 递归是指函数调用自身的编程方法，适合解决可以被分解为相似子问题的问题。
+
+**输出示例**：
+
+```
+fibonacci(0) = 0
+fibonacci(1) = 1
+fibonacci(2) = 1
+fibonacci(3) = 2
+fibonacci(4) = 3
+fibonacci(5) = 5
+fibonacci(6) = 8
+fibonacci(7) = 13
+fibonacci(8) = 21
+fibonacci(9) = 34
+```
+
+- **使用场景**：递归方法适合分解问题的场合，比如斐波那契数列、阶乘、树遍历等问题。但要注意递归深度，过深可能导致栈溢出。
+
+### 示例16：函数的可变参数（使用 `stdarg.h`）
+
+**函数定义**：
+`sum_of_numbers` 函数使用可变参数来计算不定数量参数的和。C 标准库中的 `stdarg.h` 提供了处理可变参数的机制。
+
+```c
+#include <stdarg.h>
+int sum_of_numbers(int count, ...)
+{
+    int sum = 0;
+    va_list args;
+    va_start(args, count);
+    for (int i = 0; i < count; i++)
+    {
+        sum += va_arg(args, int);
+    }
+    va_end(args);
+    return sum;
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `sum_of_numbers`，并传递不同数量的参数进行求和。
+
+```c
+printf("3个数字的和: %d\n", sum_of_numbers(3, 1, 2, 3));
+printf("5个数字的和: %d\n", sum_of_numbers(5, 1, 2, 3, 4, 5));
+```
+
+**解释**：
+
+- `sum_of_numbers` 使用 `va_list` 来处理不定数量的参数。通过 `va_start` 初始化参数列表，使用 `va_arg` 获取参数值，最后用 `va_end` 结束处理。
+- `count` 参数表示可变参数的数量，其后跟随不定数量的整型参数，函数将这些参数相加并返回结果。
+
+**输出示例**：
+
+```
+3个数字的和: 6
+5个数字的和: 15
+```
+
+- **使用场景**：可变参数函数适合处理参数数量不确定的场景，如 `printf`、`scanf` 这种格式化输出和输入的函数。
+
+### 示例17：作用域中的静态全局变量（仅在当前文件有效）
+
+**函数定义**：
+`static_global_var` 是一个静态全局变量，它只能在定义它的文件中访问。静态全局变量的生命周期贯穿程序运行，但作用域仅限于当前文件。
+
+```c
+static int static_global_var = 30;
+
+void show_static_global_var()
+{
+    printf("Static global variable: %d\n", static_global_var);
+    static_global_var += 10;
+}
+```
+
+**函数调用**：
+在 `main` 函数中，多次调用 `show_static_global_var`，观察静态全局变量的值在函数之间的变化。
+
+```c
+show_static_global_var();
+show_static_global_var();
+show_static_global_var();
+```
+
+**解释**：
+
+- 静态全局变量 `static_global_var` 只能在定义它的文件中访问。它的值在不同的函数调用之间保持，并且每次调用时值都会增加。
+- 静态全局变量有助于封装和隐藏数据，防止其他文件中的代码意外修改它。
+
+**输出示例**：
+
+```
+Static global variable: 30
+Static global variable: 40
+Static global variable: 50
+```
+
+- **使用场景**：静态全局变量用于限制变量的作用范围，确保变量在整个程序的运行过程中有效，但不被其他文件访问。
+
+### 示例18：嵌套函数调用 - 函数之间的调用关系
+
+**函数定义**：
+`function_a` 调用 `function_b`。这种嵌套调用展示了一个函数可以调用另一个函数，形成函数调用链。
+
+```c
+void function_b()
+{
+    printf("Function B\n");
+}
+
+void function_a()
+{
+    printf("Function A, calling function B...\n");
+    function_b();
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `function_a`，间接调用 `function_b`。
+
+```c
+function_a();
+```
+
+**解释**：
+
+- `function_a` 中调用了 `function_b`，演示了函数之间的嵌套调用。
+- 嵌套函数调用是一种常见的编程模式，用于将复杂的任务分解为多个函数来处理。
+
+**输出示例**：
+
+```
+Function A, calling function B...
+Function B
+```
+
+- **使用场景**：嵌套函数调用可以用于分解复杂的任务，并有助于组织代码，使逻辑更加清晰。
+
+### 示例19：函数指针作为返回值
+
+**函数定义**：
+`find_max` 函数通过比较两个整数的指针，返回指向较大值的指针。
+
+```c
+int *find_max(int *a, int *b)
+{
+    if (*a > *b)
+    {
+        return a;
+    }
+    else
+    {
+        return b;
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `find_max`，并通过返回的指针访问较大值。
+
+```c
+int a = 10, b = 20;
+int *max_ptr = find_max(&a, &b);
+printf("Max: %d\n", *max_ptr);
+```
+
+**解释**：
+
+- 函数返回指向较大值的指针，调用时通过解引用 `*max_ptr` 获取该值。
+- 使用指针可以直接比较并返回内存地址，适合需要返回多个结果或需要更高灵活性的情况。
+
+**输出示例**：
+
+```
+Max: 20
+```
+
+### 示例20：嵌套的递归函数 - 汉诺塔问题
+
+**函数定义**：
+`hanoi` 函数通过递归解决经典的汉诺塔问题，将 `n` 个盘子从起始杆 `from` 移动到目标杆 `to`，使用辅助杆 `aux`。
+
+```c
+void hanoi(int n, char from, char to, char aux)
+{
+    if (n == 1)
+    {
+        printf("Move disk 1 from %c to %c\n", from, to);
+        return;
+    }
+    hanoi(n - 1, from, aux, to);
+    printf("Move disk %d from %c to %c\n", n, from, to);
+    hanoi(n - 1, aux, to, from);
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `hanoi(3, 'A', 'C', 'B')`，演示移动三个盘子的过程。
+
+```c
+hanoi(3, 'A', 'C', 'B');
+```
+
+**解释**：
+
+- 汉诺塔问题通过递归逐步将盘子从一根杆子移动到另一根。递归分为两个步骤：先将 `n-1` 个盘子移到辅助杆，再将第 `n` 个盘子移到目标杆。
+- 每个盘子的移动步骤通过递归拆解成多个子步骤。
+
+**输出示例**：
+
+```
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+```
+
+### 示例21：函数中的静态局部变量的应用（计数器）
+
+**函数定义**：
+`count_calls` 函数演示了静态局部变量的使用。静态局部变量只在第一次调用时初始化一次，并在后续的调用中保留其值。
+
+```c
+void count_calls()
+{
+    static int count = 0; // 静态局部变量
+    count++;
+    printf("This function has been called %d times.\n", count);
+}
+```
+
+**函数调用**：
+在 `main` 函数中多次调用 `count_calls`，查看计数器的值。
+
+```c
+count_calls();
+count_calls();
+count_calls();
+```
+
+**解释**：
+
+- 静态局部变量 `count` 在函数间保持其值。它只初始化一次，每次调用时值会递增。
+- 静态局部变量的生命周期贯穿程序运行，但作用域仅限于定义它的函数。
+
+**输出示例**：
+
+```
+This function has been called 1 times.
+This function has been called 2 times.
+This function has been called 3 times.
+```
+
+### 示例22：通过指针返回局部变量的地址（警告错误示例）
+
+**函数定义**：
+`return_local_address` 函数错误地返回了一个局部变量的地址，这在函数返回后会导致未定义行为，因为局部变量的内存空间在函数结束时被释放。
+
+```c
+int *return_local_address()
+{
+    int local_var = 10;
+    return &local_var; // 返回局部变量的地址（错误）
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `return_local_address` 并尝试访问返回的地址，展示不安全的用法。
+
+```c
+int *ptr = return_local_address();
+printf("Value at address: %d\n", *ptr); // 可能会导致未定义行为
+```
+
+**解释**：
+
+- 函数 `return_local_address` 返回局部变量的地址，这个变量在函数结束后被销毁，其地址空间可能被其他数据覆盖，因此对该地址的访问是危险的。
+- 正确的做法是避免返回局部变量的地址，可以使用动态内存分配来解决此问题。
+
+**输出示例**：
+
+```
+Value at address: （未定义行为，输出结果不确定）
+```
+
+### 示例23：使用动态内存分配返回指针（需要手动释放内存）
+
+**函数定义**：
+`create_array` 函数使用动态内存分配创建一个指定大小的整数数组。动态内存分配使用 `malloc`，程序员需要手动释放分配的内存。
+
+```c
+int *create_array(int size)
+{
+    int *arr = (int *)malloc(size * sizeof(int)); // 动态分配内存
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed\n");
+        exit(1); // 如果内存分配失败，程序退出
+    }
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = i * 2; // 初始化数组元素
+    }
+    return arr;
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `create_array` 创建一个包含 5 个元素的数组，并输出其内容。最后需要使用 `free` 来释放分配的内存。
+
+```c
+int *arr = create_array(5);
+for (int i = 0; i < 5; i++)
+{
+    printf("array[%d] = %d ", i, arr[i]);
+}
+free(arr); // 释放动态分配的内存
+```
+
+**解释**：
+
+- `malloc` 用于动态分配内存。程序员需要根据需要手动分配内存，并在不再需要时手动释放内存，以避免内存泄漏。
+- 动态分配的内存不在函数结束时自动释放，必须使用 `free` 来释放。
+
+**输出示例**：
+
+```
+array[0] = 0 array[1] = 2 array[2] = 4 array[3] = 6 array[4] = 8
+```
+
+### 示例24：全局静态变量与多文件作用域
+
+**概念**：
+全局静态变量仅在定义它的文件中可见，限制了它的作用范围，避免了其他文件对它的修改。静态变量通过在声明时使用 `static` 关键字来实现。
+
+**变量声明**：
+在示例中，`global_static_var` 是一个全局静态变量，限制了它的作用域为当前文件。通过函数 `show_global_static_var`，可以显示和修改该变量。
+
+```c
+static int global_static_var = 100;
+
+void show_global_static_var()
+{
+    printf("Global static variable: %d\n", global_static_var);
+    global_static_var += 10; // 修改静态全局变量
+}
+```
+
+**函数调用**：
+在 `main` 函数中多次调用 `show_global_static_var`，观察全局静态变量的值如何随着每次调用变化。
+
+```c
+show_global_static_var();
+show_global_static_var();
+show_global_static_var();
+```
+
+**解释**：
+
+- `static` 关键字将全局变量的作用范围限制在当前文件中，其他文件无法访问该变量。这避免了其他文件中的代码对变量的意外修改。
+- 全局静态变量的值在函数调用之间保持并且可以多次修改。
+
+**输出示例**：
+
+```
+Global static variable: 100
+Global static variable: 110
+Global static variable: 120
+```
+
+### 示例25：实现类似默认参数的效果
+
+**概念**：
+C 语言不支持默认参数，但可以通过函数重载或特殊值来模拟默认参数的行为。
+
+#### 方法1：通过不同的函数名模拟不同参数数量的情况
+
+**函数定义**：
+定义两个函数，一个接受两个参数，另一个函数不接受第二个参数，默认为调用第一个函数时使用默认值。
+
+```c
+void print_message(char *message, int times)
+{
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+
+void print_message_default(char *message)
+{
+    print_message(message, 1); // 默认输出1次
+}
+```
+
+**函数调用**：
+在 `main` 函数中，可以调用 `print_message_default`，也可以调用 `print_message`，并传递多个参数。
+
+```c
+print_message_default("Hello, World!"); // 使用默认参数调用
+printf("\n");
+print_message("Hello, World!", 3);      // 使用指定参数调用
+```
+
+**解释**：
+
+- 通过定义一个带有参数的函数和一个不带参数的函数，可以模拟类似 C++ 默认参数的行为。没有传递次数参数时，将使用默认的 1 次。
+
+**输出示例**：
+
+```
+Hello, World!
+
+Hello, World!
+Hello, World!
+Hello, World!
+```
+
+#### 方法2：使用特殊值（如 `-1`）表示未传递的参数
+
+**函数定义**：
+使用特殊值（如 `-1`）表示没有传递参数。函数中通过检测特殊值来决定是否使用默认值。
+
+```c
+void print_message_special(char *message, int times)
+{
+    if (times == -1) // 如果传入的参数是-1，表示未传递参数，使用默认值
+    {
+        times = 1;
+    }
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `print_message_special`，通过传递 `-1` 实现类似默认参数的行为。
+
+```c
+print_message_special("Hello, World!", -1); // 使用默认次数
+printf("\n");
+print_message_special("Hello, World!", 4);  // 使用指定次数
+```
+
+**解释**：
+
+- `-1` 作为特殊值表示未传递参数。通过检测这个特殊值，函数可以决定是否使用默认值。
+- 这种方法允许通过一个函数实现类似默认参数的效果。
+
+**输出示例**：
+
+```
+Hello, World!
+
+Hello, World!
+Hello, World!
+Hello, World!
+Hello, World!
+```

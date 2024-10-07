@@ -440,11 +440,19 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "1-入门-2-猜数字游戏",
+                    "title": "1-入门-2-猜数字游戏-3-基础",
                     "codeFile": "/codePage/RustProgrammingLanguage/1-getting-started-2-guess-numbers.rs",
                     "codeType": "rust",
                     "markdownFile": "/codePage/RustProgrammingLanguage/1-getting-started-2-guess-numbers.md",
-                    "link": "/code/rust-programming-language/1-getting-started-2-guess-numbers",
+                    "link": "/code/rust-programming-language/1-getting-started-2-guess-numbers-3-basics",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "🔴3-练习",
+                    "codeFile": "/codePage/RustProgrammingLanguage/3-exercises.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/3-exercises.md",
+                    "link": "/code/rust-programming-language/3-exercises",
                     "linkType": "internal"
                 }
             ]

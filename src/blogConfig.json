@@ -299,6 +299,14 @@
                     "markdownFile": "/codePage/3-functions-and-scope.md",
                     "link": "/code/c-code/3-functions-and-scope",
                     "linkType": "internal"
+                },
+                {
+                    "title": "4-数组与字符串",
+                    "codeFile": "/codePage/4-arrays-and-strings.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/4-arrays-and-strings.md",
+                    "link": "/code/c-code/4-arrays-and-strings",
+                    "linkType": "internal"
                 }
             ]
         }

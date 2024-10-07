@@ -671,3 +671,330 @@ Function B
 ```
 
 - **使用场景**：嵌套函数调用可以用于分解复杂的任务，并有助于组织代码，使逻辑更加清晰。
+
+### 示例19：函数指针作为返回值
+
+**函数定义**：
+`find_max` 函数通过比较两个整数的指针，返回指向较大值的指针。
+
+```c
+int *find_max(int *a, int *b)
+{
+    if (*a > *b)
+    {
+        return a;
+    }
+    else
+    {
+        return b;
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `find_max`，并通过返回的指针访问较大值。
+
+```c
+int a = 10, b = 20;
+int *max_ptr = find_max(&a, &b);
+printf("Max: %d\n", *max_ptr);
+```
+
+**解释**：
+
+- 函数返回指向较大值的指针，调用时通过解引用 `*max_ptr` 获取该值。
+- 使用指针可以直接比较并返回内存地址，适合需要返回多个结果或需要更高灵活性的情况。
+
+**输出示例**：
+
+```
+Max: 20
+```
+
+### 示例20：嵌套的递归函数 - 汉诺塔问题
+
+**函数定义**：
+`hanoi` 函数通过递归解决经典的汉诺塔问题，将 `n` 个盘子从起始杆 `from` 移动到目标杆 `to`，使用辅助杆 `aux`。
+
+```c
+void hanoi(int n, char from, char to, char aux)
+{
+    if (n == 1)
+    {
+        printf("Move disk 1 from %c to %c\n", from, to);
+        return;
+    }
+    hanoi(n - 1, from, aux, to);
+    printf("Move disk %d from %c to %c\n", n, from, to);
+    hanoi(n - 1, aux, to, from);
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `hanoi(3, 'A', 'C', 'B')`，演示移动三个盘子的过程。
+
+```c
+hanoi(3, 'A', 'C', 'B');
+```
+
+**解释**：
+
+- 汉诺塔问题通过递归逐步将盘子从一根杆子移动到另一根。递归分为两个步骤：先将 `n-1` 个盘子移到辅助杆，再将第 `n` 个盘子移到目标杆。
+- 每个盘子的移动步骤通过递归拆解成多个子步骤。
+
+**输出示例**：
+
+```
+Move disk 1 from A to C
+Move disk 2 from A to B
+Move disk 1 from C to B
+Move disk 3 from A to C
+Move disk 1 from B to A
+Move disk 2 from B to C
+Move disk 1 from A to C
+```
+
+### 示例21：函数中的静态局部变量的应用（计数器）
+
+**函数定义**：
+`count_calls` 函数演示了静态局部变量的使用。静态局部变量只在第一次调用时初始化一次，并在后续的调用中保留其值。
+
+```c
+void count_calls()
+{
+    static int count = 0; // 静态局部变量
+    count++;
+    printf("This function has been called %d times.\n", count);
+}
+```
+
+**函数调用**：
+在 `main` 函数中多次调用 `count_calls`，查看计数器的值。
+
+```c
+count_calls();
+count_calls();
+count_calls();
+```
+
+**解释**：
+
+- 静态局部变量 `count` 在函数间保持其值。它只初始化一次，每次调用时值会递增。
+- 静态局部变量的生命周期贯穿程序运行，但作用域仅限于定义它的函数。
+
+**输出示例**：
+
+```
+This function has been called 1 times.
+This function has been called 2 times.
+This function has been called 3 times.
+```
+
+### 示例22：通过指针返回局部变量的地址（警告错误示例）
+
+**函数定义**：
+`return_local_address` 函数错误地返回了一个局部变量的地址，这在函数返回后会导致未定义行为，因为局部变量的内存空间在函数结束时被释放。
+
+```c
+int *return_local_address()
+{
+    int local_var = 10;
+    return &local_var; // 返回局部变量的地址（错误）
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `return_local_address` 并尝试访问返回的地址，展示不安全的用法。
+
+```c
+int *ptr = return_local_address();
+printf("Value at address: %d\n", *ptr); // 可能会导致未定义行为
+```
+
+**解释**：
+
+- 函数 `return_local_address` 返回局部变量的地址，这个变量在函数结束后被销毁，其地址空间可能被其他数据覆盖，因此对该地址的访问是危险的。
+- 正确的做法是避免返回局部变量的地址，可以使用动态内存分配来解决此问题。
+
+**输出示例**：
+
+```
+Value at address: （未定义行为，输出结果不确定）
+```
+
+### 示例23：使用动态内存分配返回指针（需要手动释放内存）
+
+**函数定义**：
+`create_array` 函数使用动态内存分配创建一个指定大小的整数数组。动态内存分配使用 `malloc`，程序员需要手动释放分配的内存。
+
+```c
+int *create_array(int size)
+{
+    int *arr = (int *)malloc(size * sizeof(int)); // 动态分配内存
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed\n");
+        exit(1); // 如果内存分配失败，程序退出
+    }
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = i * 2; // 初始化数组元素
+    }
+    return arr;
+}
+```
+
+**函数调用**：
+在 `main` 函数中调用 `create_array` 创建一个包含 5 个元素的数组，并输出其内容。最后需要使用 `free` 来释放分配的内存。
+
+```c
+int *arr = create_array(5);
+for (int i = 0; i < 5; i++)
+{
+    printf("array[%d] = %d ", i, arr[i]);
+}
+free(arr); // 释放动态分配的内存
+```
+
+**解释**：
+
+- `malloc` 用于动态分配内存。程序员需要根据需要手动分配内存，并在不再需要时手动释放内存，以避免内存泄漏。
+- 动态分配的内存不在函数结束时自动释放，必须使用 `free` 来释放。
+
+**输出示例**：
+
+```
+array[0] = 0 array[1] = 2 array[2] = 4 array[3] = 6 array[4] = 8
+```
+
+### 示例24：全局静态变量与多文件作用域
+
+**概念**：
+全局静态变量仅在定义它的文件中可见，限制了它的作用范围，避免了其他文件对它的修改。静态变量通过在声明时使用 `static` 关键字来实现。
+
+**变量声明**：
+在示例中，`global_static_var` 是一个全局静态变量，限制了它的作用域为当前文件。通过函数 `show_global_static_var`，可以显示和修改该变量。
+
+```c
+static int global_static_var = 100;
+
+void show_global_static_var()
+{
+    printf("Global static variable: %d\n", global_static_var);
+    global_static_var += 10; // 修改静态全局变量
+}
+```
+
+**函数调用**：
+在 `main` 函数中多次调用 `show_global_static_var`，观察全局静态变量的值如何随着每次调用变化。
+
+```c
+show_global_static_var();
+show_global_static_var();
+show_global_static_var();
+```
+
+**解释**：
+
+- `static` 关键字将全局变量的作用范围限制在当前文件中，其他文件无法访问该变量。这避免了其他文件中的代码对变量的意外修改。
+- 全局静态变量的值在函数调用之间保持并且可以多次修改。
+
+**输出示例**：
+
+```
+Global static variable: 100
+Global static variable: 110
+Global static variable: 120
+```
+
+### 示例25：实现类似默认参数的效果
+
+**概念**：
+C 语言不支持默认参数，但可以通过函数重载或特殊值来模拟默认参数的行为。
+
+#### 方法1：通过不同的函数名模拟不同参数数量的情况
+
+**函数定义**：
+定义两个函数，一个接受两个参数，另一个函数不接受第二个参数，默认为调用第一个函数时使用默认值。
+
+```c
+void print_message(char *message, int times)
+{
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+
+void print_message_default(char *message)
+{
+    print_message(message, 1); // 默认输出1次
+}
+```
+
+**函数调用**：
+在 `main` 函数中，可以调用 `print_message_default`，也可以调用 `print_message`，并传递多个参数。
+
+```c
+print_message_default("Hello, World!"); // 使用默认参数调用
+printf("\n");
+print_message("Hello, World!", 3);      // 使用指定参数调用
+```
+
+**解释**：
+
+- 通过定义一个带有参数的函数和一个不带参数的函数，可以模拟类似 C++ 默认参数的行为。没有传递次数参数时，将使用默认的 1 次。
+
+**输出示例**：
+
+```
+Hello, World!
+
+Hello, World!
+Hello, World!
+Hello, World!
+```
+
+#### 方法2：使用特殊值（如 `-1`）表示未传递的参数
+
+**函数定义**：
+使用特殊值（如 `-1`）表示没有传递参数。函数中通过检测特殊值来决定是否使用默认值。
+
+```c
+void print_message_special(char *message, int times)
+{
+    if (times == -1) // 如果传入的参数是-1，表示未传递参数，使用默认值
+    {
+        times = 1;
+    }
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+```
+
+**函数调用**：
+在 `main` 函数中，调用 `print_message_special`，通过传递 `-1` 实现类似默认参数的行为。
+
+```c
+print_message_special("Hello, World!", -1); // 使用默认次数
+printf("\n");
+print_message_special("Hello, World!", 4);  // 使用指定次数
+```
+
+**解释**：
+
+- `-1` 作为特殊值表示未传递参数。通过检测这个特殊值，函数可以决定是否使用默认值。
+- 这种方法允许通过一个函数实现类似默认参数的效果。
+
+**输出示例**：
+
+```
+Hello, World!
+
+Hello, World!
+Hello, World!
+Hello, World!
+Hello, World!
+```

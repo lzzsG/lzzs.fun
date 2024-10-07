@@ -187,7 +187,6 @@ float multiply(float a, float b)
 }
 
 // 示例11：多个返回值 - 使用指针返回多个值
-
 #include <stdio.h>
 
 void get_min_max(int arr[], int size, int *min, int *max)
@@ -217,7 +216,6 @@ int main()
 }
 
 // 示例12：函数指针作为参数
-
 #include <stdio.h>
 
 void perform_operation(int a, int b, int (*operation)(int, int))
@@ -245,7 +243,6 @@ int main()
 }
 
 // 示例13：变量隐藏（局部变量与全局变量同名）
-
 #include <stdio.h>
 
 int global_var = 10; // 全局变量
@@ -271,7 +268,6 @@ int main()
 }
 
 // 示例14：内联函数
-
 #include <stdio.h>
 
 inline int sqare(int x)
@@ -287,7 +283,6 @@ int main()
 }
 
 // 示例15：递归函数 - 斐波那契数列
-
 #include <stdio.h>
 
 int fibonacci(int n)
@@ -313,7 +308,6 @@ int main()
 }
 
 // 示例16：函数的可变参数
-
 #include <stdio.h>
 #include <stdarg.h>
 
@@ -339,7 +333,6 @@ int main()
 }
 
 // 示例17：作用域中的静态全局变量
-
 #include <stdio.h>
 
 static int static_global_var = 30;
@@ -360,7 +353,6 @@ int main()
 }
 
 // 示例18：嵌套函数调用
-
 #include <stdio.h>
 
 void function_b()
@@ -378,5 +370,173 @@ int main()
 {
     printf("示例18：嵌套函数调用\n");
     function_a();
+    return 0;
+}
+
+// 示例19: 函数指针作为返回值
+#include <stdio.h>
+
+int *find_max(int *a, int *b)
+{
+    if (*a > *b)
+    {
+        return a;
+    }
+    else
+    {
+        return b;
+    }
+}
+
+int main()
+{
+    printf("示例19：函数返回指针\n");
+    int a = 10, b = 20;
+    int *max_ptr = find_max(&a, &b);
+    printf("Max: %d\n", *max_ptr);
+    return 0;
+}
+
+// 示例20: 嵌套的递归函数 - 汉诺塔问题
+#include <stdio.h>
+
+void hanoi(int n, char from, char to, char aux)
+{
+    if (n == 1)
+    {
+        printf("Move disk 1 from %c to %c\n", from, to);
+        return;
+    }
+    hanoi(n - 1, from, aux, to);
+    printf("Move disk %d from %c to %c\n", n, from, to);
+    hanoi(n - 1, aux, to, from);
+}
+
+int main()
+{
+    printf("示例20：嵌套的递归函数 - 汉诺塔问题\n");
+    hanoi(3, 'A', 'C', 'B');
+    return 0;
+}
+
+// 示例21: 函数中的静态局部变量的应用（计数器）
+#include <stdio.h>
+
+void count_calls()
+{
+    static int count = 0; // 静态局部变量，只初始化一次
+    count++;
+    printf("This function has been called %d times.\n", count);
+}
+
+int main()
+{
+    printf("示例21：函数中的静态局部变量的应用（计数器）\n");
+    count_calls();
+    count_calls();
+    count_calls();
+    return 0;
+}
+
+// 示例22: 通过指针返回局部变量的地址（警告错误示例）
+#include <stdio.h>
+
+int *return_local_address()
+{
+    int local_var = 10;
+    return &local_var; // 返回局部变量的地址 (错误示例)
+}
+
+int main()
+{
+    printf("示例22：通过指针返回局部变量的地址（警告错误示例）\n");
+    int *ptr = return_local_address();
+    printf("Value at address: %d\n", *ptr); // 不可靠输出
+    return 0;
+}
+
+// 示例23: 使用动态内存分配返回指针
+#include <stdio.h>
+#include <stdlib.h>
+
+int *create_array(int size)
+{
+    int *arr = (int *)malloc(size * sizeof(int));
+    if (arr == NULL)
+    {
+        printf("Memory allocation failed\n");
+        exit(1);
+    }
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = i * 2; // 初始化数组元素
+    }
+    return arr;
+}
+
+int main()
+{
+    printf("示例23：使用动态内存分配返回指针\n");
+    int *arr = create_array(5);
+    for (int i = 0; i < 5; i++)
+    {
+        printf("array[%d] = %d\n", i, arr[i]);
+    }
+    free(arr); // 释放动态内存
+    return 0;
+}
+
+// 示例24: 全局静态变量与多文件作用域
+#include <stdio.h>
+
+int global_static_var = 100;
+
+void show_global_static_var()
+{
+    printf("Global static variable: %d\n", global_static_var);
+}
+
+int main()
+{
+    printf("示例24：全局静态变量与多文件作用域\n");
+    show_global_static_var();
+    return 0;
+}
+
+// 示例25: 实现类似默认参数的效果
+#include <stdio.h>
+
+void print_message(char *message, int times)
+{
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+
+void print_message_default(char *message)
+{
+    print_message(message, 1);
+}
+
+void print_message_special(char *message, int times)
+{
+    if (times == -1)
+    {
+        times = 1; // 使用默认值
+    }
+    for (int i = 0; i < times; i++)
+    {
+        printf("%s\n", message);
+    }
+}
+
+int main()
+{
+    printf("示例25：实现类似默认参数的效果\n");
+    print_message_default("Hello, World!");
+    print_message("Hello, World!", 3);
+    print_message_special("Hello, World!", -1);
+    print_message_special("Hello, World!", 4);
     return 0;
 }

@@ -76,7 +76,7 @@
             "type": "nootbook",
             "label": "课程笔记",
             "title": "MIT Computer Architecture and Digital Systems",
-            "description": "( Paused🟡 ) 在这里我们将集中探讨学习 MIT 的三门核心课程：MIT 6.004, MIT 6.175, 和 MIT 6.375，这些课程覆盖了计算机科学和电子工程的高级主题。",
+            "description": "( Paused🟡 ) 在这里集中探讨学习 MIT 的三门课程：MIT 6.004, MIT 6.175, 和 MIT 6.375，这些课程覆盖了计算机科学和电子工程的高级主题。",
             "link": "https://lzzs.fun/MIT-digital-systems/",
             "linkType": "external",
             "date": "2024-05"
@@ -191,7 +191,7 @@
                     "link": "https://lzzs.fun/rCore-notebook/GDB/riscv64-unknown-elf-gdb-and-qemu.html"
                 },
                 {
-                    "title": "5-RISC-V: 使用GDB/QEMU调试 (Rust)",
+                    "title": "🟠5-RISC-V: 使用GDB/QEMU调试 (Rust)",
                     "linkType": "external",
                     "link": "https://lzzs.fun/rCore-notebook/GDB/riscv64-unknown-elf-gdb-and-qemu-Rust.html"
                 }
@@ -247,7 +247,7 @@
             "label": "系列内容",
             "title": "Bare Metal Programming",
             "date": "2024-04",
-            "description": "这是一个关于裸机编程的系列内容。（仅做测试和参考）",
+            "description": "🟠这是一个关于裸机编程的系列测试演示内容。",
             "articles": [
                 {
                     "title": "0-关于裸机编程",
@@ -262,9 +262,51 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "2-创建项目...",
+                    "title": "2-创建项目",
                     "link": "/blog/bare-metal/2-Create-project",
                     "filePath": "/md/bare-metal/2-Create-project.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "3-编写启动代码",
+                    "link": "/blog/bare-metal/3-Writing-boot-code",
+                    "filePath": "/md/bare-metal/3-Writing-boot-code.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "4-编写主程序",
+                    "link": "/blog/bare-metal/4-Writing-the-main-program",
+                    "filePath": "/md/bare-metal/4-Writing-the-main-program.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "4½-对于操作系统主程序的补充",
+                    "link": "/blog/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems",
+                    "filePath": "/md/bare-metal/4½-Supplement-for-the-main-program-of-operating-systems.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "5-编译代码",
+                    "link": "/blog/bare-metal/5-Compiling-code",
+                    "filePath": "/md/bare-metal/5-Compiling-code.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "6-链接代码",
+                    "link": "/blog/bare-metal/6-Linking-code",
+                    "filePath": "/md/bare-metal/6-Linking-code.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "7-生成镜像文件",
+                    "link": "/blog/bare-metal/7-Generating-image-files",
+                    "filePath": "/md/bare-metal/7-Generating-image-files.zh.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "8-在目标平台上运行",
+                    "link": "/blog/bare-metal/8-Running-on-the-target-platform",
+                    "filePath": "/md/bare-metal/8-Running-on-the-target-platform.zh.md",
                     "linkType": "internal"
                 }
             ]
@@ -273,9 +315,17 @@
             "type": "code",
             "label": "代码系列",
             "title": "C代码示例手册",
-            "description": "( Ongoing🟢 ) 本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
+            "description": "( Paused🟡 )  本手册记录了大量的C语言示例代码，涵盖从基础语法、数据类型到函数、指针和常用数据结构。每个主题都通过简洁的代码片段和必要的注释打印进行解释，旨在提供快速参考，方便查阅、学习和实践",
             "date": "2024-10",
             "articles": [
+                {
+                    "title": "0-start",
+                    "codeFile": "/codePage/0-start.txt",
+                    "codeType": "",
+                    "markdownFile": "/codePage/0-start.md",
+                    "link": "/code/c-code/0-start",
+                    "linkType": "internal"
+                },
                 {
                     "title": "1-基础语法与数据类型",
                     "codeFile": "/codePage/1-basic-syntax-and-data-types.c",
@@ -309,7 +359,15 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "6-结构体与联合体",
+                    "title": "🟠5-指针与内存管理",
+                    "codeFile": "/codePage/5-pointers-and-memory-management.c",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/5-pointers-and-memory-management.md",
+                    "link": "/code/c-code/5-pointers-and-memory-management",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "🟠6-结构体与联合体",
                     "codeFile": "/codePage/6-structs-and-unions.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/6-structs-and-unions.md",
@@ -317,7 +375,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "7-文件操作",
+                    "title": "🟠7-文件操作",
                     "codeFile": "/codePage/7-file-operations.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/7-file-operations.md",
@@ -325,7 +383,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "8-C语言的预处理指令",
+                    "title": "🟠8-C语言的预处理指令",
                     "codeFile": "/codePage/8-c-preprocessor-directives.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/8-c-preprocessor-directives.md",
@@ -333,7 +391,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "9-动态数据结构",
+                    "title": "🟠9-动态数据结构",
                     "codeFile": "/codePage/9-dynamic-data-structures.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/9-dynamic-data-structures.md",
@@ -341,7 +399,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "10-常见算法实现",
+                    "title": "🟠10-常见算法实现",
                     "codeFile": "/codePage/10-common-algorithms-implementation.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/10-common-algorithms-implementation.md",
@@ -349,7 +407,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "11-高级主题-数字设计与计算机体系结构",
+                    "title": "🟠11-高级主题-数字设计与计算机体系结构",
                     "codeFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.md",
@@ -357,7 +415,7 @@
                     "linkType": "internal"
                 },
                 {
-                    "title": "12-高级主题-操作系统",
+                    "title": "🟠12-高级主题-操作系统",
                     "codeFile": "/codePage/12-advanced-topics-operating-systems.c",
                     "codeType": "rust",
                     "markdownFile": "/codePage/12-advanced-topics-operating-systems.md",

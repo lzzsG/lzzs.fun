@@ -434,9 +434,17 @@
                 {
                     "title": "0-start",
                     "codeFile": "/codePage/RustProgrammingLanguage/0-start.txt",
-                    "codeType": "rust",
+                    "codeType": "",
                     "markdownFile": "/codePage/RustProgrammingLanguage/0-start.md",
                     "link": "/code/rust-programming-language/0-start",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-入门-2-猜数字游戏",
+                    "codeFile": "/codePage/RustProgrammingLanguage/1-getting-started-2-guess-numbers.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/1-getting-started-2-guess-numbers.md",
+                    "link": "/code/rust-programming-language/1-getting-started-2-guess-numbers",
                     "linkType": "internal"
                 }
             ]

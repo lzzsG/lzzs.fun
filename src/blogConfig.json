@@ -101,7 +101,7 @@
         {
             "type": "blog",
             "label": "博客文章",
-            "title": "游戏、计算、世界、量子力学和墒",
+            "title": "游戏、计算、世界、量子力学和熵",
             "link": "/blog/Games-Computation-Worlds-Quantum-Mechanics-and-Entropy",
             "description": "作为游戏玩家，你可以通过理解游戏的规则和机制，逐渐熟悉并预测游戏中的计算和操作的逻辑和效果。或者你了解游戏开发或计算机科学，能看透游戏世界中每一次变化的背后，程序和设备可能为你进行了哪些计算。但这时问题来了：现实世界中的变化背后，谁在进行着“计算”？",
             "linkType": "internal",
@@ -320,106 +320,123 @@
             "articles": [
                 {
                     "title": "0-start",
-                    "codeFile": "/codePage/0-start.txt",
+                    "codeFile": "/codePage/C-manual/0-start.txt",
                     "codeType": "",
-                    "markdownFile": "/codePage/0-start.md",
+                    "markdownFile": "/codePage/C-manual/0-start.md",
                     "link": "/code/c-code/0-start",
                     "linkType": "internal"
                 },
                 {
                     "title": "1-基础语法与数据类型",
-                    "codeFile": "/codePage/1-basic-syntax-and-data-types.c",
+                    "codeFile": "/codePage/C-manual/1-basic-syntax-and-data-types.c",
                     "codeType": "c",
-                    "markdownFile": "/codePage/1-basic-syntax-and-data-types.md",
+                    "markdownFile": "/codePage/C-manual/1-basic-syntax-and-data-types.md",
                     "link": "/code/c-code/1-basic-syntax-and-data-types",
                     "linkType": "internal"
                 },
                 {
                     "title": "2-控制结构",
-                    "codeFile": "/codePage/2-control-structure.c",
+                    "codeFile": "/codePage/C-manual/2-control-structure.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/2-control-structure.md",
+                    "markdownFile": "/codePage/C-manual/2-control-structure.md",
                     "link": "/code/c-code/2-control-structure",
                     "linkType": "internal"
                 },
                 {
                     "title": "3-函数与作用域",
-                    "codeFile": "/codePage/3-functions-and-scope.c",
+                    "codeFile": "/codePage/C-manual/3-functions-and-scope.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/3-functions-and-scope.md",
+                    "markdownFile": "/codePage/C-manual/3-functions-and-scope.md",
                     "link": "/code/c-code/3-functions-and-scope",
                     "linkType": "internal"
                 },
                 {
                     "title": "4-数组与字符串",
-                    "codeFile": "/codePage/4-arrays-and-strings.c",
+                    "codeFile": "/codePage/C-manual/4-arrays-and-strings.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/4-arrays-and-strings.md",
+                    "markdownFile": "/codePage/C-manual/4-arrays-and-strings.md",
                     "link": "/code/c-code/4-arrays-and-strings",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠5-指针与内存管理",
-                    "codeFile": "/codePage/5-pointers-and-memory-management.c",
+                    "codeFile": "/codePage/C-manual/5-pointers-and-memory-management.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/5-pointers-and-memory-management.md",
+                    "markdownFile": "/codePage/C-manual/5-pointers-and-memory-management.md",
                     "link": "/code/c-code/5-pointers-and-memory-management",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠6-结构体与联合体",
-                    "codeFile": "/codePage/6-structs-and-unions.c",
+                    "codeFile": "/codePage/C-manual/6-structs-and-unions.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/6-structs-and-unions.md",
+                    "markdownFile": "/codePage/C-manual/6-structs-and-unions.md",
                     "link": "/code/c-code/6-structs-and-unions",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠7-文件操作",
-                    "codeFile": "/codePage/7-file-operations.c",
+                    "codeFile": "/codePage/C-manual/7-file-operations.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/7-file-operations.md",
+                    "markdownFile": "/codePage/C-manual/7-file-operations.md",
                     "link": "/code/c-code/7-file-operations",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠8-C语言的预处理指令",
-                    "codeFile": "/codePage/8-c-preprocessor-directives.c",
+                    "codeFile": "/codePage/C-manual/8-c-preprocessor-directives.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/8-c-preprocessor-directives.md",
+                    "markdownFile": "/codePage/C-manual/8-c-preprocessor-directives.md",
                     "link": "/code/c-code/8-c-preprocessor-directives",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠9-动态数据结构",
-                    "codeFile": "/codePage/9-dynamic-data-structures.c",
+                    "codeFile": "/codePage/C-manual/9-dynamic-data-structures.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/9-dynamic-data-structures.md",
+                    "markdownFile": "/codePage/C-manual/9-dynamic-data-structures.md",
                     "link": "/code/c-code/9-dynamic-data-structures",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠10-常见算法实现",
-                    "codeFile": "/codePage/10-common-algorithms-implementation.c",
+                    "codeFile": "/codePage/C-manual/10-common-algorithms-implementation.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/10-common-algorithms-implementation.md",
+                    "markdownFile": "/codePage/C-manual/10-common-algorithms-implementation.md",
                     "link": "/code/c-code/10-common-algorithms-implementation",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠11-高级主题-数字设计与计算机体系结构",
-                    "codeFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.c",
+                    "codeFile": "/codePage/C-manual/11-advanced-topics-digital-design-and-computer-architecture.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/11-advanced-topics-digital-design-and-computer-architecture.md",
+                    "markdownFile": "/codePage/C-manual/11-advanced-topics-digital-design-and-computer-architecture.md",
                     "link": "/code/c-code/11-advanced-topics-digital-design-and-computer-architecture",
                     "linkType": "internal"
                 },
                 {
                     "title": "🟠12-高级主题-操作系统",
-                    "codeFile": "/codePage/12-advanced-topics-operating-systems.c",
+                    "codeFile": "/codePage/C-manual/12-advanced-topics-operating-systems.c",
                     "codeType": "rust",
-                    "markdownFile": "/codePage/12-advanced-topics-operating-systems.md",
+                    "markdownFile": "/codePage/C-manual/12-advanced-topics-operating-systems.md",
                     "link": "/code/c-code/12-advanced-topics-operating-systems",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "code",
+            "label": "代码系列",
+            "title": "The Rust Programming Language",
+            "description": "The Rust Programming Language 代码笔记记录",
+            "date": "2024-10",
+            "articles": [
+                {
+                    "title": "0-start",
+                    "codeFile": "/codePage/RustProgrammingLanguage/0-start.txt",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/0-start.md",
+                    "link": "/code/rust-programming-language/0-start",
                     "linkType": "internal"
                 }
             ]

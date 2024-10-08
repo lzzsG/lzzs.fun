@@ -454,6 +454,14 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/3-exercises.md",
                     "link": "/code/rust-programming-language/3-exercises",
                     "linkType": "internal"
+                },
+                {
+                    "title": "4-所有权",
+                    "codeFile": "/codePage/RustProgrammingLanguage/4-ownership.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/4-ownership.md",
+                    "link": "/code/rust-programming-language/4-ownership",
+                    "linkType": "internal"
                 }
             ]
         }

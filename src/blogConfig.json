@@ -470,6 +470,14 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/5-structs.md",
                     "link": "/code/rust-programming-language/5-structs",
                     "linkType": "internal"
+                },
+                {
+                    "title": "6-枚举和模式匹配",
+                    "codeFile": "/codePage/RustProgrammingLanguage/6-enums-and-pattern-matching.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/6-enums-and-pattern-matching.md",
+                    "link": "/code/rust-programming-language/6-enums-and-pattern-matching",
+                    "linkType": "internal"
                 }
             ]
         }

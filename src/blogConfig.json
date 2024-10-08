@@ -462,6 +462,14 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/4-ownership.md",
                     "link": "/code/rust-programming-language/4-ownership",
                     "linkType": "internal"
+                },
+                {
+                    "title": "5-结构体",
+                    "codeFile": "/codePage/RustProgrammingLanguage/5-structs.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/5-structs.md",
+                    "link": "/code/rust-programming-language/5-structs",
+                    "linkType": "internal"
                 }
             ]
         }

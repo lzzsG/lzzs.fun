@@ -478,6 +478,14 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/6-enums-and-pattern-matching.md",
                     "link": "/code/rust-programming-language/6-enums-and-pattern-matching",
                     "linkType": "internal"
+                },
+                {
+                    "title": "7-使用包、Crate 和模块管理不断增长的项目",
+                    "codeFile": "/codePage/RustProgrammingLanguage/7-packages-crates-and-modules.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/7-packages-crates-and-modules.md",
+                    "link": "/code/rust-programming-language/7-packages-crates-and-modules",
+                    "linkType": "internal"
                 }
             ]
         }

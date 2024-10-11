@@ -486,6 +486,14 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/7-packages-crates-and-modules.md",
                     "link": "/code/rust-programming-language/7-packages-crates-and-modules",
                     "linkType": "internal"
+                },
+                {
+                    "title": "8-常见集合",
+                    "codeFile": "/codePage/RustProgrammingLanguage/8-common-collections.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/8-common-collections.md",
+                    "link": "/code/rust-programming-language/8-common-collections",
+                    "linkType": "internal"
                 }
             ]
         }

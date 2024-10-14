@@ -494,6 +494,22 @@
                     "markdownFile": "/codePage/RustProgrammingLanguage/8-common-collections.md",
                     "link": "/code/rust-programming-language/8-common-collections",
                     "linkType": "internal"
+                },
+                {
+                    "title": "9-错误处理",
+                    "codeFile": "/codePage/RustProgrammingLanguage/9-error-handling.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/9-error-handling.md",
+                    "link": "/code/rust-programming-language/9-error-handling",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "10-泛型、Trait 和生命周期",
+                    "codeFile": "/codePage/RustProgrammingLanguage/10-generic-types-traits-lifetimes.rs",
+                    "codeType": "rust",
+                    "markdownFile": "/codePage/RustProgrammingLanguage/10-generic-types-traits-lifetimes.md",
+                    "link": "/code/rust-programming-language/10-generic-types-traits-lifetimes",
+                    "linkType": "internal"
                 }
             ]
         }

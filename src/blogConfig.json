@@ -30,6 +30,15 @@
         {
             "type": "nootbook",
             "label": "课程笔记",
+            "title": "DDCA",
+            "description": "( Paused🔵 ) Digital Design and Computer Architecture: RISC-V Edition chapter 1-5",
+            "link": "https://lzzs.fun/DDCA/",
+            "linkType": "external",
+            "date": "2024-10"
+        },
+        {
+            "type": "nootbook",
+            "label": "课程笔记",
             "title": "CS 61A",
             "description": "( Paused🔵 ) UC Berkeley CS 61A: Structure and Interpretation of Computer Programs Fall 2020",
             "link": "https://lzzs.fun/CS61A-notebook/",

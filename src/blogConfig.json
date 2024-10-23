@@ -30,6 +30,15 @@
         {
             "type": "nootbook",
             "label": "课程笔记",
+            "title": "HDLbits Verilog Notebook",
+            "description": "( Paused🔵 ) HDLBits 是使用 Verilog 硬件描述语言 (HDL) 进行数字硬件设计的小型电路设计练习集。本笔记是练习后的记录，用于回顾和复习。",
+            "link": "https://lzzs.fun/HDLbits-Verilog-Notebook/",
+            "linkType": "external",
+            "date": "2024-10"
+        },
+        {
+            "type": "nootbook",
+            "label": "课程笔记",
             "title": "DDCA",
             "description": "( Paused🔵 ) Digital Design and Computer Architecture: RISC-V Edition chapter 1-5",
             "link": "https://lzzs.fun/DDCA/",

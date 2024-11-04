@@ -179,6 +179,39 @@
         {
             "type": "series",
             "label": "系列内容",
+            "title": "ysyx",
+            "date": "2024-11",
+            "description": " 🔴ysyx相关内容 ",
+            "articles": [
+                {
+                    "title": "0-重装ysyx",
+                    "link": "/blog/ysyx/0-Reinstall-ysyx",
+                    "filePath": "/md/ysyx/0-Reinstall-ysyx.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "1-Verilog插件配置",
+                    "link": "/blog/ysyx/1-Verilog-plug-in",
+                    "filePath": "/md/ysyx/1-Verilog-plug-in.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "🟡2-RTL设计到时序分析",
+                    "link": "/blog/ysyx/2-RTL-to-STA",
+                    "filePath": "/md/ysyx/2-RTL-to-STA.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "3-表达式求值相关",
+                    "link": "/blog/ysyx/3-Expression-evaluation",
+                    "filePath": "/md/ysyx/3-Expression-evaluation.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "series",
+            "label": "系列内容",
             "title": "调试(GDB)",
             "date": "2024-09",
             "description": " GDB 从安装使用到裸机编程。/C /RUST /gdb /riscv64-unknown-elf-gdb /QEMU ",

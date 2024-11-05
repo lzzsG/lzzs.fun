@@ -270,7 +270,7 @@ const NewMarkdownPage = ({ filePath }) => {
                     </ul>
                 </div>)}
             <ul className="list-disc list-inside"></ul>
-            <article className="prose text-lg max-w-full md:max-w-[780px] ">
+            <article className="prose text-base leading-normal max-w-full md:max-w-[780px] ">
                 <div dangerouslySetInnerHTML={{ __html: markdown }} />
                 <GiscusComments />
                 <br />

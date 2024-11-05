@@ -189,6 +189,21 @@
         {
             "type": "series",
             "label": "系列内容",
+            "title": "字符(串)((文件)输入)处理",
+            "date": "2024-11",
+            "description": " C语言字符(串)((文件)输入)处理 ",
+            "articles": [
+                {
+                    "title": "0-cstr",
+                    "link": "/blog/cstr/0-cstr",
+                    "filePath": "/md/cstr/0-.md",
+                    "linkType": "internal"
+                }
+            ]
+        },
+        {
+            "type": "series",
+            "label": "系列内容",
             "title": "ysyx",
             "date": "2024-11",
             "description": " 🔴ysyx相关内容 ",

@@ -49,7 +49,7 @@ const ScrollToTopOrBackButton = () => {
     };
 
     return (
-        <div className="fixed z-50">
+        <div className="fixed z-[100]">
             {isVisible && (
                 <button
                     onClick={handleScrollToTop}

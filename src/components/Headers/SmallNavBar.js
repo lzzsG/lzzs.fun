@@ -76,7 +76,7 @@ const SmallNavBar = ({ showNav, isActive, toggleLanguage, currentLang, theme, ch
     };
 
     return (
-        <div className="mynavbar bg-base-200 z-[90] fixed top-0 w-full flex justify-center items-center -translate-x-4">
+        <div className="mynavbar bg-base-200 z-[90] fixed top-0 w-full flex justify-center items-center">
 
             <span className="text-sm font-bold mr-2 hidden sm:block">Lzzs.fun</span>
             {renderNavItems(navItems)}

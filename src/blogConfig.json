@@ -5,7 +5,7 @@
             "label": "项目展示",
             "title": "c-project-gen",
             "link": "https://github.com/lzzsG/c-project-gen",
-            "description": "c-project-gen 是一个用于快速生成 C 语言项目模板的工具，支持单元测试和跨平台构建。通过自动创建项目结构、提供样例代码与单元测试，简化 C 语言项目的初始化工作。",
+            "description": "c-project-gen 是一个用于快速生成 C 语言项目模板的工具，支持单元测试和跨平台构建。通过自动创建项目结构、提供样例代码与单元测试，简化 C 语言项目的初始化工作。（只是一个makefile）",
             "linkType": "external",
             "date": "2024-10"
         },
@@ -14,7 +14,7 @@
             "label": "项目展示",
             "title": "All To Mdbook",
             "link": "https://github.com/lzzsG/all-to-mdbook",
-            "description": "该仓库提供一种将包含 Markdown 文件结构的仓库部署到 mdBook 的自动化方法。利用GitHub Actions，它可以自动识别指定仓库中的Markdown文件并生成相应的mdBook。",
+            "description": "该仓库提供一种将包含 Markdown 文件结构的仓库部署到 mdBook 的自动化方法。利用GitHub Actions，它可以自动识别指定仓库中的Markdown文件并生成相应的mdBook。（只是一个工作流）",
             "linkType": "external",
             "date": "2024-03"
         },

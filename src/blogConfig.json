@@ -331,6 +331,12 @@
                     "link": "/blog/use-Linux/6-GDB",
                     "filePath": "/md/use-Linux/6-GDB.md",
                     "linkType": "internal"
+                },
+                {
+                    "title": "7-Ubuntu",
+                    "link": "/blog/use-Linux/7-Ubuntu",
+                    "filePath": "/md/use-Linux/7-Ubuntu.md",
+                    "linkType": "internal"
                 }
             ]
         },

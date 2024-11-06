@@ -201,12 +201,18 @@
             "label": "系列内容",
             "title": "字符(串)((文件)输入)处理",
             "date": "2024-11",
-            "description": " C语言字符(串)((文件)输入)处理 ",
+            "description": "🟡🔴 C语言字符(串)((文件)输入)处理 ",
             "articles": [
                 {
-                    "title": "0-cstr",
-                    "link": "/blog/cstr/0-cstr",
-                    "filePath": "/md/cstr/0-.md",
+                    "title": "🟡0-大纲",
+                    "link": "/blog/cstr/0-Outline",
+                    "filePath": "/md/cstr/0-Outline.md",
+                    "linkType": "internal"
+                },
+                {
+                    "title": "🟡1-temp",
+                    "link": "/blog/cstr/1-temp",
+                    "filePath": "/md/cstr/1-temp.md",
                     "linkType": "internal"
                 }
             ]

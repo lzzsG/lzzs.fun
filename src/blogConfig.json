@@ -325,6 +325,12 @@
                     "link": "/blog/use-Linux/5-Version-Control-Git",
                     "filePath": "/md/use-Linux/5-Version-Control-Git.md",
                     "linkType": "internal"
+                },
+                {
+                    "title": "6-调试(GDB)",
+                    "link": "/blog/use-Linux/6-GDB",
+                    "filePath": "/md/use-Linux/6-GDB.md",
+                    "linkType": "internal"
                 }
             ]
         },

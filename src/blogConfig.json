@@ -119,6 +119,16 @@
         {
             "type": "blog",
             "label": "博客文章",
+            "title": "Back to the gambling table",
+            "link": "/blog/Back-to-the-gambling-table",
+            "description": "从“赌博例”的故事开始，本文将在个人发展方面探讨如何参与并赢得一场“赌局”。如果想在任何领域赢得赌局，你必须先明确规则并遵守它，判断是否有资格参与赌局，然后制定并遵守你的行为准则。",
+            "linkType": "internal",
+            "filePath": "/md/241109-Back-to-the-gambling-table.md",
+            "date": "2024-11-09"
+        },
+        {
+            "type": "blog",
+            "label": "博客文章",
             "title": "Awareness",
             "link": "/blog/Awareness",
             "description": "在学习的过程中，我们常常会经历一个关键环节：得知。所谓“得知”，是指对某个方法、工具或概念的初步认知——意识到它的存在，却未必深入掌握其细节。这种初步的“得知”本身只是一个起点并不是最终的学习成果，但它却帮助我们打开了知识的大门。",

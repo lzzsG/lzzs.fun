@@ -1,5 +1,5 @@
-/* / 200
-/blog / 200
-/about / 200
-/*/* / 200
+/blog /index.html 200
+/about /index.html 200
+/en/* /index.html 200
+/* /index.html 200
 

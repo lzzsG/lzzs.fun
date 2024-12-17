@@ -22,11 +22,6 @@ jobs:
     - name: Build
       run: npm run build
 
-    - name: Add _redirects file
-      run: |
-        echo "/* /index.html 200" > build/_redirects
-        echo "_redirects file added successfully."
-
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:

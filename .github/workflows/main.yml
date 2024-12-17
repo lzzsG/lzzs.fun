@@ -1,4 +1,4 @@
-name: Build and Deploy to gh-pages
+name: Build and Push to gh-pages
 
 on:
   push:
@@ -6,26 +6,28 @@ on:
       - main  # 当 main 分支有更新时触发
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: Checkout source code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16'  # 指定 Node.js 版本
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build
+        run: npm run build  # 生成项目构建产物
 
-      - name: Deploy to gh-pages
+      - name: Push build output to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
-          publish_branch: gh-pages  # 部署到 gh-pages 分支
+          publish_dir: ./build  # 指定构建输出目录
+          publish_branch: gh-pages  # 推送到 gh-pages 分支
+          keep_files: false  # 保证旧文件被清理

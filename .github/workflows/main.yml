@@ -1,31 +1,31 @@
-name: Build and Deploy
+name: Build and Deploy to gh-pages
+
 on:
   push:
     branches:
-      - main  # 或你用于部署的分支名
+      - main  # 当 main 分支有更新时触发
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v2
-      with:
-        node-version: '16' # 
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
 
-    - name: Install Dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.0
-      with:
-        branch: gh-pages  # GitHub Pages部署到的分支
-        folder: build  # Create React App构建产物的目录
-        token: ${{ secrets.reactApp }}
-        clean: true  # 清理旧文件
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
+          publish_branch: gh-pages  # 部署到 gh-pages 分支
